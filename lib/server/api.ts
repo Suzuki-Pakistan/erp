@@ -13,8 +13,9 @@ export class ApiError extends Error {
 }
 export function sameOrigin(request: Request) {
   const origin = request.headers.get("origin");
+  const forwardedHost = request.headers.get("x-forwarded-host")?.split(",")[0]?.trim();
   // Next may normalize request.url to localhost; the HTTP Host is the browser-facing authority.
-  const host = request.headers.get("host") ?? new URL(request.url).host;
+  const host = forwardedHost || request.headers.get("host") || new URL(request.url).host;
   let allowed = false;
   try {
     const parsed = new URL(origin ?? "");

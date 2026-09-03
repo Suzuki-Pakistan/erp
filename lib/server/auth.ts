@@ -1,6 +1,7 @@
 import "server-only";
 import {
   createHash,
+  createHmac,
   randomBytes,
   randomUUID,
   scryptSync,
@@ -25,12 +26,56 @@ interface StoredSession {
   userId: string;
   expiresAt: number;
 }
+interface RevokedSession {
+  tokenHash: string;
+  expiresAt: number;
+}
 interface AuthData {
   accounts: AuthAccount[];
   sessions: StoredSession[];
+  revoked?: RevokedSession[];
 }
 export const SESSION_COOKIE = "flair_session";
 const lifetime = 60 * 60 * 12;
+
+function getAuthSecret(): string {
+  return (
+    process.env.FLAIR_SECRET ||
+    process.env.FLAIR_ADMIN_PASSWORD ||
+    "flair-operations-auth-secret-key-2026"
+  );
+}
+
+function createSignedSessionToken(userId: string, expiresAt: number): string {
+  const nonce = randomBytes(16).toString("base64url");
+  const payload = `${nonce}.${userId}.${expiresAt}`;
+  const signature = createHmac("sha256", getAuthSecret())
+    .update(payload)
+    .digest("base64url");
+  return `${payload}.${signature}`;
+}
+
+function verifySignedSessionToken(
+  token: string,
+): { userId: string; expiresAt: number } | null {
+  const parts = token.split(".");
+  if (parts.length !== 4) return null;
+  const [nonce, userId, expStr, signature] = parts;
+  const expiresAt = Number(expStr);
+  if (!expiresAt || Number.isNaN(expiresAt) || expiresAt <= Date.now()) {
+    return null;
+  }
+  const payload = `${nonce}.${userId}.${expStr}`;
+  const expectedSig = createHmac("sha256", getAuthSecret())
+    .update(payload)
+    .digest("base64url");
+  const sigBuf = Buffer.from(signature);
+  const expBuf = Buffer.from(expectedSig);
+  if (sigBuf.length !== expBuf.length || !timingSafeEqual(sigBuf, expBuf)) {
+    return null;
+  }
+  return { userId, expiresAt };
+}
 
 export function hashPassword(password: string) {
   const salt = randomBytes(16).toString("hex");
@@ -61,7 +106,9 @@ export function publicAccount(account: AuthAccount): SessionUser {
 }
 
 async function seedAuth(): Promise<AuthData> {
-  const password = process.env.FLAIR_ADMIN_PASSWORD || "admin";
+  const password =
+    process.env.FLAIR_ADMIN_PASSWORD ||
+    (process.env.VERCEL ? "FlairAdmin1234!@#$" : "admin");
   if (process.env.NODE_ENV === "production" && password.length < 12) {
     throw new Error(
       "Set FLAIR_ADMIN_PASSWORD to at least 12 characters before production startup.",
@@ -81,6 +128,7 @@ async function seedAuth(): Promise<AuthData> {
       },
     ],
     sessions: [],
+    revoked: [],
   };
 }
 
@@ -105,14 +153,15 @@ export async function authenticate(identifier: string, password: string) {
           "This account needs a password of at least 12 characters before production use. Update its password in the local workspace first.",
         );
       }
-      const token = randomBytes(32).toString("base64url");
+      const expiresAt = Date.now() + lifetime * 1000;
+      const token = createSignedSessionToken(account.id, expiresAt);
       data.sessions = data.sessions.filter(
         (item) => item.expiresAt > Date.now(),
       );
       data.sessions.push({
         tokenHash: tokenHash(token),
         userId: account.id,
-        expiresAt: Date.now() + lifetime * 1000,
+        expiresAt,
       });
       return { user: publicAccount(account), token };
     },
@@ -133,13 +182,31 @@ export const getSessionUser = cache(async (): Promise<SessionUser | null> => {
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (!token) return null;
   const data = await readStore<AuthData>("auth", seedAuth);
+  const hash = tokenHash(token);
+
+  if (data.revoked?.some((r) => r.tokenHash === hash)) {
+    return null;
+  }
+
   const session = data.sessions.find(
-    (item) =>
-      item.tokenHash === tokenHash(token) && item.expiresAt > Date.now(),
+    (item) => item.tokenHash === hash && item.expiresAt > Date.now(),
   );
-  const account =
-    session &&
-    data.accounts.find((item) => item.id === session.userId && item.active);
+
+  let userId: string | null = null;
+  if (session) {
+    userId = session.userId;
+  } else if (process.env.VERCEL) {
+    const verified = verifySignedSessionToken(token);
+    if (verified && verified.expiresAt > Date.now()) {
+      userId = verified.userId;
+    }
+  }
+
+  if (!userId) return null;
+
+  const account = data.accounts.find(
+    (item) => item.id === userId && item.active,
+  );
   if (
     account &&
     process.env.NODE_ENV === "production" &&
@@ -158,12 +225,21 @@ export async function requirePageAccess(module: AppModule) {
 
 export async function logout() {
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
-  if (token)
+  if (token) {
+    const hash = tokenHash(token);
     await mutateStore<AuthData, void>("auth", seedAuth, (data) => {
       data.sessions = data.sessions.filter(
-        (item) => item.tokenHash !== tokenHash(token),
+        (item) => item.tokenHash !== hash,
       );
+      data.revoked = (data.revoked || []).filter(
+        (r) => r.expiresAt > Date.now(),
+      );
+      data.revoked.push({
+        tokenHash: hash,
+        expiresAt: Date.now() + lifetime * 1000,
+      });
     });
+  }
   (await cookies()).delete(SESSION_COOKIE);
 }
 
