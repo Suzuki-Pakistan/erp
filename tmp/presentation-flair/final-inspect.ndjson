@@ -1,0 +1,624 @@
+{"kind":"deck","id":"pr/ayifee","name":"Deck"}
+{"kind":"layout","layoutId":"9759a2dc-35d4-47dd-8669-b3561fa56b9b","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"16fd30c0-3ebd-4f96-9f32-899b35c4f216","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/bvapap","slide":1,"title":"A CONNECTED FUTURE FOR FLAIR","textShapes":5}
+{"kind":"textbox","id":"sh/cnqpk32d","slide":1,"name":"text-2","text":"A CONNECTED FUTURE FOR FLAIR","textPreview":"A CONNECTED FUTURE FOR FLAIR","textChars":28,"textLines":1,"bbox":[72,305,850,40]}
+{"kind":"textbox","id":"sh/zah8vilo","slide":1,"name":"text-3","text":"One business.\nOne connected ERP.","textPreview":"One business. | One connected ERP.","textChars":32,"textLines":2,"bbox":[72,374,900,190]}
+{"kind":"textbox","id":"sh/y987mdk3","slide":1,"name":"text-4","text":"Retail • Wholesale • E-commerce","textPreview":"Retail • Wholesale • E-commerce","textChars":31,"textLines":1,"bbox":[72,623,850,44]}
+{"kind":"shape","id":"sh/lcjqx83u","slide":1,"name":"rule-5","bbox":[72,736,830,2]}
+{"kind":"textbox","id":"sh/kbqpo329","slide":1,"name":"text-6","text":"Platform vision & live demonstration","textPreview":"Platform vision & live demonstration","textChars":36,"textLines":1,"bbox":[72,761,830,43]}
+{"kind":"textbox","id":"sh/fexojelk","slide":1,"name":"text-7","text":"September 2026","textPreview":"September 2026","textChars":14,"textLines":1,"bbox":[72,820,830,30]}
+{"kind":"image","id":"im/vi1gbep8","slide":1,"name":"","alt":"harwin-store.webp","bbox":[980,0,620,900]}
+{"kind":"image","id":"im/wjahkj6d","slide":1,"name":"","alt":"flair-logo.png","bbox":[72,48,340,177]}
+{"kind":"notes","id":"nt/bvapap","slide":1,"text":"OPENING — 30 seconds. Say: “Today we will follow one product through your business: who can access it, where it is stocked, how it is sold, and how the day closes. Then we will show how purchasing, wholesale, online channels, forecasting and finance connect to the same foundation.”\nThe source proposal is a future-state scope. The current implementation is a local demo. Do not imply that all nine modules are live.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf\nD:/echo-work/flair-perfumes/public/brand/flair-logo.png\nD:/echo-work/flair-perfumes/public/demo/locations/harwin-store.webp\n[/Sources]"}
+{"kind":"slide","id":"sl/7cvigx","slide":2,"title":"FLAIR ERP / THE CONNECTED BUSINESS","textShapes":13}
+{"kind":"textbox","id":"sh/epofix0b","slide":2,"name":"text-8","text":"FLAIR ERP / THE CONNECTED BUSINESS","textPreview":"FLAIR ERP / THE CONNECTED BUSINESS","textChars":34,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/1szydsjm","slide":2,"name":"text-9","text":"The outcome: clearer control at every step","textPreview":"The outcome: clearer control at every step","textChars":42,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/grqhk7i1","slide":2,"name":"rule-10","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/3uhgf21s","slide":2,"name":"text-11","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/2t8zmx07","slide":2,"name":"text-12","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/pwzyhcjy","slide":2,"name":"edge-13","bbox":[554,461,68,1]}
+{"kind":"shape","id":"sh/ovqho7id","slide":2,"name":"edge-14","bbox":[554,318,1,143]}
+{"kind":"shape","id":"sh/byhgjm1o","slide":2,"name":"edge-15","bbox":[490,318,64,1]}
+{"kind":"shape","id":"sh/qx8zqh03","slide":2,"name":"edge-16","bbox":[554,461,68,1]}
+{"kind":"shape","id":"sh/0bqhk7y5","slide":2,"name":"edge-17","bbox":[554,461,1,185]}
+{"kind":"shape","id":"sh/1czydczq","slide":2,"name":"edge-18","bbox":[490,646,64,1]}
+{"kind":"shape","id":"sh/e98zihgz","slide":2,"name":"edge-19","bbox":[978,461,68,1]}
+{"kind":"shape","id":"sh/zahgb2hk","slide":2,"name":"edge-20","bbox":[1046,318,1,143]}
+{"kind":"shape","id":"sh/ofahory1","slide":2,"name":"edge-21","bbox":[1046,318,64,1]}
+{"kind":"shape","id":"sh/9gjyhwzm","slide":2,"name":"edge-22","bbox":[978,461,68,1]}
+{"kind":"shape","id":"sh/mdszmhgv","slide":2,"name":"edge-23","bbox":[1046,461,1,185]}
+{"kind":"shape","id":"sh/ne1gfmhg","slide":2,"name":"edge-24","bbox":[1046,646,64,1]}
+{"kind":"shape","id":"sh/w3ahsryd","slide":2,"name":"surface-25","bbox":[622,394,356,134]}
+{"kind":"textbox","id":"sh/x43ilwfi","slide":2,"name":"text-26","text":"YOUR BUSINESS\nIN ONE VIEW","textPreview":"YOUR BUSINESS | IN ONE VIEW","textChars":25,"textLines":2,"bbox":[642,424,316,94]}
+{"kind":"textbox","id":"sh/50zy5w72","slide":2,"name":"text-27","text":"Know your stock","textPreview":"Know your stock","textChars":15,"textLines":1,"bbox":[72,268,418,48]}
+{"kind":"textbox","id":"sh/kzqhcrqh","slide":2,"name":"text-28","text":"Location visibility\nTraceable movements","textPreview":"Location visibility | Traceable movements","textChars":39,"textLines":2,"bbox":[72,321,418,84]}
+{"kind":"textbox","id":"sh/jyxg3mpw","slide":2,"name":"text-29","text":"Buy with confidence","textPreview":"Buy with confidence","textChars":19,"textLines":1,"bbox":[72,596,418,48]}
+{"kind":"textbox","id":"sh/ixozah8b","slide":2,"name":"text-30","text":"Demand-led replenishment\nVendor accountability","textPreview":"Demand-led replenishment | Vendor accountability","textChars":46,"textLines":2,"bbox":[72,649,418,84]}
+{"kind":"textbox","id":"sh/tozy9g7y","slide":2,"name":"text-31","text":"Serve every channel","textPreview":"Serve every channel","textChars":19,"textLines":1,"bbox":[1110,268,418,48]}
+{"kind":"textbox","id":"sh/snqhgbqd","slide":2,"name":"text-32","text":"Retail, reseller and online orders\nConsistent product information","textPreview":"Retail, reseller and online orders | Consistent product information","textChars":65,"textLines":2,"bbox":[1110,321,418,84]}
+{"kind":"textbox","id":"sh/7mhg76ps","slide":2,"name":"text-33","text":"Understand performance","textPreview":"Understand performance","textChars":22,"textLines":1,"bbox":[1110,596,418,48]}
+{"kind":"textbox","id":"sh/618ze187","slide":2,"name":"text-34","text":"Cash, contribution and stock trends\nDecisions from shared records","textPreview":"Cash, contribution and stock trends | Decisions from shared records","textChars":65,"textLines":2,"bbox":[1110,649,418,84]}
+{"kind":"notes","id":"nt/7cvigx","slide":2,"text":"DISCOVERY — Ask: “Which costs you more time today: finding stock, buying the right quantities, managing channels, or closing the books?” Use the answer to emphasize the relevant branch. These are intended benefits of the completed ERP, not measured results or guarantees. Transition: “Nine connected modules support those outcomes.”\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/ERP_Modules.pdf\n[/Sources]"}
+{"kind":"slide","id":"sl/27br2p","slide":3,"title":"THE COMPLETE ERP / SCOPE MAP","textShapes":19}
+{"kind":"textbox","id":"sh/lgri1sru","slide":3,"name":"text-35","text":"THE COMPLETE ERP / SCOPE MAP","textPreview":"THE COMPLETE ERP / SCOPE MAP","textChars":28,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/yd0z6x83","slide":3,"name":"text-36","text":"Nine modules. One operating model.","textPreview":"Nine modules. One operating model.","textChars":34,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"textbox","id":"sh/ze90zi9o","slide":3,"name":"text-37","text":"A phased platform designed around perfume and cosmetics operations.","textPreview":"A phased platform designed around perfume and cosmetics operations.","textChars":67,"textLines":1,"bbox":[72,175,1456,68]}
+{"kind":"shape","id":"sh/cbih4nad","slide":3,"name":"rule-38","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/dcrixsry","slide":3,"name":"text-39","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/q9gz2ds7","slide":3,"name":"text-40","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/ba90vi9s","slide":3,"name":"edge-41","bbox":[800,352,1,24]}
+{"kind":"shape","id":"sh/w72107qh","slide":3,"name":"edge-42","bbox":[318,376,964,1]}
+{"kind":"shape","id":"sh/x8bi9cr2","slide":3,"name":"edge-43","bbox":[318,376,1,26]}
+{"kind":"shape","id":"sh/14729ojm","slide":3,"name":"edge-44","bbox":[800,376,1,26]}
+{"kind":"shape","id":"sh/03yl0j21","slide":3,"name":"edge-45","bbox":[1282,376,1,26]}
+{"kind":"shape","id":"sh/fipk7e1w","slide":3,"name":"surface-46","bbox":[600,239,400,113]}
+{"kind":"textbox","id":"sh/ehw3y9kb","slide":3,"name":"text-47","text":"FLAIR ERP","textPreview":"FLAIR ERP","textChars":9,"textLines":1,"bbox":[622,257,356,44]}
+{"kind":"textbox","id":"sh/dgn254jq","slide":3,"name":"text-48","text":"Shared business records","textPreview":"Shared business records","textChars":23,"textLines":1,"bbox":[622,304,356,43]}
+{"kind":"shape","id":"sh/sfelwz25","slide":3,"name":"rule-49","bbox":[72,403,424,2]}
+{"kind":"textbox","id":"sh/re5k3e1k","slide":3,"name":"text-50","text":"01–04  Operate","textPreview":"01–04  Operate","textChars":14,"textLines":1,"bbox":[72,427,424,51]}
+{"kind":"textbox","id":"sh/6dwju9kz","slide":3,"name":"text-51","text":"01  Core Setup","textPreview":"01  Core Setup","textChars":14,"textLines":1,"bbox":[72,506,438,48]}
+{"kind":"textbox","id":"sh/xcrmh8ju","slide":3,"name":"text-52","text":"02  Product & Inventory","textPreview":"02  Product & Inventory","textChars":23,"textLines":1,"bbox":[72,561,438,48]}
+{"kind":"textbox","id":"sh/cbil83i9","slide":3,"name":"text-53","text":"03  Retail POS","textPreview":"03  Retail POS","textChars":14,"textLines":1,"bbox":[72,616,438,48]}
+{"kind":"textbox","id":"sh/wfq547ql","slide":3,"name":"text-54","text":"04  Purchasing & Vendors","textPreview":"04  Purchasing & Vendors","textChars":24,"textLines":1,"bbox":[72,671,438,48]}
+{"kind":"shape","id":"sh/xgzmdcr6","slide":3,"name":"rule-55","bbox":[564,403,424,2]}
+{"kind":"textbox","id":"sh/ad8n2h8f","slide":3,"name":"text-56","text":"05–07  Expand","textPreview":"05–07  Expand","textChars":13,"textLines":1,"bbox":[564,427,424,51]}
+{"kind":"textbox","id":"sh/veh4b290","slide":3,"name":"text-57","text":"05  Wholesale & B2B Portal","textPreview":"05  Wholesale & B2B Portal","textChars":26,"textLines":1,"bbox":[564,506,438,48]}
+{"kind":"textbox","id":"sh/8b6507qp","slide":3,"name":"text-58","text":"06  E-Commerce Hub","textPreview":"06  E-Commerce Hub","textChars":18,"textLines":1,"bbox":[564,561,438,48]}
+{"kind":"textbox","id":"sh/9cfm9cru","slide":3,"name":"text-59","text":"07  Reports & Dashboards","textPreview":"07  Reports & Dashboards","textChars":24,"textLines":1,"bbox":[564,616,438,48]}
+{"kind":"shape","id":"sh/mponyx8j","slide":3,"name":"rule-60","bbox":[1056,403,424,2]}
+{"kind":"textbox","id":"sh/nax47294","slide":3,"name":"text-61","text":"08–09  Optimize","textPreview":"08–09  Optimize","textChars":15,"textLines":1,"bbox":[1056,427,424,51]}
+{"kind":"textbox","id":"sh/0n65wnqd","slide":3,"name":"text-62","text":"08  Smart Demand Forecasting","textPreview":"08  Smart Demand Forecasting","textChars":28,"textLines":1,"bbox":[1056,506,438,48]}
+{"kind":"textbox","id":"sh/lofm5sry","slide":3,"name":"text-63","text":"09  Accounting & Finance","textPreview":"09  Accounting & Finance","textChars":24,"textLines":1,"bbox":[1056,561,438,48]}
+{"kind":"notes","id":"nt/27br2p","slide":3,"text":"Explain the three business layers. Core Setup and Product & Inventory provide the foundation. POS, purchasing, wholesale and online operations feed reporting and finance. Forecasting depends on reliable inventory and sales-channel history. Do not call the current sidebar a completed nine-module system.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (pages 4–6, 21)\nD:/echo-work/flair-perfumes/types/core-setup.ts\n[/Sources]"}
+{"kind":"slide","id":"sl/zcv06n","slide":4,"title":"DEMO STATUS / SCOPE CLARITY","textShapes":14}
+{"kind":"textbox","id":"sh/tsbexwbu","slide":4,"name":"text-64","text":"DEMO STATUS / SCOPE CLARITY","textPreview":"DEMO STATUS / SCOPE CLARITY","textChars":27,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/6p0v2hc3","slide":4,"name":"text-65","text":"What you can see today—and what comes next","textPreview":"What you can see today—and what comes next","textChars":42,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/rq9wvmto","slide":4,"name":"rule-66","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/4nid07ud","slide":4,"name":"text-67","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/5oretcby","slide":4,"name":"text-68","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/i10vyxc7","slide":4,"name":"text-69","text":"TODAY’S DEMONSTRATION","textPreview":"TODAY’S DEMONSTRATION","textChars":21,"textLines":1,"bbox":[72,243,660,42]}
+{"kind":"textbox","id":"sh/jm9wr2ts","slide":4,"name":"text-70","text":"COMPLETED ERP VISION","textPreview":"COMPLETED ERP VISION","textChars":20,"textLines":1,"bbox":[850,243,678,42]}
+{"kind":"shape","id":"sh/ojmxcbah","slide":4,"name":"rule-71","bbox":[72,304,660,2]}
+{"kind":"shape","id":"sh/pkve5gb2","slide":4,"name":"rule-72","bbox":[850,304,678,2]}
+{"kind":"textbox","id":"sh/5k7u5cfu","slide":4,"name":"text-73","text":"Core Setup & sign-in","textPreview":"Core Setup & sign-in","textChars":20,"textLines":1,"bbox":[72,337,660,55]}
+{"kind":"textbox","id":"sh/4jydw7yp","slide":4,"name":"text-74","text":"Location, staff and policy demos; real login roles.","textPreview":"Location, staff and policy demos; real login roles.","textChars":51,"textLines":1,"bbox":[72,399,660,88]}
+{"kind":"textbox","id":"sh/3ipc3mx4","slide":4,"name":"text-75","text":"Inventory + Retail POS","textPreview":"Inventory + Retail POS","textChars":22,"textLines":1,"bbox":[72,518,660,55]}
+{"kind":"textbox","id":"sh/ihgbuhgj","slide":4,"name":"text-76","text":"Catalog, stock operations, sales, returns,\ncustomer credit and shift reconciliation.","textPreview":"Catalog, stock operations, sales, returns, | customer credit and shift reconciliation.","textChars":84,"textLines":2,"bbox":[72,580,660,108]}
+{"kind":"textbox","id":"sh/hg7u1cfy","slide":4,"name":"text-77","text":"Modules 04–09","textPreview":"Modules 04–09","textChars":13,"textLines":1,"bbox":[850,337,678,55]}
+{"kind":"textbox","id":"sh/gfyts7yd","slide":4,"name":"text-78","text":"Purchasing, B2B, online channels, reports,\nforecasting and finance remain planned.","textPreview":"Purchasing, B2B, online channels, reports, | forecasting and finance remain planned.","textChars":82,"textLines":2,"bbox":[850,399,678,110]}
+{"kind":"textbox","id":"sh/vepcz2xs","slide":4,"name":"text-79","text":"Production rollout","textPreview":"Production rollout","textChars":18,"textLines":1,"bbox":[850,551,678,55]}
+{"kind":"textbox","id":"sh/udwbqxg7","slide":4,"name":"text-80","text":"Integrations, data migration, operational controls\nand acceptance testing complete the journey.","textPreview":"Integrations, data migration, operational controls | and acceptance testing complete the journey.","textChars":95,"textLines":2,"bbox":[850,613,678,100]}
+{"kind":"notes","id":"nt/zcv06n","slide":4,"text":"CRITICAL POSITIONING — The latest README and code supersede the old Module 01-only build specification. Authentication, inventory and POS are server-backed in a local single-process JSON adapter. Core Setup staff, location and policy screens use separate browser-local demo data; they do not update real login accounts or synchronize location edits into inventory. Real enforced roles are administered through Login Access. Modules 04–09 are roadmap items. Production infrastructure, durable transactional database, backups, identity hardening and security review remain rollout work. Keep this explanation short in the meeting, expand only when asked.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/components/shell/app-shell.tsx\n[/Sources]"}
+{"kind":"slide","id":"sl/cf89qt","slide":5,"title":"END-TO-END FLOW / COMPLETED ERP VISION","textShapes":27}
+{"kind":"textbox","id":"sh/bu143i98","slide":5,"name":"text-81","text":"END-TO-END FLOW / COMPLETED ERP VISION","textPreview":"END-TO-END FLOW / COMPLETED ERP VISION","textChars":38,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/cva5wnqt","slide":5,"name":"text-82","text":"Follow one product through the whole business","textPreview":"Follow one product through the whole business","textChars":45,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/xgjm58re","slide":5,"name":"rule-83","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/yhcnyd8z","slide":5,"name":"text-84","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/zil47i9k","slide":5,"name":"text-85","text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/kju50nq5","slide":5,"name":"edge-86","bbox":[416.5,363,26,1]}
+{"kind":"textbox","id":"sh/lk3m9srq","slide":5,"name":"text-87","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[421.5,341,22,42]}
+{"kind":"shape","id":"sh/el83mt8v","slide":5,"name":"edge-88","bbox":[787,363,26,1]}
+{"kind":"textbox","id":"sh/fmh4vy90","slide":5,"name":"text-89","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[792,341,22,42]}
+{"kind":"shape","id":"sh/vyhgf6xc","slide":5,"name":"edge-90","bbox":[1157.5,363,26,1]}
+{"kind":"textbox","id":"sh/ud8fm1gr","slide":5,"name":"text-91","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[1162.5,341,22,42]}
+{"kind":"shape","id":"sh/h0jyhgfi","slide":5,"name":"surface-92","bbox":[72,285,344.5,156]}
+{"kind":"textbox","id":"sh/gzqxobyx","slide":5,"name":"text-93","text":"Set up","textPreview":"Set up","textChars":6,"textLines":1,"bbox":[94,303,300.5,44]}
+{"kind":"textbox","id":"sh/7ahgbmxg","slide":5,"name":"text-94","text":"People, locations\nand access","textPreview":"People, locations | and access","textChars":28,"textLines":2,"bbox":[94,350,300.5,86]}
+{"kind":"shape","id":"sh/m98fi1gv","slide":5,"name":"surface-95","bbox":[442.5,285,344.5,156]}
+{"kind":"textbox","id":"sh/9czydwfm","slide":5,"name":"text-96","text":"Buy & receive","textPreview":"Buy & receive","textChars":13,"textLines":1,"bbox":[464.5,303,300.5,44]}
+{"kind":"textbox","id":"sh/8bqxkry1","slide":5,"name":"text-97","text":"Vendor order\nto stock","textPreview":"Vendor order | to stock","textChars":21,"textLines":2,"bbox":[464.5,350,300.5,86]}
+{"kind":"shape","id":"sh/z6xg7mx4","slide":5,"name":"surface-98","bbox":[813,285,344.5,156]}
+{"kind":"textbox","id":"sh/y5ofehgz","slide":5,"name":"text-99","text":"Allocate","textPreview":"Allocate","textChars":8,"textLines":1,"bbox":[835,303,300.5,44]}
+{"kind":"textbox","id":"sh/21ozqh0r","slide":5,"name":"text-100","text":"Store and online\navailability","textPreview":"Store and online | availability","textChars":29,"textLines":2,"bbox":[835,350,300.5,86]}
+{"kind":"shape","id":"sh/n2xgzm1c","slide":5,"name":"surface-101","bbox":[1183.5,285,344.5,156]}
+{"kind":"textbox","id":"sh/o36hsrih","slide":5,"name":"text-102","text":"Sell","textPreview":"Sell","textChars":4,"textLines":1,"bbox":[1205.5,303,300.5,44]}
+{"kind":"textbox","id":"sh/p4fy1wj2","slide":5,"name":"text-103","text":"Retail, B2B\nand channels","textPreview":"Retail, B2B | and channels","textChars":24,"textLines":2,"bbox":[1205.5,350,300.5,86]}
+{"kind":"shape","id":"sh/a5ozuh0n","slide":5,"name":"edge-104","bbox":[416.5,613,26,1]}
+{"kind":"textbox","id":"sh/b6xg3mh8","slide":5,"name":"text-105","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[421.5,591,22,42]}
+{"kind":"shape","id":"sh/c76hwrit","slide":5,"name":"edge-106","bbox":[787,613,26,1]}
+{"kind":"textbox","id":"sh/x8fi5wze","slide":5,"name":"text-107","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[792,591,22,42]}
+{"kind":"shape","id":"sh/y98zy10z","slide":5,"name":"edge-108","bbox":[1157.5,613,26,1]}
+{"kind":"textbox","id":"sh/zah076hk","slide":5,"name":"text-109","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[1162.5,591,22,42]}
+{"kind":"shape","id":"sh/t4j2x0jm","slide":5,"name":"surface-110","bbox":[72,535,344.5,156]}
+{"kind":"textbox","id":"sh/83a1ov21","slide":5,"name":"text-111","text":"Return","textPreview":"Return","textChars":6,"textLines":1,"bbox":[94,553,300.5,44]}
+{"kind":"textbox","id":"sh/721kvqlg","slide":5,"name":"text-112","text":"Invoice-linked\nstock and credit","textPreview":"Invoice-linked | stock and credit","textChars":31,"textLines":2,"bbox":[94,600,300.5,86]}
+{"kind":"shape","id":"sh/m1sjmlkv","slide":5,"name":"surface-113","bbox":[442.5,535,344.5,156]}
+{"kind":"textbox","id":"sh/hs3210ji","slide":5,"name":"text-114","text":"Reconcile","textPreview":"Reconcile","textChars":9,"textLines":1,"bbox":[464.5,553,300.5,44]}
+{"kind":"textbox","id":"sh/gra1sf2x","slide":5,"name":"text-115","text":"Cash, payouts\nand ledgers","textPreview":"Cash, payouts | and ledgers","textChars":25,"textLines":2,"bbox":[464.5,600,300.5,86]}
+{"kind":"shape","id":"sh/vq1kza1s","slide":5,"name":"surface-116","bbox":[813,535,344.5,156]}
+{"kind":"textbox","id":"sh/u5sjq5k7","slide":5,"name":"text-117","text":"Learn","textPreview":"Learn","textChars":5,"textLines":1,"bbox":[835,553,300.5,44]}
+{"kind":"textbox","id":"sh/5w325kju","slide":5,"name":"text-118","text":"Performance\nand demand","textPreview":"Performance | and demand","textChars":22,"textLines":2,"bbox":[835,600,300.5,86]}
+{"kind":"shape","id":"sh/4vulwf29","slide":5,"name":"surface-119","bbox":[1183.5,535,344.5,156]}
+{"kind":"textbox","id":"sh/0ry5ojmh","slide":5,"name":"text-120","text":"Reorder","textPreview":"Reorder","textChars":7,"textLines":1,"bbox":[1205.5,553,300.5,44]}
+{"kind":"textbox","id":"sh/1s7mxo32","slide":5,"name":"text-121","text":"Approved\npurchase plan","textPreview":"Approved | purchase plan","textChars":22,"textLines":2,"bbox":[1205.5,600,300.5,86]}
+{"kind":"shape","id":"sh/epwnm94b","slide":5,"name":"rule-122","bbox":[72,728,60,2]}
+{"kind":"textbox","id":"sh/fq54velw","slide":5,"name":"text-123","text":"Every handoff should leave a record the next team can use.","textPreview":"Every handoff should leave a record the next team can use.","textChars":58,"textLines":1,"bbox":[72,745,1456,74]}
+{"kind":"notes","id":"nt/cf89qt","slide":5,"text":"Walk left-to-right on the top row, then left-to-right on the lower row. This is the full intended lifecycle. Today’s live example proves inventory-to-retail-to-return-to-shift-close; purchase orders, B2B, channels, financial posting and forecast planning are future modules. Transition to the first live capability: foundation and access.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/ERP_Modules.pdf\n[/Sources]"}
+{"kind":"slide","id":"sl/y87c5n","slide":6,"title":"01 / CORE SETUP & ACCESS","textShapes":13}
+{"kind":"textbox","id":"sh/e10zexwr","slide":6,"name":"text-124","text":"01 / CORE SETUP & ACCESS","textPreview":"01 / CORE SETUP & ACCESS","textChars":24,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/14bi9cvi","slide":6,"name":"text-125","text":"Give each team the right workspace","textPreview":"Give each team the right workspace","textChars":34,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/032hg7ex","slide":6,"name":"rule-126","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/ry9g3id0","slide":6,"name":"text-127","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/qx0zaxwv","slide":6,"name":"text-128","text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/d0ry5sv6","slide":6,"name":"edge-129","bbox":[554,461,68,1]}
+{"kind":"shape","id":"sh/czihcnel","slide":6,"name":"edge-130","bbox":[554,318,1,143]}
+{"kind":"shape","id":"sh/bud0fmdk","slide":6,"name":"edge-131","bbox":[490,318,64,1]}
+{"kind":"shape","id":"sh/at4zmhwz","slide":6,"name":"edge-132","bbox":[554,461,68,1]}
+{"kind":"shape","id":"sh/cryp8fi5","slide":6,"name":"edge-133","bbox":[554,461,1,185]}
+{"kind":"shape","id":"sh/ds76hkjq","slide":6,"name":"edge-134","bbox":[490,646,64,1]}
+{"kind":"shape","id":"sh/q5g7650z","slide":6,"name":"edge-135","bbox":[978,461,68,1]}
+{"kind":"shape","id":"sh/b6pofa1k","slide":6,"name":"edge-136","bbox":[1046,318,1,143]}
+{"kind":"shape","id":"sh/43ep4vit","slide":6,"name":"edge-137","bbox":[1046,318,64,1]}
+{"kind":"shape","id":"sh/p4n6d0je","slide":6,"name":"edge-138","bbox":[978,461,68,1]}
+{"kind":"shape","id":"sh/21wn2503","slide":6,"name":"edge-139","bbox":[1046,461,1,185]}
+{"kind":"shape","id":"sh/325obq1o","slide":6,"name":"edge-140","bbox":[1046,646,64,1]}
+{"kind":"shape","id":"sh/gze50vix","slide":6,"name":"surface-141","bbox":[622,394,356,134]}
+{"kind":"textbox","id":"sh/h0n690ji","slide":6,"name":"text-142","text":"PEOPLE +\nLOCATIONS","textPreview":"PEOPLE + | LOCATIONS","textChars":18,"textLines":2,"bbox":[642,424,316,94]}
+{"kind":"textbox","id":"sh/hwfmdcb6","slide":6,"name":"text-143","text":"Location structure","textPreview":"Location structure","textChars":18,"textLines":1,"bbox":[72,268,418,48]}
+{"kind":"textbox","id":"sh/wv654rul","slide":6,"name":"text-144","text":"Stores, warehouses and fulfillment hubs","textPreview":"Stores, warehouses and fulfillment hubs","textChars":39,"textLines":1,"bbox":[72,321,418,84]}
+{"kind":"textbox","id":"sh/vux4bmt0","slide":6,"name":"text-145","text":"Business settings","textPreview":"Business settings","textChars":17,"textLines":1,"bbox":[72,596,418,48]}
+{"kind":"textbox","id":"sh/ut432hcv","slide":6,"name":"text-146","text":"Company profile and operating preferences","textPreview":"Company profile and operating preferences","textChars":41,"textLines":1,"bbox":[72,649,418,84]}
+{"kind":"textbox","id":"sh/9svm9cba","slide":6,"name":"text-147","text":"Role-based sign-in","textPreview":"Role-based sign-in","textChars":18,"textLines":1,"bbox":[1110,268,418,48]}
+{"kind":"textbox","id":"sh/8rml07up","slide":6,"name":"text-148","text":"Admin, inventory, POS manager and cashier","textPreview":"Admin, inventory, POS manager and cashier","textChars":41,"textLines":1,"bbox":[1110,321,418,84]}
+{"kind":"textbox","id":"sh/7qd472t4","slide":6,"name":"text-149","text":"Information control","textPreview":"Information control","textChars":19,"textLines":1,"bbox":[1110,596,418,48]}
+{"kind":"textbox","id":"sh/mp43yxcj","slide":6,"name":"text-150","text":"Restricted costs, module access\nand cashier activity","textPreview":"Restricted costs, module access | and cashier activity","textChars":52,"textLines":2,"bbox":[1110,649,418,84]}
+{"kind":"notes","id":"nt/y87c5n","slide":6,"text":"SHOW: /core-setup, /core-setup/stores-warehouses, then /core-setup/login-access. Spend only a minute on configuration. SAY: “We start by organizing the business and deciding who can do what.” PROOF: Login Access has the actual authentication roles. If you show Users & Roles or Permissions, state they are policy design demonstrations, not the authorization engine. Optional prepared cashier login demonstrates restricted navigation; never change permissions during the meeting. Benefit: clearer responsibility and appropriate data access.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/components/auth/accounts-page.tsx\nD:/echo-work/flair-perfumes/components/core-setup/locations-page.tsx\n[/Sources]"}
+{"kind":"slide","id":"sl/hubwwh","slide":7,"title":"02 / PRODUCT & INVENTORY","textShapes":11}
+{"kind":"textbox","id":"sh/f21grm5c","slide":7,"name":"text-151","text":"02 / PRODUCT & INVENTORY","textPreview":"02 / PRODUCT & INVENTORY","textChars":24,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/g3axkr6x","slide":7,"name":"text-152","text":"One catalog connects products, prices and stock","textPreview":"One catalog connects products, prices and stock","textChars":47,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"textbox","id":"sh/143ytwn2","slide":7,"name":"text-153","text":"Actual demo interface • illustrative catalog data","textPreview":"Actual demo interface • illustrative catalog data","textChars":49,"textLines":1,"bbox":[72,175,1456,68]}
+{"kind":"shape","id":"sh/25cfm1on","slide":7,"name":"rule-154","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/36lgv658","slide":7,"name":"text-155","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/o7uxob6t","slide":7,"name":"text-156","text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/i98faxoj","slide":7,"name":"text-158","text":"Identify","textPreview":"Identify","textChars":8,"textLines":1,"bbox":[1140,280,388,47]}
+{"kind":"textbox","id":"sh/jahgj254","slide":7,"name":"text-159","text":"SKU, barcode, brand,\ncategory and size","textPreview":"SKU, barcode, brand, | category and size","textChars":38,"textLines":2,"bbox":[1140,340,388,91]}
+{"kind":"textbox","id":"sh/rmdwvqps","slide":7,"name":"text-160","text":"Price","textPreview":"Price","textChars":5,"textLines":1,"bbox":[1140,458,388,47]}
+{"kind":"textbox","id":"sh/ql4v2l8n","slide":7,"name":"text-161","text":"Retail, wholesale,\nVIP and web levels","textPreview":"Retail, wholesale, | VIP and web levels","textChars":37,"textLines":2,"bbox":[1140,518,388,90]}
+{"kind":"textbox","id":"sh/dovex07y","slide":7,"name":"text-162","text":"Control","textPreview":"Control","textChars":7,"textLines":1,"bbox":[1140,635,388,47]}
+{"kind":"textbox","id":"sh/cnmd4vqd","slide":7,"name":"text-163","text":"Costs, thresholds\nand product status","textPreview":"Costs, thresholds | and product status","textChars":36,"textLines":2,"bbox":[1140,695,388,90]}
+{"kind":"image","id":"im/0re9036x","slide":7,"name":"","alt":"catalog.png","bbox":[72,260,960,540]}
+{"kind":"notes","id":"nt/hubwwh","slide":7,"text":"SHOW: /product-inventory/products. Search SKU 10000, Lattafa Yara Pink; open its detail/edit view. Point to SKU, barcode, size and price levels. Switch to /product-inventory/pricing if pricing is a client priority. SAY: “One product record serves the whole operation.” No need to edit a price live. Catalog seed contains 26 illustrative products, not the client’s full database. Do not claim a completed legacy import. Current stock and prices may differ after prior demos.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/data/inventory.ts\nD:/echo-work/flair-perfumes/tmp/presentation-flair/catalog.png (local UI capture, 2026-09-02)\n[/Sources]"}
+{"kind":"slide","id":"sl/lata88","slide":8,"title":"02 / STOCK OPERATIONS","textShapes":19}
+{"kind":"textbox","id":"sh/ix4zu90j","slide":8,"name":"text-164","text":"02 / STOCK OPERATIONS","textPreview":"02 / STOCK OPERATIONS","textChars":21,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/5kfi5ozu","slide":8,"name":"text-165","text":"Know what is available—and why it changed","textPreview":"Know what is available—and why it changed","textChars":41,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/4zmhwjip","slide":8,"name":"rule-166","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/rmx07yh0","slide":8,"name":"text-167","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/6lozytgf","slide":8,"name":"text-168","text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/tofi9oz6","slide":8,"name":"edge-169","bbox":[416.5,388.5,26,1]}
+{"kind":"textbox","id":"sh/sn6h0jyl","slide":8,"name":"text-170","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[421.5,366.5,22,42]}
+{"kind":"shape","id":"sh/7qtgvuhw","slide":8,"name":"edge-171","bbox":[787,388.5,26,1]}
+{"kind":"textbox","id":"sh/mpkzmp0b","slide":8,"name":"text-172","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[792,366.5,22,42]}
+{"kind":"shape","id":"sh/4ny103qp","slide":8,"name":"edge-173","bbox":[1157.5,388.5,26,1]}
+{"kind":"textbox","id":"sh/pori98ra","slide":8,"name":"text-174","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[1162.5,366.5,22,42]}
+{"kind":"shape","id":"sh/2lgzyt8j","slide":8,"name":"surface-175","bbox":[72,300,344.5,177]}
+{"kind":"textbox","id":"sh/3mp07y94","slide":8,"name":"text-176","text":"Receive","textPreview":"Receive","textChars":7,"textLines":1,"bbox":[94,318,300.5,44]}
+{"kind":"textbox","id":"sh/cri143q1","slide":8,"name":"text-177","text":"Post goods into\na location","textPreview":"Post goods into | a location","textChars":26,"textLines":2,"bbox":[94,365,300.5,107]}
+{"kind":"shape","id":"sh/dsrid8r6","slide":8,"name":"surface-178","bbox":[442.5,300,344.5,177]}
+{"kind":"textbox","id":"sh/qp0j2t8v","slide":8,"name":"text-179","text":"Transfer","textPreview":"Transfer","textChars":8,"textLines":1,"bbox":[464.5,318,300.5,44]}
+{"kind":"textbox","id":"sh/rq90by9g","slide":8,"name":"text-180","text":"Move units between\nlocations","textPreview":"Move units between | locations","textChars":28,"textLines":2,"bbox":[464.5,365,300.5,107]}
+{"kind":"shape","id":"sh/svehsjqh","slide":8,"name":"surface-181","bbox":[813,300,344.5,177]}
+{"kind":"textbox","id":"sh/twni14r2","slide":8,"name":"text-182","text":"Count","textPreview":"Count","textChars":5,"textLines":1,"bbox":[835,318,300.5,44]}
+{"kind":"textbox","id":"sh/90f69gfu","slide":8,"name":"text-183","text":"Compare physical\nand recorded stock","textPreview":"Compare physical | and recorded stock","textChars":35,"textLines":2,"bbox":[835,365,300.5,107]}
+{"kind":"shape","id":"sh/ozmpgby9","slide":8,"name":"surface-184","bbox":[1183.5,300,344.5,177]}
+{"kind":"textbox","id":"sh/nedo76xo","slide":8,"name":"text-185","text":"Trace","textPreview":"Trace","textChars":5,"textLines":1,"bbox":[1205.5,318,300.5,44]}
+{"kind":"textbox","id":"sh/md47e1g3","slide":8,"name":"text-186","text":"Review the\nmovement history","textPreview":"Review the | movement history","textChars":27,"textLines":2,"bbox":[1205.5,365,300.5,107]}
+{"kind":"textbox","id":"sh/x4fqdgfq","slide":8,"name":"text-187","text":"Available stock","textPreview":"Available stock","textChars":15,"textLines":1,"bbox":[72,555,590,55]}
+{"kind":"textbox","id":"sh/w36pkbe5","slide":8,"name":"text-188","text":"On hand − committed − held","textPreview":"On hand − committed − held","textChars":26,"textLines":1,"bbox":[72,620,710,60]}
+{"kind":"textbox","id":"sh/b2xob6xk","slide":8,"name":"text-189","text":"A posted movement preserves","textPreview":"A posted movement preserves","textChars":27,"textLines":1,"bbox":[910,557,618,50]}
+{"kind":"textbox","id":"sh/a1o7ilgf","slide":8,"name":"text-190","text":"Product • quantity • location\nReference • actor • date","textPreview":"Product • quantity • location | Reference • actor • date","textChars":54,"textLines":2,"bbox":[910,620,618,94]}
+{"kind":"notes","id":"nt/lata88","slide":8,"text":"SHOW: /product-inventory/stock, filter SKU 10000 and the Harwin Flagship location. Record baseline on-hand and available values. Go to /product-inventory/operations, create a receipt for 5 units of the same SKU at Harwin, use an illustrative cost, save draft then post. Return to stock: on-hand should rise by 5, assuming no concurrent activity. Optional transfer: 2 units from Harwin to Houston Main Warehouse, then inspect both balances. Drafts do not affect stock; posted documents are immutable. Supplier and bill fields are receipt references, not vendor payables. Held POS carts do not reserve inventory.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/components/inventory/operation-dialog.tsx\nD:/echo-work/flair-perfumes/types/inventory.ts\n[/Sources]"}
+{"kind":"slide","id":"sl/de6tq1","slide":9,"title":"03 / RETAIL POS","textShapes":11}
+{"kind":"textbox","id":"sh/fipcvad8","slide":9,"name":"text-191","text":"03 / RETAIL POS","textPreview":"03 / RETAIL POS","textChars":15,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/gjydofet","slide":9,"name":"text-192","text":"Turn a counter sale into a traceable record","textPreview":"Turn a counter sale into a traceable record","textChars":43,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"textbox","id":"sh/1k7uxkve","slide":9,"name":"text-193","text":"Actual demo interface • current counter workspace","textPreview":"Actual demo interface • current counter workspace","textChars":49,"textLines":1,"bbox":[72,175,1456,68]}
+{"kind":"shape","id":"sh/6dwvi5wr","slide":9,"name":"rule-194","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/7e5cradc","slide":9,"name":"text-195","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/sfedkveh","slide":9,"name":"text-196","text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/q90vupcv","slide":9,"name":"text-198","text":"Scan & serve","textPreview":"Scan & serve","textChars":12,"textLines":1,"bbox":[1140,282,388,50]}
+{"kind":"textbox","id":"sh/ba9c3udg","slide":9,"name":"text-199","text":"Find products, attach\na customer, review price","textPreview":"Find products, attach | a customer, review price","textChars":46,"textLines":2,"bbox":[1140,342,388,103]}
+{"kind":"textbox","id":"sh/3ux0r6h4","slide":9,"name":"text-200","text":"Confirm & sell","textPreview":"Confirm & sell","textChars":14,"textLines":1,"bbox":[1140,475,388,50]}
+{"kind":"textbox","id":"sh/itojy10j","slide":9,"name":"text-201","text":"Record tender and\nissue a receipt","textPreview":"Record tender and | issue a receipt","textChars":33,"textLines":2,"bbox":[1140,535,388,90]}
+{"kind":"textbox","id":"sh/5wfitwza","slide":9,"name":"text-202","text":"See the result","textPreview":"See the result","textChars":14,"textLines":1,"bbox":[1140,658,388,50]}
+{"kind":"textbox","id":"sh/4v610bip","slide":9,"name":"text-203","text":"Sale history and\nupdated stock","textPreview":"Sale history and | updated stock","textChars":30,"textLines":2,"bbox":[1140,718,388,88]}
+{"kind":"image","id":"im/g3mtg32t","slide":9,"name":"","alt":"pos.png","bbox":[72,260,960,540]}
+{"kind":"notes","id":"nt/de6tq1","slide":9,"text":"SHOW: /retail-pos. Preflight must confirm the tax configuration and an open cashier shift at the intended location. Attach a clearly labeled demo customer before sale if you will show store credit. Enter SKU 10000, sell 2 units, review the actual total, choose cash and confirm the demo tender. Only proceed once the server returns a confirmed receipt. Open /retail-pos/sales to retrieve it, then verify stock reduced by 2. SAY: “The receipt and stock movement are part of the same posted transaction.” Card and other external payments are recorded references only; Flair does not process a charge. Use the real on-screen tax/total, never an invented amount.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/components/pos/terminal-page.tsx\nD:/echo-work/flair-perfumes/tmp/presentation-flair/pos.png (local UI capture, 2026-09-02)\n[/Sources]"}
+{"kind":"slide","id":"sl/dshkh4","slide":10,"title":"03 / RETURNS, EXCHANGES & STORE CREDIT","textShapes":21}
+{"kind":"textbox","id":"sh/uhczad4z","slide":10,"name":"text-204","text":"03 / RETURNS, EXCHANGES & STORE CREDIT","textPreview":"03 / RETURNS, EXCHANGES & STORE CREDIT","textChars":38,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/h43i5snq","slide":10,"name":"text-205","text":"Returns keep the original sale in view","textPreview":"Returns keep the original sale in view","textChars":38,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/g3uhcnm5","slide":10,"name":"rule-206","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/36l07i5w","slide":10,"name":"text-207","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/25czed4b","slide":10,"name":"text-208","text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/p83i9snm","slide":10,"name":"edge-209","bbox":[416.5,400,26,1]}
+{"kind":"textbox","id":"sh/47uhgnm1","slide":10,"name":"text-210","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[421.5,378,22,42]}
+{"kind":"shape","id":"sh/ra50b25s","slide":10,"name":"edge-211","bbox":[787,400,26,1]}
+{"kind":"textbox","id":"sh/q9wzix47","slide":10,"name":"text-212","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[792,378,22,42]}
+{"kind":"shape","id":"sh/4jmtcjmd","slide":10,"name":"edge-213","bbox":[1157.5,400,26,1]}
+{"kind":"textbox","id":"sh/pkvuloni","slide":10,"name":"text-214","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[1162.5,378,22,42]}
+{"kind":"shape","id":"sh/ih4bat47","slide":10,"name":"surface-215","bbox":[72,310,344.5,180]}
+{"kind":"textbox","id":"sh/3idcjy5s","slide":10,"name":"text-216","text":"Find invoice","textPreview":"Find invoice","textChars":12,"textLines":1,"bbox":[94,328,300.5,44]}
+{"kind":"textbox","id":"sh/cnmdg3m9","slide":10,"name":"text-217","text":"Select the original\nconfirmed sale","textPreview":"Select the original | confirmed sale","textChars":34,"textLines":2,"bbox":[94,375,300.5,110]}
+{"kind":"shape","id":"sh/dofup8nu","slide":10,"name":"surface-218","bbox":[442.5,310,344.5,180]}
+{"kind":"textbox","id":"sh/ql4vet43","slide":10,"name":"text-219","text":"Review return","textPreview":"Review return","textChars":13,"textLines":1,"bbox":[464.5,328,300.5,44]}
+{"kind":"textbox","id":"sh/rmdcny5o","slide":10,"name":"text-220","text":"Choose quantity\nand restock decision","textPreview":"Choose quantity | and restock decision","textChars":36,"textLines":2,"bbox":[464.5,375,300.5,110]}
+{"kind":"shape","id":"sh/0b6dknm5","slide":10,"name":"surface-221","bbox":[813,310,344.5,180]}
+{"kind":"textbox","id":"sh/1cfut83q","slide":10,"name":"text-222","text":"Issue credit","textPreview":"Issue credit","textChars":12,"textLines":1,"bbox":[835,328,300.5,44]}
+{"kind":"textbox","id":"sh/98bud8vu","slide":10,"name":"text-223","text":"Refund within limits\nor create store credit","textPreview":"Refund within limits | or create store credit","textChars":43,"textLines":2,"bbox":[835,375,300.5,110]}
+{"kind":"shape","id":"sh/872t43ep","slide":10,"name":"surface-224","bbox":[1183.5,310,344.5,180]}
+{"kind":"textbox","id":"sh/n6tcbyd4","slide":10,"name":"text-225","text":"Keep history","textPreview":"Keep history","textChars":12,"textLines":1,"bbox":[1205.5,328,300.5,44]}
+{"kind":"textbox","id":"sh/m5kb2dwj","slide":10,"name":"text-226","text":"Retain receipt, return\nand credit movement","textPreview":"Retain receipt, return | and credit movement","textChars":42,"textLines":2,"bbox":[1205.5,375,300.5,110]}
+{"kind":"shape","id":"sh/xwvuhsv6","slide":10,"name":"rule-227","bbox":[72,564,424,2]}
+{"kind":"textbox","id":"sh/wvmd8nel","slide":10,"name":"text-228","text":"Resellable","textPreview":"Resellable","textChars":10,"textLines":1,"bbox":[72,588,424,84]}
+{"kind":"textbox","id":"sh/vudcfid0","slide":10,"name":"text-229","text":"Restock returned units\nwhen appropriate.","textPreview":"Restock returned units | when appropriate.","textChars":40,"textLines":2,"bbox":[72,693,424,97]}
+{"kind":"shape","id":"sh/a9kv6dwf","slide":10,"name":"rule-230","bbox":[564,564,424,2]}
+{"kind":"textbox","id":"sh/d0ru5ofm","slide":10,"name":"text-231","text":"Damaged","textPreview":"Damaged","textChars":7,"textLines":1,"bbox":[564,588,424,84]}
+{"kind":"textbox","id":"sh/czitwjeh","slide":10,"name":"text-232","text":"Keep non-resellable goods\nout of sellable stock.","textPreview":"Keep non-resellable goods | out of sellable stock.","textChars":48,"textLines":2,"bbox":[564,693,424,97]}
+{"kind":"shape","id":"sh/25gr6pcz","slide":10,"name":"rule-233","bbox":[1056,564,424,2]}
+{"kind":"textbox","id":"sh/36psfutk","slide":10,"name":"text-234","text":"Exchange","textPreview":"Exchange","textChars":8,"textLines":1,"bbox":[1056,588,424,84]}
+{"kind":"textbox","id":"sh/47y98zu5","slide":10,"name":"text-235","text":"Return to customer credit,\nthen create a new sale.","textPreview":"Return to customer credit, | then create a new sale.","textChars":50,"textLines":2,"bbox":[1056,693,424,97]}
+{"kind":"notes","id":"nt/dshkh4","slide":10,"text":"SHOW: /retail-pos/returns as an administrator or POS manager. Find the 2-unit demo sale, return 1 unit, choose restock=true and store credit for the attached demo customer. Check /retail-pos/customers: customer credit rises by the allocated original amount; inventory rises by 1. A manager must use the original invoice and cannot return more than sold. Exchanges are a separate sale after a credit return, not an atomic exchange operation. Non-restocked goods do not add to sellable stock. Do not promise a full repair/quarantine workflow today. Accounting customer/vendor ledgers for all channels arrive in later modules.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/components/pos/management-pages.tsx\n[/Sources]"}
+{"kind":"slide","id":"sl/uonfrn","slide":11,"title":"03 / SHIFTS & RECONCILIATION","textShapes":19}
+{"kind":"textbox","id":"sh/ixgz21cf","slide":11,"name":"text-236","text":"03 / SHIFTS & RECONCILIATION","textPreview":"03 / SHIFTS & RECONCILIATION","textChars":28,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/50rixwv6","slide":11,"name":"text-237","text":"Close the day with accountable cash control","textPreview":"Close the day with accountable cash control","textChars":43,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/4zih4bul","slide":11,"name":"rule-238","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/vupgrmd4","slide":11,"name":"text-239","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/atgzyhcj","slide":11,"name":"text-240","text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/hw7itwva","slide":11,"name":"edge-241","bbox":[416.5,402,26,1]}
+{"kind":"textbox","id":"sh/wvyh0rup","slide":11,"name":"text-242","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[421.5,380,22,42]}
+{"kind":"shape","id":"sh/nqpgnmds","slide":11,"name":"edge-243","bbox":[787,402,26,1]}
+{"kind":"textbox","id":"sh/m5wzuhcn","slide":11,"name":"text-244","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[792,380,22,42]}
+{"kind":"shape","id":"sh/4buxwzyp","slide":11,"name":"edge-245","bbox":[1157.5,402,26,1]}
+{"kind":"textbox","id":"sh/5c3yp4fa","slide":11,"name":"text-246","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[1162.5,380,22,42]}
+{"kind":"shape","id":"sh/ipcfupgj","slide":11,"name":"surface-247","bbox":[72,310,344.5,184]}
+{"kind":"textbox","id":"sh/3qlgnux4","slide":11,"name":"text-248","text":"Open shift","textPreview":"Open shift","textChars":10,"textLines":1,"bbox":[94,328,300.5,44]}
+{"kind":"textbox","id":"sh/gnuxszyd","slide":11,"name":"text-249","text":"Cashier, register\nand opening float","textPreview":"Cashier, register | and opening float","textChars":35,"textLines":2,"bbox":[94,375,300.5,114]}
+{"kind":"shape","id":"sh/ho3yl4fy","slide":11,"name":"surface-250","bbox":[442.5,310,344.5,184]}
+{"kind":"textbox","id":"sh/ulsfqpgn","slide":11,"name":"text-251","text":"Record activity","textPreview":"Record activity","textChars":15,"textLines":1,"bbox":[464.5,328,300.5,44]}
+{"kind":"textbox","id":"sh/vmlgjuxs","slide":11,"name":"text-252","text":"Cash sales, refunds\nand cash movements","textPreview":"Cash sales, refunds | and cash movements","textChars":38,"textLines":2,"bbox":[464.5,375,300.5,114]}
+{"kind":"shape","id":"sh/0jehojyx","slide":11,"name":"surface-253","bbox":[813,310,344.5,184]}
+{"kind":"textbox","id":"sh/1k7yxofi","slide":11,"name":"text-254","text":"Count & close","textPreview":"Count & close","textChars":13,"textLines":1,"bbox":[835,328,300.5,44]}
+{"kind":"textbox","id":"sh/903yho7m","slide":11,"name":"text-255","text":"Physical cash count\nwith variance reason","textPreview":"Physical cash count | with variance reason","textChars":40,"textLines":2,"bbox":[835,375,300.5,114]}
+{"kind":"shape","id":"sh/ozux8jq1","slide":11,"name":"surface-256","bbox":[1183.5,310,344.5,184]}
+{"kind":"textbox","id":"sh/ny1gfepg","slide":11,"name":"text-257","text":"Review","textPreview":"Review","textChars":6,"textLines":1,"bbox":[1205.5,328,300.5,44]}
+{"kind":"textbox","id":"sh/mxsf698v","slide":11,"name":"text-258","text":"Frozen closing record\nand manager export","textPreview":"Frozen closing record | and manager export","textChars":40,"textLines":2,"bbox":[1205.5,375,300.5,114]}
+{"kind":"textbox","id":"sh/1wjyd47a","slide":11,"name":"text-259","text":"Expected cash","textPreview":"Expected cash","textChars":13,"textLines":1,"bbox":[72,575,680,58]}
+{"kind":"textbox","id":"sh/0vax4jqp","slide":11,"name":"text-260","text":"Opening float + net cash activity","textPreview":"Opening float + net cash activity","textChars":33,"textLines":1,"bbox":[72,643,870,55]}
+{"kind":"textbox","id":"sh/za1gbep4","slide":11,"name":"text-261","text":"Variance","textPreview":"Variance","textChars":8,"textLines":1,"bbox":[1070,575,458,58]}
+{"kind":"textbox","id":"sh/e9sf298z","slide":11,"name":"text-262","text":"Counted − expected","textPreview":"Counted − expected","textChars":18,"textLines":1,"bbox":[1070,643,458,55]}
+{"kind":"notes","id":"nt/uonfrn","slide":11,"text":"SHOW: /retail-pos/shifts. Confirm you are on the disposable demo shift before closing it. Review expected cash, enter the physical demo count and supply a reason if there is a variance. Open /retail-pos/reconciliation and inspect the closed record and export. SAY: “Managers see a recorded close, not a changing estimate.” Closed shifts cannot accept new sales or returns. Card-provider settlements are external and are not reconciled by this current cash report. Complete returns before closing the shift.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/components/pos/management-pages.tsx\n[/Sources]"}
+{"kind":"slide","id":"sl/s9ugmh","slide":12,"title":"04 + 05 / PROPOSED NEXT CAPABILITIES","textShapes":19}
+{"kind":"textbox","id":"sh/h8jm5sru","slide":12,"name":"text-263","text":"04 + 05 / PROPOSED NEXT CAPABILITIES","textPreview":"04 + 05 / PROPOSED NEXT CAPABILITIES","textChars":36,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/u5s3ud83","slide":12,"name":"text-264","text":"Connect replenishment and reseller sales","textPreview":"Connect replenishment and reseller sales","textChars":40,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/f61k3i9o","slide":12,"name":"rule-265","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/4vul0nq5","slide":12,"name":"text-266","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/pw3m9srq","slide":12,"name":"text-267","text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/29s3yd8z","slide":12,"name":"text-268","text":"PURCHASING & VENDORS","textPreview":"PURCHASING & VENDORS","textChars":20,"textLines":1,"bbox":[72,260,680,45]}
+{"kind":"textbox","id":"sh/3a147i9k","slide":12,"name":"text-269","text":"WHOLESALE & B2B PORTAL","textPreview":"WHOLESALE & B2B PORTAL","textChars":22,"textLines":1,"bbox":[870,260,658,45]}
+{"kind":"shape","id":"sh/kzqlo3a1","slide":12,"name":"edge-270","bbox":[400,432.5,24,1]}
+{"kind":"textbox","id":"sh/50z2x8rm","slide":12,"name":"text-271","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[405,410.5,20,42]}
+{"kind":"shape","id":"sh/hgjapcr2","slide":12,"name":"surface-272","bbox":[72,355,328,155]}
+{"kind":"textbox","id":"sh/gfa9w7ah","slide":12,"name":"text-273","text":"Order","textPreview":"Order","textChars":5,"textLines":1,"bbox":[94,373,284,44]}
+{"kind":"textbox","id":"sh/ve18n29c","slide":12,"name":"text-274","text":"Vendor pricing\nand terms","textPreview":"Vendor pricing | and terms","textChars":24,"textLines":2,"bbox":[94,420,284,85]}
+{"kind":"shape","id":"sh/utsruxsr","slide":12,"name":"surface-275","bbox":[424,355,328,155]}
+{"kind":"textbox","id":"sh/5k3atwre","slide":12,"name":"text-276","text":"Receive","textPreview":"Receive","textChars":7,"textLines":1,"bbox":[446,373,284,44]}
+{"kind":"textbox","id":"sh/4ju90rat","slide":12,"name":"text-277","text":"Match goods\nto the PO","textPreview":"Match goods | to the PO","textChars":21,"textLines":2,"bbox":[446,420,284,85]}
+{"kind":"shape","id":"sh/3ilsrm98","slide":12,"name":"edge-278","bbox":[1187,432.5,24,1]}
+{"kind":"textbox","id":"sh/ihcryhsn","slide":12,"name":"text-279","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[1192,410.5,20,42]}
+{"kind":"shape","id":"sh/do3axwra","slide":12,"name":"surface-280","bbox":[870,355,317,155]}
+{"kind":"textbox","id":"sh/snu94rap","slide":12,"name":"text-281","text":"Reseller","textPreview":"Reseller","textChars":8,"textLines":1,"bbox":[892,373,273,44]}
+{"kind":"textbox","id":"sh/c3mlgzmd","slide":12,"name":"text-282","text":"Approved access\nand price terms","textPreview":"Approved access | and price terms","textChars":31,"textLines":2,"bbox":[892,420,273,85]}
+{"kind":"shape","id":"sh/x4v2p43y","slide":12,"name":"surface-283","bbox":[1211,355,317,155]}
+{"kind":"textbox","id":"sh/a143ep47","slide":12,"name":"text-284","text":"Order","textPreview":"Order","textChars":5,"textLines":1,"bbox":[1233,373,273,44]}
+{"kind":"textbox","id":"sh/b2dknuls","slide":12,"name":"text-285","text":"Self-service\nB2B ordering","textPreview":"Self-service | B2B ordering","textChars":25,"textLines":2,"bbox":[1233,420,273,85]}
+{"kind":"textbox","id":"sh/k76lkzm9","slide":12,"name":"text-286","text":"Bills, purchase returns and vendor credits\ncreate an accountable buying trail.","textPreview":"Bills, purchase returns and vendor credits | create an accountable buying trail.","textChars":78,"textLines":2,"bbox":[72,552,680,124]}
+{"kind":"textbox","id":"sh/lsf2t43u","slide":12,"name":"text-287","text":"Shared catalog and inventory support\na consistent reseller experience.","textPreview":"Shared catalog and inventory support | a consistent reseller experience.","textChars":70,"textLines":2,"bbox":[870,552,658,124]}
+{"kind":"shape","id":"sh/y543i943","slide":12,"name":"rule-288","bbox":[72,728,60,2]}
+{"kind":"textbox","id":"sh/z6xkrelo","slide":12,"name":"text-289","text":"Detailed B2B pricing, approvals and order rules are confirmed during discovery.","textPreview":"Detailed B2B pricing, approvals and order rules are confirmed during discovery.","textChars":79,"textLines":1,"bbox":[72,745,1456,74]}
+{"kind":"notes","id":"nt/s9ugmh","slide":12,"text":"These are roadmap modules. Purchasing scope in the proposal includes POs, goods received, vendor prices/terms/bills, history, suggested reorder quantities and vendor credit adjustments. The supplied PDF identifies Module 05 and the reseller network but does not include a dedicated detailed B2B page. Self-service ordering is named in the implemented roadmap sidebar; finer B2B workflows shown here are proposed for validation, not agreed commitments. Ask about minimum order quantities, credit limits, approvals and negotiated pricing.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (pages 2, 4, 11)\nD:/echo-work/flair-perfumes/components/shell/app-shell.tsx\n[/Sources]"}
+{"kind":"slide","id":"sl/lkgevb","slide":13,"title":"06 / E-COMMERCE HUB — PLANNED","textShapes":20}
+{"kind":"textbox","id":"sh/l0zipsbe","slide":13,"name":"text-290","text":"06 / E-COMMERCE HUB — PLANNED","textPreview":"06 / E-COMMERCE HUB — PLANNED","textChars":29,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/yx8jedcn","slide":13,"name":"text-291","text":"Online orders use the same stock foundation","textPreview":"Online orders use the same stock foundation","textChars":43,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/jyh0nit8","slide":13,"name":"rule-292","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/83q1knup","slide":13,"name":"text-293","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/t4j2tsba","slide":13,"name":"text-294","text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/618jixcz","slide":13,"name":"text-295","text":"Shopify   •   WooCommerce   •   eBay   •   TikTok Shop   •   Whatnot","textPreview":"Shopify   •   WooCommerce   •   eBay   •   TikTok Shop   •   Whatnot","textChars":68,"textLines":1,"bbox":[72,243,1456,65]}
+{"kind":"shape","id":"sh/72h0r2t4","slide":13,"name":"edge-296","bbox":[416.5,451,26,1]}
+{"kind":"textbox","id":"sh/gra1o7u1","slide":13,"name":"text-297","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[421.5,429,22,42]}
+{"kind":"shape","id":"sh/hsj2xcbm","slide":13,"name":"edge-298","bbox":[787,451,26,1]}
+{"kind":"textbox","id":"sh/hkjqhwfq","slide":13,"name":"text-299","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[792,429,22,42]}
+{"kind":"shape","id":"sh/gjap8ry5","slide":13,"name":"edge-300","bbox":[1157.5,451,26,1]}
+{"kind":"textbox","id":"sh/vy1ofmhk","slide":13,"name":"text-301","text":"›","textPreview":"›","textChars":1,"textLines":1,"bbox":[1162.5,429,22,42]}
+{"kind":"shape","id":"sh/uxs76hgf","slide":13,"name":"surface-302","bbox":[72,365,344.5,172]}
+{"kind":"textbox","id":"sh/po3qlgf2","slide":13,"name":"text-303","text":"Channel order","textPreview":"Channel order","textChars":13,"textLines":1,"bbox":[94,383,300.5,44]}
+{"kind":"textbox","id":"sh/4nupcbyh","slide":13,"name":"text-304","text":"Order, pricing\nand stock signals","textPreview":"Order, pricing | and stock signals","textChars":32,"textLines":2,"bbox":[94,430,300.5,102]}
+{"kind":"shape","id":"sh/3ml8j6xw","slide":13,"name":"surface-305","bbox":[442.5,365,344.5,172]}
+{"kind":"textbox","id":"sh/ilc7a1gb","slide":13,"name":"text-306","text":"Allocate","textPreview":"Allocate","textChars":8,"textLines":1,"bbox":[464.5,383,300.5,44]}
+{"kind":"textbox","id":"sh/lsz69czi","slide":13,"name":"text-307","text":"Check dedicated\ne-commerce stock","textPreview":"Check dedicated | e-commerce stock","textChars":32,"textLines":2,"bbox":[464.5,430,300.5,102]}
+{"kind":"shape","id":"sh/krqp07yx","slide":13,"name":"surface-308","bbox":[813,365,344.5,172]}
+{"kind":"textbox","id":"sh/wnehcba5","slide":13,"name":"text-309","text":"Fallback","textPreview":"Fallback","textChars":8,"textLines":1,"bbox":[835,383,300.5,44]}
+{"kind":"textbox","id":"sh/xony5gbq","slide":13,"name":"text-310","text":"Pull from main\nwarehouse if needed","textPreview":"Pull from main | warehouse if needed","textChars":34,"textLines":2,"bbox":[835,430,300.5,102]}
+{"kind":"shape","id":"sh/alwza1sz","slide":13,"name":"surface-311","bbox":[1183.5,365,344.5,172]}
+{"kind":"textbox","id":"sh/bm5g36tk","slide":13,"name":"text-312","text":"Fulfill & sync","textPreview":"Fulfill & sync","textChars":14,"textLines":1,"bbox":[1205.5,383,300.5,44]}
+{"kind":"textbox","id":"sh/kbehgbah","slide":13,"name":"text-313","text":"Update status\nand availability","textPreview":"Update status | and availability","textChars":30,"textLines":2,"bbox":[1205.5,430,300.5,102]}
+{"kind":"textbox","id":"sh/lc7y9gbm","slide":13,"name":"text-314","text":"Client-defined allocation rules","textPreview":"Client-defined allocation rules","textChars":31,"textLines":1,"bbox":[72,600,670,52]}
+{"kind":"textbox","id":"sh/ypwzelsb","slide":13,"name":"text-315","text":"Decide which SKUs live in each warehouse.","textPreview":"Decide which SKUs live in each warehouse.","textChars":41,"textLines":1,"bbox":[72,667,710,94]}
+{"kind":"textbox","id":"sh/ja5g76tw","slide":13,"name":"text-316","text":"Connection readiness","textPreview":"Connection readiness","textChars":20,"textLines":1,"bbox":[885,600,643,52]}
+{"kind":"textbox","id":"sh/8fyhkvad","slide":13,"name":"text-317","text":"Validate seller access and supported sync\nfor each channel before rollout.","textPreview":"Validate seller access and supported sync | for each channel before rollout.","textChars":74,"textLines":2,"bbox":[885,667,643,94]}
+{"kind":"notes","id":"nt/lkgevb","slide":13,"text":"This is the target scope from the proposal, not evidence of live integrations. Do not assert current API capability, instant synchronization or universal approval. Each seller account, region, platform permission, API behavior and sync cadence must be validated during discovery. Where direct access is restricted, agree a controlled import/export approach and its limitations. The dedicated e-commerce warehouse checks stock first, with main-warehouse fallback according to agreed allocation rules. Ask which channel should be connected first and who owns seller access.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (pages 12–13, 20)\nD:/echo-work/flair-perfumes/README.md\n[/Sources]"}
+{"kind":"slide","id":"sl/lhepo3","slide":14,"title":"07 / REPORTS & DASHBOARDS — PLANNED","textShapes":12}
+{"kind":"textbox","id":"sh/zip4v29g","slide":14,"name":"text-318","text":"07 / REPORTS & DASHBOARDS — PLANNED","textPreview":"07 / REPORTS & DASHBOARDS — PLANNED","textChars":35,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/kjyl47a1","slide":14,"name":"text-319","text":"See what each channel actually contributes","textPreview":"See what each channel actually contributes","textChars":42,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/lk7mxsrm","slide":14,"name":"rule-320","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/atw3ydsz","slide":14,"name":"text-321","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/bu54ri9k","slide":14,"name":"text-322","text":"14","textPreview":"14","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/cvel0na5","slide":14,"name":"text-323","text":"Order contribution","textPreview":"Order contribution","textChars":18,"textLines":1,"bbox":[72,248,1456,77]}
+{"kind":"textbox","id":"sh/xwnmtsrq","slide":14,"name":"text-324","text":"Sales − discounts − refunds − channel fees\n− shipping cost − product cost","textPreview":"Sales − discounts − refunds − channel fees | − shipping cost − product cost","textChars":73,"textLines":2,"bbox":[72,351,1456,126]}
+{"kind":"shape","id":"sh/up0nah8j","slide":14,"name":"rule-325","bbox":[72,512,1456,2]}
+{"kind":"shape","id":"sh/vq943m9o","slide":14,"name":"rule-326","bbox":[72,557,424,2]}
+{"kind":"textbox","id":"sh/bip0f6pg","slide":14,"name":"text-327","text":"Compare","textPreview":"Compare","textChars":7,"textLines":1,"bbox":[72,581,424,84]}
+{"kind":"textbox","id":"sh/ahgzm1ob","slide":14,"name":"text-328","text":"Order • channel • brand\nRetail vs. wholesale","textPreview":"Order • channel • brand | Retail vs. wholesale","textChars":44,"textLines":2,"bbox":[72,686,424,104]}
+{"kind":"shape","id":"sh/x4rihg7m","slide":14,"name":"rule-329","bbox":[564,557,424,2]}
+{"kind":"textbox","id":"sh/c3yhob61","slide":14,"name":"text-330","text":"Spot exceptions","textPreview":"Spot exceptions","textChars":15,"textLines":1,"bbox":[564,581,424,84]}
+{"kind":"textbox","id":"sh/z690j6ps","slide":14,"name":"text-331","text":"Slow stock • weak contribution\nReturns • reconciliation gaps","textPreview":"Slow stock • weak contribution | Returns • reconciliation gaps","textChars":60,"textLines":2,"bbox":[564,686,424,104]}
+{"kind":"shape","id":"sh/y50zqlo7","slide":14,"name":"rule-332","bbox":[1056,557,424,2]}
+{"kind":"textbox","id":"sh/l8rilg7y","slide":14,"name":"text-333","text":"Act","textPreview":"Act","textChars":3,"textLines":1,"bbox":[1056,581,424,84]}
+{"kind":"textbox","id":"sh/k7ihsb6d","slide":14,"name":"text-334","text":"Adjust buying, pricing\nand channel priorities","textPreview":"Adjust buying, pricing | and channel priorities","textChars":45,"textLines":2,"bbox":[1056,686,424,104]}
+{"kind":"notes","id":"nt/lhepo3","slide":14,"text":"The source proposal labels this formula Net Profit. Present it more precisely as order contribution because company overheads, financing and income tax may sit outside it. It is not the company’s final net income. Module 07 is planned and depends on all operational sales/purchase feeds; profitability requires reliable fee, shipping and cost capture. Map payout timing and each channel’s cost fields before defining dashboards. No illustrative revenue or ROI claims are used.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (pages 14–15)\n[/Sources]"}
+{"kind":"slide","id":"sl/p04ybe","slide":15,"title":"08 / SMART DEMAND FORECASTING — PLANNED","textShapes":15}
+{"kind":"textbox","id":"sh/c7a1cjat","slide":15,"name":"text-335","text":"08 / SMART DEMAND FORECASTING — PLANNED","textPreview":"08 / SMART DEMAND FORECASTING — PLANNED","textChars":39,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/b61kjet8","slide":15,"name":"text-336","text":"Turn demand history into a buying plan","textPreview":"Turn demand history into a buying plan","textChars":38,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/a5sja9s3","slide":15,"name":"rule-337","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/lw32pobq","slide":15,"name":"text-338","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/kba1gja5","slide":15,"name":"text-339","text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/za1knetk","slide":15,"name":"text-340","text":"What to buy. How much. When.","textPreview":"What to buy. How much. When.","textChars":28,"textLines":1,"bbox":[72,224,1456,91]}
+{"kind":"shape","id":"sh/y9sje9sz","slide":15,"name":"edge-341","bbox":[72,389,1456,1]}
+{"kind":"textbox","id":"sh/1gz2dkb6","slide":15,"name":"text-342","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[72,334,400,55]}
+{"kind":"textbox","id":"sh/0fq14zal","slide":15,"name":"text-343","text":"Read demand","textPreview":"Read demand","textChars":11,"textLines":1,"bbox":[72,433,432,50]}
+{"kind":"textbox","id":"sh/a5sfy9cr","slide":15,"name":"text-344","text":"30 / 60 / 90-day sales\nand inventory history","textPreview":"30 / 60 / 90-day sales | and inventory history","textChars":44,"textLines":2,"bbox":[72,510,432,139]}
+{"kind":"textbox","id":"sh/b61gretw","slide":15,"name":"text-345","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[584,334,400,55]}
+{"kind":"textbox","id":"sh/w7ax0juh","slide":15,"name":"text-346","text":"Recommend","textPreview":"Recommend","textChars":9,"textLines":1,"bbox":[584,433,432,50]}
+{"kind":"textbox","id":"sh/x8jytob2","slide":15,"name":"text-347","text":"Reorder quantities, safety\nstock and seasonal needs","textPreview":"Reorder quantities, safety | stock and seasonal needs","textChars":51,"textLines":2,"bbox":[584,510,432,139]}
+{"kind":"textbox","id":"sh/y9cf2tcn","slide":15,"name":"text-348","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1096,334,400,55]}
+{"kind":"textbox","id":"sh/jalgvyt8","slide":15,"name":"text-349","text":"Decide","textPreview":"Decide","textChars":6,"textLines":1,"bbox":[1096,433,432,50]}
+{"kind":"textbox","id":"sh/kbux43ut","slide":15,"name":"text-350","text":"Buyer reviews and approves\nthe replenishment plan","textPreview":"Buyer reviews and approves | the replenishment plan","textChars":49,"textLines":2,"bbox":[1096,510,432,139]}
+{"kind":"textbox","id":"sh/lc3yx8be","slide":15,"name":"text-351","text":"Better recommendations begin with reliable stock and sales-channel data.","textPreview":"Better recommendations begin with reliable stock and sales-channel data.","textChars":72,"textLines":1,"bbox":[72,723,1456,70]}
+{"kind":"notes","id":"nt/p04ybe","slide":15,"text":"Position this as the flagship proposed capability. SAY: “The goal is to turn recurring spreadsheet review into a ranked buying recommendation your team can inspect.” Inputs must include sufficient sales history, stock accuracy, lead-time assumptions and relevant channel feeds. Keep buyer review in the loop; do not promise zero manual work, perfect forecasts or guaranteed savings. Agree how to evaluate recommendations and measure forecast error before production use. Depends on Modules 02 and 06 in the supplied scope.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (pages 6–7, 16)\n[/Sources]"}
+{"kind":"slide","id":"sl/9mg9f7","slide":16,"title":"09 / ACCOUNTING & FINANCE — PLANNED","textShapes":13}
+{"kind":"textbox","id":"sh/d0jidcvq","slide":16,"name":"text-352","text":"09 / ACCOUNTING & FINANCE — PLANNED","textPreview":"09 / ACCOUNTING & FINANCE — PLANNED","textChars":35,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/qxsjihcf","slide":16,"name":"text-353","text":"Bring finance closer to daily operations","textPreview":"Bring finance closer to daily operations","textChars":40,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/by10bmd0","slide":16,"name":"rule-354","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/ova1g7u9","slide":16,"name":"text-355","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/pwji9cvu","slide":16,"name":"text-356","text":"16","textPreview":"16","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/2tsjexc3","slide":16,"name":"edge-357","bbox":[554,461,68,1]}
+{"kind":"shape","id":"sh/3u1072do","slide":16,"name":"edge-358","bbox":[554,318,1,143]}
+{"kind":"shape","id":"sh/8ru1sbud","slide":16,"name":"edge-359","bbox":[490,318,64,1]}
+{"kind":"shape","id":"sh/9sn2lwvy","slide":16,"name":"edge-360","bbox":[554,461,68,1]}
+{"kind":"shape","id":"sh/50be54ji","slide":16,"name":"edge-361","bbox":[554,461,1,185]}
+{"kind":"shape","id":"sh/4z2dwjix","slide":16,"name":"edge-362","bbox":[490,646,64,1]}
+{"kind":"shape","id":"sh/jytw3e1s","slide":16,"name":"edge-363","bbox":[978,461,68,1]}
+{"kind":"shape","id":"sh/ixkvu907","slide":16,"name":"edge-364","bbox":[1046,318,1,143]}
+{"kind":"shape","id":"sh/hwbe14jm","slide":16,"name":"edge-365","bbox":[1046,318,64,1]}
+{"kind":"shape","id":"sh/wv2dszi1","slide":16,"name":"edge-366","bbox":[978,461,68,1]}
+{"kind":"shape","id":"sh/vutwzu1g","slide":16,"name":"edge-367","bbox":[1046,461,1,185]}
+{"kind":"shape","id":"sh/ut0vqp0v","slide":16,"name":"edge-368","bbox":[1046,646,64,1]}
+{"kind":"shape","id":"sh/1svedojq","slide":16,"name":"surface-369","bbox":[622,394,356,134]}
+{"kind":"textbox","id":"sh/0rmx43i5","slide":16,"name":"text-370","text":"OPERATIONAL\nRECORD → BOOKS","textPreview":"OPERATIONAL | RECORD → BOOKS","textChars":26,"textLines":2,"bbox":[642,424,316,94]}
+{"kind":"textbox","id":"sh/k7epwrut","slide":16,"name":"text-371","text":"Customer side","textPreview":"Customer side","textChars":13,"textLines":1,"bbox":[72,268,418,48]}
+{"kind":"textbox","id":"sh/l8nqpwbe","slide":16,"name":"text-372","text":"Invoices, receivables, refunds\nand customer credit notes","textPreview":"Invoices, receivables, refunds | and customer credit notes","textChars":56,"textLines":2,"bbox":[72,321,418,84]}
+{"kind":"textbox","id":"sh/ylw7u1cn","slide":16,"name":"text-373","text":"Vendor side","textPreview":"Vendor side","textChars":11,"textLines":1,"bbox":[72,596,418,48]}
+{"kind":"textbox","id":"sh/z65on6t8","slide":16,"name":"text-374","text":"Bills, payables, purchase returns\nand vendor credits","textPreview":"Bills, payables, purchase returns | and vendor credits","textChars":52,"textLines":2,"bbox":[72,649,418,84]}
+{"kind":"textbox","id":"sh/cjepsruh","slide":16,"name":"text-375","text":"Financial control","textPreview":"Financial control","textChars":17,"textLines":1,"bbox":[1110,268,418,48]}
+{"kind":"textbox","id":"sh/xkn6lwb2","slide":16,"name":"text-376","text":"General ledger, bank reconciliation\nand sales-tax workflows","textPreview":"General ledger, bank reconciliation | and sales-tax workflows","textChars":59,"textLines":2,"bbox":[1110,321,418,84]}
+{"kind":"textbox","id":"sh/ahc7qhcr","slide":16,"name":"text-377","text":"Management view","textPreview":"Management view","textChars":15,"textLines":1,"bbox":[1110,596,418,48]}
+{"kind":"textbox","id":"sh/bi5ojmtw","slide":16,"name":"text-378","text":"P&L, Balance Sheet, payroll entries\nand post-dated check tracking","textPreview":"P&L, Balance Sheet, payroll entries | and post-dated check tracking","textChars":65,"textLines":2,"bbox":[1110,649,418,84]}
+{"kind":"notes","id":"nt/9mg9f7","slide":16,"text":"All accounting capabilities are planned. The intended result is operational transactions feeding agreed accounting mappings. Scope includes basic payroll entries, not a complete payroll service. PDCs cover customer and vendor checks, due/clearance dates, pending/due-soon/cleared/bounced statuses and reminders. Confirm chart of accounts, opening balances, tax rules, cutoffs and accounting ownership with the client’s finance lead. POS customer store credit today is not yet a full accounts-receivable ledger.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (pages 17–19)\nD:/echo-work/flair-perfumes/README.md\n[/Sources]"}
+{"kind":"slide","id":"sl/jqbixb","slide":17,"title":"CUSTOMER HANDOVER / PROPOSED ACCEPTANCE PACKAGE","textShapes":13}
+{"kind":"textbox","id":"sh/gvy94r6p","slide":17,"name":"text-379","text":"CUSTOMER HANDOVER / PROPOSED ACCEPTANCE PACKAGE","textPreview":"CUSTOMER HANDOVER / PROPOSED ACCEPTANCE PACKAGE","textChars":47,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/fupsbmp4","slide":17,"name":"text-380","text":"What your team receives at completion","textPreview":"What your team receives at completion","textChars":37,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/utgr2h8j","slide":17,"name":"rule-381","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/ts7a9c7y","slide":17,"name":"text-382","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/sre907qd","slide":17,"name":"text-383","text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/7q5s72ps","slide":17,"name":"edge-384","bbox":[554,461,68,1]}
+{"kind":"shape","id":"sh/6pwryx87","slide":17,"name":"edge-385","bbox":[554,318,1,143]}
+{"kind":"shape","id":"sh/doralg72","slide":17,"name":"edge-386","bbox":[490,318,64,1]}
+{"kind":"shape","id":"sh/cnitcb6h","slide":17,"name":"edge-387","bbox":[554,461,68,1]}
+{"kind":"shape","id":"sh/29g729wf","slide":17,"name":"edge-388","bbox":[554,461,1,185]}
+{"kind":"shape","id":"sh/na98vex0","slide":17,"name":"edge-389","bbox":[490,646,64,1]}
+{"kind":"shape","id":"sh/obip4jel","slide":17,"name":"edge-390","bbox":[978,461,68,1]}
+{"kind":"shape","id":"sh/pcrqxof6","slide":17,"name":"edge-391","bbox":[1046,318,1,143]}
+{"kind":"shape","id":"sh/elg7y9wj","slide":17,"name":"edge-392","bbox":[1046,318,64,1]}
+{"kind":"shape","id":"sh/fmp8rex4","slide":17,"name":"edge-393","bbox":[978,461,68,1]}
+{"kind":"shape","id":"sh/0nyp0je9","slide":17,"name":"edge-394","bbox":[1046,461,1,185]}
+{"kind":"shape","id":"sh/1o7qt4fu","slide":17,"name":"edge-395","bbox":[1046,646,64,1]}
+{"kind":"shape","id":"sh/yhkratwn","slide":17,"name":"surface-396","bbox":[622,394,356,134]}
+{"kind":"textbox","id":"sh/zit83yx8","slide":17,"name":"text-397","text":"YOUR ERP\nREADY TO RUN","textPreview":"YOUR ERP | READY TO RUN","textChars":21,"textLines":2,"bbox":[642,424,316,94]}
+{"kind":"textbox","id":"sh/vml4vqdk","slide":17,"name":"text-398","text":"Configured platform","textPreview":"Configured platform","textChars":19,"textLines":1,"bbox":[72,268,418,48]}
+{"kind":"textbox","id":"sh/ulcn2lcz","slide":17,"name":"text-399","text":"Nine agreed modules\nRoles, locations and workflows","textPreview":"Nine agreed modules | Roles, locations and workflows","textChars":50,"textLines":2,"bbox":[72,321,418,84]}
+{"kind":"textbox","id":"sh/ho3mx0vq","slide":17,"name":"text-400","text":"Connected information","textPreview":"Connected information","textChars":21,"textLines":1,"bbox":[72,596,418,48]}
+{"kind":"textbox","id":"sh/gnu54vu5","slide":17,"name":"text-401","text":"Approved migration and channel feeds\nValidated balances and records","textPreview":"Approved migration and channel feeds | Validated balances and records","textChars":67,"textLines":2,"bbox":[72,649,418,84]}
+{"kind":"textbox","id":"sh/3q54zadw","slide":17,"name":"text-402","text":"Operational visibility","textPreview":"Operational visibility","textChars":22,"textLines":1,"bbox":[1110,268,418,48]}
+{"kind":"textbox","id":"sh/ipcn65cb","slide":17,"name":"text-403","text":"Reports, exports and traceable\nstock, sales and financial activity","textPreview":"Reports, exports and traceable | stock, sales and financial activity","textChars":66,"textLines":2,"bbox":[1110,321,418,84]}
+{"kind":"textbox","id":"sh/5snm10vm","slide":17,"name":"text-404","text":"Ready-to-run handover","textPreview":"Ready-to-run handover","textChars":21,"textLines":1,"bbox":[1110,596,418,48]}
+{"kind":"textbox","id":"sh/4re58fu1","slide":17,"name":"text-405","text":"Training, operating guides, access\nand agreed recovery procedures","textPreview":"Training, operating guides, access | and agreed recovery procedures","textChars":65,"textLines":2,"bbox":[1110,649,418,84]}
+{"kind":"notes","id":"nt/jqbixb","slide":17,"text":"The nine-module platform is the source proposal scope. The handover package is our proposed completion checklist and must be confirmed in the implementation agreement: configuration, agreed migration, integrations, acceptance evidence, training, guides, administrator access and tested recovery procedures. Do not promise unlimited support, hosting, source-code/IP ownership or a maintenance SLA without agreement. The proposal states that post-implementation maintenance and support are quoted separately.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (pages 4, 21–22)\nD:/echo-work/flair-perfumes/README.md\n[/Sources]"}
+{"kind":"slide","id":"sl/s1s8ah","slide":18,"title":"ROLLOUT / THREE DELIVERY GATES","textShapes":11}
+{"kind":"textbox","id":"sh/kvi5oji1","slide":18,"name":"text-406","text":"ROLLOUT / THREE DELIVERY GATES","textPreview":"ROLLOUT / THREE DELIVERY GATES","textChars":30,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/jup4ve1g","slide":18,"name":"text-407","text":"Deliver in phases. Validate before expanding.","textPreview":"Deliver in phases. Validate before expanding.","textChars":45,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/ytgnmt0v","slide":18,"name":"rule-408","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/xs7mtoja","slide":18,"name":"text-409","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/wry5kj2p","slide":18,"name":"text-410","text":"18","textPreview":"18","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/bqp4re14","slide":18,"name":"rule-411","bbox":[72,275,424,2]}
+{"kind":"textbox","id":"sh/apgni9kj","slide":18,"name":"text-412","text":"01  Operate","textPreview":"01  Operate","textChars":11,"textLines":1,"bbox":[72,299,424,84]}
+{"kind":"textbox","id":"sh/947mp4je","slide":18,"name":"text-413","text":"Setup • inventory • POS\nPurchasing & vendors\n\nGate: stock, sale, return\nand buying flows accepted.","textPreview":"Setup • inventory • POS | Purchasing & vendors |  | Gate: stock, sale, return | and buying flows accepted.","textChars":98,"textLines":5,"bbox":[72,404,424,270]}
+{"kind":"shape","id":"sh/o3y5gz2t","slide":18,"name":"rule-414","bbox":[564,275,424,2]}
+{"kind":"textbox","id":"sh/uh4b6hsr","slide":18,"name":"text-415","text":"02  Expand","textPreview":"02  Expand","textChars":10,"textLines":1,"bbox":[564,299,424,84]}
+{"kind":"textbox","id":"sh/fidsfmtw","slide":18,"name":"text-416","text":"Wholesale • e-commerce\nReports & dashboards\n\nGate: channel orders, stock\nand cost data reconcile.","textPreview":"Wholesale • e-commerce | Reports & dashboards |  | Gate: channel orders, stock | and cost data reconcile.","textChars":97,"textLines":5,"bbox":[564,404,424,270]}
+{"kind":"shape","id":"sh/gjmt87ah","slide":18,"name":"rule-417","bbox":[1056,275,424,2]}
+{"kind":"textbox","id":"sh/hkvahcb2","slide":18,"name":"text-418","text":"03  Optimize","textPreview":"03  Optimize","textChars":12,"textLines":1,"bbox":[1056,299,424,84]}
+{"kind":"textbox","id":"sh/6tkb2xsf","slide":18,"name":"text-419","text":"Forecasting • finance\n\nGate: buying recommendations\nand financial outputs\nvalidated by business owners.","textPreview":"Forecasting • finance |  | Gate: buying recommendations | and financial outputs | validated by business owners.","textChars":103,"textLines":5,"bbox":[1056,404,424,270]}
+{"kind":"shape","id":"sh/7etsb2t0","slide":18,"name":"rule-420","bbox":[72,729,60,2]}
+{"kind":"textbox","id":"sh/sf2t47al","slide":18,"name":"text-421","text":"Dates and investment follow confirmed scope, data readiness and integration access.","textPreview":"Dates and investment follow confirmed scope, data readiness and integration access.","textChars":83,"textLines":1,"bbox":[72,746,1456,74]}
+{"kind":"notes","id":"nt/s1s8ah","slide":18,"text":"The three phases reproduce the source proposal. Current demo covers portions of Phase 1; purchasing and production readiness remain to be completed. Recommend a controlled pilot, migration rehearsal, reconciled opening balances, trained users and business sign-off before broad rollout. Agree a rollback/recovery procedure. Do not invent weeks, launch dates, pricing or percentages. Client prerequisites include data, access and business process decisions.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (pages 4, 21–22)\nD:/echo-work/flair-perfumes/README.md\n[/Sources]"}
+{"kind":"slide","id":"sl/di3yy0","slide":19,"title":"EXPECTED BENEFITS / VALIDATE THROUGH THE PILOT","textShapes":22}
+{"kind":"textbox","id":"sh/0r6t4bip","slide":19,"name":"text-422","text":"EXPECTED BENEFITS / VALIDATE THROUGH THE PILOT","textPreview":"EXPECTED BENEFITS / VALIDATE THROUGH THE PILOT","textChars":46,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/fqdcb6h4","slide":19,"name":"text-423","text":"Measure the change that matters to the business","textPreview":"Measure the change that matters to the business","textChars":47,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/ep4b210j","slide":19,"name":"rule-424","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/pwfuhgz6","slide":19,"name":"text-425","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/ov6t8bil","slide":19,"name":"text-426","text":"19","textPreview":"19","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/nuxcf6h0","slide":19,"name":"text-427","text":"BUSINESS AREA","textPreview":"BUSINESS AREA","textChars":13,"textLines":1,"bbox":[72,252,335,42]}
+{"kind":"textbox","id":"sh/2tob610f","slide":19,"name":"text-428","text":"INTENDED BENEFIT","textPreview":"INTENDED BENEFIT","textChars":16,"textLines":1,"bbox":[465,252,490,42]}
+{"kind":"textbox","id":"sh/50va5czm","slide":19,"name":"text-429","text":"MEASURE TO AGREE","textPreview":"MEASURE TO AGREE","textChars":16,"textLines":1,"bbox":[1015,252,513,42]}
+{"kind":"shape","id":"sh/4z2twrih","slide":19,"name":"rule-430","bbox":[72,309,1456,2]}
+{"kind":"textbox","id":"sh/25cvyxsb","slide":19,"name":"text-431","text":"Stock confidence","textPreview":"Stock confidence","textChars":16,"textLines":1,"bbox":[72,322,335,67]}
+{"kind":"textbox","id":"sh/n6lcr2tw","slide":19,"name":"text-432","text":"Fewer stock discrepancies","textPreview":"Fewer stock discrepancies","textChars":25,"textLines":1,"bbox":[465,322,490,67]}
+{"kind":"textbox","id":"sh/o7ud07ah","slide":19,"name":"text-433","text":"Count accuracy; oversell exceptions","textPreview":"Count accuracy; oversell exceptions","textChars":35,"textLines":1,"bbox":[1015,322,513,70]}
+{"kind":"shape","id":"sh/p83utcb2","slide":19,"name":"rule-434","bbox":[72,397,1456,2]}
+{"kind":"textbox","id":"sh/atcv2hsn","slide":19,"name":"text-435","text":"Counter efficiency","textPreview":"Counter efficiency","textChars":18,"textLines":1,"bbox":[72,410,335,67]}
+{"kind":"textbox","id":"sh/bulwv2t8","slide":19,"name":"text-436","text":"Smoother customer service","textPreview":"Smoother customer service","textChars":25,"textLines":1,"bbox":[465,410,490,67]}
+{"kind":"textbox","id":"sh/cved47at","slide":19,"name":"text-437","text":"Checkout time; return handling time","textPreview":"Checkout time; return handling time","textChars":35,"textLines":1,"bbox":[1015,410,513,70]}
+{"kind":"shape","id":"sh/xwnexcby","slide":19,"name":"rule-438","bbox":[72,485,1456,2]}
+{"kind":"textbox","id":"sh/yxwv6hsj","slide":19,"name":"text-439","text":"Cash accountability","textPreview":"Cash accountability","textChars":19,"textLines":1,"bbox":[72,498,335,67]}
+{"kind":"textbox","id":"sh/zy5wzmt4","slide":19,"name":"text-440","text":"Clearer daily close","textPreview":"Clearer daily close","textChars":19,"textLines":1,"bbox":[465,498,490,67]}
+{"kind":"textbox","id":"sh/v2pcnmpc","slide":19,"name":"text-441","text":"Close time; unexplained variance","textPreview":"Close time; unexplained variance","textChars":32,"textLines":1,"bbox":[1015,498,513,70]}
+{"kind":"shape","id":"sh/u1wbeh8r","slide":19,"name":"rule-442","bbox":[72,573,1456,2]}
+{"kind":"textbox","id":"sh/h47upw7i","slide":19,"name":"text-443","text":"Buying quality","textPreview":"Buying quality","textChars":14,"textLines":1,"bbox":[72,586,335,67]}
+{"kind":"textbox","id":"sh/w3ydgrqx","slide":19,"name":"text-444","text":"More informed replenishment","textPreview":"More informed replenishment","textChars":27,"textLines":1,"bbox":[465,586,490,67]}
+{"kind":"textbox","id":"sh/7y5cjmpg","slide":19,"name":"text-445","text":"Stockout days; aged-stock value","textPreview":"Stockout days; aged-stock value","textChars":31,"textLines":1,"bbox":[1015,586,513,70]}
+{"kind":"shape","id":"sh/mxwbah8v","slide":19,"name":"rule-446","bbox":[72,661,1456,2]}
+{"kind":"textbox","id":"sh/90nulc76","slide":19,"name":"text-447","text":"Channel visibility","textPreview":"Channel visibility","textChars":18,"textLines":1,"bbox":[72,674,335,67]}
+{"kind":"textbox","id":"sh/8zetc7ql","slide":19,"name":"text-448","text":"Better commercial decisions","textPreview":"Better commercial decisions","textChars":27,"textLines":1,"bbox":[465,674,490,67]}
+{"kind":"textbox","id":"sh/zalcf2p4","slide":19,"name":"text-449","text":"Orders with complete cost data","textPreview":"Orders with complete cost data","textChars":30,"textLines":1,"bbox":[1015,674,513,70]}
+{"kind":"notes","id":"nt/di3yy0","slide":19,"text":"These are qualitative expected benefits and proposed measures, not achieved results. Capture a baseline before the pilot, agree target improvements with the client and review after an agreed period. Ask: “Which two measures would make this a clear success for you?” Do not quote invented savings or guaranteed ROI.\n\n[Sources]\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (pages 2, 7, 14–16)\nD:/echo-work/flair-perfumes/README.md\n[/Sources]"}
+{"kind":"slide","id":"sl/b2hmxz","slide":20,"title":"DISCUSSION / NEXT DECISIONS","textShapes":17}
+{"kind":"textbox","id":"sh/pszyx8fa","slide":20,"name":"text-450","text":"DISCUSSION / NEXT DECISIONS","textPreview":"DISCUSSION / NEXT DECISIONS","textChars":27,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/258zmtgj","slide":20,"name":"text-451","text":"Let’s agree the first operating milestone","textPreview":"Let’s agree the first operating milestone","textChars":41,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/36hgvyx4","slide":20,"name":"rule-452","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/g36hk3yd","slide":20,"name":"text-453","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/h4fyt8fy","slide":20,"name":"text-454","text":"20","textPreview":"20","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/u1ofitgn","slide":20,"name":"text-455","text":"Start with one location.\nProve one connected flow.","textPreview":"Start with one location. | Prove one connected flow.","textChars":50,"textLines":2,"bbox":[72,249,1456,164]}
+{"kind":"textbox","id":"sh/f2xgryxs","slide":20,"name":"text-456","text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[72,468,85,48]}
+{"kind":"textbox","id":"sh/8z6xgjyh","slide":20,"name":"text-457","text":"Priority","textPreview":"Priority","textChars":8,"textLines":1,"bbox":[175,468,310,48]}
+{"kind":"textbox","id":"sh/t0fypof2","slide":20,"name":"text-458","text":"Which process should improve first?","textPreview":"Which process should improve first?","textChars":35,"textLines":1,"bbox":[530,468,998,54]}
+{"kind":"textbox","id":"sh/dcbyh47m","slide":20,"name":"text-459","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[72,545,85,48]}
+{"kind":"textbox","id":"sh/cb2xoz61","slide":20,"name":"text-460","text":"Pilot","textPreview":"Pilot","textChars":5,"textLines":1,"bbox":[175,545,310,48]}
+{"kind":"textbox","id":"sh/ra9wfupg","slide":20,"name":"text-461","text":"Which location, users and products?","textPreview":"Which location, users and products?","textChars":35,"textLines":1,"bbox":[530,545,998,54]}
+{"kind":"textbox","id":"sh/q90fmpob","slide":20,"name":"text-462","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[72,622,85,48]}
+{"kind":"textbox","id":"sh/p8redk7q","slide":20,"name":"text-463","text":"Readiness","textPreview":"Readiness","textChars":9,"textLines":1,"bbox":[175,622,310,48]}
+{"kind":"textbox","id":"sh/47ixkz65","slide":20,"name":"text-464","text":"Who provides data, rules and channel access?","textPreview":"Who provides data, rules and channel access?","textChars":44,"textLines":1,"bbox":[530,622,998,54]}
+{"kind":"textbox","id":"sh/369wbupk","slide":20,"name":"text-465","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[72,699,85,48]}
+{"kind":"textbox","id":"sh/250fipoz","slide":20,"name":"text-466","text":"Acceptance","textPreview":"Acceptance","textChars":10,"textLines":1,"bbox":[175,699,310,48]}
+{"kind":"textbox","id":"sh/h4re9k7e","slide":20,"name":"text-467","text":"What evidence will confirm success?","textPreview":"What evidence will confirm success?","textChars":35,"textLines":1,"bbox":[530,699,998,54]}
+{"kind":"notes","id":"nt/b2hmxz","slide":20,"text":"CLOSE — Say: “You have seen the operational foundation and the path to a complete ERP. Let’s choose the pilot location and the first outcome we will prove together.” Capture four decisions: priority process, pilot owner/location, data/access owner and acceptance criteria. Then agree the next discovery session. Avoid committing to dates or commercial terms before scope is confirmed. Client-facing presentation ends here. The remaining slides are a presenter playbook and are hidden from normal slideshow playback.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/ERP_Modules.pdf\n[/Sources]"}
+{"kind":"slide","id":"sl/4rvdmv","slide":21,"title":"PRESENTER PLAYBOOK / SUGGESTED 30-MINUTE RUN","textShapes":19}
+{"kind":"textbox","id":"sh/r2l43658","slide":21,"name":"text-468","text":"PRESENTER PLAYBOOK / SUGGESTED 30-MINUTE RUN","textPreview":"PRESENTER PLAYBOOK / SUGGESTED 30-MINUTE RUN","textChars":44,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/s3u5crmt","slide":21,"name":"text-469","text":"Run the meeting as one business story","textPreview":"Run the meeting as one business story","textChars":37,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/d43m5wne","slide":21,"name":"rule-470","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/ids36h4r","slide":21,"name":"text-471","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/3e14zm5c","slide":21,"name":"text-472","text":"21","textPreview":"21","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/4zal8rmx","slide":21,"name":"rule-473","bbox":[72,241,1456,2]}
+{"kind":"textbox","id":"sh/503m1wni","slide":21,"name":"text-474","text":"00–03","textPreview":"00–03","textChars":5,"textLines":1,"bbox":[72,257,220,49]}
+{"kind":"textbox","id":"sh/m9wnil4v","slide":21,"name":"text-475","text":"Discover the priority","textPreview":"Discover the priority","textChars":21,"textLines":1,"bbox":[320,257,490,50]}
+{"kind":"textbox","id":"sh/nu54bqlg","slide":21,"name":"text-476","text":"Open on slides 1–2; ask about their biggest operational bottleneck.","textPreview":"Open on slides 1–2; ask about their biggest operational bottleneck.","textChars":67,"textLines":1,"bbox":[840,257,688,94]}
+{"kind":"shape","id":"sh/zm9kbi5k","slide":21,"name":"rule-477","bbox":[72,346,1456,2]}
+{"kind":"textbox","id":"sh/el0j2d4z","slide":21,"name":"text-478","text":"03–07","textPreview":"03–07","textChars":5,"textLines":1,"bbox":[72,362,220,49]}
+{"kind":"textbox","id":"sh/1or2dsna","slide":21,"name":"text-479","text":"Frame the platform","textPreview":"Frame the platform","textChars":18,"textLines":1,"bbox":[320,362,490,50]}
+{"kind":"textbox","id":"sh/0ni14nm5","slide":21,"name":"text-480","text":"Use slides 3–5 to explain nine modules, today’s demo and the full flow.","textPreview":"Use slides 3–5 to explain nine modules, today’s demo and the full flow.","textChars":71,"textLines":1,"bbox":[840,362,688,94]}
+{"kind":"shape","id":"sh/nq9kf25g","slide":21,"name":"rule-481","bbox":[72,451,1456,2]}
+{"kind":"textbox","id":"sh/mp0j6x4v","slide":21,"name":"text-482","text":"07–20","textPreview":"07–20","textChars":5,"textLines":1,"bbox":[72,467,220,49]}
+{"kind":"textbox","id":"sh/9sb2hs3m","slide":21,"name":"text-483","text":"Demonstrate one SKU","textPreview":"Demonstrate one SKU","textChars":19,"textLines":1,"bbox":[320,467,490,50]}
+{"kind":"textbox","id":"sh/or2187m1","slide":21,"name":"text-484","text":"Setup → catalog → receive → sell → return → close → verify.","textPreview":"Setup → catalog → receive → sell → return → close → verify.","textChars":59,"textLines":1,"bbox":[840,467,688,94]}
+{"kind":"shape","id":"sh/butkj2ls","slide":21,"name":"rule-485","bbox":[72,556,1456,2]}
+{"kind":"textbox","id":"sh/atkjax47","slide":21,"name":"text-486","text":"20–26","textPreview":"20–26","textChars":5,"textLines":1,"bbox":[72,572,220,49]}
+{"kind":"textbox","id":"sh/694ni1of","slide":21,"name":"text-487","text":"Show the completed ERP","textPreview":"Show the completed ERP","textChars":22,"textLines":1,"bbox":[320,572,490,50]}
+{"kind":"textbox","id":"sh/7ax4b650","slide":21,"name":"text-488","text":"Use slides 12–19; emphasize the modules tied to their stated priority.","textPreview":"Use slides 12–19; emphasize the modules tied to their stated priority.","textChars":70,"textLines":1,"bbox":[840,572,688,94]}
+{"kind":"shape","id":"sh/8b65kb65","slide":21,"name":"rule-489","bbox":[72,661,1456,2]}
+{"kind":"textbox","id":"sh/tcfmdgnq","slide":21,"name":"text-490","text":"26–30","textPreview":"26–30","textChars":5,"textLines":1,"bbox":[72,677,220,49]}
+{"kind":"textbox","id":"sh/yl4ne1o3","slide":21,"name":"text-491","text":"Agree the next step","textPreview":"Agree the next step","textChars":19,"textLines":1,"bbox":[320,677,490,50]}
+{"kind":"textbox","id":"sh/jmd476po","slide":21,"name":"text-492","text":"Slide 20: pilot location, owner, inputs and acceptance measures.","textPreview":"Slide 20: pilot location, owner, inputs and acceptance measures.","textChars":64,"textLines":1,"bbox":[840,677,688,94]}
+{"kind":"notes","id":"nt/4rvdmv","slide":21,"text":"Keep the slideshow on slide 5 while introducing the live demo, then switch to the app. Slides 6–11 are supporting explanations and screenshot fallback; do not narrate every slide and then repeat it in the app. Return at slide 12. If time is short, show a 2-unit sale, 1-unit return and stock change; skip transfer and optional pricing views. Customer-facing sequence ends at slide 20.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/ERP_Modules.pdf\n[/Sources]"}
+{"kind":"slide","id":"sl/28dqdi","slide":22,"title":"PRESENTER PLAYBOOK / PRE-FLIGHT","textShapes":11}
+{"kind":"textbox","id":"sh/87et47u9","slide":22,"name":"text-493","text":"PRESENTER PLAYBOOK / PRE-FLIGHT","textPreview":"PRESENTER PLAYBOOK / PRE-FLIGHT","textChars":31,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/n6lsb2to","slide":22,"name":"text-494","text":"Prepare the demo before the customer arrives","textPreview":"Prepare the demo before the customer arrives","textChars":44,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/m5cb2xc3","slide":22,"name":"rule-495","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/l43a9sbi","slide":22,"name":"text-496","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/03ut0nux","slide":22,"name":"text-497","text":"22","textPreview":"22","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/zils7itc","slide":22,"name":"rule-498","bbox":[72,263,424,2]}
+{"kind":"textbox","id":"sh/yhcbyxc7","slide":22,"name":"text-499","text":"Environment","textPreview":"Environment","textChars":11,"textLines":1,"bbox":[72,287,424,84]}
+{"kind":"textbox","id":"sh/dg3a5sbm","slide":22,"name":"text-500","text":"Use a disposable demo dataset.\nConfirm server and login.\nKeep app and deck ready.\nRehearse the exact route.","textPreview":"Use a disposable demo dataset. | Confirm server and login. | Keep app and deck ready. | Rehearse the exact route.","textChars":107,"textLines":4,"bbox":[72,392,424,270]}
+{"kind":"shape","id":"sh/cfutwnu1","slide":22,"name":"rule-501","bbox":[564,263,424,2]}
+{"kind":"textbox","id":"sh/uhcbm9sf","slide":22,"name":"text-502","text":"Scenario","textPreview":"Scenario","textChars":8,"textLines":1,"bbox":[564,287,424,84]}
+{"kind":"textbox","id":"sh/filcvet0","slide":22,"name":"text-503","text":"SKU 10000: Yara Pink.\nHarwin Flagship location.\nOne labeled demo customer.\nRecord opening stock values.","textPreview":"SKU 10000: Yara Pink. | Harwin Flagship location. | One labeled demo customer. | Record opening stock values.","textChars":103,"textLines":4,"bbox":[564,392,424,270]}
+{"kind":"shape","id":"sh/gjutojal","slide":22,"name":"rule-504","bbox":[1056,263,424,2]}
+{"kind":"textbox","id":"sh/hk3uxob6","slide":22,"name":"text-505","text":"Checkout","textPreview":"Checkout","textChars":8,"textLines":1,"bbox":[1056,287,424,84]}
+{"kind":"textbox","id":"sh/6dsbi9sj","slide":22,"name":"text-506","text":"Confirm sample tax settings.\nOpen the demo cashier shift.\nCheck opening cash float.\nTest receipt print preview.","textPreview":"Confirm sample tax settings. | Open the demo cashier shift. | Check opening cash float. | Test receipt print preview.","textChars":111,"textLines":4,"bbox":[1056,392,424,270]}
+{"kind":"shape","id":"sh/7e1cret4","slide":22,"name":"rule-507","bbox":[72,729,60,2]}
+{"kind":"textbox","id":"sh/sfatkja9","slide":22,"name":"text-508","text":"Use demo tender only. Keep business inventory and the client’s live register untouched.","textPreview":"Use demo tender only. Keep business inventory and the client’s live register untouched.","textChars":87,"textLines":1,"bbox":[72,746,1456,74]}
+{"kind":"notes","id":"nt/28dqdi","slide":22,"text":"Current project location: D:/echo-work/flair-perfumes. Local app: http://localhost:3000. Use an authorized prepared administrator/POS manager session and a separate prepared cashier session only if needed. Do not put credentials on screen or in the deck. The demo modifies stock, sales, credit and shifts: rehearse in a disposable data directory, not business inventory. FLAIR_DATA_DIR can select an isolated persistent folder for a separately prepared instance. Do not reset the live app during the meeting. Stock seed is illustrative; use the observed baseline. Complete setup and verify stock, tax configuration and correct location before admitting the client. Hardware compatibility and actual printer/scanner behavior must be tested on the intended device.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/data/inventory.ts\n[/Sources]"}
+{"kind":"slide","id":"sl/kepz9q","slide":23,"title":"PRESENTER PLAYBOOK / LIVE ACTIONS 1–4","textShapes":20}
+{"kind":"textbox","id":"sh/6dc7itkr","slide":23,"name":"text-509","text":"PRESENTER PLAYBOOK / LIVE ACTIONS 1–4","textPreview":"PRESENTER PLAYBOOK / LIVE ACTIONS 1–4","textChars":37,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/tg36d83i","slide":23,"name":"text-510","text":"Demo route: establish control, then receive stock","textPreview":"Demo route: establish control, then receive stock","textChars":49,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/sfupk32x","slide":23,"name":"rule-511","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/f25ofilo","slide":23,"name":"text-512","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/uhw7mdk3","slide":23,"name":"text-513","text":"23","textPreview":"23","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/h4nqh83e","slide":23,"name":"text-514","text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[72,250,72,52]}
+{"kind":"textbox","id":"sh/g3epo32t","slide":23,"name":"text-515","text":"Core Setup → Login Access","textPreview":"Core Setup → Login Access","textChars":25,"textLines":1,"bbox":[180,250,1348,48]}
+{"kind":"textbox","id":"sh/vm1o3el4","slide":23,"name":"text-516","text":"Show actual sign-in roles. “People get the right workspace.”","textPreview":"Show actual sign-in roles. “People get the right workspace.”","textChars":60,"textLines":1,"bbox":[180,303,1348,37]}
+{"kind":"textbox","id":"sh/alsna94j","slide":23,"name":"text-517","text":"Proof: role-specific access is visible.","textPreview":"Proof: role-specific access is visible.","textChars":39,"textLines":1,"bbox":[180,342,1348,40]}
+{"kind":"textbox","id":"sh/476xgbet","slide":23,"name":"text-518","text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[72,380,72,52]}
+{"kind":"textbox","id":"sh/p8fy9gve","slide":23,"name":"text-519","text":"Product Catalog → search 10000","textPreview":"Product Catalog → search 10000","textChars":30,"textLines":1,"bbox":[180,380,1348,48]}
+{"kind":"textbox","id":"sh/2l4fe1wn","slide":23,"name":"text-520","text":"Open Yara Pink. Show SKU, barcode, price levels and size.","textPreview":"Open Yara Pink. Show SKU, barcode, price levels and size.","textChars":57,"textLines":1,"bbox":[180,433,1348,37]}
+{"kind":"textbox","id":"sh/3mxg76d8","slide":23,"name":"text-521","text":"Proof: one identifiable product record.","textPreview":"Proof: one identifiable product record.","textChars":39,"textLines":1,"bbox":[180,472,1348,40]}
+{"kind":"textbox","id":"sh/cb6xkbe5","slide":23,"name":"text-522","text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[72,510,72,52]}
+{"kind":"textbox","id":"sh/dcfydgva","slide":23,"name":"text-523","text":"Stock Explorer → Harwin","textPreview":"Stock Explorer → Harwin","textChars":23,"textLines":1,"bbox":[180,510,1348,48]}
+{"kind":"textbox","id":"sh/q9ofi1wz","slide":23,"name":"text-524","text":"Record on-hand and available stock before any posting.","textPreview":"Record on-hand and available stock before any posting.","textChars":54,"textLines":1,"bbox":[180,563,1348,37]}
+{"kind":"textbox","id":"sh/raxgb6dk","slide":23,"name":"text-525","text":"Proof: a baseline the customer can compare.","textPreview":"Proof: a baseline the customer can compare.","textChars":43,"textLines":1,"bbox":[180,602,1348,40]}
+{"kind":"textbox","id":"sh/sfmx8rel","slide":23,"name":"text-526","text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[72,640,72,52]}
+{"kind":"textbox","id":"sh/tgve1wv6","slide":23,"name":"text-527","text":"Stock Operations → receipt","textPreview":"Stock Operations → receipt","textChars":26,"textLines":1,"bbox":[180,640,1348,48]}
+{"kind":"textbox","id":"sh/903mpo3y","slide":23,"name":"text-528","text":"Receive 5 units; save the draft, post, then refresh stock.","textPreview":"Receive 5 units; save the draft, post, then refresh stock.","textChars":58,"textLines":1,"bbox":[180,693,1348,37]}
+{"kind":"textbox","id":"sh/ozu5gj2d","slide":23,"name":"text-529","text":"Proof: on-hand = baseline + 5.","textPreview":"Proof: on-hand = baseline + 5.","textChars":30,"textLines":1,"bbox":[180,732,1348,40]}
+{"kind":"notes","id":"nt/kepz9q","slide":23,"text":"PATHS:\n1 /core-setup and /core-setup/login-access. Optional /core-setup/stores-warehouses. Explain browser-local setup limitations when relevant.\n2 /product-inventory/products. Use SKU 10000 / Lattafa Yara Pink; do not rely on product row position.\n3 /product-inventory/stock. Filter product and Harwin; record actual onHand and available values.\n4 /product-inventory/operations. Choose Stock receipt, Harwin, one line, SKU 10000, quantity 5, an explicitly illustrative unit cost and a DEMO reference. Save then post. Confirm stock +5 and inspect movement history. Do not describe receipt supplier fields as a PO or payable.\nOptional: transfer 2 units to Houston Main Warehouse. If performed, adjust the later expected Harwin stock by -2. Avoid this optional step when time is tight.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/components/inventory/operation-dialog.tsx\nD:/echo-work/flair-perfumes/data/inventory.ts\n[/Sources]"}
+{"kind":"slide","id":"sl/2dr1ff","slide":24,"title":"PRESENTER PLAYBOOK / LIVE ACTIONS 5–8","textShapes":21}
+{"kind":"textbox","id":"sh/nm1wrih0","slide":24,"name":"text-530","text":"PRESENTER PLAYBOOK / LIVE ACTIONS 5–8","textPreview":"PRESENTER PLAYBOOK / LIVE ACTIONS 5–8","textChars":37,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/onadkny5","slide":24,"name":"text-531","text":"Demo route: sell, return and close the loop","textPreview":"Demo route: sell, return and close the loop","textChars":43,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/9ojetszq","slide":24,"name":"rule-532","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/apsvmxgb","slide":24,"name":"text-533","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/bq1wv2hw","slide":24,"name":"text-534","text":"24","textPreview":"24","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"textbox","id":"sh/wrado7yh","slide":24,"name":"text-535","text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[72,238,72,52]}
+{"kind":"textbox","id":"sh/xs3excz2","slide":24,"name":"text-536","text":"POS → attach demo customer → sell 2","textPreview":"POS → attach demo customer → sell 2","textChars":35,"textLines":1,"bbox":[180,238,1348,48]}
+{"kind":"textbox","id":"sh/qt8vatg7","slide":24,"name":"text-537","text":"Review price and tax; record demo cash; show confirmed receipt.","textPreview":"Review price and tax; record demo cash; show confirmed receipt.","textChars":63,"textLines":1,"bbox":[180,291,1348,37]}
+{"kind":"textbox","id":"sh/ruhcjyhs","slide":24,"name":"text-538","text":"Proof: sale recorded; stock decreases by 2.","textPreview":"Proof: sale recorded; stock decreases by 2.","textChars":43,"textLines":1,"bbox":[180,330,1348,40]}
+{"kind":"textbox","id":"sh/vy9k7ul0","slide":24,"name":"text-539","text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[72,368,72,52]}
+{"kind":"textbox","id":"sh/ux03ep4f","slide":24,"name":"text-540","text":"Returns → original receipt → return 1","textPreview":"Returns → original receipt → return 1","textChars":37,"textLines":1,"bbox":[180,368,1348,48]}
+{"kind":"textbox","id":"sh/hkr29k3q","slide":24,"name":"text-541","text":"Choose restock and store credit for the attached customer.","textPreview":"Choose restock and store credit for the attached customer.","textChars":58,"textLines":1,"bbox":[180,421,1348,37]}
+{"kind":"textbox","id":"sh/wjilgzml","slide":24,"name":"text-542","text":"Proof: stock increases by 1; credit history records the amount.","textPreview":"Proof: stock increases by 1; credit history records the amount.","textChars":63,"textLines":1,"bbox":[180,460,1348,40]}
+{"kind":"textbox","id":"sh/nupk3alo","slide":24,"name":"text-543","text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[72,498,72,52]}
+{"kind":"textbox","id":"sh/mtgja543","slide":24,"name":"text-544","text":"Customer Accounts → inspect credit","textPreview":"Customer Accounts → inspect credit","textChars":34,"textLines":1,"bbox":[180,498,1348,48]}
+{"kind":"textbox","id":"sh/9w725k3u","slide":24,"name":"text-545","text":"Show purchase history, credit balance and credit movement.","textPreview":"Show purchase history, credit balance and credit movement.","textChars":58,"textLines":1,"bbox":[180,551,1348,37]}
+{"kind":"textbox","id":"sh/8vylcfm9","slide":24,"name":"text-546","text":"Proof: the customer account links back to the transaction.","textPreview":"Proof: the customer account links back to the transaction.","textChars":58,"textLines":1,"bbox":[180,590,1348,40]}
+{"kind":"textbox","id":"sh/zqpkzals","slide":24,"name":"text-547","text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[72,628,72,52]}
+{"kind":"textbox","id":"sh/ypgj6547","slide":24,"name":"text-548","text":"Cashier Shifts → close → reconciliation","textPreview":"Cashier Shifts → close → reconciliation","textChars":39,"textLines":1,"bbox":[180,628,1348,48]}
+{"kind":"textbox","id":"sh/2lw3i5oz","slide":24,"name":"text-549","text":"Review expected cash; enter count; explain any variance.","textPreview":"Review expected cash; enter count; explain any variance.","textChars":56,"textLines":1,"bbox":[180,681,1348,37]}
+{"kind":"textbox","id":"sh/3m54bqpk","slide":24,"name":"text-550","text":"Proof: frozen close record. Final stock = baseline + 4.*","textPreview":"Proof: frozen close record. Final stock = baseline + 4.*","textChars":56,"textLines":1,"bbox":[180,720,1348,40]}
+{"kind":"textbox","id":"sh/onelkv65","slide":24,"name":"text-551","text":"*Assumes +5 received, −2 sold, +1 restocked, no transfer and no concurrent activity.","textPreview":"*Assumes +5 received, −2 sold, +1 restocked, no transfer and no concurrent activity.","textChars":84,"textLines":1,"bbox":[180,786,1348,33]}
+{"kind":"notes","id":"nt/2dr1ff","slide":24,"text":"PATHS:\n5 /retail-pos then /retail-pos/sales. Ensure configured tax and an open shift. Attach the labeled demo customer first. Enter 10000, quantity 2. Use current actual price and tax, not a preset total. Record cash only in the disposable demo; await confirmed sale.\n6 /retail-pos/returns. Use manager/admin, select the original receipt and quantity 1. Restock true, issue store credit. Returns use original price/discount/tax allocation.\n7 /retail-pos/customers. Check customer credit and history. Optional exchange: redeem part of the credit in a separate sale; if you do, recompute expected stock and mention it.\n8 /retail-pos/shifts then /retail-pos/reconciliation. Close only the demo shift after completing sales and returns. Expected cash includes the full cash sale when the return is store credit, because no cash refund left the drawer. Show the frozen report and export.\nNumeric proof: baseline B → B+5 after receipt → B+3 after 2-unit sale → B+4 after restocking 1. This proves the transaction chain without inventing a starting quantity.\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/components/pos/terminal-page.tsx\nD:/echo-work/flair-perfumes/components/pos/management-pages.tsx\n[/Sources]"}
+{"kind":"slide","id":"sl/jtfk42","slide":25,"title":"PRESENTER PLAYBOOK / QUESTIONS & FALLBACK","textShapes":13}
+{"kind":"textbox","id":"sh/b6psbydc","slide":25,"name":"text-552","text":"PRESENTER PLAYBOOK / QUESTIONS & FALLBACK","textPreview":"PRESENTER PLAYBOOK / QUESTIONS & FALLBACK","textChars":41,"textLines":1,"bbox":[72,42,1410,30]}
+{"kind":"textbox","id":"sh/c7yt43uh","slide":25,"name":"text-553","text":"Answer clearly—and always return to value","textPreview":"Answer clearly—and always return to value","textChars":41,"textLines":1,"bbox":[72,91,1456,80]}
+{"kind":"shape","id":"sh/d87ad8v2","slide":25,"name":"rule-554","bbox":[72,826,1456,2]}
+{"kind":"textbox","id":"sh/y9gb6dcn","slide":25,"name":"text-555","text":"FLAIR COSMETIC & FRAGRANCE","textPreview":"FLAIR COSMETIC & FRAGRANCE","textChars":26,"textLines":1,"bbox":[72,843,760,30]}
+{"kind":"textbox","id":"sh/zapsfit8","slide":25,"name":"text-556","text":"25","textPreview":"25","textChars":2,"textLines":1,"bbox":[1440,837,88,36]}
+{"kind":"shape","id":"sh/0vyt8nut","slide":25,"name":"rule-557","bbox":[72,245,1456,2]}
+{"kind":"textbox","id":"sh/lw7ah8be","slide":25,"name":"text-558","text":"“Is everything live?”","textPreview":"“Is everything live?”","textChars":21,"textLines":1,"bbox":[72,257,675,80]}
+{"kind":"textbox","id":"sh/edcru9cj","slide":25,"name":"text-559","text":"Inventory and retail flows are working; Modules 04–09 are planned.","textPreview":"Inventory and retail flows are working; Modules 04–09 are planned.","textChars":66,"textLines":1,"bbox":[825,257,703,91]}
+{"kind":"shape","id":"sh/fe5s3ed4","slide":25,"name":"rule-560","bbox":[72,348,1456,2]}
+{"kind":"textbox","id":"sh/z69or2ls","slide":25,"name":"text-561","text":"“Are cards and channels connected?”","textPreview":"“Are cards and channels connected?”","textChars":35,"textLines":1,"bbox":[72,360,675,80]}
+{"kind":"textbox","id":"sh/yl07ixk7","slide":25,"name":"text-562","text":"Card approvals are external today. Seller connections require validation.","textPreview":"Card approvals are external today. Seller connections require validation.","textChars":73,"textLines":1,"bbox":[825,360,703,91]}
+{"kind":"shape","id":"sh/l8r6ts3y","slide":25,"name":"rule-563","bbox":[72,451,1456,2]}
+{"kind":"textbox","id":"sh/k7ipkn2d","slide":25,"name":"text-564","text":"“Does it work offline?”","textPreview":"“Does it work offline?”","textChars":23,"textLines":1,"bbox":[72,463,675,80]}
+{"kind":"textbox","id":"sh/biponilw","slide":25,"name":"text-565","text":"Loaded checkout can queue cash commands; only confirmed sales are final.","textPreview":"Loaded checkout can queue cash commands; only confirmed sales are final.","textChars":72,"textLines":1,"bbox":[825,463,703,91]}
+{"kind":"shape","id":"sh/qhg7edkb","slide":25,"name":"rule-566","bbox":[72,554,1456,2]}
+{"kind":"textbox","id":"sh/dk76ps3m","slide":25,"name":"text-567","text":"“What about rollout and support?”","textPreview":"“What about rollout and support?”","textChars":33,"textLines":1,"bbox":[72,566,675,80]}
+{"kind":"textbox","id":"sh/cjypgn2h","slide":25,"name":"text-568","text":"Agree data, pilot and acceptance first; ongoing support is quoted separately.","textPreview":"Agree data, pilot and acceptance first; ongoing support is quoted separately.","textChars":77,"textLines":1,"bbox":[825,566,703,91]}
+{"kind":"shape","id":"sh/3epojilk","slide":25,"name":"rule-569","bbox":[72,729,60,2]}
+{"kind":"textbox","id":"sh/2dwnad4z","slide":25,"name":"text-570","text":"If the app stalls: use slides 7–11, explain the intended result, and capture the open question.","textPreview":"If the app stalls: use slides 7–11, explain the intended result, and capture the open question.","textChars":95,"textLines":1,"bbox":[72,746,1456,74]}
+{"kind":"notes","id":"nt/jtfk42","slide":25,"text":"OFFLINE DETAIL: The current implementation supports an active-session cash-only pending queue if server confirmation fails. It is not an installable offline-first app. Initial load, external tenders and store credit need connection; stock/price/tax changes or a closed shift can conflict. Pending commands are not final receipts. Do not collect payment or release goods until confirmed; do not clear browser storage with pending sales.\nPAYMENTS: Flair records externally processed card references and never collects card details or charges a card.\nACCESS: Core Setup staff/policy editors are demo configuration; Login Access controls real roles.\nPRODUCTION: Current JSON persistence is a local single-process adapter. A production plan needs transactional storage, recovery, identity/security work and operational acceptance.\nCOMMERCIAL: No dates, pricing or support SLA are confirmed in this deck.\nFALLBACK: Do not repeatedly click payment/post. Inspect Sales History first if confirmation is uncertain. Present screenshot slides, state what was and was not confirmed, and agree follow-up.\nCLOSE: “Which location should we pilot, who will own the data, and what result should we prove first?”\n\n[Sources]\nD:/echo-work/flair-perfumes/README.md\nD:/echo-work/flair-perfumes/ERP_Modules.pdf (page 22)\n[/Sources]"}

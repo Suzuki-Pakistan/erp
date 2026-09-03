@@ -1,0 +1,6 @@
+Communication job: help Flair decision-makers understand the complete nine-module ERP, distinguish current demo from proposed completion, and agree a pilot.
+Custom visual direction: requested mind-map format, Flair teal/ivory/champagne brand. No default template.
+Sources: local ERP_Modules.pdf, README.md, source components, local brand assets and captured current UI. No external research or quantified ROI claims.
+Screenshots: local app observed 2026-09-02; demo data only.
+B2B details and handover services beyond explicit source scope are proposed for confirmation.
+Slides 21-25 are presenter-only appendix and will be hidden for normal slideshow playback.

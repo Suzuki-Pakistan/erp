@@ -1,0 +1,1334 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/9mg9f7",
+    "id": "9mg9f7",
+    "slide": 16,
+    "layoutId": "16fd30c0-3ebd-4f96-9f32-899b35c4f216",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "9759a2dc-35d4-47dd-8669-b3561fa56b9b",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F7F5EE",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "16fd30c0-3ebd-4f96-9f32-899b35c4f216",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "9759a2dc-35d4-47dd-8669-b3561fa56b9b",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "9759a2dc-35d4-47dd-8669-b3561fa56b9b",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d0jidcvq",
+      "id": "1",
+      "name": "text-352",
+      "bbox": [
+        72,
+        42,
+        1410,
+        30
+      ],
+      "geometry": "rect",
+      "text": "09 / ACCOUNTING & FINANCE — PLANNED",
+      "textPreview": "09 / ACCOUNTING & FINANCE — PLANNED",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#23716D",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "09 / ACCOUNTING & FINANCE — PLANNED"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "09 / ACCOUNTING & FINANCE — PLANNED",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#23716D",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "09 / ACCOUNTING & FINANCE — PLANNED",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#23716D",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qxsjihcf",
+      "id": "2",
+      "name": "text-353",
+      "bbox": [
+        72,
+        91,
+        1456,
+        80
+      ],
+      "geometry": "rect",
+      "text": "Bring finance closer to daily operations",
+      "textPreview": "Bring finance closer to daily operations",
+      "resolvedFontSize": 52,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 52,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Bring finance closer to daily operations"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Bring finance closer to daily operations",
+          "resolvedTextStyle": {
+            "fontSize": 52,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Bring finance closer to daily operations",
+              "fontSize": 52,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/by10bmd0",
+      "id": "3",
+      "name": "rule-354",
+      "bbox": [
+        72,
+        826,
+        1456,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#C5D1CC",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ova1g7u9",
+      "id": "4",
+      "name": "text-355",
+      "bbox": [
+        72,
+        843,
+        760,
+        30
+      ],
+      "geometry": "rect",
+      "text": "FLAIR COSMETIC & FRAGRANCE",
+      "textPreview": "FLAIR COSMETIC & FRAGRANCE",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "FLAIR COSMETIC & FRAGRANCE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "FLAIR COSMETIC & FRAGRANCE",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "FLAIR COSMETIC & FRAGRANCE",
+              "fontSize": 20,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/pwji9cvu",
+      "id": "5",
+      "name": "text-356",
+      "bbox": [
+        1440,
+        837,
+        88,
+        36
+      ],
+      "geometry": "rect",
+      "text": "16",
+      "textPreview": "16",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Aptos",
+        "color": "#23716D",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "16"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "16",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Aptos",
+            "color": "#23716D",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "16",
+              "fontSize": 26,
+              "typeface": "Aptos",
+              "color": "#23716D",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/2tsjexc3",
+      "id": "6",
+      "name": "edge-357",
+      "bbox": [
+        554,
+        461,
+        68,
+        1
+      ],
+      "horizontalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/3u1072do",
+      "id": "7",
+      "name": "edge-358",
+      "bbox": [
+        554,
+        318,
+        1,
+        143
+      ],
+      "verticalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8ru1sbud",
+      "id": "8",
+      "name": "edge-359",
+      "bbox": [
+        490,
+        318,
+        64,
+        1
+      ],
+      "horizontalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9sn2lwvy",
+      "id": "9",
+      "name": "edge-360",
+      "bbox": [
+        554,
+        461,
+        68,
+        1
+      ],
+      "horizontalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/50be54ji",
+      "id": "10",
+      "name": "edge-361",
+      "bbox": [
+        554,
+        461,
+        1,
+        185
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/4z2dwjix",
+      "id": "11",
+      "name": "edge-362",
+      "bbox": [
+        490,
+        646,
+        64,
+        1
+      ],
+      "horizontalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jytw3e1s",
+      "id": "12",
+      "name": "edge-363",
+      "bbox": [
+        978,
+        461,
+        68,
+        1
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ixkvu907",
+      "id": "13",
+      "name": "edge-364",
+      "bbox": [
+        1046,
+        318,
+        1,
+        143
+      ],
+      "verticalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hwbe14jm",
+      "id": "14",
+      "name": "edge-365",
+      "bbox": [
+        1046,
+        318,
+        64,
+        1
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wv2dszi1",
+      "id": "15",
+      "name": "edge-366",
+      "bbox": [
+        978,
+        461,
+        68,
+        1
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vutwzu1g",
+      "id": "16",
+      "name": "edge-367",
+      "bbox": [
+        1046,
+        461,
+        1,
+        185
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ut0vqp0v",
+      "id": "17",
+      "name": "edge-368",
+      "bbox": [
+        1046,
+        646,
+        64,
+        1
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1svedojq",
+      "id": "18",
+      "name": "surface-369",
+      "bbox": [
+        622,
+        394,
+        356,
+        134
+      ],
+      "geometry": "rect",
+      "fillColor": "#103D43",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0rmx43i5",
+      "id": "19",
+      "name": "text-370",
+      "bbox": [
+        642,
+        424,
+        316,
+        94
+      ],
+      "geometry": "rect",
+      "text": "OPERATIONAL\nRECORD → BOOKS",
+      "textPreview": "OPERATIONAL | RECORD → BOOKS",
+      "resolvedFontSize": 37,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 37,
+        "typeface": "Aptos",
+        "color": "#F7F5EE",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "OPERATIONAL"
+          },
+          {
+            "index": 2,
+            "text": "RECORD → BOOKS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "OPERATIONAL",
+          "resolvedTextStyle": {
+            "fontSize": 37,
+            "typeface": "Aptos",
+            "color": "#F7F5EE",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "OPERATIONAL",
+              "fontSize": 37,
+              "typeface": "Aptos",
+              "color": "#F7F5EE",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "RECORD → BOOKS",
+          "resolvedTextStyle": {
+            "fontSize": 37,
+            "typeface": "Aptos",
+            "color": "#F7F5EE",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "RECORD → BOOKS",
+              "fontSize": 37,
+              "typeface": "Aptos",
+              "color": "#F7F5EE",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/k7epwrut",
+      "id": "20",
+      "name": "text-371",
+      "bbox": [
+        72,
+        268,
+        418,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Customer side",
+      "textPreview": "Customer side",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 32,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Customer side"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Customer side",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Customer side",
+              "fontSize": 32,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/l8nqpwbe",
+      "id": "21",
+      "name": "text-372",
+      "bbox": [
+        72,
+        321,
+        418,
+        84
+      ],
+      "geometry": "rect",
+      "text": "Invoices, receivables, refunds\nand customer credit notes",
+      "textPreview": "Invoices, receivables, refunds | and customer credit notes",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Invoices, receivables, refunds"
+          },
+          {
+            "index": 2,
+            "text": "and customer credit notes"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Invoices, receivables, refunds",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Invoices, receivables, refunds",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "and customer credit notes",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "and customer credit notes",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ylw7u1cn",
+      "id": "22",
+      "name": "text-373",
+      "bbox": [
+        72,
+        596,
+        418,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Vendor side",
+      "textPreview": "Vendor side",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 32,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Vendor side"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Vendor side",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Vendor side",
+              "fontSize": 32,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/z65on6t8",
+      "id": "23",
+      "name": "text-374",
+      "bbox": [
+        72,
+        649,
+        418,
+        84
+      ],
+      "geometry": "rect",
+      "text": "Bills, payables, purchase returns\nand vendor credits",
+      "textPreview": "Bills, payables, purchase returns | and vendor credits",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Bills, payables, purchase returns"
+          },
+          {
+            "index": 2,
+            "text": "and vendor credits"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Bills, payables, purchase returns",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Bills, payables, purchase returns",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "and vendor credits",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "and vendor credits",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cjepsruh",
+      "id": "24",
+      "name": "text-375",
+      "bbox": [
+        1110,
+        268,
+        418,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Financial control",
+      "textPreview": "Financial control",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 32,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Financial control"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Financial control",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Financial control",
+              "fontSize": 32,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xkn6lwb2",
+      "id": "25",
+      "name": "text-376",
+      "bbox": [
+        1110,
+        321,
+        418,
+        84
+      ],
+      "geometry": "rect",
+      "text": "General ledger, bank reconciliation\nand sales-tax workflows",
+      "textPreview": "General ledger, bank reconciliation | and sales-tax workflows",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "General ledger, bank reconciliation"
+          },
+          {
+            "index": 2,
+            "text": "and sales-tax workflows"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "General ledger, bank reconciliation",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "General ledger, bank reconciliation",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "and sales-tax workflows",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "and sales-tax workflows",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ahc7qhcr",
+      "id": "26",
+      "name": "text-377",
+      "bbox": [
+        1110,
+        596,
+        418,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Management view",
+      "textPreview": "Management view",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 32,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Management view"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Management view",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Management view",
+              "fontSize": 32,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bi5ojmtw",
+      "id": "27",
+      "name": "text-378",
+      "bbox": [
+        1110,
+        649,
+        418,
+        84
+      ],
+      "geometry": "rect",
+      "text": "P&L, Balance Sheet, payroll entries\nand post-dated check tracking",
+      "textPreview": "P&L, Balance Sheet, payroll entries | and post-dated check tracking",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "P&L, Balance Sheet, payroll entries"
+          },
+          {
+            "index": 2,
+            "text": "and post-dated check tracking"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "P&L, Balance Sheet, payroll entries",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "P&L, Balance Sheet, payroll entries",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "and post-dated check tracking",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "and post-dated check tracking",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

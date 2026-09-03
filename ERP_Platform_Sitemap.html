@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERP Platform — Sitemap</title>
+<style>
+  :root {
+    --dark: #363636;
+    --dark-line: #4a4a4a;
+    --card-dark: #3f3f3f;
+    --text-dark: #262626;
+    --text-muted: #6e6e6e;
+    --text-muted2: #5c5c5c;
+    --border: #d9d9d9;
+    --card-bg: #f7f7f7;
+    --card-bg2: #e9e9e9;
+    --pink: #ee3276;
+    --pink-light: #fde6ef;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    line-height: 1.5;
+  }
+  .page {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  header.hero {
+    background: var(--dark);
+    color: var(--white);
+    padding: 48px 24px 40px;
+    margin-bottom: 32px;
+  }
+  header.hero .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 34px;
+    margin: 0 0 10px;
+    font-weight: bold;
+  }
+  header.hero p.sub {
+    font-size: 15px;
+    color: #c9c9c9;
+    margin: 0 0 24px;
+    max-width: 680px;
+  }
+  .stat-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    background: var(--card-dark);
+    border-radius: 8px;
+    padding: 14px 20px;
+    min-width: 140px;
+  }
+  .stat .num {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--pink);
+  }
+  .stat .lbl {
+    font-size: 11.5px;
+    color: #b8b8b8;
+    margin-top: 2px;
+  }
+
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .toolbar .legend {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .legend i {
+    display: inline-block; width: 10px; height: 10px; border-radius: 3px;
+  }
+  .legend i.p1 { background: var(--pink); }
+  .legend i.p2 { background: var(--card-bg2); border: 1px solid var(--border); }
+  .legend i.p3 { background: var(--dark); }
+  .toolbar button {
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: bold;
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text-dark);
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .toolbar button:hover { background: var(--card-bg); }
+
+  section.global {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+  section.global h2 {
+    font-size: 16px;
+    margin: 0 0 4px;
+  }
+  section.global .desc {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    margin: 0 0 14px;
+  }
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 12.5px;
+    color: var(--text-dark);
+  }
+
+  details.module {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    background: var(--white);
+  }
+  details.module[open] { border-color: #cfcfcf; }
+  details.module summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--white);
+  }
+  details.module summary::-webkit-details-marker { display: none; }
+  .m-badge {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--pink); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; font-size: 14px; flex-shrink: 0;
+  }
+  .m-badge.star { background: var(--pink); }
+  .m-title-wrap { flex: 1; min-width: 0; }
+  .m-title {
+    font-size: 15.5px; font-weight: bold; color: var(--text-dark);
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .m-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .phase-tag {
+    font-size: 10px; font-weight: bold; letter-spacing: 0.5px;
+    padding: 3px 9px; border-radius: 10px;
+    background: var(--pink-light); color: var(--pink);
+    white-space: nowrap;
+  }
+  .phase-tag.p2 { background: var(--card-bg2); color: var(--text-muted2); }
+  .phase-tag.p3 { background: var(--dark); color: #e4e4e4; }
+  .flag-tag {
+    font-size: 10px; font-weight: bold; letter-spacing: 0.5px;
+    padding: 3px 9px; border-radius: 10px;
+    background: var(--pink); color: var(--white);
+    white-space: nowrap;
+  }
+  .page-count {
+    font-size: 11.5px; color: var(--text-muted); flex-shrink: 0;
+  }
+  .chevron {
+    width: 18px; height: 18px; flex-shrink: 0; color: var(--text-muted);
+    transition: transform 0.15s ease;
+  }
+  details.module[open] .chevron { transform: rotate(180deg); }
+
+  .m-body {
+    padding: 4px 20px 20px 20px;
+    border-top: 1px solid var(--border);
+    background: var(--card-bg);
+  }
+  .page-item {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-top: 12px;
+  }
+  .page-item .page-name {
+    font-size: 13.5px; font-weight: bold; color: var(--text-dark);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .page-item .page-name .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--pink); flex-shrink: 0;
+  }
+  .page-item ul {
+    margin: 8px 0 0 22px;
+    padding: 0;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .page-item li { margin-bottom: 3px; }
+  .sub-pages {
+    margin: 10px 0 0 22px;
+    padding-left: 14px;
+    border-left: 2px solid var(--border);
+  }
+  .sub-page {
+    font-size: 12.5px;
+    color: var(--text-dark);
+    padding: 6px 0;
+  }
+  .sub-page b { font-weight: bold; }
+
+  footer.note {
+    margin-top: 30px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  @media print {
+    header.hero { background: var(--dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    details.module { break-inside: avoid; }
+    .toolbar { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="inner">
+    <div class="eyebrow">ERP Proposal · Farheen Perfumes &amp; Cosmetics</div>
+    <h1>Platform Sitemap</h1>
+    <p class="sub">Every page and feature across the 9 modules, mapped out module by module — this is the working reference for design and development, built from the scope already agreed in the proposal.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="num">9</div><div class="lbl">Modules</div></div>
+      <div class="stat"><div class="num">67</div><div class="lbl">Pages / screens</div></div>
+      <div class="stat"><div class="num">6</div><div class="lbl">Global / system pages</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Delivery phases</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="page">
+
+  <div class="toolbar">
+    <div class="legend">
+      <span><i class="p1"></i>Phase 1</span>
+      <span><i class="p2"></i>Phase 2</span>
+      <span><i class="p3"></i>Phase 3</span>
+    </div>
+    <button id="toggleAllBtn" onclick="toggleAll()">Expand all</button>
+  </div>
+
+  <section class="global">
+    <h2>Global &amp; system pages</h2>
+    <p class="desc">Shared across every module — not tied to a specific phase</p>
+    <div class="chip-row">
+      <div class="chip">Login / authentication</div>
+      <div class="chip">Dashboard (role-based home)</div>
+      <div class="chip">Notifications</div>
+      <div class="chip">User profile &amp; settings</div>
+      <div class="chip">Global search</div>
+      <div class="chip">Audit log</div>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <div id="modules"></div>
+
+  <footer class="note">
+    Page counts and feature lists reflect the scope defined in the ERP proposal (modules, dependencies and the flagship Smart Demand Forecasting feature). Screens marked with a dot under each page are the key components/data shown on that screen, not a full field-level spec — those get defined during the discovery workshop.
+  </footer>
+
+</div>
+
+<script>
+const modules = [
+  {
+    n: 1, phase: 1, star: false,
+    title: "Core Setup",
+    sub: "Stores, users & permissions",
+    pages: [
+      { name: "Stores & Warehouses", features: ["Add / edit store & warehouse locations", "Assign warehouse type (retail, main, e-commerce)"] },
+      { name: "Users & Roles", features: ["Staff accounts", "Role assignment (Admin, Accountant, Procurement, Sales, Inventory, Cashier)"] },
+      { name: "Permissions", features: ["Module-level access control", "Data visibility rules (pricing, purchasing, accounting, reports)"] },
+      { name: "Company Settings", features: ["General configuration", "Business profile"] },
+    ]
+  },
+  {
+    n: 2, phase: 1, star: false,
+    title: "Product & Inventory",
+    sub: "One catalog, real-time stock",
+    pages: [
+      { name: "Product Catalog", features: ["Browse / search / filter across 3,000+ SKUs", "Category & brand views"] },
+      { name: "Add / Edit Product", features: ["SKU, barcode, brand, category, pricing", "Product images & attributes"] },
+      { name: "Stock by Warehouse", features: ["Real-time stock levels per location"] },
+      { name: "Barcode Management", features: ["Scan lookup", "Generate & print new barcodes"] },
+      { name: "Stock Adjustments", features: ["Manual quantity corrections with reason codes"] },
+      { name: "Stock Transfers", features: ["Move inventory between warehouses"] },
+      { name: "Physical Stock Count", features: ["Cycle count sessions", "Variance reporting"] },
+      { name: "Damaged / Returned Goods", features: ["Non-resellable inventory tracking"] },
+      { name: "Low Stock Alerts", features: ["Reorder threshold notifications"] },
+      { name: "Warehouse Allocation Rules", features: ["Predefined SKU allocation for the e-commerce warehouse", "Fallback-to-main-warehouse logic"] },
+    ]
+  },
+  {
+    n: 3, phase: 1, star: false,
+    title: "Retail POS",
+    sub: "Point-of-sale for store counters",
+    pages: [
+      { name: "POS Terminal / Checkout", features: ["Barcode scan & fast billing", "Discounts applied at sale"] },
+      { name: "Sales History", features: ["Transaction log & receipt lookup"] },
+      { name: "Returns & Exchanges", features: ["Invoice → return → credit note workflow"] },
+      { name: "Customer Accounts", features: ["Store credit & purchase history"] },
+      { name: "Cashier Shift Management", features: ["Shift open / close"] },
+      { name: "Daily Cash Reconciliation", features: ["End-of-day totals vs. system record"] },
+      { name: "Offline Sync Queue", features: ["Pending transactions while offline", "Auto-sync on reconnect"] },
+    ]
+  },
+  {
+    n: 4, phase: 1, star: false,
+    title: "Purchasing & Vendors",
+    sub: "From order to vendor bill",
+    pages: [
+      { name: "Vendor Directory", features: ["Vendor contacts, pricing & payment terms"] },
+      { name: "Purchase Orders", features: ["Create, track & approve POs"] },
+      { name: "Goods Received", features: ["Receive stock against a PO"] },
+      { name: "Purchase Returns & Damages", features: ["Shortages, damages & other discrepancies"] },
+      { name: "Vendor Credit Notes", features: ["Payable adjustments from returns"] },
+      { name: "Reorder Suggestions", features: ["Stock- & sales-based reorder recommendations"] },
+    ]
+  },
+  {
+    n: 5, phase: 2, star: false,
+    title: "Wholesale & B2B Portal",
+    sub: "Self-service ordering for resellers",
+    pages: [
+      { name: "Wholesale Orders (internal)", features: ["Sales-team order entry & approval"] },
+      { name: "Customer Pricing Tiers", features: ["Tier setup & quantity discounts"] },
+      { name: "Credit Limits & Terms", features: ["Per-customer credit limit & payment terms"] },
+      { name: "Wholesale Customer Portal", sub: true, features: [] },
+      { name: "Wholesale Returns", features: ["Same credit-note & ledger workflow as retail"] },
+    ],
+    subPages: [
+      { parent: "Wholesale Customer Portal", items: ["Portal login", "Place order", "Order history & reorder"] }
+    ]
+  },
+  {
+    n: 6, phase: 2, star: false,
+    title: "E-Commerce Hub",
+    sub: "Shopify, WooCommerce, eBay, TikTok Shop & Whatnot",
+    pages: [
+      { name: "Channel Connections", features: ["Connect & manage all 5 sales channels"] },
+      { name: "Product Sync Mapping", features: ["Catalog ↔ channel listing mapping"] },
+      { name: "Order Management", features: ["Cross-channel order queue"] },
+      { name: "Channel Pricing Rules", features: ["Per-platform pricing"] },
+      { name: "Shipping & Fulfillment Status", features: ["Tracking & delivery status per order"] },
+      { name: "Multi-Warehouse Fulfillment", features: ["Allocation between e-commerce & main warehouse", "Oversell prevention"] },
+      { name: "Marketplace Fee & Shipping Capture", features: ["Per-order fee & shipping cost — feeds Reports (Module 7)"] },
+    ]
+  },
+  {
+    n: 7, phase: 2, star: false,
+    title: "Reports & Dashboards",
+    sub: "See the business at a glance",
+    pages: [
+      { name: "Executive Dashboard", features: ["Top-line KPIs at a glance"] },
+      { name: "Sales Reports", features: ["By channel, brand, retail vs. wholesale"] },
+      { name: "Marketplace Profitability", features: ["Net profit by order & by marketplace"] },
+      { name: "Inventory Valuation & Aging", features: ["Stock value & age breakdown"] },
+      { name: "Fast / Slow / Dead Stock Report", features: ["Movement classification"] },
+      { name: "Cash Flow Report", features: ["Inflows & outflows over time"] },
+    ]
+  },
+  {
+    n: 8, phase: 3, star: true,
+    title: "Smart Demand Forecasting",
+    sub: "AI-assisted purchase planning — flagship feature",
+    pages: [
+      { name: "Forecast Dashboard", features: ["Demand predictions per SKU"] },
+      { name: "Reorder Recommendations", features: ["What to reorder, how much & when"] },
+      { name: "Seasonal Trend Analysis", features: ["30 / 60 / 90-day trend windows"] },
+      { name: "Safety Stock Settings", features: ["Per-SKU safety stock configuration"] },
+    ]
+  },
+  {
+    n: 9, phase: 3, star: false,
+    title: "Accounting & Finance",
+    sub: "Books that stay in sync with operations",
+    pages: [
+      { name: "General Ledger", features: ["Full transaction ledger"] },
+      { name: "Accounts Receivable", features: ["Customer balances & aging"] },
+      { name: "Accounts Payable", features: ["Vendor balances & aging"] },
+      { name: "PDC Management", features: ["Customer & vendor post-dated checks", "Clearance status & automatic reminders"] },
+      { name: "Profit & Loss Statement", features: ["Always up to date"] },
+      { name: "Balance Sheet", features: ["Always up to date"] },
+      { name: "Bank Reconciliation", features: ["Match bank activity to ledger"] },
+      { name: "Sales Tax", features: ["Tax calculation & reporting"] },
+      { name: "Payroll Entry", features: ["Basic payroll entry to complete the P&L"] },
+    ]
+  },
+];
+
+const phaseTagClass = { 1: "", 2: "p2", 3: "p3" };
+const phaseLabel = { 1: "Phase 1", 2: "Phase 2", 3: "Phase 3" };
+
+function render() {
+  const container = document.getElementById("modules");
+  modules.forEach(m => {
+    const details = document.createElement("details");
+    details.className = "module";
+
+    const summary = document.createElement("summary");
+    summary.innerHTML = `
+      <div class="m-badge ${m.star ? 'star' : ''}">${m.star ? '★' : m.n}</div>
+      <div class="m-title-wrap">
+        <div class="m-title">
+          ${m.title}
+          ${m.star ? '<span class="flag-tag">FLAGSHIP</span>' : `<span class="phase-tag ${phaseTagClass[m.phase]}">${phaseLabel[m.phase]}</span>`}
+        </div>
+        <div class="m-sub">${m.sub}</div>
+      </div>
+      <div class="page-count">${m.pages.length} page${m.pages.length !== 1 ? 's' : ''}</div>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    `;
+    details.appendChild(summary);
+
+    const body = document.createElement("div");
+    body.className = "m-body";
+
+    m.pages.forEach(p => {
+      const item = document.createElement("div");
+      item.className = "page-item";
+      let inner = `<div class="page-name"><span class="dot"></span>${p.name}</div>`;
+      if (p.features && p.features.length) {
+        inner += `<ul>${p.features.map(f => `<li>${f}</li>`).join("")}</ul>`;
+      }
+      const subGroup = (m.subPages || []).find(sp => sp.parent === p.name);
+      if (subGroup) {
+        inner += `<div class="sub-pages">${subGroup.items.map(s => `<div class="sub-page">&rsaquo; ${s}</div>`).join("")}</div>`;
+      }
+      item.innerHTML = inner;
+      body.appendChild(item);
+    });
+
+    details.appendChild(body);
+    container.appendChild(details);
+  });
+}
+render();
+
+function toggleAll() {
+  const all = document.querySelectorAll("details.module");
+  const anyClosed = Array.from(all).some(d => !d.open);
+  all.forEach(d => d.open = anyClosed);
+  document.getElementById("toggleAllBtn").textContent = anyClosed ? "Collapse all" : "Expand all";
+}
+</script>
+
+</body>
+</html>

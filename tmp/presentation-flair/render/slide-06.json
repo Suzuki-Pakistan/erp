@@ -1,0 +1,1267 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/y87c5n",
+    "id": "y87c5n",
+    "slide": 6,
+    "layoutId": "16fd30c0-3ebd-4f96-9f32-899b35c4f216",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "9759a2dc-35d4-47dd-8669-b3561fa56b9b",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F7F5EE",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1600,
+      "height": 900
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "16fd30c0-3ebd-4f96-9f32-899b35c4f216",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "9759a2dc-35d4-47dd-8669-b3561fa56b9b",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "9759a2dc-35d4-47dd-8669-b3561fa56b9b",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/e10zexwr",
+      "id": "1",
+      "name": "text-124",
+      "bbox": [
+        72,
+        42,
+        1410,
+        30
+      ],
+      "geometry": "rect",
+      "text": "01 / CORE SETUP & ACCESS",
+      "textPreview": "01 / CORE SETUP & ACCESS",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#23716D",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "01 / CORE SETUP & ACCESS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "01 / CORE SETUP & ACCESS",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#23716D",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "01 / CORE SETUP & ACCESS",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#23716D",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/14bi9cvi",
+      "id": "2",
+      "name": "text-125",
+      "bbox": [
+        72,
+        91,
+        1456,
+        80
+      ],
+      "geometry": "rect",
+      "text": "Give each team the right workspace",
+      "textPreview": "Give each team the right workspace",
+      "resolvedFontSize": 52,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 52,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Give each team the right workspace"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Give each team the right workspace",
+          "resolvedTextStyle": {
+            "fontSize": 52,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Give each team the right workspace",
+              "fontSize": 52,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/032hg7ex",
+      "id": "3",
+      "name": "rule-126",
+      "bbox": [
+        72,
+        826,
+        1456,
+        2
+      ],
+      "geometry": "rect",
+      "fillColor": "#C5D1CC",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ry9g3id0",
+      "id": "4",
+      "name": "text-127",
+      "bbox": [
+        72,
+        843,
+        760,
+        30
+      ],
+      "geometry": "rect",
+      "text": "FLAIR COSMETIC & FRAGRANCE",
+      "textPreview": "FLAIR COSMETIC & FRAGRANCE",
+      "resolvedFontSize": 20,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 20,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "FLAIR COSMETIC & FRAGRANCE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "FLAIR COSMETIC & FRAGRANCE",
+          "resolvedTextStyle": {
+            "fontSize": 20,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "FLAIR COSMETIC & FRAGRANCE",
+              "fontSize": 20,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/qx0zaxwv",
+      "id": "5",
+      "name": "text-128",
+      "bbox": [
+        1440,
+        837,
+        88,
+        36
+      ],
+      "geometry": "rect",
+      "text": "06",
+      "textPreview": "06",
+      "resolvedFontSize": 26,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 26,
+        "typeface": "Aptos",
+        "color": "#23716D",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "06"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "06",
+          "resolvedTextStyle": {
+            "fontSize": 26,
+            "typeface": "Aptos",
+            "color": "#23716D",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "06",
+              "fontSize": 26,
+              "typeface": "Aptos",
+              "color": "#23716D",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/d0ry5sv6",
+      "id": "6",
+      "name": "edge-129",
+      "bbox": [
+        554,
+        461,
+        68,
+        1
+      ],
+      "horizontalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/czihcnel",
+      "id": "7",
+      "name": "edge-130",
+      "bbox": [
+        554,
+        318,
+        1,
+        143
+      ],
+      "verticalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bud0fmdk",
+      "id": "8",
+      "name": "edge-131",
+      "bbox": [
+        490,
+        318,
+        64,
+        1
+      ],
+      "horizontalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/at4zmhwz",
+      "id": "9",
+      "name": "edge-132",
+      "bbox": [
+        554,
+        461,
+        68,
+        1
+      ],
+      "horizontalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cryp8fi5",
+      "id": "10",
+      "name": "edge-133",
+      "bbox": [
+        554,
+        461,
+        1,
+        185
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ds76hkjq",
+      "id": "11",
+      "name": "edge-134",
+      "bbox": [
+        490,
+        646,
+        64,
+        1
+      ],
+      "horizontalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/q5g7650z",
+      "id": "12",
+      "name": "edge-135",
+      "bbox": [
+        978,
+        461,
+        68,
+        1
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/b6pofa1k",
+      "id": "13",
+      "name": "edge-136",
+      "bbox": [
+        1046,
+        318,
+        1,
+        143
+      ],
+      "verticalFlip": true,
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/43ep4vit",
+      "id": "14",
+      "name": "edge-137",
+      "bbox": [
+        1046,
+        318,
+        64,
+        1
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p4n6d0je",
+      "id": "15",
+      "name": "edge-138",
+      "bbox": [
+        978,
+        461,
+        68,
+        1
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/21wn2503",
+      "id": "16",
+      "name": "edge-139",
+      "bbox": [
+        1046,
+        461,
+        1,
+        185
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/325obq1o",
+      "id": "17",
+      "name": "edge-140",
+      "bbox": [
+        1046,
+        646,
+        64,
+        1
+      ],
+      "geometry": "line",
+      "lineColor": "#B28B4E",
+      "lineWidth": 2
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gze50vix",
+      "id": "18",
+      "name": "surface-141",
+      "bbox": [
+        622,
+        394,
+        356,
+        134
+      ],
+      "geometry": "rect",
+      "fillColor": "#103D43",
+      "lineWidth": 0
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h0n690ji",
+      "id": "19",
+      "name": "text-142",
+      "bbox": [
+        642,
+        424,
+        316,
+        94
+      ],
+      "geometry": "rect",
+      "text": "PEOPLE +\nLOCATIONS",
+      "textPreview": "PEOPLE + | LOCATIONS",
+      "resolvedFontSize": 37,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 37,
+        "typeface": "Aptos",
+        "color": "#F7F5EE",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PEOPLE +"
+          },
+          {
+            "index": 2,
+            "text": "LOCATIONS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PEOPLE +",
+          "resolvedTextStyle": {
+            "fontSize": 37,
+            "typeface": "Aptos",
+            "color": "#F7F5EE",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PEOPLE +",
+              "fontSize": 37,
+              "typeface": "Aptos",
+              "color": "#F7F5EE",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "LOCATIONS",
+          "resolvedTextStyle": {
+            "fontSize": 37,
+            "typeface": "Aptos",
+            "color": "#F7F5EE",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "LOCATIONS",
+              "fontSize": 37,
+              "typeface": "Aptos",
+              "color": "#F7F5EE",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 20,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hwfmdcb6",
+      "id": "20",
+      "name": "text-143",
+      "bbox": [
+        72,
+        268,
+        418,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Location structure",
+      "textPreview": "Location structure",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 32,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Location structure"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Location structure",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Location structure",
+              "fontSize": 32,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 21,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wv654rul",
+      "id": "21",
+      "name": "text-144",
+      "bbox": [
+        72,
+        321,
+        418,
+        84
+      ],
+      "geometry": "rect",
+      "text": "Stores, warehouses and fulfillment hubs",
+      "textPreview": "Stores, warehouses and fulfillment hubs",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Stores, warehouses and fulfillment hubs"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Stores, warehouses and fulfillment hubs",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Stores, warehouses and fulfillment hubs",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 22,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vux4bmt0",
+      "id": "22",
+      "name": "text-145",
+      "bbox": [
+        72,
+        596,
+        418,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Business settings",
+      "textPreview": "Business settings",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 32,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Business settings"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Business settings",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Business settings",
+              "fontSize": 32,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 23,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ut432hcv",
+      "id": "23",
+      "name": "text-146",
+      "bbox": [
+        72,
+        649,
+        418,
+        84
+      ],
+      "geometry": "rect",
+      "text": "Company profile and operating preferences",
+      "textPreview": "Company profile and operating preferences",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Company profile and operating"
+          },
+          {
+            "index": 2,
+            "text": "preferences"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Company profile and operating preferences",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Company profile and operating preferences",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 24,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9svm9cba",
+      "id": "24",
+      "name": "text-147",
+      "bbox": [
+        1110,
+        268,
+        418,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Role-based sign-in",
+      "textPreview": "Role-based sign-in",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 32,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Role-based sign-in"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Role-based sign-in",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Role-based sign-in",
+              "fontSize": 32,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 25,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8rml07up",
+      "id": "25",
+      "name": "text-148",
+      "bbox": [
+        1110,
+        321,
+        418,
+        84
+      ],
+      "geometry": "rect",
+      "text": "Admin, inventory, POS manager and cashier",
+      "textPreview": "Admin, inventory, POS manager and cashier",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Admin, inventory, POS manager and"
+          },
+          {
+            "index": 2,
+            "text": "cashier"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Admin, inventory, POS manager and cashier",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Admin, inventory, POS manager and cashier",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 26,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7qd472t4",
+      "id": "26",
+      "name": "text-149",
+      "bbox": [
+        1110,
+        596,
+        418,
+        48
+      ],
+      "geometry": "rect",
+      "text": "Information control",
+      "textPreview": "Information control",
+      "resolvedFontSize": 32,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 32,
+        "typeface": "Aptos",
+        "color": "#103D43",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Information control"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Information control",
+          "resolvedTextStyle": {
+            "fontSize": 32,
+            "typeface": "Aptos",
+            "color": "#103D43",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Information control",
+              "fontSize": 32,
+              "typeface": "Aptos",
+              "color": "#103D43",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 27,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mp43yxcj",
+      "id": "27",
+      "name": "text-150",
+      "bbox": [
+        1110,
+        649,
+        418,
+        84
+      ],
+      "geometry": "rect",
+      "text": "Restricted costs, module access\nand cashier activity",
+      "textPreview": "Restricted costs, module access | and cashier activity",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#597071",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Restricted costs, module access"
+          },
+          {
+            "index": 2,
+            "text": "and cashier activity"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Restricted costs, module access",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Restricted costs, module access",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "and cashier activity",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#597071",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "and cashier activity",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#597071",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

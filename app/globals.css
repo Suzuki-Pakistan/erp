@@ -1,0 +1,227 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--font-figtree);
+  --font-heading: var(--font-figtree);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.35);
+  --radius-2xl: calc(var(--radius) * 1.75);
+}
+
+:root {
+  --background: #f7f6f2;
+  --foreground: #14252b;
+  --card: #fffefa;
+  --card-foreground: #14252b;
+  --popover: #fffefa;
+  --popover-foreground: #14252b;
+  --primary: #072835;
+  --primary-foreground: #ffffff;
+  --secondary: #f0ece5;
+  --secondary-foreground: #22363d;
+  --muted: #f1efea;
+  --muted-foreground: #6f7778;
+  --accent: #ece7dc;
+  --accent-foreground: #162c34;
+  --destructive: #b33b32;
+  --border: #e4e0d8;
+  --input: #ddd8cf;
+  --ring: #b69154;
+  --chart-1: #072835;
+  --chart-2: #b69154;
+  --chart-3: #47665d;
+  --chart-4: #a76f48;
+  --chart-5: #b98a86;
+  --radius: 0.75rem;
+
+  --brand-ink: #072835;
+  --brand-charcoal: #16252a;
+  --brand-surface-warm: #f7f6f2;
+  --brand-ivory: #fffefa;
+  --brand-champagne: #c7a76d;
+  --brand-amber: #a76f48;
+  --brand-rose: #9d6d6b;
+  --brand-moss: #47665d;
+
+  --sidebar: #072835;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #c7a76d;
+  --sidebar-primary-foreground: #072835;
+  --sidebar-accent: rgba(255, 255, 255, 0.08);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #c7a76d;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    scroll-padding-top: 64px;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-figtree), sans-serif;
+  }
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    @apply transition-colors duration-150;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--brand-champagne) 38%, white);
+    color: var(--brand-ink);
+  }
+}
+
+@layer components {
+  .field-select {
+    @apply flex h-9 w-full rounded-lg border border-input bg-transparent px-3 py-1 text-sm shadow-xs outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/25 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .metric-card {
+    @apply border-border/80 bg-card shadow-[0_8px_30px_-26px_rgba(7,40,53,.38)] transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/15 hover:shadow-[0_16px_40px_-28px_rgba(7,40,53,.45)];
+  }
+  .erp-sidebar-scroll [data-slot="scroll-area-viewport"] {
+    overflow-anchor: none;
+  }
+  .erp-sidebar-scroll [data-slot="scroll-area-viewport"] > div {
+    display: block !important;
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 389px) {
+  .readiness-card {
+    border-radius: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 700px) {
+  .pos-cart {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100svh - 96px);
+  }
+  .pos-cart > div:not(.pos-cart-lines) {
+    flex-shrink: 0;
+  }
+  .pos-cart .pos-cart-lines {
+    flex: 1;
+    min-height: 72px;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .barcode-print-area,
+  .barcode-print-area * {
+    visibility: visible !important;
+  }
+  .label-dialog {
+    position: absolute !important;
+    inset: 0 !important;
+    transform: none !important;
+    max-width: none !important;
+    width: 100% !important;
+    max-height: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  .barcode-print-area {
+    position: absolute !important;
+    inset: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    overflow: visible !important;
+    gap: 10mm !important;
+    padding: 8mm !important;
+  }
+  .barcode-label {
+    break-inside: avoid;
+  }
+  .pos-receipt,
+  .pos-receipt * {
+    visibility: visible !important;
+  }
+  body:has(.pos-receipt-dialog) > :not(.pos-receipt-dialog) {
+    display: none !important;
+  }
+  .pos-receipt-dialog {
+    position: absolute !important;
+    inset: 0 !important;
+    transform: none !important;
+    display: block !important;
+    width: 80mm !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  .pos-receipt-dialog > :not(.pos-receipt) {
+    display: none !important;
+  }
+  .pos-receipt {
+    position: relative !important;
+    overflow: visible !important;
+    width: 100% !important;
+    max-height: none !important;
+    padding: 5mm !important;
+  }
+}

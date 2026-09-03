@@ -1,0 +1,5 @@
+25 slides rendered and individually reviewed.
+25 speaker-note sections contain source blocks.
+20 customer slides; 5 hidden presenter slides.
+All package XML parses and ZIP integrity passes.
+No out-of-bounds elements, overlapping text boxes, or text-height flags.
