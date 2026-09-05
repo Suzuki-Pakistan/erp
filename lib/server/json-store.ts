@@ -4,19 +4,30 @@ import path from "node:path";
 import { randomUUID } from "node:crypto";
 import os from "node:os";
 
-function resolveInitialDirectory(): string {
-  if (process.env.FLAIR_DATA_DIR) {
-    return path.resolve(process.env.FLAIR_DATA_DIR);
-  }
-  // On Vercel / AWS Lambda, the workspace root filesystem is read-only.
-  // /tmp (os.tmpdir()) is the standard writable location.
-  if (
+function isServerlessRuntime() {
+  return Boolean(
     process.env.VERCEL ||
-    process.env.AWS_LAMBDA_FUNCTION_NAME ||
-    process.env.LAMBDA_TASK_ROOT
-  ) {
-    return path.join(os.tmpdir(), "flair-data");
+      process.env.AWS_LAMBDA_FUNCTION_NAME ||
+      process.env.LAMBDA_TASK_ROOT ||
+      process.cwd().startsWith("/var/task"),
+  );
+}
+
+function resolveInitialDirectory(): string {
+  const temporaryDirectory = path.join(os.tmpdir(), "flair-data");
+  if (isServerlessRuntime()) {
+    // Vercel functions cannot write inside /var/task. Ignore a stale
+    // FLAIR_DATA_DIR such as /var/task/.data; only an explicit /tmp path is
+    // valid on a serverless runtime.
+    const configured = process.env.FLAIR_DATA_DIR?.trim();
+    if (configured) {
+      const resolved = path.resolve(configured);
+      const temporaryRoot = path.resolve(os.tmpdir()) + path.sep;
+      if (resolved.startsWith(temporaryRoot)) return resolved;
+    }
+    return temporaryDirectory;
   }
+  if (process.env.FLAIR_DATA_DIR) return path.resolve(process.env.FLAIR_DATA_DIR);
   return path.resolve(path.join(process.cwd(), ".data"));
 }
 

@@ -36,6 +36,7 @@ function start() {
       env: {
         ...process.env,
         NODE_ENV: "production",
+        VERCEL: "1",
         FLAIR_DATA_DIR: directory,
         FLAIR_IGNORE_DATA_TEMPLATE: "1",
         FLAIR_ADMIN_PASSWORD: password,
