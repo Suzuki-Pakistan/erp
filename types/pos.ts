@@ -1,6 +1,7 @@
 import type { InventoryData } from "./inventory";
 
 export type PriceTier = "retail" | "wholesale" | "vip";
+export type PromotionCode = "none" | "buy-one-second-half";
 export type TenderMethod = "cash" | "external" | "credit";
 export interface CartLine {
   productId: string;
@@ -36,6 +37,7 @@ export interface Sale {
   customerId: string;
   customerName: string;
   tier: PriceTier;
+  promotion?: PromotionCode;
   note: string;
   receiptNote: string;
   taxBps: number;
@@ -73,6 +75,8 @@ export interface Customer {
   email: string;
   phone: string;
   notes: string;
+  marketingOptIn: boolean;
+  preferredContact: "none" | "email" | "sms" | "both";
   creditCents: number;
   createdAt: string;
 }
@@ -114,6 +118,7 @@ export interface HeldCart {
   locationId: string;
   customerId: string;
   tier: PriceTier;
+  promotion?: PromotionCode;
   note: string;
   lines: CartLine[];
   createdAt: string;
@@ -137,10 +142,10 @@ export interface PosSnapshot {
 }
 export function createPosSeed(): PosData {
   return {
-    version: 1,
+    version: 2,
     settings: {
-      taxBps: 0,
-      taxConfigured: false,
+      taxBps: 825,
+      taxConfigured: true,
       receiptNote: "Thank you for shopping with Flair.",
     },
     sales: [],

@@ -3,6 +3,7 @@ const id = z.string().min(1).max(120);
 const amount = z.number().int().min(0).max(100_000_000);
 const text = z.string().trim().max(1000);
 const tier = z.enum(["retail", "wholesale", "vip"]);
+const promotion = z.enum(["none", "buy-one-second-half"]).default("none");
 export const cartLineSchema = z.object({
   productId: id,
   quantity: z.number().int().min(1).max(9999),
@@ -21,6 +22,7 @@ export const checkoutSchema = z.object({
   shiftId: id,
   customerId: z.string().max(120),
   tier,
+  promotion,
   note: text,
   lines,
   taxBps: z.number().int().min(0).max(2500),
@@ -65,6 +67,8 @@ export const posCommandSchema = z.discriminatedUnion("action", [
     email: z.union([z.email(), z.literal("")]),
     phone: z.string().trim().max(40),
     notes: text,
+    marketingOptIn: z.boolean().default(false),
+    preferredContact: z.enum(["none", "email", "sms", "both"]).default("none"),
   }),
   z.object({
     action: z.literal("cart.hold"),
@@ -72,6 +76,7 @@ export const posCommandSchema = z.discriminatedUnion("action", [
     locationId: id,
     customerId: z.string().max(120),
     tier,
+    promotion,
     note: text,
     lines,
   }),

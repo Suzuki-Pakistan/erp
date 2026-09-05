@@ -78,11 +78,13 @@ export function SalesPage() {
   const user = useSessionUser();
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("");
+  const [tier, setTier] = useState("");
   const [date, setDate] = useState("");
   const [receipt, setReceipt] = useState<Sale | null>(null);
   const sales = data.pos.sales.filter(
     (s) =>
       (!location || s.locationId === location) &&
+      (!tier || s.tier === tier) &&
       (!date || s.createdAt.startsWith(date)) &&
       `${s.reference} ${s.customerName} ${s.actor} ${s.lines.map((l) => l.sku + " " + l.name).join(" ")}`
         .toLowerCase()
@@ -158,6 +160,17 @@ export function SalesPage() {
             </option>
           ))}
         </select>
+        <select
+          className="field-select w-full sm:w-44"
+          aria-label="Sales price level"
+          value={tier}
+          onChange={(e) => setTier(e.target.value)}
+        >
+          <option value="">All price levels</option>
+          <option value="retail">Retail</option>
+          <option value="wholesale">Wholesale</option>
+          <option value="vip">VIP</option>
+        </select>
         <Input
           className="w-full sm:w-44"
           type="date"
@@ -178,6 +191,11 @@ export function SalesPage() {
                 Store: s.locationName,
                 Cashier: s.actor,
                 Customer: s.customerName,
+                PriceLevel: s.tier,
+                Promotion:
+                  s.promotion === "buy-one-second-half"
+                    ? "Buy 1, second item 50% off"
+                    : "",
                 Subtotal: s.subtotalCents / 100,
                 Discount: s.discountCents / 100,
                 Tax: s.taxCents / 100,
@@ -207,6 +225,7 @@ export function SalesPage() {
                 {[
                   "Receipt / time",
                   "Customer",
+                  "Price level",
                   "Store / cashier",
                   "Payment",
                   "Total",
@@ -236,6 +255,14 @@ export function SalesPage() {
                       </p>
                     </td>
                     <td>{s.customerName}</td>
+                    <td className="capitalize">
+                      {s.tier}
+                      {s.promotion === "buy-one-second-half" && (
+                        <p className="mt-1 text-[10px] text-emerald-700">
+                          Buy 1, 2nd 50% off
+                        </p>
+                      )}
+                    </td>
                     <td>
                       <p>{s.locationName}</p>
                       <p className="mt-1 text-muted-foreground">{s.actor}</p>
@@ -828,13 +855,36 @@ export function CustomersPage() {
         title="Customer accounts"
         description="Remember the person behind the purchase. One account for history, notes and store credit."
         actions={
-          <Button onClick={() => setEdit("new")}>
-            <Plus />
-            New customer
-          </Button>
+          <>
+            <Button
+              variant="outline"
+              disabled={!data.pos.customers.some((c) => c.marketingOptIn)}
+              onClick={() =>
+                downloadCsv(
+                  "flair-promotion-contacts.csv",
+                  data.pos.customers
+                    .filter((c) => c.marketingOptIn)
+                    .map((c) => ({
+                      Customer: c.name,
+                      Email: c.email,
+                      Phone: c.phone,
+                      PreferredContact: c.preferredContact,
+                      PromotionConsent: "Yes",
+                    })),
+                )
+              }
+            >
+              <Download />
+              Export promotion contacts
+            </Button>
+            <Button onClick={() => setEdit("new")}>
+              <Plus />
+              New customer
+            </Button>
+          </>
         }
       />
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <Metric
           label="Customer accounts"
           value={String(data.pos.customers.length)}
@@ -851,6 +901,13 @@ export function CustomersPage() {
           label="Linked purchases"
           value={String(data.pos.sales.filter((s) => s.customerId).length)}
           detail="Within your receipt access"
+        />
+        <Metric
+          label="Promotion alerts"
+          value={String(
+            data.pos.customers.filter((c) => c.marketingOptIn).length,
+          )}
+          detail="Customers with recorded consent"
         />
       </div>
       <Input
@@ -890,6 +947,11 @@ export function CustomersPage() {
                   {money(c.creditCents)}
                 </strong>
               </div>
+              {c.marketingOptIn && (
+                <p className="mt-3 text-[10px] font-semibold uppercase tracking-wide text-emerald-700">
+                  Promotions · {c.preferredContact}
+                </p>
+              )}
             </button>
           ))}
         </div>
@@ -1341,6 +1403,18 @@ function CloseShiftDialog({
         </>
       }
     >
+      <div className="grid gap-3 sm:grid-cols-2">
+        <Metric
+          label="Retail net sales"
+          value={money(totals.retail.net)}
+          detail={`${totals.retail.transactions} transactions · ${money(totals.retail.refunds)} returned`}
+        />
+        <Metric
+          label="Wholesale net sales"
+          value={money(totals.wholesale.net)}
+          detail={`${totals.wholesale.transactions} transactions · ${money(totals.wholesale.refunds)} returned`}
+        />
+      </div>
       <Metric
         label="Expected cash"
         value={money(totals.expected)}
@@ -1406,6 +1480,16 @@ function ShiftDetails({
       footer={<Button onClick={onClose}>Done</Button>}
     >
       <div className="grid gap-3 sm:grid-cols-2">
+        <Metric
+          label="Retail net sales"
+          value={money(totals.retail.net)}
+          detail={`${totals.retail.transactions} transactions · ${money(totals.retail.refunds)} returned`}
+        />
+        <Metric
+          label="Wholesale net sales"
+          value={money(totals.wholesale.net)}
+          detail={`${totals.wholesale.transactions} transactions · ${money(totals.wholesale.refunds)} returned`}
+        />
         <Metric
           label="Sales collected"
           value={money(totals.gross)}
@@ -1482,6 +1566,7 @@ export function ReconciliationPage() {
       (!date || s.closedAt.startsWith(date)) &&
       (!location || s.locationId === location),
   );
+  const reportTotals = closed.map((shift) => shiftTotals(data.pos, shift));
   const rows = closed.map((s) => ({
     Register: s.register,
     Cashier: s.actor,
@@ -1493,6 +1578,14 @@ export function ReconciliationPage() {
     Expected: (s.expectedCents ?? 0) / 100,
     Counted: (s.countedCents ?? 0) / 100,
     Variance: (s.varianceCents ?? 0) / 100,
+    RetailTransactions: shiftTotals(data.pos, s).retail.transactions,
+    RetailGross: shiftTotals(data.pos, s).retail.gross / 100,
+    RetailReturns: shiftTotals(data.pos, s).retail.refunds / 100,
+    RetailNet: shiftTotals(data.pos, s).retail.net / 100,
+    WholesaleTransactions: shiftTotals(data.pos, s).wholesale.transactions,
+    WholesaleGross: shiftTotals(data.pos, s).wholesale.gross / 100,
+    WholesaleReturns: shiftTotals(data.pos, s).wholesale.refunds / 100,
+    WholesaleNet: shiftTotals(data.pos, s).wholesale.net / 100,
     Note: s.closingNote ?? "",
   }));
   return (
@@ -1531,6 +1624,20 @@ export function ReconciliationPage() {
           label="Net variance"
           value={money(closed.reduce((n, s) => n + (s.varianceCents ?? 0), 0))}
           detail={`${closed.filter((s) => s.varianceCents).length} shifts with a discrepancy`}
+        />
+        <Metric
+          label="Retail net sales"
+          value={money(
+            reportTotals.reduce((total, item) => total + item.retail.net, 0),
+          )}
+          detail={`${reportTotals.reduce((total, item) => total + item.retail.transactions, 0)} transactions after returns`}
+        />
+        <Metric
+          label="Wholesale net sales"
+          value={money(
+            reportTotals.reduce((total, item) => total + item.wholesale.net, 0),
+          )}
+          detail={`${reportTotals.reduce((total, item) => total + item.wholesale.transactions, 0)} transactions after returns`}
         />
       </div>
       <div className="flex flex-wrap items-end gap-4">
@@ -1575,6 +1682,8 @@ export function ReconciliationPage() {
                   "Closed",
                   "Expected",
                   "Counted",
+                  "Retail net",
+                  "Wholesale net",
                   "Variance",
                   "Explanation",
                   "",
@@ -1593,6 +1702,8 @@ export function ReconciliationPage() {
                   <td>{dateTime(s.closedAt!)}</td>
                   <td>{money(s.expectedCents ?? 0)}</td>
                   <td>{money(s.countedCents ?? 0)}</td>
+                  <td>{money(shiftTotals(data.pos, s).retail.net)}</td>
+                  <td>{money(shiftTotals(data.pos, s).wholesale.net)}</td>
                   <td>
                     <Status warning={!!s.varianceCents}>
                       {money(s.varianceCents ?? 0)}

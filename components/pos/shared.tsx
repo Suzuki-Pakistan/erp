@@ -279,6 +279,12 @@ export function CustomerDialog({
   const [email, setEmail] = useState(customer?.email ?? "");
   const [phone, setPhone] = useState(customer?.phone ?? "");
   const [notes, setNotes] = useState(customer?.notes ?? "");
+  const [marketingOptIn, setMarketingOptIn] = useState(
+    customer?.marketingOptIn ?? false,
+  );
+  const [preferredContact, setPreferredContact] = useState(
+    customer?.preferredContact ?? "none",
+  );
   return (
     <PosModal
       open={open}
@@ -291,7 +297,14 @@ export function CustomerDialog({
             Cancel
           </Button>
           <Button
-            disabled={busy || name.trim().length < 2}
+            disabled={
+              busy ||
+              name.trim().length < 2 ||
+              (marketingOptIn &&
+                (preferredContact === "none" ||
+                  (["email", "both"].includes(preferredContact) && !email) ||
+                  (["sms", "both"].includes(preferredContact) && !phone)))
+            }
             onClick={async () => {
               const result = await mutate({
                 action: "customer.save",
@@ -300,6 +313,8 @@ export function CustomerDialog({
                 email,
                 phone,
                 notes,
+                marketingOptIn,
+                preferredContact,
               });
               if (result) {
                 onOpenChange(false);
@@ -342,6 +357,46 @@ export function CustomerDialog({
           onChange={(e) => setNotes(e.target.value)}
         />
       </FormField>
+      <div className="space-y-4 rounded-xl border bg-muted/20 p-4">
+        <label className="flex items-start gap-3 text-sm">
+          <input
+            type="checkbox"
+            className="mt-0.5 size-4 accent-primary"
+            checked={marketingOptIn}
+            onChange={(event) => {
+              setMarketingOptIn(event.target.checked);
+              if (!event.target.checked) setPreferredContact("none");
+            }}
+          />
+          <span>
+            <strong className="block font-medium">
+              Customer agreed to promotion alerts
+            </strong>
+            <span className="mt-1 block text-xs leading-5 text-muted-foreground">
+              Record consent before using contact details for discounts or
+              special offers.
+            </span>
+          </span>
+        </label>
+        {marketingOptIn && (
+          <FormField label="Preferred contact method">
+            <select
+              className="field-select"
+              value={preferredContact}
+              onChange={(event) =>
+                setPreferredContact(
+                  event.target.value as "none" | "email" | "sms" | "both",
+                )
+              }
+            >
+              <option value="none">Select a method</option>
+              <option value="email">Email</option>
+              <option value="sms">Text message</option>
+              <option value="both">Email and text message</option>
+            </select>
+          </FormField>
+        )}
+      </div>
     </PosModal>
   );
 }
@@ -384,6 +439,10 @@ export function ReceiptDialog({
             </p>
             <p>Cashier: {sale.actor}</p>
             <p>Customer: {sale.customerName}</p>
+            <p className="capitalize">Price level: {sale.tier}</p>
+            {sale.promotion === "buy-one-second-half" && (
+              <p>Promotion: Buy 1, second item 50% off</p>
+            )}
           </div>
           <div className="space-y-4 border-y border-dashed py-4">
             {sale.lines.map((l) => (

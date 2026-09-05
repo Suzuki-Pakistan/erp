@@ -2,6 +2,7 @@ import type {
   CartLine,
   PosData,
   PriceTier,
+  PromotionCode,
   SaleLine,
   Shift,
 } from "@/types/pos";
@@ -26,17 +27,33 @@ export function quoteCart(
   lines: CartLine[],
   products: Product[],
   taxBps: number,
+  promotion: PromotionCode = "none",
 ) {
-  const quoted: SaleLine[] = lines.map((line) => {
+  const promotionDiscounts = lines.map(() => 0);
+  if (promotion === "buy-one-second-half") {
+    const units = lines
+      .flatMap((line, lineIndex) =>
+        Array.from({ length: line.quantity }, () => ({
+          lineIndex,
+          unitPriceCents: line.unitPriceCents,
+        })),
+      )
+      .sort((a, b) => b.unitPriceCents - a.unitPriceCents);
+    for (let index = 1; index < units.length; index += 2) {
+      const unit = units[index];
+      promotionDiscounts[unit.lineIndex] += Math.round(unit.unitPriceCents / 2);
+    }
+  }
+  const quoted: SaleLine[] = lines.map((line, lineIndex) => {
     const product = products.find((p) => p.id === line.productId);
     if (!product)
       throw new Error(
         "A cart product no longer exists. Remove it and try again.",
       );
     const subtotalCents = line.unitPriceCents * line.quantity;
-    const discountCents = Math.round(
-      (subtotalCents * line.discountBps) / 10000,
-    );
+    const discountCents =
+      Math.round((subtotalCents * line.discountBps) / 10000) +
+      promotionDiscounts[lineIndex];
     const taxCents = product.taxable
       ? Math.round(((subtotalCents - discountCents) * taxBps) / 10000)
       : 0;
@@ -76,6 +93,19 @@ export function shiftTotals(pos: PosData, shift: Shift) {
     .filter((r) => r.method === "cash")
     .reduce((n, r) => n + r.totalCents, 0);
   const movements = shift.cashEntries.reduce((n, e) => n + e.amountCents, 0);
+  const tierSummary = (tier: PriceTier) => {
+    const tierSales = sales.filter((sale) => sale.tier === tier);
+    const gross = tierSales.reduce((total, sale) => total + sale.totalCents, 0);
+    const refunds = returns
+      .filter((record) => tierSales.some((sale) => sale.id === record.saleId))
+      .reduce((total, record) => total + record.totalCents, 0);
+    return {
+      transactions: tierSales.length,
+      gross,
+      refunds,
+      net: gross - refunds,
+    };
+  };
   return {
     sales: sales.length,
     gross: sales.reduce((n, s) => n + s.totalCents, 0),
@@ -83,6 +113,9 @@ export function shiftTotals(pos: PosData, shift: Shift) {
     cashSales,
     cashRefunds,
     movements,
+    retail: tierSummary("retail"),
+    wholesale: tierSummary("wholesale"),
+    vip: tierSummary("vip"),
     external: sales.reduce(
       (n, s) =>
         n +

@@ -19,11 +19,24 @@ import {
   tierPrice,
 } from "./pos-calculations";
 
+function migratePosData(pos: PosData) {
+  if ((pos.version ?? 1) < 2) {
+    pos.version = 2;
+    pos.settings.taxBps = 825;
+    pos.settings.taxConfigured = true;
+    pos.customers.forEach((customer) => {
+      customer.marketingOptIn = false;
+      customer.preferredContact = "none";
+    });
+  }
+  return pos;
+}
+
 export function posSnapshot(
   data: InventoryData,
   user: SessionUser,
 ): PosSnapshot {
-  const pos = structuredClone(data.pos ?? createPosSeed());
+  const pos = migratePosData(structuredClone(data.pos ?? createPosSeed()));
   if (!canManagePos(user)) {
     pos.sales = pos.sales.filter((s) => s.actorId === user.id);
     pos.returns = pos.returns.filter((r) =>
@@ -94,7 +107,7 @@ function customerCredit(
 function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
   if (!canAccess(user, "pos"))
     throw new Error("Retail POS access is required.");
-  const pos = (data.pos ??= createPosSeed());
+  const pos = migratePosData((data.pos ??= createPosSeed()));
   const now = new Date().toISOString();
   switch (command.action) {
     case "settings.save":
@@ -109,6 +122,17 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
       const existing = pos.customers.find((c) => c.id === command.id);
       if (command.id && !existing) throw new Error("Customer not found.");
       if (
+        command.marketingOptIn &&
+        (command.preferredContact === "none" ||
+          (["email", "both"].includes(command.preferredContact) &&
+            !command.email) ||
+          (["sms", "both"].includes(command.preferredContact) &&
+            !command.phone))
+      )
+        throw new Error(
+          "Add the selected contact details before enabling promotion alerts.",
+        );
+      if (
         command.email &&
         pos.customers.some(
           (c) =>
@@ -121,6 +145,10 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
         ...command,
         id: existing?.id ?? randomUUID(),
         creditCents: existing?.creditCents ?? 0,
+        marketingOptIn: command.marketingOptIn,
+        preferredContact: command.marketingOptIn
+          ? command.preferredContact
+          : ("none" as const),
         createdAt: existing?.createdAt ?? now,
       };
       const { action: _action, ...record } = customer;
@@ -216,6 +244,7 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
         locationId: command.locationId,
         customerId: command.customerId,
         tier: command.tier,
+        promotion: command.promotion,
         note: command.note,
         lines: command.lines,
       });
@@ -247,6 +276,14 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
       if (command.taxBps !== pos.settings.taxBps)
         throw new Error(
           "Tax configuration changed. Refresh and review the total before payment.",
+        );
+      if (
+        command.promotion !== "none" &&
+        (command.tier !== "retail" ||
+          command.lines.some((line) => line.discountBps > 0))
+      )
+        throw new Error(
+          "Buy 1, second item 50% off uses retail prices and cannot be combined with manual discounts.",
         );
       if (
         user.role === "cashier" &&
@@ -299,7 +336,18 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
         command.lines,
         data.products,
         pos.settings.taxBps,
+        command.promotion,
       );
+      for (const line of quote.lines) {
+        const product = data.products.find((p) => p.id === line.productId)!;
+        if (
+          line.subtotalCents - line.discountCents <
+          cents(product.lowestPrice) * line.quantity
+        )
+          throw new Error(
+            product.name + ": promotion exceeds the minimum selling price.",
+          );
+      }
       if (
         quote.totalCents <= 0 ||
         quote.totalCents !== command.expectedTotalCents
@@ -351,6 +399,7 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
           pos.customers.find((c) => c.id === command.customerId)?.name ??
           "Walk-in customer",
         tier: command.tier,
+        promotion: command.promotion,
         note: command.note,
         taxBps: pos.settings.taxBps,
         receiptNote: pos.settings.receiptNote,

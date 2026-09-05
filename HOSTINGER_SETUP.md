@@ -18,13 +18,13 @@ This ZIP is a source deployment package for Hostinger's **Node.js Web App** serv
    | Setting | Value |
    | --- | --- |
    | Framework | Next.js, with server/backend support |
-| Node.js | 24.x |
+   | Node.js | 24.x |
    | Project root | Archive root, where `package.json` is located |
    | Package manager | npm, using `package-lock.json` |
    | Install command, if editable | `npm ci --include=dev` |
    | Build command | `npm run build` |
    | Output directory, if requested | `.next` |
-| Start command, if requested | `npm run start` |
+   | Start command, if requested | `npm run start` |
 
    Do not select static export, `out`, or an invented `server.js` entry point. The Next.js preset should manage startup. `next start` uses the platform's `PORT` automatically. Build-time dependencies such as TypeScript and Tailwind must be installed before building. The build also needs outbound access to Google Fonts for the existing Figtree font.
 

@@ -12,10 +12,12 @@ import {
   Minus,
   Pause,
   Plus,
+  ReceiptText,
   ScanLine,
   Search,
   Settings2,
   ShoppingBag,
+  Tag,
   Trash2,
   UserRoundPlus,
   Wallet,
@@ -28,7 +30,13 @@ import { ProductVisual, FormField } from "@/components/inventory/shared";
 import { useSessionUser } from "@/components/auth/session-provider";
 import { canManagePos } from "@/types/auth";
 import { availableStock, type Product } from "@/types/inventory";
-import type { CartLine, PriceTier, Sale, Tender } from "@/types/pos";
+import type {
+  CartLine,
+  PriceTier,
+  PromotionCode,
+  Sale,
+  Tender,
+} from "@/types/pos";
 import { cartLineSchema } from "@/lib/pos-schema";
 import { cents, quoteCart, tierPrice } from "@/lib/pos-calculations";
 import { cn } from "@/lib/utils";
@@ -54,6 +62,7 @@ export function TerminalPage() {
   const [inStock, setInStock] = useState(false);
   const [lines, setLines] = useState<CartLine[]>([]);
   const [tier, setTier] = useState<PriceTier>("retail");
+  const [promotion, setPromotion] = useState<PromotionCode>("none");
   const [customerId, setCustomerId] = useState(params.get("customer") ?? "");
   const [note, setNote] = useState("");
   const [requestId, setRequestId] = useState("");
@@ -93,6 +102,11 @@ export function TerminalPage() {
               ? saved.tier
               : "retail",
           );
+          setPromotion(
+            saved.promotion === "buy-one-second-half"
+              ? "buy-one-second-half"
+              : "none",
+          );
           setCustomerId(
             !saved.lines.length && requestedCustomer
               ? requestedCustomer
@@ -127,6 +141,7 @@ export function TerminalPage() {
           JSON.stringify({
             lines,
             tier,
+            promotion,
             customerId,
             note,
             requestId,
@@ -141,6 +156,7 @@ export function TerminalPage() {
   }, [
     lines,
     tier,
+    promotion,
     customerId,
     note,
     requestId,
@@ -157,8 +173,9 @@ export function TerminalPage() {
         ),
         data.catalog.products,
         data.pos.settings.taxBps,
+        promotion,
       ),
-    [lines, data.catalog.products, data.pos.settings.taxBps],
+    [lines, data.catalog.products, data.pos.settings.taxBps, promotion],
   );
   function stock(product: Product) {
     return data.catalog.balances
@@ -194,11 +211,13 @@ export function TerminalPage() {
     setCustomerId("");
     setNote("");
     setHeldId("");
+    setPromotion("none");
     setRequestId(crypto.randomUUID());
     setClear(false);
   }
   function changeTier(next: PriceTier) {
     setTier(next);
+    if (next !== "retail") setPromotion("none");
     setLines((prev) =>
       prev.map((l) => {
         const p = data.catalog.products.find((p) => p.id === l.productId);
@@ -228,6 +247,14 @@ export function TerminalPage() {
                 <History />
                 Sales history
               </Link>
+            </Button>
+            <Button
+              variant="outline"
+              disabled={!data.pos.sales.length}
+              onClick={() => setReceipt(data.pos.sales[0])}
+            >
+              <ReceiptText />
+              Last sale
             </Button>
             {canManagePos(user) && (
               <Button
@@ -577,6 +604,44 @@ export function TerminalPage() {
                 <option value="vip">VIP</option>
               </select>
             </div>
+            <button
+              type="button"
+              aria-pressed={promotion === "buy-one-second-half"}
+              disabled={
+                tier !== "retail" ||
+                lines.reduce((total, line) => total + line.quantity, 0) < 2
+              }
+              onClick={() => {
+                const next =
+                  promotion === "none" ? "buy-one-second-half" : "none";
+                setPromotion(next);
+                if (next !== "none")
+                  setLines((current) =>
+                    current.map((line) => ({ ...line, discountBps: 0 })),
+                  );
+              }}
+              className={cn(
+                "flex w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition-colors disabled:cursor-not-allowed disabled:opacity-45",
+                promotion === "buy-one-second-half"
+                  ? "border-emerald-300 bg-emerald-50 text-emerald-900"
+                  : "bg-card hover:bg-muted/40",
+              )}
+            >
+              <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-[var(--brand-champagne)]/25 text-primary">
+                <Tag className="size-4" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block text-xs font-semibold">
+                  Buy 1, get 2nd 50% off
+                </span>
+                <span className="mt-0.5 block text-[10px] text-muted-foreground">
+                  Retail only · lower-priced item in each pair
+                </span>
+              </span>
+              <span className="text-[10px] font-semibold uppercase">
+                {promotion === "buy-one-second-half" ? "Applied" : "Apply"}
+              </span>
+            </button>
             {heldId && (
               <p className="text-xs text-amber-800">
                 Recalled cart · removed from held carts after checkout
@@ -686,6 +751,7 @@ export function TerminalPage() {
                           aria-label={`Discount percent for ${p?.name}`}
                           min="0"
                           max={canManagePos(user) ? 100 : 10}
+                          disabled={promotion !== "none"}
                           value={l.discountBps / 100}
                           onChange={(e) => {
                             const value = Number(e.target.value);
@@ -869,6 +935,7 @@ export function TerminalPage() {
                     locationId,
                     customerId,
                     tier,
+                    promotion,
                     note,
                     lines,
                   })
@@ -921,6 +988,7 @@ export function TerminalPage() {
                     setLines(h.lines);
                     setCustomerId(h.customerId);
                     setTier(h.tier);
+                    setPromotion(h.promotion ?? "none");
                     setNote(h.note);
                     setHeldId(h.id);
                     setBrowseLocation(h.locationId);
@@ -961,6 +1029,7 @@ export function TerminalPage() {
           shiftId={shift.id}
           lines={lines}
           tier={tier}
+          promotion={promotion}
           customerId={customerId}
           note={note}
           heldId={heldId}
@@ -981,6 +1050,7 @@ function PaymentDialog({
   shiftId,
   lines,
   tier,
+  promotion,
   customerId,
   note,
   heldId,
@@ -991,6 +1061,7 @@ function PaymentDialog({
   shiftId: string;
   lines: CartLine[];
   tier: PriceTier;
+  promotion: PromotionCode;
   customerId: string;
   note: string;
   heldId: string;
@@ -1002,6 +1073,7 @@ function PaymentDialog({
     lines,
     data.catalog.products,
     data.pos.settings.taxBps,
+    promotion,
   );
   const [cash, setCash] = useState((quote.totalCents / 100).toFixed(2));
   const [external, setExternal] = useState("");
@@ -1066,6 +1138,7 @@ function PaymentDialog({
                   shiftId,
                   customerId,
                   tier,
+                  promotion,
                   note,
                   lines,
                   taxBps: data.pos.settings.taxBps,

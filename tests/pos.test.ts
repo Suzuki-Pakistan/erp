@@ -21,6 +21,7 @@ import {
   type SessionUser,
 } from "../types/auth";
 import type { InventoryData } from "../types/inventory";
+import { createPosSeed } from "../types/pos";
 const admin: SessionUser = {
   id: "admin",
   username: "admin",
@@ -75,6 +76,7 @@ function checkout(
     shiftId: shift,
     customerId: "",
     tier: "retail",
+    promotion: "none",
     note: "",
     lines,
     taxBps: data.pos!.settings.taxBps,
@@ -92,6 +94,17 @@ test("POS roles land in their own workspace and cannot edit inventory", () => {
     canAccess({ ...cashier, role: "inventory-manager" }, "pos"),
     false,
   );
+});
+test("legacy POS data migrates once to the approved 8.25% tax rate", () => {
+  const data = createInventorySeed();
+  data.pos = createPosSeed();
+  data.pos.version = 1;
+  data.pos!.settings.taxBps = 2500;
+  data.pos!.settings.taxConfigured = true;
+  const snapshot = posSnapshot(data, admin);
+  assert.equal(snapshot.pos.version, 2);
+  assert.equal(snapshot.pos.settings.taxBps, 825);
+  assert.equal(snapshot.pos.settings.taxConfigured, true);
 });
 test("checkout records exact tax, cash change and one atomic stock movement", () => {
   const { data, shift } = setup();
@@ -114,6 +127,59 @@ test("checkout records exact tax, cash change and one atomic stock movement", ()
   );
   assert.equal(data.movements[0].after, before - 2);
   assert.equal(shiftTotals(data.pos!, data.pos!.shifts[0]).expected, 18444);
+});
+test("retail buy-one-second-half promotion is server-priced and reported", () => {
+  const { data, shift } = setup(cashier);
+  const command = checkout(data, shift, 2);
+  command.promotion = "buy-one-second-half";
+  const quote = quoteCart(
+    command.lines,
+    data.products,
+    data.pos!.settings.taxBps,
+    command.promotion,
+  );
+  command.expectedTotalCents = quote.totalCents;
+  command.tenders[0].amountCents = quote.totalCents;
+  run(data, command, cashier);
+  assert.equal(quote.subtotalCents, 7800);
+  assert.equal(quote.discountCents, 1950);
+  assert.equal(quote.taxCents, 483);
+  assert.equal(quote.totalCents, 6333);
+  assert.equal(data.pos!.sales[0].promotion, "buy-one-second-half");
+  assert.equal(shiftTotals(data.pos!, data.pos!.shifts[0]).retail.net, 6333);
+  assert.equal(
+    shiftTotals(data.pos!, data.pos!.shifts[0]).retail.transactions,
+    1,
+  );
+});
+test("promotion cannot combine with wholesale pricing or manual discounts", () => {
+  const { data, shift } = setup();
+  const command = checkout(data, shift, 2);
+  command.promotion = "buy-one-second-half";
+  command.lines[0].discountBps = 500;
+  assert.throws(() => run(data, command), /cannot be combined/);
+  command.lines[0].discountBps = 0;
+  command.tier = "wholesale";
+  assert.throws(() => run(data, command), /uses retail prices/);
+});
+test("closing totals separate retail and wholesale sales", () => {
+  const { data, shift } = setup();
+  run(data, checkout(data, shift));
+  const wholesale = checkout(data, shift);
+  const product = data.products.find(
+    (item) => item.id === wholesale.lines[0].productId,
+  )!;
+  wholesale.requestId = randomUUID();
+  wholesale.tier = "wholesale";
+  wholesale.lines[0].unitPriceCents = cents(product.wholesalePrice);
+  const quote = quoteCart(wholesale.lines, data.products, 825);
+  wholesale.expectedTotalCents = quote.totalCents;
+  wholesale.tenders[0].amountCents = quote.totalCents;
+  run(data, wholesale);
+  const totals = shiftTotals(data.pos!, data.pos!.shifts[0]);
+  assert.equal(totals.retail.transactions, 1);
+  assert.equal(totals.wholesale.transactions, 1);
+  assert.equal(totals.wholesale.net, quote.totalCents);
 });
 test("retrying checkout, even after shift closure, never duplicates payment or inventory", () => {
   const { data, shift } = setup();
@@ -269,6 +335,8 @@ test("credit return and later redemption retain an immutable balance ledger", ()
     email: "qa@example.test",
     phone: "",
     notes: "",
+    marketingOptIn: false,
+    preferredContact: "none",
   }).id!;
   const command = checkout(data, shift);
   command.customerId = customerId;
@@ -296,6 +364,33 @@ test("credit return and later redemption retain an immutable balance ledger", ()
     () => run(data, { ...second, requestId: randomUUID() }),
     /insufficient store credit/,
   );
+});
+test("customer promotion consent requires the selected contact channel", () => {
+  const { data } = setup();
+  assert.throws(
+    () =>
+      run(data, {
+        action: "customer.save",
+        name: "Promotion Customer",
+        email: "",
+        phone: "",
+        notes: "",
+        marketingOptIn: true,
+        preferredContact: "email",
+      }),
+    /selected contact details/,
+  );
+  run(data, {
+    action: "customer.save",
+    name: "Promotion Customer",
+    email: "promotions@example.test",
+    phone: "",
+    notes: "",
+    marketingOptIn: true,
+    preferredContact: "email",
+  });
+  assert.equal(data.pos!.customers[0].marketingOptIn, true);
+  assert.equal(data.pos!.customers[0].preferredContact, "email");
 });
 test("external-only sales cannot be refunded as cash", () => {
   const { data, shift } = setup();
@@ -411,6 +506,7 @@ test("held carts do not reserve stock and cannot be sold twice with new request 
     label: "QA hold",
     customerId: "",
     tier: "retail",
+    promotion: "none",
     note: "",
     lines: command.lines,
   });

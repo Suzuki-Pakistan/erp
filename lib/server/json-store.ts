@@ -68,10 +68,14 @@ export async function readStore<T>(
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
 
-    // Check if a read-only template exists in workspace .data
+    // A disposable/integration store must never inherit the workspace's live data.
+    // Production installs may still use .data as a one-time seed when desired.
     const templateFile = path.join(process.cwd(), ".data", name + ".json");
     try {
-      if (path.resolve(templateFile) !== path.resolve(file)) {
+      if (
+        process.env.FLAIR_IGNORE_DATA_TEMPLATE !== "1" &&
+        path.resolve(templateFile) !== path.resolve(file)
+      ) {
         const templateData = JSON.parse(
           await readFile(templateFile, "utf8"),
         ) as T;
