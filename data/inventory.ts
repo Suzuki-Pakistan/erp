@@ -1,5 +1,6 @@
 import { createSeedData } from "./mock";
 import type { InventoryData, Product, Taxonomy } from "@/types/inventory";
+import { createPosSeed, type PosData, type PriceTier } from "@/types/pos";
 
 const categoryRows = [
   ["C001", "Women's Fragrance", "Signature fragrances for women", "#9d6d6b"],
@@ -499,4 +500,229 @@ export function createInventorySeed(): InventoryData {
         note: "Initial demonstration stock",
       })),
   };
+}
+
+function createDemoSale(
+  data: InventoryData,
+  options: {
+    id: string;
+    reference: string;
+    createdAt: string;
+    customerId: string;
+    customerName: string;
+    productId: string;
+    quantity: number;
+    tier: PriceTier;
+    tender: "cash" | "external" | "split";
+  },
+) {
+  const product = data.products.find((item) => item.id === options.productId)!;
+  const unitPrice =
+    options.tier === "wholesale"
+      ? product.wholesalePrice
+      : options.tier === "vip"
+        ? product.vipPrice
+        : product.retailPrice;
+  const subtotalCents = Math.round(unitPrice * 100) * options.quantity;
+  const taxCents = Math.round(subtotalCents * 0.0825);
+  const totalCents = subtotalCents + taxCents;
+  const tenders =
+    options.tender === "split"
+      ? [
+          { method: "cash" as const, amountCents: 2000, reference: "" },
+          {
+            method: "external" as const,
+            amountCents: totalCents - 2000,
+            reference: "VISA-4812",
+          },
+        ]
+      : [
+          {
+            method: options.tender as "cash" | "external",
+            amountCents: totalCents,
+            reference: options.tender === "external" ? "CARD-APPROVED" : "",
+          },
+        ];
+  return {
+    id: options.id,
+    requestId: `demo-${options.id}`,
+    reference: options.reference,
+    createdAt: options.createdAt,
+    actorId: "admin",
+    actor: "Admin User",
+    shiftId: "shift-demo-closed",
+    locationId: data.locations[0].id,
+    locationName: data.locations[0].name,
+    customerId: options.customerId,
+    customerName: options.customerName,
+    tier: options.tier,
+    note: "Seeded client demonstration sale",
+    receiptNote: "Thank you for shopping with Flair.",
+    taxBps: 825,
+    lines: [
+      {
+        productId: product.id,
+        sku: product.sku,
+        name: product.name,
+        taxable: product.taxable,
+        tracked: product.trackInventory,
+        quantity: options.quantity,
+        unitPriceCents: Math.round(unitPrice * 100),
+        discountBps: 0,
+        subtotalCents,
+        discountCents: 0,
+        taxCents,
+        totalCents,
+      },
+    ],
+    subtotalCents,
+    discountCents: 0,
+    taxCents,
+    totalCents,
+    tenders,
+    changeCents: 0,
+  };
+}
+
+export function createPosDemoSeed(data: InventoryData): PosData {
+  const pos = createPosSeed();
+  pos.customers = [
+    {
+      id: "customer-demo-1",
+      name: "Olivia Martin",
+      email: "olivia@example.com",
+      phone: "+1 713 555 0141",
+      notes: "Prefers floral and soft musk fragrances.",
+      marketingOptIn: true,
+      preferredContact: "both",
+      creditCents: 0,
+      createdAt: "2026-08-18T16:20:00.000Z",
+    },
+    {
+      id: "customer-demo-2",
+      name: "Noah Williams",
+      email: "noah@example.com",
+      phone: "+1 832 555 0174",
+      notes: "VIP customer · interested in new arrivals.",
+      marketingOptIn: true,
+      preferredContact: "email",
+      creditCents: 2500,
+      createdAt: "2026-08-22T18:05:00.000Z",
+    },
+    {
+      id: "customer-demo-3",
+      name: "Scent Avenue",
+      email: "orders@scentavenue.example",
+      phone: "+1 281 555 0198",
+      notes: "Wholesale account · net 15.",
+      marketingOptIn: false,
+      preferredContact: "none",
+      creditCents: 0,
+      createdAt: "2026-08-25T13:10:00.000Z",
+    },
+  ];
+  pos.sales = [
+    createDemoSale(data, {
+      id: "sale-demo-10480",
+      reference: "POS-10480",
+      createdAt: "2026-09-06T16:18:00.000Z",
+      customerId: "customer-demo-1",
+      customerName: "Olivia Martin",
+      productId: "prd-10000",
+      quantity: 2,
+      tier: "retail",
+      tender: "split",
+    }),
+    createDemoSale(data, {
+      id: "sale-demo-10481",
+      reference: "POS-10481",
+      createdAt: "2026-09-06T17:42:00.000Z",
+      customerId: "customer-demo-2",
+      customerName: "Noah Williams",
+      productId: "prd-10014",
+      quantity: 1,
+      tier: "vip",
+      tender: "external",
+    }),
+    createDemoSale(data, {
+      id: "sale-demo-10482",
+      reference: "WS-1051",
+      createdAt: "2026-09-06T19:05:00.000Z",
+      customerId: "customer-demo-3",
+      customerName: "Scent Avenue",
+      productId: "prd-13275",
+      quantity: 12,
+      tier: "wholesale",
+      tender: "external",
+    }),
+  ];
+  const cashSales = pos.sales.reduce(
+    (sum, sale) =>
+      sum +
+      sale.tenders
+        .filter((tender) => tender.method === "cash")
+        .reduce((tenderSum, tender) => tenderSum + tender.amountCents, 0),
+    0,
+  );
+  pos.shifts = [
+    {
+      id: "shift-demo-closed",
+      locationId: data.locations[0].id,
+      register: "Front Register 01",
+      actorId: "admin",
+      actor: "Admin User",
+      openedAt: "2026-09-06T14:00:00.000Z",
+      closedAt: "2026-09-06T22:05:00.000Z",
+      openingCents: 20000,
+      countedCents: 20000 + cashSales,
+      expectedCents: 20000 + cashSales,
+      varianceCents: 0,
+      closingNote: "Seeded balanced closing shift",
+      cashEntries: [],
+    },
+  ];
+  pos.credits = [
+    {
+      id: "credit-demo-1",
+      customerId: "customer-demo-2",
+      reference: "CREDIT-109",
+      amountCents: 2500,
+      balanceCents: 2500,
+      actor: "Admin User",
+      createdAt: "2026-09-05T15:10:00.000Z",
+    },
+  ];
+  pos.held = [
+    {
+      id: "held-demo-1",
+      label: "Olivia · selecting gift set",
+      actorId: "admin",
+      locationId: data.locations[0].id,
+      customerId: "customer-demo-1",
+      tier: "retail",
+      promotion: "buy-one-second-half",
+      note: "Customer is continuing to shop",
+      lines: [
+        {
+          productId: "prd-10001",
+          quantity: 2,
+          unitPriceCents: 3900,
+          discountBps: 0,
+        },
+      ],
+      createdAt: "2026-09-07T11:25:00.000Z",
+    },
+  ];
+  return pos;
+}
+
+export function createInventoryDemoSeed(): InventoryData {
+  const data = createInventorySeed();
+  data.pos = createPosDemoSeed(data);
+  return data;
+}
+
+export function ensureInventoryDemoData(data: InventoryData) {
+  if (!data.pos) data.pos = createPosDemoSeed(data);
+  return data;
 }

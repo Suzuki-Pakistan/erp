@@ -67,7 +67,9 @@ export function CatalogPage() {
   const [selected, setSelected] = useState<string[]>([]);
   const [editing, setEditing] = useState<Product | "new" | null>(null);
   const [detail, setDetail] = useState<string | null>(null);
-  const [importOpen, setImportOpen] = useState(false);
+  const [importOpen, setImportOpen] = useState(
+    () => searchParams.get("import") === "1" && canWrite,
+  );
   const [labels, setLabels] = useState<Product[] | null>(null);
   const [archive, setArchive] = useState<Product | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);

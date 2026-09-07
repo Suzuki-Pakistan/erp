@@ -3,12 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  Building2,
   CheckCircle2,
   CircleDashed,
+  CreditCard,
+  FileUp,
   KeyRound,
   MapPin,
   Plus,
   ShieldCheck,
+  TrendingUp,
   UsersRound,
   Warehouse,
 } from "lucide-react";
@@ -156,6 +160,82 @@ export function OverviewPage() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section>
+        <SectionTitle
+          title="Client demo · start here"
+          description="Four working Phase One flows with seeded products, prices, stock, locations and staff. Open any card and try the action during the presentation."
+        />
+        <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            {
+              step: "01",
+              icon: CreditCard,
+              title: "Split cash + card",
+              detail:
+                "$600 sale · enter $400 card and the remaining $200 stays cash.",
+              meta: "8.25% tax · exact tender audit",
+              href: "/retail-pos",
+            },
+            {
+              step: "02",
+              icon: TrendingUp,
+              title: "Compare product margins",
+              detail:
+                "Review retail, wholesale, e-commerce and VIP profit by SKU.",
+              meta: "26 seeded products · 4 price tiers",
+              href: "/product-inventory/pricing",
+            },
+            {
+              step: "03",
+              icon: FileUp,
+              title: "Run a bulk import",
+              detail:
+                "Upload products, categories, brands or starting inventory by CSV.",
+              meta: "Templates · validation · error preview",
+              href: "/product-inventory/products?import=1",
+            },
+            {
+              step: "04",
+              icon: Building2,
+              title: "Add another company",
+              detail:
+                "Clone Flair settings, then manage the new company independently.",
+              meta: "Separate identity · shared setup pattern",
+              href: "/core-setup/company-settings?newCompany=1",
+            },
+          ].map((item) => (
+            <Link
+              key={item.step}
+              href={item.href}
+              className="group rounded-xl border bg-card p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-[0_14px_34px_-28px_rgba(7,40,53,.7)]"
+            >
+              <div className="flex items-center justify-between">
+                <span className="grid size-9 place-items-center rounded-lg bg-primary/7 text-primary">
+                  <item.icon className="size-4" strokeWidth={1.8} />
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.13em] text-muted-foreground">
+                  Step {item.step}
+                </span>
+              </div>
+              <h3 className="mt-4 text-sm font-semibold tracking-[-0.01em]">
+                {item.title}
+              </h3>
+              <p className="mt-1.5 min-h-10 text-[11px] leading-5 text-muted-foreground">
+                {item.detail}
+              </p>
+              <div className="mt-3 flex items-center justify-between gap-3 border-t pt-3">
+                <span className="text-[9px] text-muted-foreground">
+                  {item.meta}
+                </span>
+                <span className="shrink-0 text-[10px] font-semibold text-primary transition-transform group-hover:translate-x-0.5">
+                  Try now →
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
@@ -462,7 +542,7 @@ export function OverviewPage() {
             <CardFooter className="pt-4">
               <p className="text-[11px] leading-5 text-muted-foreground">
                 Modules 01–03 are the working Phase One demo. Modules 04–09 open
-                polished interface previews with illustrative data.
+                interactive workflow previews with seeded business data.
               </p>
             </CardFooter>
           </Card>

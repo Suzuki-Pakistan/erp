@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import {
   BellRing,
   Building2,
@@ -45,6 +46,7 @@ import { PageHeader, SectionTitle } from "./shared";
 type Editor = "branding" | "regional" | "defaults" | "notifications" | null;
 
 export function SettingsPage() {
+  const searchParams = useSearchParams();
   const settings = useDemoStore((state) => state.companySettings);
   const locations = useDemoStore((state) => state.locations);
   const companies = useDemoStore((state) => state.companies);
@@ -54,7 +56,9 @@ export function SettingsPage() {
   const [editor, setEditor] = useState<Editor>(null);
   const [resetOpen, setResetOpen] = useState(false);
   const [clearOpen, setClearOpen] = useState(false);
-  const [companyOpen, setCompanyOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(
+    () => searchParams.get("newCompany") === "1",
+  );
   const locationName = (id: string) =>
     locations.find((location) => location.id === id)?.name ?? "Not selected";
   return (

@@ -62,6 +62,7 @@ import {
   getRoadmapRoute,
   type RoadmapModule,
 } from "@/components/roadmap/roadmap-config";
+import { InteractiveWorkflow } from "@/components/roadmap/interactive-workflows";
 
 interface PreviewMetric {
   label: string;
@@ -1477,6 +1478,8 @@ export function ModulePreviewPage({
         ))}
       </section>
 
+      <InteractiveWorkflow moduleId={moduleConfig.id} />
+
       <section className="grid gap-5 xl:grid-cols-12">
         <Card className="xl:col-span-8">
           <CardHeader className="border-b pb-4">
@@ -1740,8 +1743,8 @@ export function ModulePreviewPage({
 
       <div className="flex flex-col gap-3 rounded-xl border border-dashed bg-muted/25 px-4 py-3 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
         <p>
-          Preview mode uses illustrative business data and does not create
-          accounting or operational records.
+          Interactive demo mode uses seeded sample data. Use Reset demo inside
+          each workflow to replay it safely during a client presentation.
         </p>
         <Button
           asChild
