@@ -4,17 +4,7 @@ import { ModulePreviewPage } from "@/components/roadmap/module-preview-page";
 import {
   getRoadmapModule,
   getRoadmapRoute,
-  roadmapModules,
 } from "@/components/roadmap/roadmap-config";
-
-export function generateStaticParams() {
-  return roadmapModules.flatMap((module) => [
-    { module: module.id },
-    ...module.routes
-      .filter((route) => route.key !== "overview")
-      .map((route) => ({ module: module.id, view: [route.key] })),
-  ]);
-}
 
 export default async function Page({
   params,
