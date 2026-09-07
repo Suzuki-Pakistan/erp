@@ -12,8 +12,6 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
-  Handshake,
-  Landmark,
   LockKeyhole,
   Menu,
   Plus,
@@ -22,7 +20,6 @@ import {
   Settings2,
   ShieldCheck,
   ShoppingCart,
-  Sparkles,
   Store,
   UserRound,
   UsersRound,
@@ -85,6 +82,10 @@ import { cn } from "@/lib/utils";
 import { useDemoStore } from "@/store/demo-store";
 import { useSessionUser } from "@/components/auth/session-provider";
 import { accessRoles, canAccess } from "@/types/auth";
+import {
+  roadmapModules,
+  type RoadmapModule,
+} from "@/components/roadmap/roadmap-config";
 
 const childRoutes = [
   { name: "Overview", href: "/core-setup", icon: Settings2 },
@@ -164,52 +165,6 @@ const workspaces = [
     subtitle: "Point-of-sale for store counters",
   },
 ];
-const modules = [
-  {
-    number: "04",
-    name: "Purchasing & Vendors",
-    subtitle: "From order to vendor bill",
-    phase: 1,
-    icon: ShoppingCart,
-  },
-  {
-    number: "05",
-    name: "Wholesale & B2B Portal",
-    subtitle: "Self-service ordering for resellers",
-    phase: 2,
-    icon: Handshake,
-  },
-  {
-    number: "06",
-    name: "E-Commerce Hub",
-    subtitle: "Connected sales channels",
-    phase: 2,
-    icon: Store,
-  },
-  {
-    number: "07",
-    name: "Reports & Dashboards",
-    subtitle: "See the business at a glance",
-    phase: 2,
-    icon: ChartNoAxesCombined,
-  },
-  {
-    number: "08",
-    name: "Smart Demand Forecasting",
-    subtitle: "AI-assisted purchase planning",
-    phase: 3,
-    icon: Sparkles,
-    flagship: true,
-  },
-  {
-    number: "09",
-    name: "Accounting & Finance",
-    subtitle: "Books that stay in sync",
-    phase: 3,
-    icon: Landmark,
-  },
-];
-
 const pageTitles: Record<string, string> = {
   "/core-setup": "Overview",
   "/core-setup/stores-warehouses": "Stores & Warehouses",
@@ -221,6 +176,11 @@ const pageTitles: Record<string, string> = {
     inventoryRoutes.map((route) => [route.href, route.name]),
   ),
   ...Object.fromEntries(posRoutes.map((route) => [route.href, route.name])),
+  ...Object.fromEntries(
+    roadmapModules.flatMap((module) =>
+      module.routes.map((route) => [route.href, route.name]),
+    ),
+  ),
 };
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -328,7 +288,16 @@ function SidebarContent({
   const user = useSessionUser();
   const inventory = pathname.startsWith("/product-inventory");
   const pos = pathname.startsWith("/retail-pos");
-  const currentModule = pos ? "pos" : inventory ? "inventory" : "core";
+  const previewModule = roadmapModules.find((module) =>
+    pathname.startsWith(module.href),
+  );
+  const currentModule = previewModule
+    ? previewModule.id
+    : pos
+      ? "pos"
+      : inventory
+        ? "inventory"
+        : "core";
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const navigationScroll = useRef<number | null>(null);
 
@@ -508,15 +477,18 @@ function SidebarContent({
           </div>
           {!collapsed && (
             <p className="mb-2 mt-6 px-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/40">
-              Platform roadmap
+              Platform previews
             </p>
           )}
           <div className={cn("space-y-1", collapsed && "mt-5")}>
-            {modules.map((module) => (
-              <PlannedModule
+            {roadmapModules.map((module) => (
+              <PreviewModuleLink
                 key={module.number}
                 module={module}
                 collapsed={collapsed}
+                pathname={pathname}
+                accessible={canAccess(user, "core")}
+                onNavigate={handleNavigate}
               />
             ))}
           </div>
@@ -553,30 +525,50 @@ function SidebarContent({
   );
 }
 
-function PlannedModule({
+function PreviewModuleLink({
   module,
   collapsed,
+  pathname,
+  accessible,
+  onNavigate,
 }: {
-  module: (typeof modules)[number];
+  module: RoadmapModule;
   collapsed: boolean;
+  pathname: string;
+  accessible: boolean;
+  onNavigate: () => void;
 }) {
-  function unavailable() {
-    toast.info(
-      "This module is included in the roadmap and is not part of the current frontend build.",
-      { description: `Coming in Phase ${module.phase}` },
-    );
-  }
-  const button = (
-    <button
-      type="button"
-      aria-disabled="true"
-      onClick={unavailable}
+  const active = pathname.startsWith(module.href);
+  const expanded = active && !collapsed;
+  const moduleLink = (
+    <Link
+      href={accessible ? module.href : "#"}
+      scroll={false}
+      onClick={(event) => {
+        if (!accessible) {
+          event.preventDefault();
+          toast.info("This preview is available to administrators.");
+          return;
+        }
+        onNavigate();
+      }}
+      aria-current={active ? "location" : undefined}
       className={cn(
-        "group flex w-full items-center rounded-xl text-left text-white/50 transition-colors hover:bg-white/[0.055] hover:text-white/75",
-        collapsed ? "justify-center py-2.5" : "gap-3 px-2.5 py-2",
+        "group flex w-full items-center rounded-xl text-left transition-colors duration-200 ease-out",
+        collapsed ? "justify-center py-2.5" : "gap-3 px-2.5 py-2.5",
+        active
+          ? "text-white"
+          : "text-white/50 hover:bg-white/[0.055] hover:text-white/75",
       )}
     >
-      <span className="grid size-8 shrink-0 place-items-center rounded-lg border border-white/8 bg-white/[0.035]">
+      <span
+        className={cn(
+          "grid size-8 shrink-0 place-items-center rounded-lg border transition-colors",
+          active
+            ? "border-[var(--brand-champagne)]/30 bg-[var(--brand-champagne)] text-[var(--brand-ink)]"
+            : "border-white/8 bg-white/[0.035]",
+        )}
+      >
         <module.icon className="size-4" />
       </span>
       {!collapsed && (
@@ -597,18 +589,73 @@ function PlannedModule({
           </p>
         </div>
       )}
-      {!collapsed && <LockKeyhole className="size-3 text-white/24" />}
-    </button>
+      {!collapsed && (
+        <Badge
+          variant="outline"
+          className={cn(
+            "h-5 shrink-0 rounded-md border-white/10 bg-white/[0.04] px-1.5 text-[8px] text-white/42",
+            active &&
+              "border-[var(--brand-champagne)]/25 bg-[var(--brand-champagne)]/10 text-[var(--brand-champagne)]",
+          )}
+        >
+          PREVIEW
+        </Badge>
+      )}
+    </Link>
+  );
+  const content = (
+    <div
+      className={cn(
+        "overflow-hidden rounded-xl border transition-colors duration-200 ease-out",
+        active ? "border-white/10 bg-white/[0.055]" : "border-transparent",
+      )}
+    >
+      {moduleLink}
+      <div
+        data-slot="module-navigation"
+        aria-label={`${module.name} preview pages`}
+        aria-hidden={!expanded}
+        inert={!expanded}
+        className={cn(
+          "grid transition-[grid-template-rows,opacity] duration-250 ease-out",
+          expanded
+            ? "grid-rows-[1fr] opacity-100"
+            : "grid-rows-[0fr] opacity-0",
+        )}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="space-y-0.5 px-1.5 pb-1.5">
+            {module.routes.map((route) => (
+              <Link
+                key={route.href}
+                href={route.href}
+                onClick={onNavigate}
+                scroll={false}
+                aria-current={pathname === route.href ? "page" : undefined}
+                className={cn(
+                  "flex h-9 items-center gap-2.5 rounded-lg px-3 text-xs font-medium text-white/60 transition-colors duration-200 ease-out hover:bg-white/7 hover:text-white",
+                  pathname === route.href &&
+                    "bg-white/10 text-white shadow-[inset_2px_0_0_var(--brand-champagne)]",
+                )}
+              >
+                <route.icon className="size-3.5 shrink-0" />
+                {route.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   );
   return collapsed ? (
     <Tooltip>
-      <TooltipTrigger asChild>{button}</TooltipTrigger>
+      <TooltipTrigger asChild>{content}</TooltipTrigger>
       <TooltipContent side="right">
-        {module.name} · Coming in Phase {module.phase}
+        {module.name} · Phase {module.phase} preview
       </TooltipContent>
     </Tooltip>
   ) : (
-    button
+    content
   );
 }
 
@@ -616,6 +663,9 @@ function Topbar({ mobileTrigger }: { mobileTrigger: React.ReactNode }) {
   const pathname = usePathname();
   const [commandOpen, setCommandOpen] = useState(false);
   const title = pageTitles[pathname] ?? "Core Setup";
+  const previewModule = roadmapModules.find((module) =>
+    pathname.startsWith(module.href),
+  );
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
       if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
@@ -639,7 +689,7 @@ function Topbar({ mobileTrigger }: { mobileTrigger: React.ReactNode }) {
                 ? "Retail POS"
                 : pathname.startsWith("/product-inventory")
                   ? "Inventory"
-                  : "Core Setup"}
+                  : (previewModule?.shortName ?? "Core Setup")}
             </span>
             <ChevronRight className="size-3 text-muted-foreground/50" />
             <span className="truncate font-medium text-foreground">
@@ -1035,22 +1085,16 @@ function GlobalCommand({
                 </CommandGroup>
               </>
             )}
-            <CommandGroup heading="Planned modules">
-              {modules.map((module) => (
+            <CommandGroup heading="Interface previews">
+              {roadmapModules.map((module) => (
                 <CommandItem
                   key={module.number}
-                  onSelect={() =>
-                    run(() =>
-                      toast.info(
-                        "This module is included in the roadmap and is not part of the current frontend build.",
-                      ),
-                    )
-                  }
-                  disabled
+                  onSelect={() => run(() => router.push(module.href))}
+                  disabled={!canAccess(sessionUser, "core")}
                 >
                   <module.icon />
                   {module.number} · {module.name}
-                  <CommandShortcut>Coming later</CommandShortcut>
+                  <CommandShortcut>Preview</CommandShortcut>
                 </CommandItem>
               ))}
             </CommandGroup>

@@ -34,6 +34,7 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useDemoStore } from "@/store/demo-store";
 import { moduleDefinitions } from "@/types/core-setup";
+import { roadmapModules } from "@/components/roadmap/roadmap-config";
 import { MetricCard, PageHeader, SectionTitle, StatusBadge } from "./shared";
 import { locationTypeLabels } from "@/lib/format";
 
@@ -96,7 +97,7 @@ export function OverviewPage() {
           <div className="max-w-2xl">
             <div className="flex flex-wrap items-center gap-2">
               <Badge className="border-white/12 bg-white/9 text-white">
-                Foundation ready
+                Phase One demo
               </Badge>
               <Badge
                 variant="outline"
@@ -106,12 +107,12 @@ export function OverviewPage() {
               </Badge>
             </div>
             <h2 className="mt-4 text-xl font-semibold tracking-[-0.025em] sm:text-2xl">
-              Core Setup is 86% configured
+              Phase One is ready for client review
             </h2>
             <p className="mt-2 max-w-xl text-sm leading-6 text-white/58">
-              The foundational operating structure is in place. Inventory and
-              Retail POS are ready; review login access before onboarding your
-              team.
+              Explore Core Setup, Product & Inventory and Retail POS as working
+              modules, then open the roadmap previews to see the planned
+              finance, forecasting and connected-commerce experience.
             </p>
             <div className="mt-5 flex items-center gap-3">
               <Progress
@@ -412,38 +413,56 @@ export function OverviewPage() {
               />
             </CardHeader>
             <CardContent className="space-y-2">
-              {moduleDefinitions.map((module, index) => (
-                <div
-                  key={module.id}
-                  className="flex items-center gap-3 rounded-lg px-1 py-1.5"
-                >
-                  <span
-                    className={cn(
-                      "grid size-7 place-items-center rounded-md text-[9px] font-semibold",
-                      index < 3
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted text-muted-foreground",
-                    )}
+              {moduleDefinitions.map((module, index) => {
+                const preview = roadmapModules.find(
+                  (item) => item.number === module.number,
+                );
+                const content = (
+                  <>
+                    <span
+                      className={cn(
+                        "grid size-7 place-items-center rounded-md text-[9px] font-semibold",
+                        index < 3
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-muted text-muted-foreground",
+                      )}
+                    >
+                      {module.number}
+                    </span>
+                    <span className="min-w-0 flex-1 truncate text-xs font-medium">
+                      {module.name}
+                    </span>
+                    <Badge
+                      variant={index < 3 ? "default" : "secondary"}
+                      className="h-5 rounded-md text-[9px]"
+                    >
+                      {index < 3 ? "Live demo" : "Preview"}
+                    </Badge>
+                  </>
+                );
+                return preview ? (
+                  <Link
+                    key={module.id}
+                    href={preview.href}
+                    className="flex items-center gap-3 rounded-lg px-1 py-1.5 transition-colors hover:bg-muted/60"
                   >
-                    {module.number}
-                  </span>
-                  <span className="min-w-0 flex-1 truncate text-xs font-medium">
-                    {module.name}
-                  </span>
-                  <Badge
-                    variant={index < 3 ? "default" : "secondary"}
-                    className="h-5 rounded-md text-[9px]"
+                    {content}
+                  </Link>
+                ) : (
+                  <div
+                    key={module.id}
+                    className="flex items-center gap-3 rounded-lg px-1 py-1.5"
                   >
-                    {index < 3 ? "Active" : "Planned"}
-                  </Badge>
-                </div>
-              ))}
+                    {content}
+                  </div>
+                );
+              })}
             </CardContent>
             <Separator />
             <CardFooter className="pt-4">
               <p className="text-[11px] leading-5 text-muted-foreground">
-                Future modules are visible for roadmap context and intentionally
-                cannot navigate.
+                Modules 01–03 are the working Phase One demo. Modules 04–09 open
+                polished interface previews with illustrative data.
               </p>
             </CardFooter>
           </Card>
