@@ -656,6 +656,66 @@ export function createPosDemoSeed(data: InventoryData): PosData {
       tender: "external",
     }),
   ];
+  const vipReturnSale = pos.sales.find(
+    (sale) => sale.id === "sale-demo-10481",
+  )!;
+  const wholesaleReturnSale = pos.sales.find(
+    (sale) => sale.id === "sale-demo-10482",
+  )!;
+  const wholesaleCreditCents = Math.round(
+    (wholesaleReturnSale.totalCents * 2) / 12,
+  );
+  pos.returns = [
+    {
+      id: "return-demo-2041",
+      requestId: "demo-return-2041",
+      reference: "CN-2041",
+      saleId: vipReturnSale.id,
+      shiftId: "shift-demo-closed",
+      actorId: "admin",
+      actor: "Admin User",
+      createdAt: "2026-09-06T18:10:00.000Z",
+      reason: "Unopened item returned with original receipt",
+      method: "external",
+      paymentReference: "REFUND-VISA-4812",
+      lines: [
+        {
+          productId: vipReturnSale.lines[0].productId,
+          quantity: 1,
+          restock: true,
+          amountCents: vipReturnSale.totalCents,
+        },
+      ],
+      totalCents: vipReturnSale.totalCents,
+    },
+    {
+      id: "return-demo-2042",
+      requestId: "demo-return-2042",
+      reference: "CN-2042",
+      saleId: wholesaleReturnSale.id,
+      shiftId: "shift-demo-closed",
+      actorId: "admin",
+      actor: "Admin User",
+      createdAt: "2026-09-06T20:20:00.000Z",
+      reason: "Two damaged units credited to wholesale account",
+      method: "credit",
+      paymentReference: "",
+      lines: [
+        {
+          productId: wholesaleReturnSale.lines[0].productId,
+          quantity: 2,
+          restock: false,
+          amountCents: wholesaleCreditCents,
+        },
+      ],
+      totalCents: wholesaleCreditCents,
+    },
+  ];
+  pos.customers = pos.customers.map((customer) =>
+    customer.id === "customer-demo-3"
+      ? { ...customer, creditCents: wholesaleCreditCents }
+      : customer,
+  );
   const cashSales = pos.sales.reduce(
     (sum, sale) =>
       sum +
@@ -691,6 +751,15 @@ export function createPosDemoSeed(data: InventoryData): PosData {
       actor: "Admin User",
       createdAt: "2026-09-05T15:10:00.000Z",
     },
+    {
+      id: "credit-demo-2",
+      customerId: "customer-demo-3",
+      reference: "CN-2042",
+      amountCents: wholesaleCreditCents,
+      balanceCents: wholesaleCreditCents,
+      actor: "Admin User",
+      createdAt: "2026-09-06T20:20:00.000Z",
+    },
   ];
   pos.held = [
     {
@@ -716,13 +785,184 @@ export function createPosDemoSeed(data: InventoryData): PosData {
   return pos;
 }
 
+function addInventoryDemoHistory(data: InventoryData) {
+  if (data.operations.length) return;
+  const retail = data.locations[0];
+  const warehouse = data.locations[1] ?? data.locations[0];
+  data.operations = [
+    {
+      id: "operation-demo-receipt",
+      reference: "RCV-2418",
+      type: "receipt",
+      status: "posted",
+      date: "2026-09-05",
+      locationId: warehouse.id,
+      destinationId: "",
+      supplier: "Famous Fragrance",
+      billReference: "INV-FF-8841",
+      billTerms: "Net 15",
+      dueDate: "2026-09-20",
+      freight: 420,
+      discount: 75,
+      reason: "",
+      memo: "Original item cost and transportation retained separately.",
+      lines: [
+        { productId: "prd-10000", quantity: 120, unitCost: 16 },
+        { productId: "prd-10001", quantity: 48, unitCost: 17.25 },
+      ],
+      actor: "Maya Patel",
+      createdAt: "2026-09-05T14:20:00.000Z",
+      postedAt: "2026-09-05T15:05:00.000Z",
+    },
+    {
+      id: "operation-demo-transfer",
+      reference: "TRF-0906",
+      type: "transfer",
+      status: "posted",
+      date: "2026-09-06",
+      locationId: warehouse.id,
+      destinationId: retail.id,
+      supplier: "",
+      billReference: "",
+      billTerms: "",
+      dueDate: "",
+      freight: 0,
+      discount: 0,
+      reason: "",
+      memo: "Weekend replenishment for the Harwin store.",
+      lines: [
+        { productId: "prd-10014", quantity: 12, unitCost: 54.4 },
+        { productId: "prd-13275", quantity: 24, unitCost: 2.2 },
+      ],
+      actor: "Daniel Brooks",
+      createdAt: "2026-09-06T12:10:00.000Z",
+      postedAt: "2026-09-06T12:18:00.000Z",
+    },
+    {
+      id: "operation-demo-adjustment",
+      reference: "ADJ-0447",
+      type: "adjustment",
+      status: "posted",
+      date: "2026-09-06",
+      locationId: retail.id,
+      destinationId: "",
+      supplier: "",
+      billReference: "",
+      billTerms: "",
+      dueDate: "",
+      freight: 0,
+      discount: 0,
+      reason: "Damaged tester removed after floor review",
+      memo: "Approved by store manager.",
+      lines: [{ productId: "prd-10015", quantity: -1, unitCost: 65 }],
+      actor: "Olivia Chen",
+      createdAt: "2026-09-06T18:32:00.000Z",
+      postedAt: "2026-09-06T18:35:00.000Z",
+    },
+    {
+      id: "operation-demo-count",
+      reference: "CNT-0092",
+      type: "count",
+      status: "draft",
+      date: "2026-09-07",
+      locationId: retail.id,
+      destinationId: "",
+      supplier: "",
+      billReference: "",
+      billTerms: "",
+      dueDate: "",
+      freight: 0,
+      discount: 0,
+      reason: "Monthly fragrance wall count",
+      memo: "Three SKUs remain to be counted.",
+      lines: [
+        { productId: "prd-10000", quantity: 258, unitCost: 15.68 },
+        { productId: "prd-10014", quantity: 9, unitCost: 54.4 },
+      ],
+      actor: "Avery Morgan",
+      createdAt: "2026-09-07T11:40:00.000Z",
+    },
+  ];
+  data.movements = [
+    {
+      id: "movement-demo-adjustment",
+      operationId: "operation-demo-adjustment",
+      reference: "ADJ-0447",
+      productId: "prd-10015",
+      locationId: retail.id,
+      type: "adjustment",
+      quantity: -1,
+      before: 10,
+      after: 9,
+      unitCost: 65,
+      actor: "Olivia Chen",
+      date: "2026-09-06T18:35:00.000Z",
+      note: "Damaged tester removed after floor review",
+    },
+    {
+      id: "movement-demo-transfer-in",
+      operationId: "operation-demo-transfer",
+      reference: "TRF-0906",
+      productId: "prd-10014",
+      locationId: retail.id,
+      type: "transfer-in",
+      quantity: 12,
+      before: 9,
+      after: 21,
+      unitCost: 54.4,
+      actor: "Daniel Brooks",
+      date: "2026-09-06T12:18:00.000Z",
+      note: "Transferred from Houston Main Warehouse",
+    },
+    {
+      id: "movement-demo-transfer-out",
+      operationId: "operation-demo-transfer",
+      reference: "TRF-0906",
+      productId: "prd-10014",
+      locationId: warehouse.id,
+      type: "transfer-out",
+      quantity: -12,
+      before: 36,
+      after: 24,
+      unitCost: 54.4,
+      actor: "Daniel Brooks",
+      date: "2026-09-06T12:18:00.000Z",
+      note: "Transferred to Harwin Flagship Store",
+    },
+    {
+      id: "movement-demo-receipt",
+      operationId: "operation-demo-receipt",
+      reference: "RCV-2418",
+      productId: "prd-10000",
+      locationId: warehouse.id,
+      type: "receipt",
+      quantity: 120,
+      before: 80,
+      after: 200,
+      unitCost: 16,
+      actor: "Maya Patel",
+      date: "2026-09-05T15:05:00.000Z",
+      note: "Supplier invoice INV-FF-8841",
+    },
+    ...data.movements,
+  ];
+}
+
 export function createInventoryDemoSeed(): InventoryData {
   const data = createInventorySeed();
+  addInventoryDemoHistory(data);
   data.pos = createPosDemoSeed(data);
   return data;
 }
 
 export function ensureInventoryDemoData(data: InventoryData) {
-  if (!data.pos) data.pos = createPosDemoSeed(data);
+  addInventoryDemoHistory(data);
+  if (
+    !data.pos ||
+    (!data.pos.sales.length &&
+      !data.pos.customers.length &&
+      !data.pos.shifts.length)
+  )
+    data.pos = createPosDemoSeed(data);
   return data;
 }

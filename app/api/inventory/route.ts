@@ -1,13 +1,17 @@
-import { createInventoryDemoSeed, createInventorySeed } from "@/data/inventory";
+import {
+  createInventoryDemoSeed,
+  createInventorySeed,
+  ensureInventoryDemoData,
+} from "@/data/inventory";
 import { inventoryCommandSchema } from "@/lib/inventory-schema";
 import { applyInventoryCommand } from "@/lib/inventory-domain";
 import { apiError, apiUser, sameOrigin } from "@/lib/server/api";
 import { mutateStore, readStore } from "@/lib/server/json-store";
 import type { InventoryData } from "@/types/inventory";
-const inventorySeed =
-  process.env.FLAIR_IGNORE_DATA_TEMPLATE === "1"
-    ? createInventorySeed
-    : createInventoryDemoSeed;
+const demoEnabled = process.env.FLAIR_IGNORE_DATA_TEMPLATE !== "1";
+const inventorySeed = demoEnabled
+  ? createInventoryDemoSeed
+  : createInventorySeed;
 function redactCosts(data: InventoryData) {
   return {
     ...data,
@@ -35,6 +39,7 @@ export async function GET() {
   try {
     const user = await apiUser("inventory");
     const data = await readStore("inventory", inventorySeed);
+    if (demoEnabled) ensureInventoryDemoData(data);
     return Response.json(
       {
         data:
@@ -57,6 +62,7 @@ export async function POST(request: Request) {
       InventoryData,
       { message: string; data: InventoryData }
     >("inventory", inventorySeed, (data) => {
+      if (demoEnabled) ensureInventoryDemoData(data);
       const next = structuredClone(data);
       const message = applyInventoryCommand(next, command, user.name);
       Object.assign(data, next);
