@@ -46,10 +46,37 @@ import {
 } from "./shared";
 import {
   availableStock,
+  grossMarginPercent,
+  grossProfit,
   productStock,
   type Product,
   type ProductInput,
 } from "@/types/inventory";
+
+function MarginPreview({
+  label,
+  price,
+  cost,
+}: {
+  label: string;
+  price: number;
+  cost: number;
+}) {
+  const margin = grossMarginPercent(price, cost);
+  return (
+    <div className="rounded-xl border border-primary/10 bg-primary/4 p-4">
+      <p className="text-xs font-medium text-muted-foreground">{label}</p>
+      <p
+        className={`mt-2 text-2xl font-semibold ${margin > 0 ? "text-primary" : "text-destructive"}`}
+      >
+        {margin.toFixed(1)}%
+      </p>
+      <p className="mt-1 text-[10px] text-muted-foreground">
+        {money(grossProfit(price, cost))} gross profit per unit
+      </p>
+    </div>
+  );
+}
 
 export function ProductEditor({
   product,
@@ -226,28 +253,48 @@ export function ProductEditor({
                 </div>
               </TabsContent>
               <TabsContent value="pricing" className="mt-0 space-y-5">
-                <div className="rounded-xl border border-primary/10 bg-primary/4 p-4">
-                  <p className="text-sm font-semibold">Retail gross margin</p>
-                  <p className="mt-1 text-3xl font-semibold">
-                    {form.retailPrice
-                      ? (
-                          ((form.retailPrice - form.averageCost) /
-                            form.retailPrice) *
-                          100
-                        ).toFixed(1)
-                      : "0.0"}
-                    <span className="text-lg">%</span>
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    Based on average unit cost · excludes taxes and operating
-                    expenses
-                  </p>
+                <div>
+                  <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
+                    <div>
+                      <p className="text-sm font-semibold">
+                        Individual product margins
+                      </p>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        Calculated from the current average unit cost.
+                      </p>
+                    </div>
+                    <span className="rounded-lg bg-muted px-2.5 py-1 text-[10px] text-muted-foreground">
+                      Cost {money(form.averageCost)}
+                    </span>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                    <MarginPreview
+                      label="Retail"
+                      price={form.retailPrice}
+                      cost={form.averageCost}
+                    />
+                    <MarginPreview
+                      label="Wholesale"
+                      price={form.wholesalePrice}
+                      cost={form.averageCost}
+                    />
+                    <MarginPreview
+                      label="E-commerce"
+                      price={form.webPrice}
+                      cost={form.averageCost}
+                    />
+                    <MarginPreview
+                      label="VIP"
+                      price={form.vipPrice}
+                      cost={form.averageCost}
+                    />
+                  </div>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-3">
                   {numeric("retailPrice", "Retail price *")}
                   {numeric("wholesalePrice", "Wholesale price")}
+                  {numeric("webPrice", "E-commerce price")}
                   {numeric("vipPrice", "VIP price")}
-                  {numeric("webPrice", "Web retail price")}
                   {numeric("suggestedPrice", "Suggested retail price")}
                   {numeric("lowestPrice", "Lowest selling price")}
                   {numeric("averageCost", "Average unit cost")}
@@ -564,12 +611,12 @@ export function ProductDetail({
               )}
             </TabsContent>
             <TabsContent value="pricing" className="mt-5">
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
                 {[
                   ["Retail", product.retailPrice],
                   ["Wholesale", product.wholesalePrice],
+                  ["E-commerce", product.webPrice],
                   ["VIP", product.vipPrice],
-                  ["Web", product.webPrice],
                   ["Suggested retail", product.suggestedPrice],
                   ...(costsVisible
                     ? [
@@ -584,6 +631,21 @@ export function ProductDetail({
                     <p className="mt-2 text-xl font-semibold">
                       {money(Number(value))}
                     </p>
+                    {costsVisible &&
+                      ["Retail", "Wholesale", "E-commerce", "VIP"].includes(
+                        String(label),
+                      ) && (
+                        <p className="mt-1 text-[10px] text-emerald-700">
+                          {grossMarginPercent(
+                            Number(value),
+                            product.averageCost,
+                          ).toFixed(1)}
+                          % margin ·{" "}
+                          {money(
+                            grossProfit(Number(value), product.averageCost),
+                          )}
+                        </p>
+                      )}
                   </div>
                 ))}
               </div>

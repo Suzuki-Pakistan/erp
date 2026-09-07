@@ -12,6 +12,7 @@ import {
   LockKeyhole,
   PackagePlus,
   RefreshCw,
+  Upload,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,6 +30,7 @@ import { OperationDialog } from "./operation-dialog";
 import { availableStock, type OperationType } from "@/types/inventory";
 import { downloadCsv } from "@/lib/csv";
 import { cn } from "@/lib/utils";
+import { CsvImportDialog } from "./tools-dialogs";
 export function StockPage() {
   const { data, canWrite, costsVisible, refresh, busy } = useInventory();
   const [query, setQuery] = useState("");
@@ -36,6 +38,7 @@ export function StockPage() {
   const [health, setHealth] = useState("");
   const [operation, setOperation] = useState<OperationType | null>(null);
   const [limit, setLimit] = useState(25);
+  const [importOpen, setImportOpen] = useState(false);
   const rows = data.balances
     .map((b) => ({
       ...b,
@@ -77,6 +80,12 @@ export function StockPage() {
               <RefreshCw />
               Refresh stock
             </Button>
+            {canWrite && (
+              <Button variant="outline" onClick={() => setImportOpen(true)}>
+                <Upload />
+                Import inventory
+              </Button>
+            )}
             <Button
               variant="outline"
               onClick={() =>
@@ -300,6 +309,12 @@ export function StockPage() {
       </Card>
       {operation && (
         <OperationDialog type={operation} onClose={() => setOperation(null)} />
+      )}
+      {importOpen && (
+        <CsvImportDialog
+          initialTab="inventory"
+          onClose={() => setImportOpen(false)}
+        />
       )}
     </div>
   );

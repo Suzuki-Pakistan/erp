@@ -132,6 +132,12 @@ export const operationLabels: Record<OperationType, string> = {
 export function availableStock(balance: StockBalance) {
   return balance.onHand - balance.committed - balance.held;
 }
+export function grossProfit(price: number, unitCost: number) {
+  return Math.round((price - unitCost) * 100) / 100;
+}
+export function grossMarginPercent(price: number, unitCost: number) {
+  return price > 0 ? Math.round(((price - unitCost) / price) * 1000) / 10 : 0;
+}
 export function productStock(
   data: InventoryData,
   productId: string,

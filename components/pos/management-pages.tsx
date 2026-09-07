@@ -271,7 +271,7 @@ export function SalesPage() {
                       {s.tenders
                         .map((t) =>
                           t.method === "external"
-                            ? "External card"
+                            ? "Card"
                             : t.method === "credit"
                               ? "Store credit"
                               : "Cash",
@@ -697,7 +697,7 @@ function ReturnDialog({
               Customer store credit
             </option>
             <option value="cash">Cash refund</option>
-            <option value="external">External refund</option>
+            <option value="external">Card refund</option>
           </select>
         </FormField>
         <FormField label="Return reason">
@@ -710,14 +710,14 @@ function ReturnDialog({
         </FormField>
       </div>
       <p className="text-xs leading-5 text-muted-foreground">
-        Cash and external refunds are limited to what was originally paid
-        through that method. For mixed tenders, return fewer items per method or
-        issue customer store credit. Damaged/non-restocked returns do not
-        increase sellable stock.
+        Cash and card refunds are limited to what was originally paid through
+        that method. For mixed tenders, return fewer items per method or issue
+        customer store credit. Damaged/non-restocked returns do not increase
+        sellable stock.
       </p>
       {method === "external" && (
         <div className="space-y-3 rounded-xl border p-4">
-          <FormField label="External refund reference">
+          <FormField label="Card refund reference">
             <Input
               value={reference}
               onChange={(e) => setReference(e.target.value)}
@@ -730,8 +730,8 @@ function ReturnDialog({
               checked={confirmed}
               onChange={(e) => setConfirmed(e.target.checked)}
             />
-            The refund was completed using the external payment provider. Flair
-            only records its reference.
+            The refund was completed using the card payment provider. Flair only
+            records its reference.
           </label>
         </div>
       )}
@@ -805,7 +805,7 @@ function CreditNoteDialog({
       <p className="text-xs text-muted-foreground">
         Processed by {record.actor}
         {record.paymentReference
-          ? ` · External confirmation ${record.paymentReference}`
+          ? ` · Card confirmation ${record.paymentReference}`
           : ""}
         . Original receipt: {sale?.reference}.
       </p>
@@ -1505,9 +1505,9 @@ function ShiftDetails({
           }
         />
         <Metric
-          label="External payments"
+          label="Card payments"
           value={money(totals.external)}
-          detail="Recorded external approvals"
+          detail="Recorded card approvals"
         />
         <Metric
           label="Store credit used"
@@ -1741,8 +1741,8 @@ export function ReconciliationPage() {
       )}
       <p className="text-xs leading-5 text-muted-foreground">
         Reports include only shifts visible to your login account. Open shifts
-        are not reconciled yet. External payment settlement must be reconciled
-        with your payment provider separately.
+        are not reconciled yet. Card payment settlement must be reconciled with
+        your payment provider separately.
       </p>
       {view && <ShiftDetails shift={view} onClose={() => setView(null)} />}
     </div>

@@ -375,7 +375,7 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
         )
       )
         throw new Error(
-          "Enter the approval reference from your external payment terminal.",
+          "Enter the approval reference from your card payment terminal.",
         );
       const changeCents = cash + noncash - quote.totalCents;
       const reference = "POS-" + String(pos.sales.length + 1).padStart(6, "0");
@@ -507,7 +507,7 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
           command.paymentReference.length < 3
         )
           throw new Error(
-            "Enter the refund confirmation from the external payment provider.",
+            "Enter the refund confirmation from the card payment provider.",
           );
       }
       const id = randomUUID();

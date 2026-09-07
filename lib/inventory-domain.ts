@@ -298,6 +298,108 @@ export function applyInventoryCommand(
         : [...collection, item];
       return command.kind === "brands" ? "Brand saved" : "Category saved";
     }
+    case "taxonomies.import": {
+      const collection = structuredClone(data[command.kind]);
+      const batchCodes = new Set<string>();
+      const batchNames = new Set<string>();
+      for (const input of command.items) {
+        const code = input.code.toLowerCase();
+        const name = input.name.toLowerCase();
+        if (batchCodes.has(code) || batchNames.has(name))
+          throw new Error(
+            "The import contains a duplicate category or brand name/code.",
+          );
+        batchCodes.add(code);
+        batchNames.add(name);
+        const codeMatch = collection.find(
+          (item) => item.code.toLowerCase() === code,
+        );
+        const nameMatch = collection.find(
+          (item) => item.name.toLowerCase() === name,
+        );
+        if (codeMatch && nameMatch && codeMatch.id !== nameMatch.id)
+          throw new Error(
+            `${input.name}: its name and code belong to different existing records.`,
+          );
+        const existing = codeMatch ?? nameMatch;
+        if (
+          collection.some(
+            (item) =>
+              item.id !== existing?.id &&
+              (item.code.toLowerCase() === code ||
+                item.name.toLowerCase() === name),
+          )
+        )
+          throw new Error(
+            `${input.name}: that name or code is already in use.`,
+          );
+        const item = { ...input, id: existing?.id ?? randomUUID() };
+        if (existing) {
+          const index = collection.findIndex(
+            (entry) => entry.id === existing.id,
+          );
+          collection[index] = item;
+        } else collection.push(item);
+      }
+      data[command.kind] = collection;
+      return `${command.items.length} ${command.kind} imported`;
+    }
+    case "stock.import": {
+      const next = structuredClone(data);
+      const pairs = new Set<string>();
+      const groups = new Map<string, typeof command.rows>();
+      for (const row of command.rows) {
+        const pair = `${row.productId}:${row.locationId}`;
+        if (pairs.has(pair))
+          throw new Error(
+            "Each SKU and location pair can appear only once per inventory import.",
+          );
+        pairs.add(pair);
+        const product = next.products.find((item) => item.id === row.productId);
+        if (!product || !product.trackInventory || product.status !== "active")
+          throw new Error(
+            "Inventory imports require active, stock-tracked products.",
+          );
+        if (!next.locations.some((item) => item.id === row.locationId))
+          throw new Error("Inventory import location not found.");
+        const rows = groups.get(row.locationId) ?? [];
+        rows.push(row);
+        groups.set(row.locationId, rows);
+      }
+      const date = now.slice(0, 10);
+      let sequence = 1;
+      for (const [locationId, rows] of groups) {
+        const operationId = randomUUID();
+        const operation: StockOperation = {
+          id: operationId,
+          reference: `IMP-${date.replaceAll("-", "")}-${operationId.slice(0, 8).toUpperCase()}-${sequence++}`,
+          type: "count",
+          status: "draft",
+          date,
+          locationId,
+          destinationId: "",
+          supplier: "",
+          billReference: "",
+          billTerms: "",
+          dueDate: "",
+          freight: 0,
+          discount: 0,
+          reason: "Bulk inventory import",
+          memo: "CSV stock count import",
+          lines: rows.map((row) => ({
+            productId: row.productId,
+            quantity: row.onHand,
+            unitCost: row.unitCost,
+          })),
+          actor,
+          createdAt: now,
+        };
+        postOperation(next, operation, actor);
+        next.operations.unshift(operation);
+      }
+      Object.assign(data, next);
+      return `${command.rows.length} inventory balances imported`;
+    }
     case "taxonomy.delete": {
       const key = command.kind === "brands" ? "brandId" : "categoryId";
       if (data.products.some((p) => p[key] === command.id))

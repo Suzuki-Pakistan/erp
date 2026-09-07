@@ -1,6 +1,15 @@
 "use client";
 import { useState } from "react";
-import { Plus, Search, Pencil, Trash2, Tags, Shapes, Save } from "lucide-react";
+import {
+  Plus,
+  Search,
+  Pencil,
+  Trash2,
+  Tags,
+  Shapes,
+  Save,
+  Upload,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -17,6 +26,7 @@ import {
 import { useInventory } from "./inventory-provider";
 import { FormField, InventoryEmpty, InventoryHeader } from "./shared";
 import type { Taxonomy } from "@/types/inventory";
+import { CsvImportDialog } from "./tools-dialogs";
 export function TaxonomyPage() {
   const { data, canWrite, mutate, busy } = useInventory();
   const [kind, setKind] = useState<"categories" | "brands">("categories");
@@ -25,6 +35,7 @@ export function TaxonomyPage() {
     (Omit<Taxonomy, "id"> & { id?: string }) | null
   >(null);
   const [deleting, setDeleting] = useState<Taxonomy | null>(null);
+  const [importOpen, setImportOpen] = useState(false);
   const rows = data[kind].filter((i) =>
     [i.name, i.code].some((v) => v.toLowerCase().includes(query.toLowerCase())),
   );
@@ -39,19 +50,25 @@ export function TaxonomyPage() {
         description="Keep the catalog organized with clear merchandising categories and consistent brand identities."
         actions={
           canWrite && (
-            <Button
-              onClick={() =>
-                setForm({
-                  name: "",
-                  code: "",
-                  description: "",
-                  color: "#b69154",
-                })
-              }
-            >
-              <Plus />
-              Add {kind === "brands" ? "brand" : "category"}
-            </Button>
+            <>
+              <Button variant="outline" onClick={() => setImportOpen(true)}>
+                <Upload />
+                Bulk import
+              </Button>
+              <Button
+                onClick={() =>
+                  setForm({
+                    name: "",
+                    code: "",
+                    description: "",
+                    color: "#b69154",
+                  })
+                }
+              >
+                <Plus />
+                Add {kind === "brands" ? "brand" : "category"}
+              </Button>
+            </>
           )
         }
       />
@@ -257,6 +274,12 @@ export function TaxonomyPage() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+      {importOpen && (
+        <CsvImportDialog
+          initialTab={kind}
+          onClose={() => setImportOpen(false)}
+        />
+      )}
     </div>
   );
 }

@@ -483,7 +483,7 @@ export function ReceiptDialog({
               <div key={t.method} className="flex justify-between gap-4">
                 <span>
                   {t.method === "external"
-                    ? "External payment"
+                    ? "Card payment"
                     : t.method === "credit"
                       ? "Store credit"
                       : "Cash tendered"}

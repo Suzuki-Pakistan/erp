@@ -118,6 +118,15 @@ export interface CompanySettings {
   };
 }
 
+export interface CompanyWorkspace {
+  id: string;
+  name: string;
+  code: string;
+  status: "active" | "setup" | "inactive";
+  settings: CompanySettings;
+  createdAt: string;
+}
+
 export interface ActivityItem {
   id: string;
   actor: string;
@@ -142,6 +151,8 @@ export interface DemoData {
   roles: Role[];
   permissions: Record<string, PermissionPolicy>;
   companySettings: CompanySettings;
+  companies: CompanyWorkspace[];
+  activeCompanyId: string;
   activity: ActivityItem[];
   notifications: NotificationItem[];
 }

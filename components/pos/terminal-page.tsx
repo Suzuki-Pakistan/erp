@@ -1103,7 +1103,7 @@ function PaymentDialog({
         if (!o && !busy) onClose();
       }}
       title="Take payment"
-      description="Record tender only after receiving payment. External cards are processed outside Flair."
+      description="Collect one payment or combine cash, card and store credit in the same transaction."
       footer={
         <>
           <Button variant="outline" disabled={busy} onClick={onClose}>
@@ -1174,11 +1174,21 @@ function PaymentDialog({
           {customer?.name ?? "Walk-in customer"}
         </p>
       </div>
+      <div className="flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50/60 p-3 text-xs leading-5 text-emerald-950">
+        <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-emerald-100 text-emerald-700">
+          <Check className="size-3" />
+        </span>
+        <p>
+          <strong>Split tender is ready.</strong> Enter the card amount and
+          Flair automatically leaves the balance in cash—for example, $400 card
+          on a $600 sale leaves $200 cash.
+        </p>
+      </div>
       {!online && (
         <p className="rounded-xl bg-amber-50 p-3 text-xs leading-5 text-amber-900">
           Offline: cash-only checkouts can be queued. Do not collect payment or
-          release goods until server confirmation. Store credit and external
-          tenders require a connection.
+          release goods until server confirmation. Store credit and card tenders
+          require a connection.
         </p>
       )}
       <FormField label="Cash received (USD)">
@@ -1221,7 +1231,7 @@ function PaymentDialog({
         </Button>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
-        <FormField label="External card / other (USD)">
+        <FormField label="Card payment (USD)">
           <div className="relative">
             <CreditCard className="absolute left-3 top-2.5 size-4 text-muted-foreground" />
             <Input
@@ -1275,7 +1285,7 @@ function PaymentDialog({
       </div>
       {externalCents > 0 && (
         <div className="space-y-3 rounded-xl border bg-muted/25 p-4">
-          <FormField label="External approval reference">
+          <FormField label="Card approval reference">
             <Input
               value={reference}
               maxLength={150}
@@ -1290,11 +1300,29 @@ function PaymentDialog({
               checked={confirmed}
               onChange={(e) => setConfirmed(e.target.checked)}
             />
-            I have verified the external payment was approved. No card details
-            are entered or charged here.
+            I have verified the card payment was approved on the terminal. No
+            card details are entered or stored in Flair.
           </label>
         </div>
       )}
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+        {[
+          ["Cash", cashCents],
+          ["Card", externalCents],
+          ["Store credit", creditCents],
+          ["Tendered", paid],
+        ].map(([label, value]) => (
+          <div
+            key={String(label)}
+            className="rounded-xl border bg-muted/20 p-3"
+          >
+            <p className="text-[10px] text-muted-foreground">{label}</p>
+            <p className="mt-1 text-sm font-semibold tabular-nums">
+              {money(Number(value))}
+            </p>
+          </div>
+        ))}
+      </div>
       <div className="flex justify-between rounded-xl border p-4">
         <span className="text-sm">
           {remaining ? "Balance remaining" : "Change to give"}

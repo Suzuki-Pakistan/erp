@@ -8,6 +8,8 @@ import {
 } from "../lib/inventory-schema";
 import { parseCsv } from "../lib/csv";
 import {
+  grossMarginPercent,
+  grossProfit,
   productStock,
   type InventoryData,
   type OperationType,
@@ -18,6 +20,12 @@ import {
   landingPath,
   type SessionUser,
 } from "../types/auth";
+
+test("individual tier margins preserve gross profit and percentage", () => {
+  assert.equal(grossProfit(39, 16), 23);
+  assert.equal(grossMarginPercent(39, 16), 59);
+  assert.equal(grossMarginPercent(0, 16), 0);
+});
 
 function operation(
   data: InventoryData,
@@ -253,6 +261,94 @@ test("CSV handles quoted commas, escaped quotes, newlines and invalid rows", () 
   assert.throws(() => parseCsv("sku,name\n1"), /Column count/);
   assert.throws(() => parseCsv("sku,sku\n1,2"), /unique/);
   assert.throws(() => parseCsv('sku,name\n1,"bad'), /unclosed/);
+});
+test("bulk taxonomy import creates and updates categories atomically", () => {
+  const data = createInventorySeed();
+  const existing = data.categories[0];
+  applyInventoryCommand(
+    data,
+    {
+      action: "taxonomies.import",
+      kind: "categories",
+      items: [
+        {
+          code: existing.code,
+          name: existing.name,
+          description: "Updated by import",
+          color: "#123456",
+        },
+        {
+          code: "CAT-NEW",
+          name: "New Category",
+          description: "Imported",
+          color: "#654321",
+        },
+      ],
+    },
+    "QA",
+  );
+  assert.equal(
+    data.categories.find((item) => item.id === existing.id)?.description,
+    "Updated by import",
+  );
+  assert.equal(
+    data.categories.some((item) => item.code === "CAT-NEW"),
+    true,
+  );
+  const before = structuredClone(data.categories);
+  assert.throws(
+    () =>
+      applyInventoryCommand(
+        data,
+        {
+          action: "taxonomies.import",
+          kind: "categories",
+          items: [
+            {
+              code: "DUPLICATE",
+              name: "Repeated",
+              description: "",
+              color: "#123456",
+            },
+            {
+              code: "DUPLICATE",
+              name: "Another",
+              description: "",
+              color: "#123456",
+            },
+          ],
+        },
+        "QA",
+      ),
+    /duplicate/i,
+  );
+  assert.deepEqual(data.categories, before);
+});
+test("bulk inventory import sets location counts with auditable movements", () => {
+  const data = createInventorySeed();
+  const product = data.products[0];
+  const location = data.locations[0];
+  const beforeOperations = data.operations.length;
+  applyInventoryCommand(
+    data,
+    {
+      action: "stock.import",
+      rows: [
+        {
+          productId: product.id,
+          locationId: location.id,
+          onHand: 300,
+          unitCost: product.averageCost,
+        },
+      ],
+    },
+    "QA",
+  );
+  assert.equal(productStock(data, product.id, location.id).onHand, 300);
+  assert.equal(data.operations.length, beforeOperations + 1);
+  assert.equal(data.operations[0].status, "posted");
+  assert.equal(data.operations[0].reason, "Bulk inventory import");
+  assert.equal(data.movements[0].after, 300);
 });
 test("access roles choose landing page and block writes/core access", () => {
   const user: SessionUser = {

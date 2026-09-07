@@ -1,5 +1,6 @@
 import type {
   DemoData,
+  CompanySettings,
   PermissionAction,
   PermissionPolicy,
   Role,
@@ -334,6 +335,44 @@ const permissions: Record<string, PermissionPolicy> = {
   ),
 };
 
+const flairCompanySettings: CompanySettings = {
+  businessProfile: {
+    displayName: "Flair Cosmetic & Fragrance",
+    legalName: "Flair Cosmetic & Fragrance",
+    website: "flairperfumes.com",
+    email: "info@flairperfumes.com",
+    phone: "940-353-5247",
+    address: "6701 Harwin Dr, Suite #109, Houston, TX 77036",
+    description:
+      "Authentic fragrance and beauty, thoughtfully selected with fair, transparent value.",
+  },
+  branding: {
+    appDisplayName: "Flair ERP",
+    accent: "Deep teal",
+    wordmarkVariant: "Full wordmark",
+  },
+  regional: {
+    currency: "USD",
+    timezone: "America/Chicago",
+    dateFormat: "MM/DD/YYYY",
+    timeFormat: "12-hour",
+    language: "English",
+  },
+  defaults: {
+    retailLocationId: "loc-harwin",
+    mainWarehouseId: "loc-main-wh",
+    ecommerceWarehouseId: "loc-ecom-wh",
+    defaultUserStatus: "invited",
+    locationCodePattern: "CITY-TYPE##",
+  },
+  notificationDefaults: {
+    accessChanges: true,
+    newUsers: true,
+    locationReminders: true,
+    weeklyDigest: false,
+  },
+};
+
 const seed: DemoData = {
   locations: [
     {
@@ -469,43 +508,18 @@ const seed: DemoData = {
   users,
   roles,
   permissions,
-  companySettings: {
-    businessProfile: {
-      displayName: "Flair Cosmetic & Fragrance",
-      legalName: "Flair Cosmetic & Fragrance",
-      website: "flairperfumes.com",
-      email: "info@flairperfumes.com",
-      phone: "940-353-5247",
-      address: "6701 Harwin Dr, Suite #109, Houston, TX 77036",
-      description:
-        "Authentic fragrance and beauty, thoughtfully selected with fair, transparent value.",
+  companySettings: flairCompanySettings,
+  activeCompanyId: "company-flair",
+  companies: [
+    {
+      id: "company-flair",
+      name: "Flair Cosmetic & Fragrance",
+      code: "FLAIR",
+      status: "active",
+      settings: flairCompanySettings,
+      createdAt: "Aug 1, 2026",
     },
-    branding: {
-      appDisplayName: "Flair ERP",
-      accent: "Deep teal",
-      wordmarkVariant: "Full wordmark",
-    },
-    regional: {
-      currency: "USD",
-      timezone: "America/Chicago",
-      dateFormat: "MM/DD/YYYY",
-      timeFormat: "12-hour",
-      language: "English",
-    },
-    defaults: {
-      retailLocationId: "loc-harwin",
-      mainWarehouseId: "loc-main-wh",
-      ecommerceWarehouseId: "loc-ecom-wh",
-      defaultUserStatus: "invited",
-      locationCodePattern: "CITY-TYPE##",
-    },
-    notificationDefaults: {
-      accessChanges: true,
-      newUsers: true,
-      locationReminders: true,
-      weeklyDigest: false,
-    },
-  },
+  ],
   activity: [
     [
       "Maya Patel",

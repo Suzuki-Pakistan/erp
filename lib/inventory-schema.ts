@@ -11,6 +11,13 @@ const calendarDate = z
       parsed.toISOString().slice(0, 10) === value
     );
   }, "Enter a valid calendar date.");
+export const taxonomyItemSchema = z.object({
+  id: z.string().optional(),
+  code: z.string().trim().min(1).max(30),
+  name: z.string().trim().min(2).max(100),
+  description: z.string().max(500),
+  color: z.string().regex(/^#[0-9a-fA-F]{6}$/),
+});
 export const productSchema = z.object({
   id: z.string().optional(),
   sku: z
@@ -100,13 +107,26 @@ export const inventoryCommandSchema = z.discriminatedUnion("action", [
   z.object({
     action: z.literal("taxonomy.save"),
     kind: z.enum(["categories", "brands"]),
-    item: z.object({
-      id: z.string().optional(),
-      code: z.string().trim().min(1).max(30),
-      name: z.string().trim().min(2).max(100),
-      description: z.string().max(500),
-      color: z.string().regex(/^#[0-9a-fA-F]{6}$/),
-    }),
+    item: taxonomyItemSchema,
+  }),
+  z.object({
+    action: z.literal("taxonomies.import"),
+    kind: z.enum(["categories", "brands"]),
+    items: z.array(taxonomyItemSchema).min(1).max(500),
+  }),
+  z.object({
+    action: z.literal("stock.import"),
+    rows: z
+      .array(
+        z.object({
+          productId: z.string().min(1),
+          locationId: z.string().min(1),
+          onHand: quantity,
+          unitCost: money,
+        }),
+      )
+      .min(1)
+      .max(500),
   }),
   z.object({
     action: z.literal("taxonomy.delete"),

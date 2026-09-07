@@ -21,8 +21,41 @@ import {
   ProductVisual,
 } from "./shared";
 import { ProductEditor } from "./product-dialogs";
-import type { Product } from "@/types/inventory";
+import {
+  grossMarginPercent,
+  grossProfit,
+  type Product,
+} from "@/types/inventory";
 import { downloadCsv } from "@/lib/csv";
+
+function PriceMarginCell({
+  price,
+  cost,
+  showMargin,
+  featured = false,
+}: {
+  price: number;
+  cost: number;
+  showMargin: boolean;
+  featured?: boolean;
+}) {
+  const margin = grossMarginPercent(price, cost);
+  return (
+    <div className="py-3 text-right">
+      <p className={featured ? "font-semibold" : "font-medium"}>
+        {money(price)}
+      </p>
+      {showMargin && (
+        <p
+          className={`mt-1 text-[10px] ${margin > 0 ? "text-emerald-700" : "text-destructive"}`}
+        >
+          {margin.toFixed(1)}% · {money(grossProfit(price, cost))}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export function PricingPage() {
   const { data, canWrite, costsVisible } = useInventory();
   const [query, setQuery] = useState("");
@@ -36,19 +69,17 @@ export function PricingPage() {
         )) &&
       (!brand || p.brandId === brand),
   );
+  const pricedProducts = products.filter((p) => p.retailPrice > 0);
   const margin =
-    products
-      .filter((p) => p.retailPrice > 0)
-      .reduce(
-        (sum, p) =>
-          sum + ((p.retailPrice - p.averageCost) / p.retailPrice) * 100,
-        0,
-      ) / Math.max(products.filter((p) => p.retailPrice > 0).length, 1);
+    pricedProducts.reduce(
+      (sum, p) => sum + grossMarginPercent(p.retailPrice, p.averageCost),
+      0,
+    ) / Math.max(pricedProducts.length, 1);
   return (
     <div className="space-y-6">
       <InventoryHeader
         title="Pricing & Margins"
-        description="Manage retail, wholesale, VIP and web pricing with clear cost and margin visibility."
+        description="Compare the selling price, gross profit and margin of every product across retail, wholesale, e-commerce and VIP."
         actions={
           <Button
             variant="outline"
@@ -59,9 +90,22 @@ export function PricingPage() {
                   sku: p.sku,
                   product: p.name,
                   retail: p.retailPrice,
+                  retailMargin: grossMarginPercent(
+                    p.retailPrice,
+                    p.averageCost,
+                  ),
                   wholesale: p.wholesalePrice,
+                  wholesaleMargin: grossMarginPercent(
+                    p.wholesalePrice,
+                    p.averageCost,
+                  ),
                   vip: p.vipPrice,
-                  web: p.webPrice,
+                  vipMargin: grossMarginPercent(p.vipPrice, p.averageCost),
+                  ecommerce: p.webPrice,
+                  ecommerceMargin: grossMarginPercent(
+                    p.webPrice,
+                    p.averageCost,
+                  ),
                   suggested: p.suggestedPrice,
                   ...(costsVisible
                     ? { averageCost: p.averageCost, floor: p.lowestPrice }
@@ -80,7 +124,7 @@ export function PricingPage() {
           icon={Tags}
           label="Price levels"
           value="4"
-          meta="Retail · Wholesale · VIP · Web"
+          meta="Retail · Wholesale · E-commerce · VIP"
         />
         <MetricCard
           icon={DollarSign}
@@ -132,7 +176,7 @@ export function PricingPage() {
         </div>
         {products.length ? (
           <div className="relative overflow-x-auto">
-            <table className="w-full min-w-[920px] text-left text-xs">
+            <table className="w-full min-w-[1080px] text-left text-xs">
               <thead className="bg-muted/35 text-[10px] uppercase tracking-wide text-muted-foreground">
                 <tr>
                   <th className="p-4">Product</th>
@@ -140,9 +184,9 @@ export function PricingPage() {
                     ...(costsVisible ? ["Avg. cost"] : []),
                     "Retail",
                     "Wholesale",
+                    "E-commerce",
                     "VIP",
-                    "Web",
-                    ...(costsVisible ? ["Margin", "Floor"] : []),
+                    ...(costsVisible ? ["Floor"] : []),
                   ].map((h) => (
                     <th key={h} className="px-3 text-right">
                       {h}
@@ -175,42 +219,22 @@ export function PricingPage() {
                     {[
                       p.retailPrice,
                       p.wholesalePrice,
-                      p.vipPrice,
                       p.webPrice,
+                      p.vipPrice,
                     ].map((price, i) => (
-                      <td
-                        key={i}
-                        className={
-                          "px-3 text-right " + (i === 0 ? "font-semibold" : "")
-                        }
-                      >
-                        {money(price)}
+                      <td key={i} className="px-3">
+                        <PriceMarginCell
+                          price={price}
+                          cost={p.averageCost}
+                          showMargin={costsVisible}
+                          featured={i === 0}
+                        />
                       </td>
                     ))}
                     {costsVisible && (
-                      <>
-                        <td className="px-3 text-right">
-                          <span
-                            className={
-                              p.retailPrice > p.averageCost
-                                ? "text-emerald-700"
-                                : "text-destructive"
-                            }
-                          >
-                            {p.retailPrice
-                              ? (
-                                  ((p.retailPrice - p.averageCost) /
-                                    p.retailPrice) *
-                                  100
-                                ).toFixed(1)
-                              : "0"}
-                            %
-                          </span>
-                        </td>
-                        <td className="px-3 text-right text-muted-foreground">
-                          {money(p.lowestPrice)}
-                        </td>
-                      </>
+                      <td className="px-3 text-right text-muted-foreground">
+                        {money(p.lowestPrice)}
+                      </td>
                     )}
                     <td className="pr-3">
                       {canWrite && (
