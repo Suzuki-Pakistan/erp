@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import { ModulePreviewPage } from "@/components/roadmap/module-preview-page";
 import {
@@ -14,6 +14,7 @@ export default async function Page({
   const { module: moduleId, view } = await params;
   const moduleConfig = getRoadmapModule(moduleId);
   if (!moduleConfig || (view?.length ?? 0) > 1) notFound();
+  if (moduleConfig.locked) redirect("/core-setup");
 
   const route = getRoadmapRoute(moduleConfig, view?.[0]);
   if (view?.[0] && route.key !== view[0]) notFound();

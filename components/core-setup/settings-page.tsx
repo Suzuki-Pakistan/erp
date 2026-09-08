@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
 import {
   BellRing,
   Building2,
@@ -11,7 +10,6 @@ import {
   ImageIcon,
   Palette,
   Pencil,
-  Plus,
   RotateCcw,
   SlidersHorizontal,
   Trash2,
@@ -40,99 +38,26 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useDemoStore } from "@/store/demo-store";
-import type { CompanySettings, CompanyWorkspace } from "@/types/core-setup";
+import type { CompanySettings } from "@/types/core-setup";
 import { PageHeader, SectionTitle } from "./shared";
 
 type Editor = "branding" | "regional" | "defaults" | "notifications" | null;
 
 export function SettingsPage() {
-  const searchParams = useSearchParams();
   const settings = useDemoStore((state) => state.companySettings);
   const locations = useDemoStore((state) => state.locations);
-  const companies = useDemoStore((state) => state.companies);
-  const activeCompanyId = useDemoStore((state) => state.activeCompanyId);
-  const activateCompany = useDemoStore((state) => state.activateCompany);
   const { openDialog } = useAppUi();
   const [editor, setEditor] = useState<Editor>(null);
   const [resetOpen, setResetOpen] = useState(false);
   const [clearOpen, setClearOpen] = useState(false);
-  const [companyOpen, setCompanyOpen] = useState(
-    () => searchParams.get("newCompany") === "1",
-  );
   const locationName = (id: string) =>
     locations.find((location) => location.id === id)?.name ?? "Not selected";
   return (
     <div className="space-y-6">
       <PageHeader
         title="Company Settings"
-        description="Manage company workspaces, business profiles and core defaults used across the ERP experience."
-        actions={
-          <Button onClick={() => setCompanyOpen(true)}>
-            <Plus />
-            Add company
-          </Button>
-        }
+        description="Manage Flair's business profile and core defaults used across the ERP experience."
       />
-      <Card className="overflow-hidden">
-        <CardHeader className="border-b">
-          <div className="flex flex-wrap items-start justify-between gap-3">
-            <SectionTitle
-              title="Company workspaces"
-              description="Create another company from Flair's proven configuration, then maintain its identity and defaults independently."
-            />
-            <Badge variant="outline" className="rounded-md">
-              {companies.length}{" "}
-              {companies.length === 1 ? "company" : "companies"}
-            </Badge>
-          </div>
-        </CardHeader>
-        <CardContent className="grid gap-3 pt-5 md:grid-cols-2 xl:grid-cols-3">
-          {companies.map((company) => {
-            const active = company.id === activeCompanyId;
-            return (
-              <button
-                key={company.id}
-                type="button"
-                aria-pressed={active}
-                onClick={() => {
-                  if (!active) {
-                    activateCompany(company.id);
-                    toast.success(`${company.name} is now the active company`);
-                  }
-                }}
-                className={`flex min-w-0 items-center gap-3 rounded-xl border p-4 text-left transition-all ${
-                  active
-                    ? "border-primary/30 bg-primary/5 shadow-sm"
-                    : "hover:border-primary/20 hover:bg-muted/30"
-                }`}
-              >
-                <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary text-sm font-semibold text-primary-foreground">
-                  {company.name
-                    .split(/\s+/)
-                    .slice(0, 2)
-                    .map((word) => word[0])
-                    .join("")
-                    .toUpperCase()}
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block truncate text-sm font-semibold">
-                    {company.name}
-                  </span>
-                  <span className="mt-1 block font-mono text-[10px] text-muted-foreground">
-                    {company.code} · {company.status}
-                  </span>
-                </span>
-                <Badge
-                  variant={active ? "default" : "secondary"}
-                  className="shrink-0 rounded-md text-[9px]"
-                >
-                  {active ? "Current" : "Open"}
-                </Badge>
-              </button>
-            );
-          })}
-        </CardContent>
-      </Card>
       <section className="grid gap-5 xl:grid-cols-2">
         <SettingsCard
           icon={Building2}
@@ -338,196 +263,7 @@ export function SettingsPage() {
       )}
       <ResetDemoDialog open={resetOpen} onOpenChange={setResetOpen} />
       <ResetDemoDialog open={clearOpen} onOpenChange={setClearOpen} clear />
-      {companyOpen && (
-        <AddCompanyDialog onClose={() => setCompanyOpen(false)} />
-      )}
     </div>
-  );
-}
-
-function AddCompanyDialog({ onClose }: { onClose: () => void }) {
-  const source = useDemoStore((state) => state.companySettings);
-  const companies = useDemoStore((state) => state.companies);
-  const addCompany = useDemoStore((state) => state.addCompany);
-  const [form, setForm] = useState({
-    displayName: "",
-    legalName: "",
-    code: "",
-    website: "",
-    email: "",
-    phone: "",
-    address: "",
-    description: "",
-  });
-  const [error, setError] = useState("");
-  const field = (key: keyof typeof form, value: string) =>
-    setForm((current) => ({ ...current, [key]: value }));
-  function save(event: React.FormEvent) {
-    event.preventDefault();
-    setError("");
-    const code = form.code.trim().toUpperCase();
-    if (
-      !form.displayName.trim() ||
-      !form.legalName.trim() ||
-      !code ||
-      !form.email.includes("@") ||
-      form.phone.trim().length < 7 ||
-      form.address.trim().length < 8
-    ) {
-      setError("Complete the required company and contact fields.");
-      return;
-    }
-    if (
-      companies.some(
-        (company) => company.code.toLowerCase() === code.toLowerCase(),
-      )
-    ) {
-      setError("That company code is already in use.");
-      return;
-    }
-    const settings = structuredClone(source);
-    settings.businessProfile = {
-      displayName: form.displayName.trim(),
-      legalName: form.legalName.trim(),
-      website: form.website.trim(),
-      email: form.email.trim(),
-      phone: form.phone.trim(),
-      address: form.address.trim(),
-      description:
-        form.description.trim() ||
-        `${form.displayName.trim()} company workspace.`,
-    };
-    settings.branding.appDisplayName = `${form.displayName.trim()} ERP`;
-    const company: CompanyWorkspace = {
-      id: crypto.randomUUID(),
-      name: settings.businessProfile.displayName,
-      code,
-      status: "setup",
-      settings,
-      createdAt: new Date().toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      }),
-    };
-    addCompany(company);
-    toast.success(`${company.name} created and opened`);
-    onClose();
-  }
-  return (
-    <Dialog open onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="flex max-h-[90svh] flex-col overflow-hidden sm:max-w-[680px]">
-        <DialogHeader>
-          <DialogTitle>Add a company</DialogTitle>
-          <DialogDescription>
-            Start with the same regional, notification and operational defaults
-            as the current Flair company, then manage the new profile
-            separately.
-          </DialogDescription>
-        </DialogHeader>
-        <form onSubmit={save} className="flex min-h-0 flex-1 flex-col">
-          <div className="min-h-0 flex-1 space-y-4 overflow-y-auto pr-1">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Field label="Display name *">
-                <Input
-                  required
-                  value={form.displayName}
-                  onChange={(event) => field("displayName", event.target.value)}
-                  placeholder="New company"
-                />
-              </Field>
-              <Field label="Legal name *">
-                <Input
-                  required
-                  value={form.legalName}
-                  onChange={(event) => field("legalName", event.target.value)}
-                />
-              </Field>
-              <Field label="Company code *">
-                <Input
-                  required
-                  maxLength={12}
-                  value={form.code}
-                  onChange={(event) =>
-                    field(
-                      "code",
-                      event.target.value
-                        .replace(/[^A-Za-z0-9-]/g, "")
-                        .toUpperCase(),
-                    )
-                  }
-                  placeholder="COMPANY"
-                />
-              </Field>
-              <Field label="Website">
-                <Input
-                  value={form.website}
-                  onChange={(event) => field("website", event.target.value)}
-                  placeholder="company.com"
-                />
-              </Field>
-              <Field label="Email *">
-                <Input
-                  required
-                  type="email"
-                  value={form.email}
-                  onChange={(event) => field("email", event.target.value)}
-                />
-              </Field>
-              <Field label="Phone *">
-                <Input
-                  required
-                  value={form.phone}
-                  onChange={(event) => field("phone", event.target.value)}
-                />
-              </Field>
-              <div className="sm:col-span-2">
-                <Field label="Address *">
-                  <Input
-                    required
-                    value={form.address}
-                    onChange={(event) => field("address", event.target.value)}
-                  />
-                </Field>
-              </div>
-              <div className="sm:col-span-2">
-                <Field label="Description">
-                  <Input
-                    value={form.description}
-                    onChange={(event) =>
-                      field("description", event.target.value)
-                    }
-                    placeholder="What this company does"
-                  />
-                </Field>
-              </div>
-            </div>
-            <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-3 text-xs leading-5 text-emerald-950">
-              Regional formats, operational defaults, branding and notification
-              preferences are copied from the current company. Business identity
-              fields remain unique to this workspace.
-            </div>
-            {error && (
-              <p
-                role="alert"
-                className="rounded-xl bg-destructive/5 p-3 text-xs text-destructive"
-              >
-                {error}
-              </p>
-            )}
-          </div>
-          <DialogFooter className="mt-5 shrink-0 border-t pt-4">
-            <Button type="button" variant="outline" onClick={onClose}>
-              Cancel
-            </Button>
-            <Button type="submit">
-              <Plus />
-              Create & open company
-            </Button>
-          </DialogFooter>
-        </form>
-      </DialogContent>
-    </Dialog>
   );
 }
 

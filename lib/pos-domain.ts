@@ -21,7 +21,6 @@ import {
 
 function migratePosData(pos: PosData) {
   if ((pos.version ?? 1) < 2) {
-    pos.version = 2;
     pos.settings.taxBps = 825;
     pos.settings.taxConfigured = true;
     pos.customers.forEach((customer) => {
@@ -29,6 +28,12 @@ function migratePosData(pos: PosData) {
       customer.preferredContact = "none";
     });
   }
+  if ((pos.version ?? 1) < 3) {
+    pos.discounts = createPosSeed().discounts;
+  }
+  pos.version = 3;
+  pos.discounts ??= createPosSeed().discounts;
+  pos.shifts.forEach((shift) => (shift.drawerEvents ??= []));
   return pos;
 }
 
@@ -118,6 +123,44 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
         receiptNote: command.receiptNote,
       };
       return { message: "Checkout configuration saved" };
+    case "discount.save": {
+      manager(user);
+      const code = command.code.toUpperCase();
+      const duplicate = pos.discounts.find(
+        (discount) =>
+          discount.id !== command.id && discount.code.toUpperCase() === code,
+      );
+      if (duplicate) throw new Error("That discount code is already in use.");
+      const existing = pos.discounts.find(
+        (discount) => discount.id === command.id,
+      );
+      if (command.id && !existing) throw new Error("Discount not found.");
+      const record = {
+        id: existing?.id ?? randomUUID(),
+        name: command.name,
+        code,
+        type: command.type,
+        valueBps:
+          command.type === "buy-one-get-one" ? 10000 : command.valueBps,
+        active: command.active,
+        createdAt: existing?.createdAt ?? now,
+      };
+      if (existing) Object.assign(existing, record);
+      else pos.discounts.unshift(record);
+      return {
+        message: existing ? "Discount updated" : "Discount created",
+        id: record.id,
+      };
+    }
+    case "discount.toggle": {
+      manager(user);
+      const discount = pos.discounts.find((item) => item.id === command.id);
+      if (!discount) throw new Error("Discount not found.");
+      discount.active = command.active;
+      return {
+        message: command.active ? "Discount activated" : "Discount paused",
+      };
+    }
     case "customer.save": {
       const existing = pos.customers.find((c) => c.id === command.id);
       if (command.id && !existing) throw new Error("Customer not found.");
@@ -184,6 +227,7 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
         openingCents: command.openingCents,
         openedAt: now,
         cashEntries: [],
+        drawerEvents: [],
       });
       return { message: "Shift opened. Your register is ready.", id };
     }
@@ -199,6 +243,16 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
         actor: user.name,
       });
       return { message: "Cash movement recorded" };
+    }
+    case "shift.drawer": {
+      const shift = ownOpenShift(pos, command.shiftId, user);
+      shift.drawerEvents.unshift({
+        id: randomUUID(),
+        reason: command.reason,
+        createdAt: now,
+        actor: user.name,
+      });
+      return { message: "Drawer opened and added to the shift audit" };
     }
     case "shift.close": {
       const shift = ownOpenShift(pos, command.shiftId, user);
@@ -269,6 +323,19 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
         };
       }
       const shift = ownOpenShift(pos, command.shiftId, user);
+      const discount =
+        command.promotion === "none"
+          ? undefined
+          : pos.discounts.find((item) => item.id === command.promotion);
+      const legacyPromotion = command.promotion === "buy-one-second-half";
+      if (
+        command.promotion !== "none" &&
+        !legacyPromotion &&
+        (!discount || !discount.active)
+      )
+        throw new Error(
+          "This discount is no longer active. Remove it and review the total.",
+        );
       if (!pos.settings.taxConfigured)
         throw new Error(
           "A manager must confirm the checkout tax configuration first.",
@@ -283,7 +350,7 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
           command.lines.some((line) => line.discountBps > 0))
       )
         throw new Error(
-          "Buy 1, second item 50% off uses retail prices and cannot be combined with manual discounts.",
+          "Promotion uses retail prices and cannot be combined with manual discounts.",
         );
       if (
         user.role === "cashier" &&
@@ -336,7 +403,7 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
         command.lines,
         data.products,
         pos.settings.taxBps,
-        command.promotion,
+        discount ?? command.promotion,
       );
       for (const line of quote.lines) {
         const product = data.products.find((p) => p.id === line.productId)!;
@@ -400,6 +467,9 @@ function execute(data: InventoryData, command: PosCommand, user: SessionUser) {
           "Walk-in customer",
         tier: command.tier,
         promotion: command.promotion,
+        promotionName:
+          discount?.name ??
+          (legacyPromotion ? "Buy 1, second item 50% off" : undefined),
         note: command.note,
         taxBps: pos.settings.taxBps,
         receiptNote: pos.settings.receiptNote,

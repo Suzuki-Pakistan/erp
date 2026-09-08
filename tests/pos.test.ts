@@ -102,9 +102,10 @@ test("legacy POS data migrates once to the approved 8.25% tax rate", () => {
   data.pos!.settings.taxBps = 2500;
   data.pos!.settings.taxConfigured = true;
   const snapshot = posSnapshot(data, admin);
-  assert.equal(snapshot.pos.version, 2);
+  assert.equal(snapshot.pos.version, 3);
   assert.equal(snapshot.pos.settings.taxBps, 825);
   assert.equal(snapshot.pos.settings.taxConfigured, true);
+  assert.equal(snapshot.pos.discounts.length, 2);
 });
 test("checkout records exact tax, cash change and one atomic stock movement", () => {
   const { data, shift } = setup();
@@ -161,6 +162,60 @@ test("promotion cannot combine with wholesale pricing or manual discounts", () =
   command.lines[0].discountBps = 0;
   command.tier = "wholesale";
   assert.throws(() => run(data, command), /uses retail prices/);
+});
+test("approved BOGO and Black Friday campaigns are server-priced", () => {
+  const { data, shift } = setup(cashier);
+  const bogo = data.pos!.discounts.find((item) => item.code === "BOGO")!;
+  const bogoCommand = checkout(data, shift, 2);
+  bogoCommand.promotion = bogo.id;
+  const bogoQuote = quoteCart(
+    bogoCommand.lines,
+    data.products,
+    data.pos!.settings.taxBps,
+    bogo,
+  );
+  bogoCommand.expectedTotalCents = bogoQuote.totalCents;
+  bogoCommand.tenders[0].amountCents = bogoQuote.totalCents;
+  run(data, bogoCommand, cashier);
+  assert.equal(bogoQuote.discountCents, 3900);
+  assert.equal(data.pos!.sales[0].promotionName, "Buy 1 Get 1 Free");
+
+  const blackFriday = data.pos!.discounts.find(
+    (item) => item.code === "BLACKFRIDAY",
+  )!;
+  const blackFridayCommand = checkout(data, shift);
+  blackFridayCommand.promotion = blackFriday.id;
+  const blackFridayQuote = quoteCart(
+    blackFridayCommand.lines,
+    data.products,
+    data.pos!.settings.taxBps,
+    blackFriday,
+  );
+  blackFridayCommand.expectedTotalCents = blackFridayQuote.totalCents;
+  blackFridayCommand.tenders[0].amountCents = blackFridayQuote.totalCents;
+  run(data, blackFridayCommand, cashier);
+  assert.equal(blackFridayQuote.discountCents, 780);
+  assert.equal(data.pos!.sales[0].promotionName, "Black Friday 20% Off");
+});
+test("managers can create discounts and drawer openings remain auditable", () => {
+  const { data, shift } = setup();
+  const result = run(data, {
+    action: "discount.save",
+    name: "VIP Weekend 15%",
+    code: "VIPWEEKEND",
+    type: "percentage",
+    valueBps: 1500,
+    active: true,
+  });
+  assert.equal(data.pos!.discounts[0].id, result.id);
+  assert.equal(data.pos!.discounts[0].valueBps, 1500);
+  run(data, {
+    action: "shift.drawer",
+    shiftId: shift,
+    reason: "Manager access",
+  });
+  assert.equal(data.pos!.shifts[0].drawerEvents.length, 1);
+  assert.equal(data.pos!.shifts[0].drawerEvents[0].reason, "Manager access");
 });
 test("closing totals separate retail and wholesale sales", () => {
   const { data, shift } = setup();

@@ -440,8 +440,10 @@ export function ReceiptDialog({
             <p>Cashier: {sale.actor}</p>
             <p>Customer: {sale.customerName}</p>
             <p className="capitalize">Price level: {sale.tier}</p>
-            {sale.promotion === "buy-one-second-half" && (
-              <p>Promotion: Buy 1, second item 50% off</p>
+            {sale.promotion && sale.promotion !== "none" && (
+              <p>
+                Promotion: {sale.promotionName ?? "Approved campaign discount"}
+              </p>
             )}
           </div>
           <div className="space-y-4 border-y border-dashed py-4">

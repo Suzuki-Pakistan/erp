@@ -6,7 +6,6 @@ import { persist } from "zustand/middleware";
 import { createSeedData } from "@/data/mock";
 import type {
   CompanySettings,
-  CompanyWorkspace,
   DemoData,
   Location,
   PermissionPolicy,
@@ -32,8 +31,6 @@ interface DemoStore extends DemoData {
     section: K,
     value: CompanySettings[K],
   ) => void;
-  addCompany: (company: CompanyWorkspace) => void;
-  activateCompany: (id: string) => void;
   markNotificationRead: (id: string) => void;
   markAllNotificationsRead: () => void;
   resetDemoData: () => void;
@@ -186,51 +183,12 @@ export const useDemoStore = create<DemoStore>()(
           ],
         })),
       updateCompanySettings: (section, value) =>
-        set((state) => {
-          const companySettings = {
+        set((state) => ({
+          companySettings: {
             ...state.companySettings,
             [section]: value,
-          };
-          return {
-            companySettings,
-            companies: state.companies.map((company) =>
-              company.id === state.activeCompanyId
-                ? {
-                    ...company,
-                    name: companySettings.businessProfile.displayName,
-                    settings: companySettings,
-                  }
-                : company,
-            ),
-          };
-        }),
-      addCompany: (company) =>
-        set((state) => ({
-          companies: [company, ...state.companies],
-          activeCompanyId: company.id,
-          companySettings: company.settings,
-          activity: [
-            {
-              id: `act-company-${company.id}`,
-              actor: "Maya Patel",
-              action: "added company",
-              target: company.name,
-              timestamp: "Just now",
-              category: "Settings",
-            },
-            ...state.activity,
-          ],
+          },
         })),
-      activateCompany: (id) =>
-        set((state) => {
-          const company = state.companies.find((item) => item.id === id);
-          return company
-            ? {
-                activeCompanyId: company.id,
-                companySettings: company.settings,
-              }
-            : state;
-        }),
       markNotificationRead: (id) =>
         set((state) => ({
           notifications: state.notifications.map((item) =>
@@ -252,7 +210,7 @@ export const useDemoStore = create<DemoStore>()(
     }),
     {
       name: "flair-erp-demo:v1",
-      version: 2,
+      version: 3,
       skipHydration: true,
       partialize: (state) => ({
         locations: state.locations,
@@ -260,28 +218,24 @@ export const useDemoStore = create<DemoStore>()(
         roles: state.roles,
         permissions: state.permissions,
         companySettings: state.companySettings,
-        companies: state.companies,
-        activeCompanyId: state.activeCompanyId,
         activity: state.activity,
         notifications: state.notifications,
       }),
       migrate: (persistedState) => {
         const current = createSeedData();
         const persisted = persistedState as Partial<DemoStore>;
-        const settings = persisted.companySettings ?? current.companySettings;
         return {
-          ...persisted,
-          companySettings: settings,
-          companies: persisted.companies?.length
-            ? persisted.companies
-            : [
-                {
-                  ...current.companies[0],
-                  name: settings.businessProfile.displayName,
-                  settings,
-                },
-              ],
-          activeCompanyId: persisted.activeCompanyId ?? current.activeCompanyId,
+          ...current,
+          locations: persisted.locations ?? current.locations,
+          users: persisted.users ?? current.users,
+          roles: persisted.roles ?? current.roles,
+          // Version 3 removes the Wholesale/B2B module and applies the
+          // approved module scope, so old permission matrices cannot be reused.
+          permissions: current.permissions,
+          companySettings:
+            persisted.companySettings ?? current.companySettings,
+          activity: persisted.activity ?? current.activity,
+          notifications: persisted.notifications ?? current.notifications,
         } as DemoStore;
       },
       onRehydrateStorage: () => (state) => state?.setHasHydrated(true),

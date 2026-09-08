@@ -118,15 +118,6 @@ export interface CompanySettings {
   };
 }
 
-export interface CompanyWorkspace {
-  id: string;
-  name: string;
-  code: string;
-  status: "active" | "setup" | "inactive";
-  settings: CompanySettings;
-  createdAt: string;
-}
-
 export interface ActivityItem {
   id: string;
   actor: string;
@@ -151,8 +142,6 @@ export interface DemoData {
   roles: Role[];
   permissions: Record<string, PermissionPolicy>;
   companySettings: CompanySettings;
-  companies: CompanyWorkspace[];
-  activeCompanyId: string;
   activity: ActivityItem[];
   notifications: NotificationItem[];
 }
@@ -162,9 +151,8 @@ export const moduleDefinitions = [
   { id: "inventory", number: "02", name: "Product & Inventory" },
   { id: "pos", number: "03", name: "Retail POS" },
   { id: "purchasing", number: "04", name: "Purchasing & Vendors" },
-  { id: "wholesale", number: "05", name: "Wholesale & B2B Portal" },
-  { id: "ecommerce", number: "06", name: "E-Commerce Hub" },
-  { id: "reports", number: "07", name: "Reports & Dashboards" },
-  { id: "forecasting", number: "08", name: "Smart Demand Forecasting" },
-  { id: "accounting", number: "09", name: "Accounting & Finance" },
+  { id: "ecommerce", number: "05", name: "E-Commerce Hub" },
+  { id: "reports", number: "06", name: "Reports & Dashboards" },
+  { id: "forecasting", number: "07", name: "Smart Demand Forecasting" },
+  { id: "accounting", number: "08", name: "Accounting & Finance" },
 ] as const;

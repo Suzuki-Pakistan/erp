@@ -5,7 +5,7 @@ import { WorkspaceLayout } from "@/components/auth/workspace-layout";
 export const metadata: Metadata = {
   title: "Platform Preview",
   description:
-    "Interface previews for purchasing, wholesale, e-commerce, reporting, forecasting and finance.",
+    "Interactive demos for Smart Demand Forecasting and Accounting & Finance.",
 };
 
 export default function PreviewLayout({

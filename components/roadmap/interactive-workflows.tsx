@@ -690,112 +690,6 @@ function FinanceWorkflow() {
   );
 }
 
-const wholesaleSeed = [
-  {
-    id: "WS-1054",
-    customer: "Scent Avenue",
-    value: "$4,680",
-    status: "Credit review",
-  },
-  {
-    id: "WS-1053",
-    customer: "Beauty Market",
-    value: "$2,940",
-    status: "Approved",
-  },
-  {
-    id: "WS-1052",
-    customer: "Texas Fragrance Co.",
-    value: "$6,120",
-    status: "Picking",
-  },
-];
-
-function WholesaleWorkflow() {
-  const [orders, setOrders] = useState(wholesaleSeed);
-  const reset = () => setOrders(wholesaleSeed);
-  const advance = (id: string) =>
-    setOrders((current) =>
-      current.map((order) =>
-        order.id === id
-          ? {
-              ...order,
-              status:
-                order.status === "Credit review"
-                  ? "Approved"
-                  : order.status === "Approved"
-                    ? "Picking"
-                    : "Ready to ship",
-            }
-          : order,
-      ),
-    );
-  return (
-    <WorkflowShell
-      eyebrow="Wholesale · order desk"
-      title="Move a B2B order from review to fulfillment"
-      description="Use the next-action button to release a credit hold, send an approved order to picking and prepare it for shipment."
-      onReset={reset}
-    >
-      <div className="grid gap-3 md:grid-cols-3">
-        {orders.map((order) => (
-          <div key={order.id} className="rounded-xl border p-4">
-            <div className="flex items-start justify-between gap-3">
-              <div>
-                <p className="text-xs font-semibold">{order.id}</p>
-                <p className="mt-1 text-[11px] text-muted-foreground">
-                  {order.customer}
-                </p>
-              </div>
-              <span className="text-sm font-semibold tabular-nums">
-                {order.value}
-              </span>
-            </div>
-            <div className="my-4 h-1.5 overflow-hidden rounded-full bg-muted">
-              <div
-                className={cn(
-                  "h-full rounded-full bg-primary transition-all",
-                  order.status === "Credit review"
-                    ? "w-1/4"
-                    : order.status === "Approved"
-                      ? "w-1/2"
-                      : order.status === "Picking"
-                        ? "w-3/4"
-                        : "w-full",
-                )}
-              />
-            </div>
-            <div className="flex items-center justify-between gap-2">
-              <Badge variant="outline" className="text-[10px]">
-                {order.status}
-              </Badge>
-              <Button
-                variant="outline"
-                size="sm"
-                className="h-8 text-[10px]"
-                disabled={order.status === "Ready to ship"}
-                onClick={() => {
-                  advance(order.id);
-                  toast.success(`${order.id} moved to its next stage.`);
-                }}
-              >
-                {order.status === "Credit review"
-                  ? "Approve credit"
-                  : order.status === "Approved"
-                    ? "Start picking"
-                    : order.status === "Picking"
-                      ? "Mark ready"
-                      : "Complete"}
-                <ArrowRight />
-              </Button>
-            </div>
-          </div>
-        ))}
-      </div>
-    </WorkflowShell>
-  );
-}
-
 const ecommerceSeed = [
   {
     id: "WEB-7851",
@@ -1071,7 +965,6 @@ export function InteractiveWorkflow({ moduleId }: { moduleId: string }) {
     if (moduleId === "purchasing") return <PurchasingWorkflow />;
     if (moduleId === "forecasting") return <ForecastWorkflow />;
     if (moduleId === "finance") return <FinanceWorkflow />;
-    if (moduleId === "wholesale") return <WholesaleWorkflow />;
     if (moduleId === "ecommerce") return <EcommerceWorkflow />;
     if (moduleId === "reports") return <ReportsWorkflow />;
     return null;

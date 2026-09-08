@@ -739,6 +739,7 @@ export function createPosDemoSeed(data: InventoryData): PosData {
       varianceCents: 0,
       closingNote: "Seeded balanced closing shift",
       cashEntries: [],
+      drawerEvents: [],
     },
   ];
   pos.credits = [

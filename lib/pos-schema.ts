@@ -3,7 +3,7 @@ const id = z.string().min(1).max(120);
 const amount = z.number().int().min(0).max(100_000_000);
 const text = z.string().trim().max(1000);
 const tier = z.enum(["retail", "wholesale", "vip"]);
-const promotion = z.enum(["none", "buy-one-second-half"]).default("none");
+const promotion = z.string().trim().max(120).default("none");
 export const cartLineSchema = z.object({
   productId: id,
   quantity: z.number().int().min(1).max(9999),
@@ -59,6 +59,30 @@ export const posCommandSchema = z.discriminatedUnion("action", [
       .max(100_000_000)
       .refine((v) => v !== 0),
     reason: z.string().trim().min(3).max(250),
+  }),
+  z.object({
+    action: z.literal("shift.drawer"),
+    shiftId: id,
+    reason: z.string().trim().min(3).max(100),
+  }),
+  z.object({
+    action: z.literal("discount.save"),
+    id: id.optional(),
+    name: z.string().trim().min(2).max(100),
+    code: z
+      .string()
+      .trim()
+      .min(2)
+      .max(24)
+      .regex(/^[A-Za-z0-9-]+$/, "Use letters, numbers or hyphens only"),
+    type: z.enum(["percentage", "buy-one-get-one"]),
+    valueBps: z.number().int().min(100).max(10000),
+    active: z.boolean(),
+  }),
+  z.object({
+    action: z.literal("discount.toggle"),
+    id,
+    active: z.boolean(),
   }),
   z.object({
     action: z.literal("customer.save"),

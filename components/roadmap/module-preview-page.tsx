@@ -6,7 +6,6 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   BadgeDollarSign,
-  Banknote,
   BarChart3,
   Boxes,
   CalendarDays,
@@ -21,7 +20,6 @@ import {
   Sparkles,
   Store,
   Truck,
-  UsersRound,
   WalletCards,
   type LucideIcon,
 } from "lucide-react";
@@ -294,195 +292,6 @@ const previewData: Record<string, PreviewData> = {
     insightTitle: "Landed-cost insight",
     insight:
       "Separating freight and duty exposes a 2.8% cost increase that would be hidden inside average cost alone.",
-  },
-  wholesale: {
-    heroTitle: "Give every reseller the right price, terms and service level.",
-    heroDescription:
-      "Bring account-specific pricing, bulk orders, credit control and fulfillment into one focused B2B workspace.",
-    pulseLabel: "Wholesale sales",
-    pulseValue: "$73,280",
-    pulseDetail: "September month to date",
-    primaryLabel: "Net sales",
-    secondaryLabel: "Gross profit",
-    chartValue: "currency",
-    trend: [
-      { period: "Apr", primary: 51200, secondary: 17400 },
-      { period: "May", primary: 58400, secondary: 19860 },
-      { period: "Jun", primary: 54800, secondary: 18420 },
-      { period: "Jul", primary: 64700, secondary: 22400 },
-      { period: "Aug", primary: 68900, secondary: 23810 },
-      { period: "Sep", primary: 73280, secondary: 26140 },
-    ],
-    metrics: [
-      {
-        label: "Open B2B orders",
-        value: "18",
-        detail: "$31,420 order value",
-        change: "+11.8%",
-        direction: "up",
-        icon: ShoppingBag,
-      },
-      {
-        label: "Active accounts",
-        value: "46",
-        detail: "8 VIP-tier resellers",
-        change: "+4 this quarter",
-        direction: "up",
-        icon: UsersRound,
-      },
-      {
-        label: "Receivables",
-        value: "$28,940",
-        detail: "$4,210 overdue",
-        change: "14.5% overdue",
-        direction: "down",
-        icon: Banknote,
-      },
-      {
-        label: "Average order",
-        value: "$1,184",
-        detail: "Across all price tiers",
-        change: "+6.2%",
-        direction: "up",
-        icon: BadgeDollarSign,
-      },
-    ],
-    tables: {
-      overview: {
-        title: "Wholesale activity",
-        description: "Priority accounts and orders requiring attention.",
-        columns: ["Order", "Account", "Tier", "Due", "Total"],
-        rows: [
-          {
-            cells: ["B2B-5814", "Beauty Depot", "VIP", "Sep 08", "$4,820"],
-            status: "Picking",
-            tone: "info",
-          },
-          {
-            cells: ["B2B-5812", "Scent House", "Wholesale", "Sep 09", "$2,760"],
-            status: "Approved",
-            tone: "success",
-          },
-          {
-            cells: ["B2B-5807", "Noor Cosmetics", "VIP", "Sep 07", "$6,140"],
-            status: "Credit hold",
-            tone: "attention",
-          },
-          {
-            cells: [
-              "B2B-5804",
-              "The Perfume Shop",
-              "Wholesale",
-              "Sep 12",
-              "$1,980",
-            ],
-            status: "Confirmed",
-            tone: "neutral",
-          },
-        ],
-      },
-      orders: {
-        title: "B2B order fulfillment",
-        description: "Order progress with allocation and delivery commitments.",
-        columns: ["Order", "Lines", "Allocated", "Ship via", "Total"],
-        rows: [
-          {
-            cells: ["B2B-5814", "22", "100%", "Local courier", "$4,820"],
-            status: "Picking",
-            tone: "info",
-          },
-          {
-            cells: ["B2B-5812", "14", "86%", "Customer pickup", "$2,760"],
-            status: "Approved",
-            tone: "success",
-          },
-          {
-            cells: ["B2B-5807", "31", "100%", "Freight", "$6,140"],
-            status: "Credit hold",
-            tone: "attention",
-          },
-          {
-            cells: ["B2B-5804", "9", "72%", "Local courier", "$1,980"],
-            status: "Confirmed",
-            tone: "neutral",
-          },
-        ],
-      },
-      accounts: {
-        title: "Account health",
-        description:
-          "Credit exposure, pricing tiers and recent purchase activity.",
-        columns: [
-          "Account",
-          "Price tier",
-          "Credit limit",
-          "Balance",
-          "Last order",
-        ],
-        rows: [
-          {
-            cells: ["Beauty Depot", "VIP", "$25,000", "$8,420", "Today"],
-            status: "Healthy",
-            tone: "success",
-          },
-          {
-            cells: [
-              "Scent House",
-              "Wholesale",
-              "$15,000",
-              "$5,180",
-              "Yesterday",
-            ],
-            status: "Healthy",
-            tone: "success",
-          },
-          {
-            cells: ["Noor Cosmetics", "VIP", "$20,000", "$21,240", "Sep 04"],
-            status: "Over limit",
-            tone: "attention",
-          },
-          {
-            cells: [
-              "The Perfume Shop",
-              "Wholesale",
-              "$10,000",
-              "$3,670",
-              "Sep 02",
-            ],
-            status: "Active",
-            tone: "info",
-          },
-        ],
-      },
-    },
-    queueTitle: "Account attention",
-    queueDescription: "Credit and fulfillment decisions for the team.",
-    queue: [
-      {
-        title: "Noor Cosmetics",
-        detail: "Credit limit exceeded",
-        value: "$1,240",
-        status: "Review",
-        tone: "attention",
-      },
-      {
-        title: "Beauty Depot",
-        detail: "VIP reorder submitted",
-        value: "$4,820",
-        status: "Approve",
-        tone: "info",
-      },
-      {
-        title: "Scent House",
-        detail: "Payment received",
-        value: "$2,000",
-        status: "Cleared",
-        tone: "success",
-      },
-    ],
-    insightTitle: "Wholesale insight",
-    insight:
-      "VIP accounts are 17% of active resellers but contribute 38% of current wholesale gross profit.",
   },
   ecommerce: {
     heroTitle: "One catalog and stock position across every online channel.",
@@ -945,7 +754,7 @@ const previewData: Record<string, PreviewData> = {
           },
         ],
       },
-      "demand-planner": {
+      "demand-forecast": {
         title: "Forecast versus actual",
         description:
           "Explainable demand drivers and location-level planning confidence.",
@@ -1003,7 +812,7 @@ const previewData: Record<string, PreviewData> = {
           },
         ],
       },
-      replenishment: {
+      "smart-reorder": {
         title: "Suggested replenishment",
         description:
           "Recommended quantities using lead time, cover and minimum order rules.",
@@ -1058,6 +867,64 @@ const previewData: Record<string, PreviewData> = {
             ],
             status: "Suggested",
             tone: "info",
+          },
+        ],
+      },
+      "stock-movement": {
+        title: "Stock movement intelligence",
+        description:
+          "Velocity, aging and transfer signals explain what is moving and what needs intervention.",
+        columns: [
+          "Product",
+          "7-day movement",
+          "Velocity",
+          "Last movement",
+          "Signal",
+        ],
+        rows: [
+          {
+            cells: [
+              "Lattafa Yara Pink 3.4oz",
+              "-34 units",
+              "+28%",
+              "Today",
+              "Fast seller",
+            ],
+            status: "Reorder",
+            tone: "attention",
+          },
+          {
+            cells: [
+              "Gucci Bamboo 2.5oz",
+              "-16 units",
+              "+19%",
+              "Today",
+              "Promotion lift",
+            ],
+            status: "Watch",
+            tone: "info",
+          },
+          {
+            cells: [
+              "Burberry Weekend 1.6oz",
+              "-4 units",
+              "-12%",
+              "3 days ago",
+              "Slowing",
+            ],
+            status: "Rebalance",
+            tone: "attention",
+          },
+          {
+            cells: [
+              "Armaf Club de Nuit 3.6oz",
+              "+24 units",
+              "+7%",
+              "Yesterday",
+              "Transfer received",
+            ],
+            status: "Healthy",
+            tone: "success",
           },
         ],
       },
@@ -1183,71 +1050,87 @@ const previewData: Record<string, PreviewData> = {
           },
         ],
       },
-      "profit-loss": {
-        title: "Profit & loss by channel",
+      "safety-alerts": {
+        title: "Safety stock and seasonal funding alerts",
         description:
-          "Revenue and contribution after channel-specific cost and discounts.",
-        columns: ["Channel", "Net sales", "COGS", "Gross profit", "Margin"],
+          "Inventory protection requirements translated into financial exposure.",
+        columns: ["Alert", "Window", "Required units", "Cash impact", "Risk"],
         rows: [
           {
-            cells: ["Retail POS", "$55,140", "$29,120", "$26,020", "47.2%"],
-            status: "Strong",
-            tone: "success",
+            cells: ["Holiday fragrance safety stock", "Oct–Dec", "420", "$11,840", "Stock-out"],
+            status: "Fund now",
+            tone: "attention",
           },
           {
-            cells: ["Wholesale", "$73,280", "$47,140", "$26,140", "35.7%"],
-            status: "On target",
-            tone: "success",
-          },
-          {
-            cells: [
-              "E-Commerce preview",
-              "$39,720",
-              "$19,150",
-              "$20,570",
-              "51.8%",
-            ],
-            status: "Preview",
+            cells: ["Black Friday retail campaign", "Nov 23–30", "260", "$6,420", "Margin"],
+            status: "Review",
             tone: "info",
           },
           {
-            cells: ["Returns & refunds", "-$4,280", "-$2,100", "-$2,180", "—"],
-            status: "Normal",
-            tone: "neutral",
+            cells: ["Yara Pink minimum cover", "Next 14 days", "120", "$1,920", "Urgent"],
+            status: "Approved",
+            tone: "success",
+          },
+          {
+            cells: ["Summer gift-set aging", "Current", "84", "$2,688", "Overstock"],
+            status: "Promote",
+            tone: "attention",
           },
         ],
       },
-      "cash-flow": {
-        title: "Cash movement",
+      ledgers: {
+        title: "Customer and vendor ledgers",
         description:
-          "Cash, card settlements and purchasing commitments in one view.",
-        columns: ["Account", "Opening", "Inflows", "Outflows", "Closing"],
+          "Open balances, due dates and the latest settlement event in one audit-ready view.",
+        columns: ["Account", "Type", "Open balance", "Due", "Last activity"],
         rows: [
           {
-            cells: [
-              "Operating bank",
-              "$42,180",
-              "$78,640",
-              "$54,920",
-              "$65,900",
-            ],
-            status: "Reconciled",
-            tone: "success",
+            cells: ["Famous Fragrance", "Vendor", "$14,820", "Sep 14", "Bill PO-2418"],
+            status: "Payable",
+            tone: "attention",
           },
           {
-            cells: ["Card clearing", "$4,620", "$31,840", "$30,190", "$6,270"],
-            status: "Pending settle",
+            cells: ["Scent Avenue", "Customer", "$3,160", "Sep 12", "Credit CN-2042"],
+            status: "Receivable",
             tone: "info",
           },
           {
-            cells: ["Retail cash", "$6,440", "$14,280", "$8,250", "$12,470"],
-            status: "Reconciled",
+            cells: ["Premier Brands", "Vendor", "$6,270", "Sep 18", "Payment Sep 06"],
+            status: "Current",
             tone: "success",
           },
           {
-            cells: ["Purchase commitments", "$0", "$0", "$48,760", "-$48,760"],
-            status: "Planned",
-            tone: "neutral",
+            cells: ["Olivia Martin", "Customer", "$0", "—", "Sale POS-10480"],
+            status: "Settled",
+            tone: "success",
+          },
+        ],
+      },
+      "live-pnl": {
+        title: "Live profit and loss dashboard",
+        description:
+          "Revenue and contribution update as sales, returns, inventory cost and expenses post.",
+        columns: ["Line", "Today", "Month to date", "Budget", "Variance"],
+        rows: [
+          {
+            cells: ["Net sales", "$15,887", "$128,420", "$124,000", "+3.6%"],
+            status: "Ahead",
+            tone: "success",
+          },
+          {
+            cells: ["Cost of goods sold", "$8,620", "$70,805", "$69,400", "+2.0%"],
+            status: "Monitor",
+            tone: "info",
+          },
+          {
+            cells: ["Gross profit", "$7,267", "$57,615", "$54,600", "+5.5%"],
+            status: "Ahead",
+            tone: "success",
+          },
+          {
+            cells: ["Operating profit", "$4,180", "$33,635", "$31,100", "+8.2%"],
+            status: "Strong",
+            tone: "success",
           },
         ],
       },

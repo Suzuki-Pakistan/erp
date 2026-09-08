@@ -1,5 +1,6 @@
 import type {
   CartLine,
+  DiscountProgram,
   PosData,
   PriceTier,
   PromotionCode,
@@ -27,10 +28,16 @@ export function quoteCart(
   lines: CartLine[],
   products: Product[],
   taxBps: number,
-  promotion: PromotionCode = "none",
+  promotion: PromotionCode | DiscountProgram = "none",
 ) {
   const promotionDiscounts = lines.map(() => 0);
-  if (promotion === "buy-one-second-half") {
+  const rule =
+    typeof promotion === "string"
+      ? promotion === "buy-one-second-half"
+        ? { type: "buy-one-get-one" as const, valueBps: 5000 }
+        : undefined
+      : promotion;
+  if (rule?.type === "buy-one-get-one") {
     const units = lines
       .flatMap((line, lineIndex) =>
         Array.from({ length: line.quantity }, () => ({
@@ -41,8 +48,16 @@ export function quoteCart(
       .sort((a, b) => b.unitPriceCents - a.unitPriceCents);
     for (let index = 1; index < units.length; index += 2) {
       const unit = units[index];
-      promotionDiscounts[unit.lineIndex] += Math.round(unit.unitPriceCents / 2);
+      promotionDiscounts[unit.lineIndex] += Math.round(
+        (unit.unitPriceCents * rule.valueBps) / 10000,
+      );
     }
+  } else if (rule?.type === "percentage") {
+    lines.forEach((line, lineIndex) => {
+      promotionDiscounts[lineIndex] = Math.round(
+        (line.unitPriceCents * line.quantity * rule.valueBps) / 10000,
+      );
+    });
   }
   const quoted: SaleLine[] = lines.map((line, lineIndex) => {
     const product = products.find((p) => p.id === line.productId);

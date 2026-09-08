@@ -1,7 +1,17 @@
 import type { InventoryData } from "./inventory";
 
 export type PriceTier = "retail" | "wholesale" | "vip";
-export type PromotionCode = "none" | "buy-one-second-half";
+export type PromotionCode = string;
+export type DiscountType = "percentage" | "buy-one-get-one";
+export interface DiscountProgram {
+  id: string;
+  name: string;
+  code: string;
+  type: DiscountType;
+  valueBps: number;
+  active: boolean;
+  createdAt: string;
+}
 export type TenderMethod = "cash" | "external" | "credit";
 export interface CartLine {
   productId: string;
@@ -38,6 +48,7 @@ export interface Sale {
   customerName: string;
   tier: PriceTier;
   promotion?: PromotionCode;
+  promotionName?: string;
   note: string;
   receiptNote: string;
   taxBps: number;
@@ -96,6 +107,12 @@ export interface CashEntry {
   createdAt: string;
   actor: string;
 }
+export interface DrawerEvent {
+  id: string;
+  reason: string;
+  createdAt: string;
+  actor: string;
+}
 export interface Shift {
   id: string;
   locationId: string;
@@ -110,6 +127,7 @@ export interface Shift {
   varianceCents?: number;
   closingNote?: string;
   cashEntries: CashEntry[];
+  drawerEvents: DrawerEvent[];
 }
 export interface HeldCart {
   id: string;
@@ -126,6 +144,7 @@ export interface HeldCart {
 export interface PosData {
   version: number;
   settings: { taxBps: number; taxConfigured: boolean; receiptNote: string };
+  discounts: DiscountProgram[];
   sales: Sale[];
   returns: PosReturn[];
   customers: Customer[];
@@ -142,12 +161,32 @@ export interface PosSnapshot {
 }
 export function createPosSeed(): PosData {
   return {
-    version: 2,
+    version: 3,
     settings: {
       taxBps: 825,
       taxConfigured: true,
       receiptNote: "Thank you for shopping with Flair.",
     },
+    discounts: [
+      {
+        id: "discount-bogo",
+        name: "Buy 1 Get 1 Free",
+        code: "BOGO",
+        type: "buy-one-get-one",
+        valueBps: 10000,
+        active: true,
+        createdAt: "2026-09-08T09:00:00.000Z",
+      },
+      {
+        id: "discount-black-friday",
+        name: "Black Friday 20% Off",
+        code: "BLACKFRIDAY",
+        type: "percentage",
+        valueBps: 2000,
+        active: true,
+        createdAt: "2026-09-08T09:05:00.000Z",
+      },
+    ],
     sales: [],
     returns: [],
     customers: [],

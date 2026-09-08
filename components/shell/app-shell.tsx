@@ -21,6 +21,7 @@ import {
   ShieldCheck,
   ShoppingCart,
   Store,
+  Tag,
   UserRound,
   UsersRound,
   Warehouse,
@@ -87,6 +88,11 @@ import {
   type RoadmapModule,
 } from "@/components/roadmap/roadmap-config";
 
+const sidebarRoadmapModules = [
+  ...roadmapModules.filter((module) => !module.locked),
+  ...roadmapModules.filter((module) => module.locked),
+];
+
 const childRoutes = [
   { name: "Overview", href: "/core-setup", icon: Settings2 },
   {
@@ -127,6 +133,11 @@ const inventoryRoutes = [
 
 const posRoutes = [
   { name: "POS Terminal", href: "/retail-pos", icon: ScanLine },
+  {
+    name: "Discounts & Promotions",
+    href: "/retail-pos/discounts",
+    icon: Tag,
+  },
   { name: "Sales History", href: "/retail-pos/sales", icon: ReceiptText },
   { name: "Returns & Exchanges", href: "/retail-pos/returns", icon: RotateCcw },
   {
@@ -481,13 +492,13 @@ function SidebarContent({
             </p>
           )}
           <div className={cn("space-y-1", collapsed && "mt-5")}>
-            {roadmapModules.map((module) => (
+            {sidebarRoadmapModules.map((module) => (
               <PreviewModuleLink
                 key={module.number}
                 module={module}
                 collapsed={collapsed}
                 pathname={pathname}
-                accessible={canAccess(user, "core")}
+                accessible={canAccess(user, "core") && !module.locked}
                 onNavigate={handleNavigate}
               />
             ))}
@@ -539,7 +550,7 @@ function PreviewModuleLink({
   onNavigate: () => void;
 }) {
   const active = pathname.startsWith(module.href);
-  const expanded = active && !collapsed;
+  const expanded = accessible && active && !collapsed;
   const moduleLink = (
     <Link
       href={accessible ? module.href : "#"}
@@ -547,18 +558,25 @@ function PreviewModuleLink({
       onClick={(event) => {
         if (!accessible) {
           event.preventDefault();
-          toast.info("This preview is available to administrators.");
+          toast.info(
+            module.locked
+              ? `${module.name} is locked outside the approved demo scope.`
+              : "This module is available to administrators.",
+          );
           return;
         }
         onNavigate();
       }}
       aria-current={active ? "location" : undefined}
+      aria-disabled={!accessible}
       className={cn(
         "group flex w-full items-center rounded-xl text-left transition-colors duration-200 ease-out",
         collapsed ? "justify-center py-2.5" : "gap-3 px-2.5 py-2.5",
         active
           ? "text-white"
-          : "text-white/50 hover:bg-white/[0.055] hover:text-white/75",
+          : accessible
+            ? "text-white/50 hover:bg-white/[0.055] hover:text-white/75"
+            : "cursor-not-allowed text-white/32",
       )}
     >
       <span
@@ -598,7 +616,7 @@ function PreviewModuleLink({
               "border-[var(--brand-champagne)]/25 bg-[var(--brand-champagne)]/10 text-[var(--brand-champagne)]",
           )}
         >
-          PREVIEW
+          {module.locked ? "LOCKED" : "OPEN"}
         </Badge>
       )}
     </Link>
@@ -611,40 +629,42 @@ function PreviewModuleLink({
       )}
     >
       {moduleLink}
-      <div
-        data-slot="module-navigation"
-        aria-label={`${module.name} preview pages`}
-        aria-hidden={!expanded}
-        inert={!expanded}
-        className={cn(
-          "grid transition-[grid-template-rows,opacity] duration-250 ease-out",
-          expanded
-            ? "grid-rows-[1fr] opacity-100"
-            : "grid-rows-[0fr] opacity-0",
-        )}
-      >
-        <div className="min-h-0 overflow-hidden">
-          <div className="space-y-0.5 px-1.5 pb-1.5">
-            {module.routes.map((route) => (
-              <Link
-                key={route.href}
-                href={route.href}
-                onClick={onNavigate}
-                scroll={false}
-                aria-current={pathname === route.href ? "page" : undefined}
-                className={cn(
-                  "flex h-9 items-center gap-2.5 rounded-lg px-3 text-xs font-medium text-white/60 transition-colors duration-200 ease-out hover:bg-white/7 hover:text-white",
-                  pathname === route.href &&
-                    "bg-white/10 text-white shadow-[inset_2px_0_0_var(--brand-champagne)]",
-                )}
-              >
-                <route.icon className="size-3.5 shrink-0" />
-                {route.name}
-              </Link>
-            ))}
+      {accessible && (
+        <div
+          data-slot="module-navigation"
+          aria-label={`${module.name} preview pages`}
+          aria-hidden={!expanded}
+          inert={!expanded}
+          className={cn(
+            "grid transition-[grid-template-rows,opacity] duration-250 ease-out",
+            expanded
+              ? "grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0",
+          )}
+        >
+          <div className="min-h-0 overflow-hidden">
+            <div className="space-y-0.5 px-1.5 pb-1.5">
+              {module.routes.map((route) => (
+                <Link
+                  key={route.href}
+                  href={route.href}
+                  onClick={onNavigate}
+                  scroll={false}
+                  aria-current={pathname === route.href ? "page" : undefined}
+                  className={cn(
+                    "flex h-9 items-center gap-2.5 rounded-lg px-3 text-xs font-medium text-white/60 transition-colors duration-200 ease-out hover:bg-white/7 hover:text-white",
+                    pathname === route.href &&
+                      "bg-white/10 text-white shadow-[inset_2px_0_0_var(--brand-champagne)]",
+                  )}
+                >
+                  <route.icon className="size-3.5 shrink-0" />
+                  {route.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
   return collapsed ? (
@@ -1089,12 +1109,16 @@ function GlobalCommand({
               {roadmapModules.map((module) => (
                 <CommandItem
                   key={module.number}
-                  onSelect={() => run(() => router.push(module.href))}
-                  disabled={!canAccess(sessionUser, "core")}
+                onSelect={() => run(() => router.push(module.href))}
+                  disabled={
+                    !canAccess(sessionUser, "core") || module.locked
+                  }
                 >
                   <module.icon />
                   {module.number} · {module.name}
-                  <CommandShortcut>Preview</CommandShortcut>
+                  <CommandShortcut>
+                    {module.locked ? "Locked" : "Open"}
+                  </CommandShortcut>
                 </CommandItem>
               ))}
             </CommandGroup>

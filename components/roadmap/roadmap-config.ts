@@ -10,16 +10,13 @@ import {
   CircleDollarSign,
   ClipboardList,
   FileChartColumn,
-  Handshake,
   Landmark,
   PackageCheck,
   ReceiptText,
-  ShoppingBag,
   ShoppingCart,
   Sparkles,
   Store,
   Truck,
-  UsersRound,
 } from "lucide-react";
 
 export interface RoadmapRoute {
@@ -40,6 +37,7 @@ export interface RoadmapModule {
   href: string;
   icon: LucideIcon;
   flagship?: boolean;
+  locked?: boolean;
   routes: RoadmapRoute[];
 }
 
@@ -68,6 +66,7 @@ export const roadmapModules: RoadmapModule[] = [
     shortName: "Purchasing",
     subtitle: "From order to vendor bill",
     phase: 1,
+    locked: true,
     href: "/preview/purchasing",
     icon: ShoppingCart,
     routes: [
@@ -95,45 +94,13 @@ export const roadmapModules: RoadmapModule[] = [
     ],
   },
   {
-    id: "wholesale",
-    number: "05",
-    name: "Wholesale & B2B Portal",
-    shortName: "Wholesale",
-    subtitle: "Self-service ordering for resellers",
-    phase: 2,
-    href: "/preview/wholesale",
-    icon: Handshake,
-    routes: [
-      route(
-        "wholesale",
-        "overview",
-        "Wholesale Overview",
-        BarChart3,
-        "Monitor B2B sales, account activity and receivables in one place.",
-      ),
-      route(
-        "wholesale",
-        "orders",
-        "B2B Orders",
-        ShoppingBag,
-        "Review wholesale orders, pricing tiers, fulfillment and payment status.",
-      ),
-      route(
-        "wholesale",
-        "accounts",
-        "Customer Accounts",
-        UsersRound,
-        "Manage reseller terms, credit limits and customer-specific pricing.",
-      ),
-    ],
-  },
-  {
     id: "ecommerce",
-    number: "06",
+    number: "05",
     name: "E-Commerce Hub",
     shortName: "E-Commerce",
     subtitle: "Connected sales channels",
     phase: 2,
+    locked: true,
     href: "/preview/ecommerce",
     icon: Store,
     routes: [
@@ -162,11 +129,12 @@ export const roadmapModules: RoadmapModule[] = [
   },
   {
     id: "reports",
-    number: "07",
+    number: "06",
     name: "Reports & Dashboards",
     shortName: "Reports",
     subtitle: "See the business at a glance",
     phase: 2,
+    locked: true,
     href: "/preview/reports",
     icon: ChartNoAxesCombined,
     routes: [
@@ -195,11 +163,12 @@ export const roadmapModules: RoadmapModule[] = [
   },
   {
     id: "forecasting",
-    number: "08",
+    number: "07",
     name: "Smart Demand Forecasting",
     shortName: "Forecasting",
     subtitle: "AI-assisted purchase planning",
     phase: 3,
+    locked: false,
     href: "/preview/forecasting",
     icon: Sparkles,
     flagship: true,
@@ -213,27 +182,35 @@ export const roadmapModules: RoadmapModule[] = [
       ),
       route(
         "forecasting",
-        "demand-planner",
-        "Demand Planner",
+        "demand-forecast",
+        "Demand Forecast",
         ChartNoAxesCombined,
         "Compare projected demand with actual sales by product and location.",
       ),
       route(
         "forecasting",
-        "replenishment",
-        "Replenishment",
+        "smart-reorder",
+        "Smart Reorder Recommendation",
         PackageCheck,
         "Turn demand signals into explainable suggested purchase orders.",
+      ),
+      route(
+        "forecasting",
+        "stock-movement",
+        "Stock Movement Intelligence",
+        Boxes,
+        "Detect velocity changes, dead stock and unusual movement by SKU and location.",
       ),
     ],
   },
   {
     id: "finance",
-    number: "09",
+    number: "08",
     name: "Accounting & Finance",
     shortName: "Finance",
     subtitle: "Books that stay in sync",
     phase: 3,
+    locked: false,
     href: "/preview/finance",
     icon: Landmark,
     routes: [
@@ -246,17 +223,24 @@ export const roadmapModules: RoadmapModule[] = [
       ),
       route(
         "finance",
-        "profit-loss",
-        "Profit & Loss",
+        "safety-alerts",
+        "Safety Stock / Seasonal Alerts",
         BadgeDollarSign,
-        "Review income, costs, margin and operating profit by channel.",
+        "Review inventory funding risks, seasonal commitments and stock protection alerts.",
       ),
       route(
         "finance",
-        "cash-flow",
-        "Cash Flow",
+        "ledgers",
+        "Customer & Vendor Ledgers",
         BanknoteArrowDown,
-        "Track cash movement, bank balances and upcoming commitments.",
+        "Track customer balances, vendor bills, due dates and settlement history.",
+      ),
+      route(
+        "finance",
+        "live-pnl",
+        "Live P&L / Financial Dashboard",
+        BarChart3,
+        "Monitor revenue, cost, profit, cash and tax as transactions are posted.",
       ),
     ],
   },

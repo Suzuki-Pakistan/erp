@@ -192,10 +192,12 @@ export function SalesPage() {
                 Cashier: s.actor,
                 Customer: s.customerName,
                 PriceLevel: s.tier,
-                Promotion:
-                  s.promotion === "buy-one-second-half"
+                Promotion: s.promotionName ??
+                  data.pos.discounts.find((item) => item.id === s.promotion)
+                    ?.name ??
+                  (s.promotion === "buy-one-second-half"
                     ? "Buy 1, second item 50% off"
-                    : "",
+                    : ""),
                 Subtotal: s.subtotalCents / 100,
                 Discount: s.discountCents / 100,
                 Tax: s.taxCents / 100,
@@ -257,9 +259,13 @@ export function SalesPage() {
                     <td>{s.customerName}</td>
                     <td className="capitalize">
                       {s.tier}
-                      {s.promotion === "buy-one-second-half" && (
+                      {s.promotion && s.promotion !== "none" && (
                         <p className="mt-1 text-[10px] text-emerald-700">
-                          Buy 1, 2nd 50% off
+                          {s.promotionName ??
+                            data.pos.discounts.find(
+                              (item) => item.id === s.promotion,
+                            )?.name ??
+                            "Promotion applied"}
                         </p>
                       )}
                     </td>
@@ -1545,6 +1551,24 @@ function ShiftDetails({
       ) : (
         <p className="text-sm text-muted-foreground">
           No manual cash movements.
+        </p>
+      )}
+      <h3 className="font-semibold">Drawer access journal</h3>
+      {s.drawerEvents?.length ? (
+        s.drawerEvents.map((event) => (
+          <div
+            key={event.id}
+            className="flex justify-between gap-4 border-b pb-3 text-sm"
+          >
+            <p>{event.reason}</p>
+            <p className="text-right text-xs text-muted-foreground">
+              {dateTime(event.createdAt)} · {event.actor}
+            </p>
+          </div>
+        ))
+      ) : (
+        <p className="text-sm text-muted-foreground">
+          No manual drawer openings recorded.
         </p>
       )}
       <p className="text-xs text-muted-foreground">

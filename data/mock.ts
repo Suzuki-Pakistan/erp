@@ -43,7 +43,7 @@ const roles: Role[] = [
     accessLevel: "Commercial",
     description: "Sales operations with restricted financial visibility.",
     locationScope: "selected",
-    permissionHighlights: ["Selling price", "Retail POS", "Wholesale"],
+    permissionHighlights: ["Selling price", "Retail POS", "Customers"],
   },
   {
     id: "role-inventory",
@@ -292,7 +292,6 @@ const permissions: Record<string, PermissionPolicy> = {
     {
       core: ["view"],
       pos: ["view", "create"],
-      wholesale: ["view", "create", "edit"],
       reports: ["view"],
     },
     {
@@ -509,17 +508,6 @@ const seed: DemoData = {
   roles,
   permissions,
   companySettings: flairCompanySettings,
-  activeCompanyId: "company-flair",
-  companies: [
-    {
-      id: "company-flair",
-      name: "Flair Cosmetic & Fragrance",
-      code: "FLAIR",
-      status: "active",
-      settings: flairCompanySettings,
-      createdAt: "Aug 1, 2026",
-    },
-  ],
   activity: [
     [
       "Maya Patel",

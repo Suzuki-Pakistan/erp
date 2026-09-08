@@ -46,6 +46,14 @@ const actions: { key: PermissionAction; label: string }[] = [
   { key: "export", label: "Export" },
 ];
 
+const approvedModules = new Set([
+  "core",
+  "inventory",
+  "pos",
+  "forecasting",
+  "accounting",
+]);
+
 const visibilityItems: {
   key: keyof PermissionPolicy["visibility"];
   title: string;
@@ -260,10 +268,11 @@ export function PermissionsPage() {
               </tr>
             </thead>
             <tbody>
-              {draft.modules.map((modulePolicy, index) => {
+              {draft.modules.map((modulePolicy) => {
                 const moduleInfo = moduleDefinitions.find(
                   (item) => item.id === modulePolicy.moduleId,
                 )!;
+                const approved = approvedModules.has(moduleInfo.id);
                 return (
                   <tr key={moduleInfo.id} className="border-b last:border-0">
                     <td className="sticky left-0 z-10 bg-card px-5 py-3">
@@ -271,7 +280,7 @@ export function PermissionsPage() {
                         <span
                           className={cn(
                             "grid size-8 place-items-center rounded-lg text-[10px] font-semibold",
-                            index < 2
+                            approved
                               ? "bg-primary text-primary-foreground"
                               : "bg-muted text-muted-foreground",
                           )}
@@ -282,12 +291,12 @@ export function PermissionsPage() {
                           <p className="text-xs font-semibold">
                             {moduleInfo.name}
                           </p>
-                          {index > 1 && (
+                          {!approved && (
                             <Badge
                               variant="outline"
                               className="mt-1 h-4 rounded px-1 text-[8px] text-muted-foreground"
                             >
-                              Future module
+                              Locked module
                             </Badge>
                           )}
                         </div>
@@ -297,6 +306,7 @@ export function PermissionsPage() {
                       <td key={action.key} className="px-3 py-3 text-center">
                         <Checkbox
                           checked={modulePolicy.actions[action.key]}
+                          disabled={!approved}
                           onCheckedChange={(checked) =>
                             toggleAction(
                               moduleInfo.id,
@@ -445,7 +455,7 @@ export function PermissionsPage() {
             <CardContent className="space-y-3 text-xs">
               <SummaryItem
                 enabled
-                text={`View ${enabledSummary.moduleCount} of 9 module areas`}
+                text={`View ${enabledSummary.moduleCount} of ${moduleDefinitions.length} module areas`}
               />
               <SummaryItem
                 enabled={draft.locationScope === "all"}

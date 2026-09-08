@@ -12,6 +12,7 @@ import {
   Minus,
   Pause,
   Plus,
+  RotateCcw,
   ReceiptText,
   ScanLine,
   Search,
@@ -76,6 +77,8 @@ export function TerminalPage() {
   const [held, setHeld] = useState(false);
   const [holdName, setHoldName] = useState("");
   const [clear, setClear] = useState(false);
+  const [drawer, setDrawer] = useState(false);
+  const [drawerReason, setDrawerReason] = useState("Customer requested change");
   const [receipt, setReceipt] = useState<Sale | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const shift = data.pos.shifts.find(
@@ -103,9 +106,7 @@ export function TerminalPage() {
               : "retail",
           );
           setPromotion(
-            saved.promotion === "buy-one-second-half"
-              ? "buy-one-second-half"
-              : "none",
+            typeof saved.promotion === "string" ? saved.promotion : "none",
           );
           setCustomerId(
             !saved.lines.length && requestedCustomer
@@ -165,6 +166,9 @@ export function TerminalPage() {
     loaded,
     storageKey,
   ]);
+  const selectedDiscount = data.pos.discounts.find(
+    (discount) => discount.id === promotion && discount.active,
+  );
   const quote = useMemo(
     () =>
       quoteCart(
@@ -173,9 +177,15 @@ export function TerminalPage() {
         ),
         data.catalog.products,
         data.pos.settings.taxBps,
-        promotion,
+        selectedDiscount ?? promotion,
       ),
-    [lines, data.catalog.products, data.pos.settings.taxBps, promotion],
+    [
+      lines,
+      data.catalog.products,
+      data.pos.settings.taxBps,
+      promotion,
+      selectedDiscount,
+    ],
   );
   function stock(product: Product) {
     return data.catalog.balances
@@ -327,6 +337,52 @@ export function TerminalPage() {
           )}
         </div>
       </div>
+      <section
+        className="grid gap-2 rounded-2xl border bg-card p-3 sm:grid-cols-3 xl:grid-cols-6"
+        aria-label="POS quick actions"
+      >
+        <Button
+          variant="outline"
+          className="justify-start"
+          disabled={!shift || busy}
+          onClick={() => setDrawer(true)}
+        >
+          <Banknote />
+          Open drawer
+        </Button>
+        <Button variant="outline" className="justify-start" asChild>
+          <Link href="/retail-pos/sales">
+            <History />
+            Sale lookup
+          </Link>
+        </Button>
+        <Button variant="outline" className="justify-start" asChild>
+          <Link href="/retail-pos/returns">
+            <RotateCcw />
+            Return / refund
+          </Link>
+        </Button>
+        <Button variant="outline" className="justify-start" asChild>
+          <Link href="/retail-pos/customers">
+            <UserRoundPlus />
+            Customer
+          </Link>
+        </Button>
+        <Button variant="outline" className="justify-start" asChild>
+          <Link href="/retail-pos/discounts">
+            <Tag />
+            Discounts
+          </Link>
+        </Button>
+        <Button
+          variant="outline"
+          className="justify-start"
+          onClick={() => setHeld(true)}
+        >
+          <Pause />
+          Recall ({ownHeld.length})
+        </Button>
+      </section>
       {!data.pos.settings.taxConfigured && (
         <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-900">
           <p>
@@ -604,44 +660,63 @@ export function TerminalPage() {
                 <option value="vip">VIP</option>
               </select>
             </div>
-            <button
-              type="button"
-              aria-pressed={promotion === "buy-one-second-half"}
-              disabled={
-                tier !== "retail" ||
-                lines.reduce((total, line) => total + line.quantity, 0) < 2
-              }
-              onClick={() => {
-                const next =
-                  promotion === "none" ? "buy-one-second-half" : "none";
-                setPromotion(next);
-                if (next !== "none")
-                  setLines((current) =>
-                    current.map((line) => ({ ...line, discountBps: 0 })),
-                  );
-              }}
+            <div
               className={cn(
-                "flex w-full items-center gap-3 rounded-xl border px-3 py-2.5 text-left transition-colors disabled:cursor-not-allowed disabled:opacity-45",
-                promotion === "buy-one-second-half"
-                  ? "border-emerald-300 bg-emerald-50 text-emerald-900"
-                  : "bg-card hover:bg-muted/40",
+                "rounded-xl border p-3",
+                selectedDiscount
+                  ? "border-emerald-300 bg-emerald-50/70"
+                  : "bg-card",
               )}
             >
-              <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-[var(--brand-champagne)]/25 text-primary">
-                <Tag className="size-4" />
-              </span>
-              <span className="min-w-0 flex-1">
-                <span className="block text-xs font-semibold">
-                  Buy 1, get 2nd 50% off
+              <div className="flex items-center gap-3">
+                <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-[var(--brand-champagne)]/25 text-primary">
+                  <Tag className="size-4" />
                 </span>
-                <span className="mt-0.5 block text-[10px] text-muted-foreground">
-                  Retail only · lower-priced item in each pair
-                </span>
-              </span>
-              <span className="text-[10px] font-semibold uppercase">
-                {promotion === "buy-one-second-half" ? "Applied" : "Apply"}
-              </span>
-            </button>
+                <div className="min-w-0 flex-1">
+                  <p className="text-xs font-semibold">Sale discount</p>
+                  <p className="mt-0.5 text-[10px] text-muted-foreground">
+                    Active retail campaigns only
+                  </p>
+                </div>
+                <Link
+                  href="/retail-pos/discounts"
+                  className="text-[10px] font-semibold text-primary underline underline-offset-4"
+                >
+                  Manage
+                </Link>
+              </div>
+              <select
+                aria-label="Apply sale discount"
+                className="field-select mt-3 w-full text-xs"
+                value={promotion}
+                disabled={tier !== "retail"}
+                onChange={(event) => {
+                  const next = event.target.value;
+                  setPromotion(next);
+                  if (next !== "none")
+                    setLines((current) =>
+                      current.map((line) => ({ ...line, discountBps: 0 })),
+                    );
+                }}
+              >
+                <option value="none">No campaign discount</option>
+                {data.pos.discounts
+                  .filter((discount) => discount.active)
+                  .map((discount) => (
+                    <option key={discount.id} value={discount.id}>
+                      {discount.name} · {discount.code}
+                    </option>
+                  ))}
+              </select>
+              {selectedDiscount && (
+                <p className="mt-2 text-[10px] font-medium text-emerald-800">
+                  Applied ·{" "}
+                  {selectedDiscount.type === "buy-one-get-one"
+                    ? "lower-priced item in each pair is free"
+                    : `${selectedDiscount.valueBps / 100}% off eligible retail items`}
+                </p>
+              )}
+            </div>
             {heldId && (
               <p className="text-xs text-amber-800">
                 Recalled cart · removed from held carts after checkout
@@ -881,6 +956,56 @@ export function TerminalPage() {
             <ArrowRight className="size-4" />
           </span>
         </a>
+      )}
+      {drawer && shift && (
+        <PosModal
+          open
+          onOpenChange={(open) => !open && !busy && setDrawer(false)}
+          title="Open cash drawer"
+          description="Choose a reason before opening the drawer. The event is recorded against this cashier shift."
+          footer={
+            <>
+              <Button variant="outline" onClick={() => setDrawer(false)}>
+                Cancel
+              </Button>
+              <Button
+                disabled={busy || drawerReason.trim().length < 3}
+                onClick={async () => {
+                  if (
+                    await mutate({
+                      action: "shift.drawer",
+                      shiftId: shift.id,
+                      reason: drawerReason,
+                    })
+                  ) {
+                    setDrawer(false);
+                    setDrawerReason("Customer requested change");
+                  }
+                }}
+              >
+                <Banknote />
+                Open drawer
+              </Button>
+            </>
+          }
+        >
+          <FormField label="Reason">
+            <select
+              className="field-select"
+              value={drawerReason}
+              onChange={(event) => setDrawerReason(event.target.value)}
+            >
+              <option>Customer requested change</option>
+              <option>Cash count</option>
+              <option>Safe drop</option>
+              <option>Manager access</option>
+            </select>
+          </FormField>
+          <p className="rounded-xl border bg-muted/35 p-3 text-xs leading-5 text-muted-foreground">
+            Demo mode records the request and audit trail. Connected register
+            hardware can trigger the physical drawer in production.
+          </p>
+        </PosModal>
       )}
       <OpenShiftDialog open={openShift} onOpenChange={setOpenShift} />
       <SettingsDialog

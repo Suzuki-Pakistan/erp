@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Building2,
   CheckCircle2,
   CircleDashed,
   CreditCard,
@@ -12,6 +11,7 @@ import {
   MapPin,
   Plus,
   ShieldCheck,
+  Sparkles,
   TrendingUp,
   UsersRound,
   Warehouse,
@@ -115,8 +115,8 @@ export function OverviewPage() {
             </h2>
             <p className="mt-2 max-w-xl text-sm leading-6 text-white/58">
               Explore Core Setup, Product & Inventory and Retail POS as working
-              modules, then open the roadmap previews to see the planned
-              finance, forecasting and connected-commerce experience.
+              modules, then use Smart Demand Forecasting and Accounting &
+              Finance for the approved decision-support demonstrations.
             </p>
             <div className="mt-5 flex items-center gap-3">
               <Progress
@@ -199,12 +199,12 @@ export function OverviewPage() {
             },
             {
               step: "04",
-              icon: Building2,
-              title: "Add another company",
+              icon: Sparkles,
+              title: "Build a smart reorder",
               detail:
-                "Clone Flair settings, then manage the new company independently.",
-              meta: "Separate identity · shared setup pattern",
-              href: "/core-setup/company-settings?newCompany=1",
+                "Turn forecast demand, safety stock and lead time into a purchase recommendation.",
+              meta: "Demand signal · reorder quantity · confidence",
+              href: "/preview/forecasting/smart-reorder",
             },
           ].map((item) => (
             <Link
@@ -489,20 +489,22 @@ export function OverviewPage() {
             <CardHeader>
               <SectionTitle
                 title="Platform roadmap"
-                description="Nine modules, one scalable operating shell."
+                description="Five approved modules, with future areas visibly locked."
               />
             </CardHeader>
             <CardContent className="space-y-2">
               {moduleDefinitions.map((module, index) => {
                 const preview = roadmapModules.find(
-                  (item) => item.number === module.number,
+                  (item) =>
+                    item.id ===
+                    (module.id === "accounting" ? "finance" : module.id),
                 );
                 const content = (
                   <>
                     <span
                       className={cn(
                         "grid size-7 place-items-center rounded-md text-[9px] font-semibold",
-                        index < 3
+                        index < 3 || preview?.locked === false
                           ? "bg-primary text-primary-foreground"
                           : "bg-muted text-muted-foreground",
                       )}
@@ -513,14 +515,22 @@ export function OverviewPage() {
                       {module.name}
                     </span>
                     <Badge
-                      variant={index < 3 ? "default" : "secondary"}
+                      variant={
+                        index < 3 || preview?.locked === false
+                          ? "default"
+                          : "secondary"
+                      }
                       className="h-5 rounded-md text-[9px]"
                     >
-                      {index < 3 ? "Live demo" : "Preview"}
+                      {index < 3
+                        ? "Live demo"
+                        : preview?.locked === false
+                          ? "Open demo"
+                          : "Locked"}
                     </Badge>
                   </>
                 );
-                return preview ? (
+                return preview && !preview.locked ? (
                   <Link
                     key={module.id}
                     href={preview.href}
@@ -541,8 +551,9 @@ export function OverviewPage() {
             <Separator />
             <CardFooter className="pt-4">
               <p className="text-[11px] leading-5 text-muted-foreground">
-                Modules 01–03 are the working Phase One demo. Modules 04–09 open
-                interactive workflow previews with seeded business data.
+                Core Setup, Product & Inventory, Retail POS, Smart Demand
+                Forecasting and Accounting & Finance are available. Purchasing,
+                E-Commerce and Reports remain locked.
               </p>
             </CardFooter>
           </Card>
