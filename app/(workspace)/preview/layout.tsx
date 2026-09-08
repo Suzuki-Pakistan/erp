@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { WorkspaceLayout } from "@/components/auth/workspace-layout";
 
 export const metadata: Metadata = {
-  title: "Platform Preview",
+  title: "Decision Intelligence",
   description:
-    "Interactive demos for Smart Demand Forecasting and Accounting & Finance.",
+    "Operational Smart Demand Forecasting and Accounting & Finance workspaces.",
 };
 
 export default function PreviewLayout({

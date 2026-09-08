@@ -525,7 +525,7 @@ export function OverviewPage() {
                       {index < 3
                         ? "Live demo"
                         : preview?.locked === false
-                          ? "Open demo"
+                          ? "Live workspace"
                           : "Locked"}
                     </Badge>
                   </>

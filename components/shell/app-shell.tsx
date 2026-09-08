@@ -616,7 +616,7 @@ function PreviewModuleLink({
               "border-[var(--brand-champagne)]/25 bg-[var(--brand-champagne)]/10 text-[var(--brand-champagne)]",
           )}
         >
-          {module.locked ? "LOCKED" : "OPEN"}
+          {module.locked ? "LOCKED" : "LIVE"}
         </Badge>
       )}
     </Link>
@@ -1109,10 +1109,8 @@ function GlobalCommand({
               {roadmapModules.map((module) => (
                 <CommandItem
                   key={module.number}
-                onSelect={() => run(() => router.push(module.href))}
-                  disabled={
-                    !canAccess(sessionUser, "core") || module.locked
-                  }
+                  onSelect={() => run(() => router.push(module.href))}
+                  disabled={!canAccess(sessionUser, "core") || module.locked}
                 >
                   <module.icon />
                   {module.number} · {module.name}

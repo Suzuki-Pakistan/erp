@@ -1,6 +1,6 @@
 import { notFound, redirect } from "next/navigation";
 
-import { ModulePreviewPage } from "@/components/roadmap/module-preview-page";
+import { DecisionSuitePage } from "@/components/decision-intelligence/decision-suite-page";
 import {
   getRoadmapModule,
   getRoadmapRoute,
@@ -19,5 +19,9 @@ export default async function Page({
   const route = getRoadmapRoute(moduleConfig, view?.[0]);
   if (view?.[0] && route.key !== view[0]) notFound();
 
-  return <ModulePreviewPage moduleId={moduleConfig.id} view={route.key} />;
+  if (moduleConfig.id !== "forecasting" && moduleConfig.id !== "finance") {
+    redirect("/core-setup");
+  }
+
+  return <DecisionSuitePage moduleId={moduleConfig.id} view={route.key} />;
 }
