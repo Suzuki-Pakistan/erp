@@ -1,0 +1,823 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/9ui43m",
+    "id": "9ui43m",
+    "slide": 3,
+    "layoutId": "f0e1a7e1-b0b4-4638-bf20-13ae303c1dc8",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "3dc50a0f-4bf3-4594-81b3-eb01a567d922",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F8F6F1",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "f0e1a7e1-b0b4-4638-bf20-13ae303c1dc8",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "3dc50a0f-4bf3-4594-81b3-eb01a567d922",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "3dc50a0f-4bf3-4594-81b3-eb01a567d922",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/nixcvy18",
+      "id": "1",
+      "name": "surface-36",
+      "bbox": [
+        56,
+        34,
+        1168,
+        24
+      ],
+      "geometry": "rect",
+      "text": "UPDATE 03",
+      "textPreview": "UPDATE 03",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#237268",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "UPDATE 03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "UPDATE 03",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#237268",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "UPDATE 03",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#237268",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/oj6t432d",
+      "id": "2",
+      "name": "surface-37",
+      "bbox": [
+        56,
+        69,
+        1168,
+        57
+      ],
+      "geometry": "rect",
+      "text": "Phase One now gives the client a clear starting path",
+      "textPreview": "Phase One now gives the client a clear starting path",
+      "resolvedFontSize": 44,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 44,
+        "typeface": "Aptos",
+        "color": "#072835",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Phase One now gives the client a clear starting path"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Phase One now gives the client a clear starting path",
+          "resolvedTextStyle": {
+            "fontSize": 44,
+            "typeface": "Aptos",
+            "color": "#072835",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Phase One now gives the client a clear starting path",
+              "fontSize": 44,
+              "typeface": "Aptos",
+              "color": "#072835",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9kfux8jy",
+      "id": "3",
+      "name": "surface-38",
+      "bbox": [
+        56,
+        130,
+        1168,
+        38
+      ],
+      "geometry": "rect",
+      "text": "The overview points directly to four working demonstrations instead of leaving the client to explore without context.",
+      "textPreview": "The overview points directly to four working demonstrations instead of leaving the client to explore without context.",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Aptos",
+        "color": "#657174",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The overview points directly to four working demonstrations instead of leaving the client to explore without context."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The overview points directly to four working demonstrations instead of leaving the client to explore without context.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Aptos",
+            "color": "#657174",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "The overview points directly to four working demonstrations instead of leaving the client to explore without context.",
+              "fontSize": 21,
+              "typeface": "Aptos",
+              "color": "#657174",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/etobytkb",
+      "id": "4",
+      "name": "surface-39",
+      "bbox": [
+        56,
+        672,
+        1168,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#D9D7D0",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zuxsry1w",
+      "id": "5",
+      "name": "surface-40",
+      "bbox": [
+        56,
+        684,
+        720,
+        20
+      ],
+      "geometry": "rect",
+      "text": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026",
+      "textPreview": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Aptos",
+        "color": "#657174",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Aptos",
+            "color": "#657174",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026",
+              "fontSize": 13,
+              "typeface": "Aptos",
+              "color": "#657174",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0f6t032h",
+      "id": "6",
+      "name": "surface-41",
+      "bbox": [
+        1166,
+        681,
+        58,
+        24
+      ],
+      "geometry": "rect",
+      "text": "03",
+      "textPreview": "03",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "color": "#164B57",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "03",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Aptos",
+            "color": "#164B57",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "03",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#164B57",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/4nu98rmd",
+      "id": "7",
+      "bbox": [
+        56,
+        190,
+        790,
+        450
+      ],
+      "geometry": "roundRect",
+      "alt": "core-overview.png",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 2667"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "29d2072d-9712-4a86-bcb7-ddd9280265b8",
+        "contentType": "image/jpeg",
+        "byteLength": 118557
+      }
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yp8bax0v",
+      "id": "8",
+      "name": "surface-43",
+      "bbox": [
+        884,
+        203,
+        310,
+        22
+      ],
+      "geometry": "rect",
+      "text": "CHANGE MADE",
+      "textPreview": "CHANGE MADE",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#237268",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CHANGE MADE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CHANGE MADE",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#237268",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "CHANGE MADE",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#237268",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jqhc3i10",
+      "id": "9",
+      "name": "surface-44",
+      "bbox": [
+        884,
+        237,
+        330,
+        106
+      ],
+      "geometry": "rect",
+      "text": "A guided sequence covers split tender, product margins, bulk import and company setup.",
+      "textPreview": "A guided sequence covers split tender, product margins, bulk import and company setup.",
+      "resolvedFontSize": 23,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 23,
+        "typeface": "Aptos",
+        "color": "#072835",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "A guided sequence covers split"
+          },
+          {
+            "index": 2,
+            "text": "tender, product margins, bulk"
+          },
+          {
+            "index": 3,
+            "text": "import and company setup."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "A guided sequence covers split tender, product margins, bulk import and company setup.",
+          "resolvedTextStyle": {
+            "fontSize": 23,
+            "typeface": "Aptos",
+            "color": "#072835",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "A guided sequence covers split tender, product margins, bulk import and company setup.",
+              "fontSize": 23,
+              "typeface": "Aptos",
+              "color": "#072835",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/fmpgbepo",
+      "id": "10",
+      "name": "surface-45",
+      "bbox": [
+        884,
+        384,
+        310,
+        22
+      ],
+      "geometry": "rect",
+      "text": "PROBLEM SOLVED",
+      "textPreview": "PROBLEM SOLVED",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#B69154",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PROBLEM SOLVED"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PROBLEM SOLVED",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#B69154",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PROBLEM SOLVED",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#B69154",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/elgf29o3",
+      "id": "11",
+      "name": "surface-46",
+      "bbox": [
+        884,
+        418,
+        330,
+        116
+      ],
+      "geometry": "rect",
+      "text": "The meeting has an obvious route. Every step opens the exact screen the presenter needs.",
+      "textPreview": "The meeting has an obvious route. Every step opens the exact screen the presenter needs.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#657174",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "The meeting has an obvious route."
+          },
+          {
+            "index": 2,
+            "text": "Every step opens the exact screen"
+          },
+          {
+            "index": 3,
+            "text": "the presenter needs."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "The meeting has an obvious route. Every step opens the exact screen the presenter needs.",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#657174",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "The meeting has an obvious route. Every step opens the exact screen the presenter needs.",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#657174",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/1o7ydo7u",
+      "id": "12",
+      "name": "surface-47",
+      "bbox": [
+        884,
+        583,
+        330,
+        34
+      ],
+      "geometry": "rect",
+      "text": "Core Setup  ·  Inventory  ·  Retail POS",
+      "textPreview": "Core Setup  ·  Inventory  ·  Retail POS",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "color": "#237268",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Core Setup  ·  Inventory  ·  Retail POS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Core Setup  ·  Inventory  ·  Retail POS",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Aptos",
+            "color": "#237268",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Core Setup  ·  Inventory  ·  Retail POS",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#237268",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

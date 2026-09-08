@@ -1,0 +1,449 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/w309mw",
+    "id": "w309mw",
+    "slide": 1,
+    "layoutId": "f0e1a7e1-b0b4-4638-bf20-13ae303c1dc8",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "3dc50a0f-4bf3-4594-81b3-eb01a567d922",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#072835",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "f0e1a7e1-b0b4-4638-bf20-13ae303c1dc8",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "3dc50a0f-4bf3-4594-81b3-eb01a567d922",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "3dc50a0f-4bf3-4594-81b3-eb01a567d922",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/wzit8n61",
+      "id": "1",
+      "bbox": [
+        770,
+        0,
+        510,
+        720
+      ],
+      "geometry": "roundRect",
+      "alt": "harwin-store.webp",
+      "contentType": "image/webp",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 2353"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "4d54dc8c-7d79-4ab4-b77f-a6f246dbfeeb",
+        "contentType": "image/webp",
+        "byteLength": 178788
+      }
+    },
+    {
+      "order": 2,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/vy9szipg",
+      "id": "2",
+      "bbox": [
+        56,
+        42,
+        280,
+        128
+      ],
+      "geometry": "roundRect",
+      "alt": "flair-logo.png",
+      "contentType": "image/png",
+      "imageFit": "contain",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 9375"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "0b81909f-1905-4538-8265-f756203975fb",
+        "contentType": "image/png",
+        "byteLength": 96076
+      }
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vud0j2t0",
+      "id": "3",
+      "name": "surface-2",
+      "bbox": [
+        56,
+        230,
+        620,
+        22
+      ],
+      "geometry": "rect",
+      "text": "CLIENT PROGRESS REVIEW",
+      "textPreview": "CLIENT PROGRESS REVIEW",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#B69154",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "CLIENT PROGRESS REVIEW"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "CLIENT PROGRESS REVIEW",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#B69154",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "CLIENT PROGRESS REVIEW",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#B69154",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kzm1wrah",
+      "id": "4",
+      "name": "surface-3",
+      "bbox": [
+        56,
+        267,
+        650,
+        155
+      ],
+      "geometry": "rect",
+      "text": "Flair ERP\nFriday to now",
+      "textPreview": "Flair ERP | Friday to now",
+      "resolvedFontSize": 64,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 64,
+        "typeface": "Aptos",
+        "color": "#FFFFFF",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Flair ERP"
+          },
+          {
+            "index": 2,
+            "text": "Friday to now"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Flair ERP",
+          "resolvedTextStyle": {
+            "fontSize": 64,
+            "typeface": "Aptos",
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Flair ERP",
+              "fontSize": 64,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Friday to now",
+          "resolvedTextStyle": {
+            "fontSize": 64,
+            "typeface": "Aptos",
+            "color": "#FFFFFF",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Friday to now",
+              "fontSize": 64,
+              "typeface": "Aptos",
+              "color": "#FFFFFF",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5kfipwb2",
+      "id": "5",
+      "name": "surface-4",
+      "bbox": [
+        56,
+        452,
+        620,
+        100
+      ],
+      "geometry": "rect",
+      "text": "Working Phase One flows, complete demo data and interactive previews for finance, forecasting and operations.",
+      "textPreview": "Working Phase One flows, complete demo data and interactive previews for finance, forecasting and operations.",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#C9D7D4",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Working Phase One flows, complete demo data and"
+          },
+          {
+            "index": 2,
+            "text": "interactive previews for finance, forecasting and operations."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Working Phase One flows, complete demo data and interactive previews for finance, forecasting and operations.",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#C9D7D4",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Working Phase One flows, complete demo data and interactive previews for finance, forecasting and operations.",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#C9D7D4",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ix4juhsr",
+      "id": "6",
+      "name": "surface-5",
+      "bbox": [
+        56,
+        594,
+        560,
+        3
+      ],
+      "geometry": "rect",
+      "fillColor": "#B69154",
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jyd0nmtc",
+      "id": "7",
+      "name": "surface-6",
+      "bbox": [
+        56,
+        615,
+        500,
+        34
+      ],
+      "geometry": "rect",
+      "text": "Prepared 7 September 2026",
+      "textPreview": "Prepared 7 September 2026",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "color": "#B7C9C7",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Prepared 7 September 2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Prepared 7 September 2026",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Aptos",
+            "color": "#B7C9C7",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Prepared 7 September 2026",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#B7C9C7",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

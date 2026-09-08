@@ -1,0 +1,857 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/33g8qc",
+    "id": "33g8qc",
+    "slide": 11,
+    "layoutId": "f0e1a7e1-b0b4-4638-bf20-13ae303c1dc8",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "3dc50a0f-4bf3-4594-81b3-eb01a567d922",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#F8F6F1",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "f0e1a7e1-b0b4-4638-bf20-13ae303c1dc8",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "3dc50a0f-4bf3-4594-81b3-eb01a567d922",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "3dc50a0f-4bf3-4594-81b3-eb01a567d922",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/x4nupc7a",
+      "id": "1",
+      "name": "surface-147",
+      "bbox": [
+        56,
+        34,
+        1168,
+        24
+      ],
+      "geometry": "rect",
+      "text": "UPDATE 11",
+      "textPreview": "UPDATE 11",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#237268",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "UPDATE 11"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "UPDATE 11",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#237268",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "UPDATE 11",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#237268",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a1wbuhoz",
+      "id": "2",
+      "name": "surface-148",
+      "bbox": [
+        56,
+        69,
+        1168,
+        57
+      ],
+      "geometry": "rect",
+      "text": "Daily closing separates retail, wholesale and tender totals",
+      "textPreview": "Daily closing separates retail, wholesale and tender totals",
+      "resolvedFontSize": 44,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 44,
+        "typeface": "Aptos",
+        "color": "#072835",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Daily closing separates retail, wholesale and tender totals"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Daily closing separates retail, wholesale and tender totals",
+          "resolvedTextStyle": {
+            "fontSize": 44,
+            "typeface": "Aptos",
+            "color": "#072835",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Daily closing separates retail, wholesale and tender totals",
+              "fontSize": 44,
+              "typeface": "Aptos",
+              "color": "#072835",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/v25cnmpk",
+      "id": "3",
+      "name": "surface-149",
+      "bbox": [
+        56,
+        130,
+        1168,
+        38
+      ],
+      "geometry": "rect",
+      "text": "One report shows transactions, net sales, tax, cash and card settlement, with a CSV export for reconciliation.",
+      "textPreview": "One report shows transactions, net sales, tax, cash and card settlement, with a CSV export for reconciliation.",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Aptos",
+        "color": "#657174",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "One report shows transactions, net sales, tax, cash and card settlement, with a CSV export for reconciliation."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "One report shows transactions, net sales, tax, cash and card settlement, with a CSV export for reconciliation.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Aptos",
+            "color": "#657174",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "One report shows transactions, net sales, tax, cash and card settlement, with a CSV export for reconciliation.",
+              "fontSize": 21,
+              "typeface": "Aptos",
+              "color": "#657174",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8fets76t",
+      "id": "4",
+      "name": "surface-150",
+      "bbox": [
+        56,
+        672,
+        1168,
+        1
+      ],
+      "geometry": "rect",
+      "fillColor": "#D9D7D0",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9gnulc7e",
+      "id": "5",
+      "name": "surface-151",
+      "bbox": [
+        56,
+        684,
+        720,
+        20
+      ],
+      "geometry": "rect",
+      "text": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026",
+      "textPreview": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026",
+      "resolvedFontSize": 13,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 13,
+        "typeface": "Aptos",
+        "color": "#657174",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026",
+          "resolvedTextStyle": {
+            "fontSize": 13,
+            "typeface": "Aptos",
+            "color": "#657174",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "FLAIR ERP · CLIENT UPDATE · 7 SEP 2026",
+              "fontSize": 13,
+              "typeface": "Aptos",
+              "color": "#657174",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mdcbqxon",
+      "id": "6",
+      "name": "surface-152",
+      "bbox": [
+        1166,
+        681,
+        58,
+        24
+      ],
+      "geometry": "rect",
+      "text": "11",
+      "textPreview": "11",
+      "resolvedFontSize": 15,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 15,
+        "typeface": "Aptos",
+        "color": "#164B57",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "11"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "11",
+          "resolvedTextStyle": {
+            "fontSize": 15,
+            "typeface": "Aptos",
+            "color": "#164B57",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "11",
+              "fontSize": 15,
+              "typeface": "Aptos",
+              "color": "#164B57",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/y5on2hkf",
+      "id": "7",
+      "bbox": [
+        56,
+        190,
+        820,
+        452
+      ],
+      "geometry": "roundRect",
+      "alt": "closing-report.png",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 2655"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "d79a4d60-49ca-407f-aa5c-10454ecd8ede",
+        "contentType": "image/jpeg",
+        "byteLength": 111466
+      }
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/0buton6x",
+      "id": "8",
+      "name": "surface-154",
+      "bbox": [
+        914,
+        208,
+        286,
+        22
+      ],
+      "geometry": "rect",
+      "text": "WHAT THE CLIENT SEES",
+      "textPreview": "WHAT THE CLIENT SEES",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#237268",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "WHAT THE CLIENT SEES"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "WHAT THE CLIENT SEES",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#237268",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "WHAT THE CLIENT SEES",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#237268",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lc3uhs7i",
+      "id": "9",
+      "name": "surface-155",
+      "bbox": [
+        914,
+        246,
+        286,
+        190
+      ],
+      "geometry": "rect",
+      "text": "Retail POS\nWholesale\nSales tax\nCash drawer\nCard settlement",
+      "textPreview": "Retail POS | Wholesale | Sales tax | Cash drawer | Card settlement",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "#072835",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Retail POS"
+          },
+          {
+            "index": 2,
+            "text": "Wholesale"
+          },
+          {
+            "index": 3,
+            "text": "Sales tax"
+          },
+          {
+            "index": 4,
+            "text": "Cash drawer"
+          },
+          {
+            "index": 5,
+            "text": "Card settlement"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Retail POS",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#072835",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Retail POS",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#072835",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "Wholesale",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#072835",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Wholesale",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#072835",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "Sales tax",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#072835",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Sales tax",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#072835",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "Cash drawer",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#072835",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Cash drawer",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#072835",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "Card settlement",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#072835",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Card settlement",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#072835",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9ob2l4f6",
+      "id": "10",
+      "name": "surface-156",
+      "bbox": [
+        914,
+        476,
+        286,
+        22
+      ],
+      "geometry": "rect",
+      "text": "PROBLEM SOLVED",
+      "textPreview": "PROBLEM SOLVED",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#B69154",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "PROBLEM SOLVED"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "PROBLEM SOLVED",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#B69154",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "PROBLEM SOLVED",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#B69154",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8n21szel",
+      "id": "11",
+      "name": "surface-157",
+      "bbox": [
+        914,
+        511,
+        286,
+        116
+      ],
+      "geometry": "rect",
+      "text": "Managers can reconcile both selling channels without combining tender types or rebuilding totals manually.",
+      "textPreview": "Managers can reconcile both selling channels without combining tender types or rebuilding totals manually.",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Aptos",
+        "color": "#657174",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "wrap": "square",
+        "autoFit": "none",
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 4,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Managers can reconcile both"
+          },
+          {
+            "index": 2,
+            "text": "selling channels without"
+          },
+          {
+            "index": 3,
+            "text": "combining tender types or"
+          },
+          {
+            "index": 4,
+            "text": "rebuilding totals manually."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Managers can reconcile both selling channels without combining tender types or rebuilding totals manually.",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Aptos",
+            "color": "#657174",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Managers can reconcile both selling channels without combining tender types or rebuilding totals manually.",
+              "fontSize": 21,
+              "typeface": "Aptos",
+              "color": "#657174",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}
