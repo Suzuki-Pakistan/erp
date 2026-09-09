@@ -6,10 +6,8 @@ import {
   CheckCircle2,
   CircleAlert,
   FileCheck2,
-  Gauge,
   PackageCheck,
   RotateCcw,
-  SlidersHorizontal,
   Sparkles,
 } from "lucide-react";
 import {
@@ -35,16 +33,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Table,
   TableBody,
@@ -55,7 +44,6 @@ import {
 } from "@/components/ui/table";
 import {
   daysOfCover,
-  forecastAccuracy,
   forecastRisk,
   forecastSummary,
   money,
@@ -274,7 +262,7 @@ function ForecastOverview({
 
   return (
     <>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         <KpiCard
           label={`${horizon}-day demand`}
           value={`${summary.demand.toLocaleString()} units`}
@@ -294,14 +282,6 @@ function ForecastOverview({
           value={`${summary.reorderUnits.toLocaleString()} units`}
           detail={`${money(summary.reorderCostCents, true)} planned cost`}
           icon={PackageCheck}
-        />
-        <KpiCard
-          label="Model accuracy"
-          value={`${summary.accuracy.toFixed(1)}%`}
-          detail="Weighted trailing 30-day result"
-          change="+3.1 pts"
-          icon={Gauge}
-          tone="success"
         />
       </div>
 
@@ -439,7 +419,6 @@ function ForecastTable({
             <TableHead>Available</TableHead>
             <TableHead>{horizon}d demand</TableHead>
             <TableHead>Cover</TableHead>
-            <TableHead>Confidence</TableHead>
             <TableHead>Signal</TableHead>
           </TableRow>
         </TableHeader>
@@ -465,9 +444,6 @@ function ForecastTable({
                 <TableCell className="text-xs tabular-nums">
                   {daysOfCover(item, scenario).toFixed(0)} days
                 </TableCell>
-                <TableCell className="text-xs tabular-nums">
-                  {item.confidence}%
-                </TableCell>
                 <TableCell>
                   <StatusPill label={riskLabel(risk)} tone={riskTone(risk)} />
                 </TableCell>
@@ -489,14 +465,9 @@ function DemandForecast({
   scenario: ForecastScenario;
   horizon: ForecastHorizon;
 }) {
-  const setAdjustment = useDecisionIntelligenceStore(
-    (state) => state.setForecastAdjustment,
-  );
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All categories");
   const [riskFilter, setRiskFilter] = useState("all");
-  const [editing, setEditing] = useState<ForecastItem | null>(null);
-  const [adjustment, setAdjustmentValue] = useState(0);
   const categories = [
     "All categories",
     ...new Set(items.map((item) => item.category)),
@@ -525,8 +496,6 @@ function DemandForecast({
       "Location",
       "Actual 30d",
       `${horizon}d forecast`,
-      "Accuracy",
-      "Planner override",
       "Risk",
     ],
     ...visible.map((item) => [
@@ -535,8 +504,6 @@ function DemandForecast({
       item.location,
       item.actual30,
       projectedDemand(item, horizon, scenario),
-      `${forecastAccuracy(item.actual30, item.forecast30).toFixed(1)}%`,
-      `${item.adjustmentPct}%`,
       forecastRisk(item, scenario),
     ]),
   ];
@@ -547,7 +514,7 @@ function DemandForecast({
         <CardHeader className="gap-4">
           <SectionTitle
             title="SKU demand plan"
-            description={`${visible.length} of ${items.length} products · edit an override to see demand and reorder quantities update immediately.`}
+            description={`${visible.length} of ${items.length} products · projected demand is recalculated for the selected scenario and horizon.`}
             action={
               <ExportButton
                 filename="flair-demand-forecast.csv"
@@ -588,11 +555,7 @@ function DemandForecast({
                 <TableHead>Product</TableHead>
                 <TableHead>Actual 30d</TableHead>
                 <TableHead>{horizon}d forecast</TableHead>
-                <TableHead>Accuracy</TableHead>
-                <TableHead>Velocity</TableHead>
-                <TableHead>Planner override</TableHead>
                 <TableHead>Signal</TableHead>
-                <TableHead className="text-right">Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -614,52 +577,11 @@ function DemandForecast({
                     <TableCell className="text-xs font-semibold tabular-nums">
                       {projectedDemand(item, horizon, scenario)}
                     </TableCell>
-                    <TableCell className="text-xs tabular-nums">
-                      {forecastAccuracy(item.actual30, item.forecast30).toFixed(
-                        1,
-                      )}
-                      %
-                    </TableCell>
-                    <TableCell>
-                      <span
-                        className={
-                          item.velocityPct >= 0
-                            ? "text-emerald-700"
-                            : "text-rose-700"
-                        }
-                      >
-                        {item.velocityPct >= 0 ? "+" : ""}
-                        {item.velocityPct}%
-                      </span>
-                    </TableCell>
-                    <TableCell>
-                      <Badge
-                        variant={item.adjustmentPct ? "default" : "secondary"}
-                        className="h-6 text-[9px]"
-                      >
-                        {item.adjustmentPct > 0 ? "+" : ""}
-                        {item.adjustmentPct}%
-                      </Badge>
-                    </TableCell>
                     <TableCell>
                       <StatusPill
                         label={riskLabel(risk)}
                         tone={riskTone(risk)}
                       />
-                    </TableCell>
-                    <TableCell className="text-right">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="h-8 gap-1.5 text-[10px]"
-                        onClick={() => {
-                          setEditing(item);
-                          setAdjustmentValue(item.adjustmentPct);
-                        }}
-                      >
-                        <SlidersHorizontal className="size-3" />
-                        Override
-                      </Button>
                     </TableCell>
                   </TableRow>
                 );
@@ -681,73 +603,6 @@ function DemandForecast({
           )}
         </div>
       </Card>
-
-      <Dialog
-        open={Boolean(editing)}
-        onOpenChange={(open) => !open && setEditing(null)}
-      >
-        <DialogContent className="sm:max-w-lg">
-          <DialogHeader>
-            <DialogTitle>Document forecast override</DialogTitle>
-            <DialogDescription>
-              Planner changes are applied on top of the selected scenario and
-              retained in this demo workspace.
-            </DialogDescription>
-          </DialogHeader>
-          {editing && (
-            <div className="space-y-5 py-2">
-              <div className="rounded-xl border bg-muted/25 p-4">
-                <p className="text-xs font-semibold">{editing.product}</p>
-                <p className="mt-1 text-[10px] text-muted-foreground">
-                  Base 30-day forecast {editing.forecast30} · confidence{" "}
-                  {editing.confidence}%
-                </p>
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="forecast-adjustment">
-                  Adjustment percentage
-                </Label>
-                <Input
-                  id="forecast-adjustment"
-                  type="number"
-                  min={-50}
-                  max={100}
-                  value={adjustment}
-                  onChange={(event) =>
-                    setAdjustmentValue(Number(event.target.value))
-                  }
-                />
-                <p className="text-[10px] text-muted-foreground">
-                  Result:{" "}
-                  {projectedDemand(
-                    { ...editing, adjustmentPct: adjustment },
-                    horizon,
-                    scenario,
-                  )}{" "}
-                  units over {horizon} days.
-                </p>
-              </div>
-            </div>
-          )}
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setEditing(null)}>
-              Cancel
-            </Button>
-            <Button
-              onClick={() => {
-                if (!editing) return;
-                setAdjustment(editing.id, adjustment);
-                setEditing(null);
-                toast.success("Forecast override saved", {
-                  description: `${editing.sku} now includes a ${adjustment}% planner adjustment.`,
-                });
-              }}
-            >
-              Save override
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </>
   );
 }

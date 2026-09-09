@@ -3,8 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  CheckCircle2,
-  CircleDashed,
   KeyRound,
   MapPin,
   Plus,
@@ -29,7 +27,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useDemoStore } from "@/store/demo-store";
@@ -80,84 +77,6 @@ export function OverviewPage() {
           </>
         }
       />
-
-      <section className="readiness-card relative overflow-hidden rounded-2xl border border-primary/10 bg-[var(--brand-ink)] p-5 text-white shadow-[0_20px_60px_-36px_rgba(7,40,53,.8)] sm:p-6">
-        <div className="absolute inset-y-0 right-0 hidden w-[42%] overflow-hidden lg:block">
-          <Image
-            src="/demo/locations/harwin-store.webp"
-            alt="Flair retail interior"
-            fill
-            sizes="42vw"
-            priority
-            loading="eager"
-            className="object-cover opacity-28 [mask-image:linear-gradient(to_right,transparent,black_42%)]"
-          />
-        </div>
-        <div className="relative grid gap-6 lg:grid-cols-[1fr_380px] lg:items-center">
-          <div className="max-w-2xl">
-            <div className="flex flex-wrap items-center gap-2">
-              <Badge className="border-white/12 bg-white/9 text-white">
-                Phase One demo
-              </Badge>
-              <Badge
-                variant="outline"
-                className="border-[var(--brand-champagne)]/35 bg-[var(--brand-champagne)]/8 text-[var(--brand-champagne)]"
-              >
-                No dependencies
-              </Badge>
-            </div>
-            <h2 className="mt-4 text-xl font-semibold tracking-[-0.025em] sm:text-2xl">
-              Phase One is ready for client review
-            </h2>
-            <p className="mt-2 max-w-xl text-sm leading-6 text-white/58">
-              Explore Core Setup, Product & Inventory and Retail POS as working
-              modules, then use Smart Demand Forecasting and Accounting &
-              Finance for the approved decision-support demonstrations.
-            </p>
-            <div className="mt-5 flex items-center gap-3">
-              <Progress
-                value={86}
-                className="h-2 max-w-md bg-white/10 [&>div]:bg-[var(--brand-champagne)]"
-              />
-              <span className="text-xs font-semibold text-[var(--brand-champagne)]">
-                86%
-              </span>
-            </div>
-          </div>
-          <div className="grid gap-2 rounded-xl border border-white/8 bg-black/12 p-3 backdrop-blur-sm sm:grid-cols-2 lg:grid-cols-1">
-            {[
-              "Locations",
-              "Users",
-              "Roles",
-              "Permissions",
-              "Company profile",
-            ].map((item) => {
-              const review = item === "Permissions";
-              return (
-                <div
-                  key={item}
-                  className="flex items-center justify-between rounded-lg px-2 py-1.5 text-xs"
-                >
-                  <span className="text-white/70">{item}</span>
-                  <span
-                    className={cn(
-                      "flex items-center gap-1.5 font-medium",
-                      review ? "text-amber-200" : "text-emerald-200",
-                    )}
-                  >
-                    {review ? (
-                      <CircleDashed className="size-3.5" />
-                    ) : (
-                      <CheckCircle2 className="size-3.5" />
-                    )}
-                    {review ? "Review needed" : "Complete"}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <MetricCard

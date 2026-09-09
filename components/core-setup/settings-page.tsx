@@ -10,22 +10,14 @@ import {
   ImageIcon,
   Palette,
   Pencil,
-  RotateCcw,
   SlidersHorizontal,
-  Trash2,
 } from "lucide-react";
 import { toast } from "sonner";
 
-import { ResetDemoDialog } from "@/components/core-setup/dialogs";
 import { useAppUi } from "@/components/providers/app-providers";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
   Dialog,
   DialogContent,
@@ -48,8 +40,6 @@ export function SettingsPage() {
   const locations = useDemoStore((state) => state.locations);
   const { openDialog } = useAppUi();
   const [editor, setEditor] = useState<Editor>(null);
-  const [resetOpen, setResetOpen] = useState(false);
-  const [clearOpen, setClearOpen] = useState(false);
   const locationName = (id: string) =>
     locations.find((location) => location.id === id)?.name ?? "Not selected";
   return (
@@ -205,37 +195,6 @@ export function SettingsPage() {
             ))}
           </div>
         </SettingsCard>
-        <Card className="border-amber-200/80 bg-amber-50/45">
-          <CardHeader>
-            <SectionTitle
-              title="Demo workspace"
-              description="This first module is a frontend prototype. Changes are stored in this browser only."
-            />
-          </CardHeader>
-          <CardContent>
-            <div className="rounded-xl border border-amber-200/70 bg-white/65 p-4 text-xs leading-5 text-amber-950/75">
-              <strong className="font-semibold text-amber-950">
-                Local persistence is active.
-              </strong>{" "}
-              No backend, account, database or email service is connected. Reset
-              restores the original synthetic seed data.
-            </div>
-          </CardContent>
-          <CardFooter className="flex flex-wrap gap-2">
-            <Button variant="outline" onClick={() => setResetOpen(true)}>
-              <RotateCcw />
-              Reset demo data
-            </Button>
-            <Button
-              variant="outline"
-              className="text-destructive hover:text-destructive"
-              onClick={() => setClearOpen(true)}
-            >
-              <Trash2 />
-              Clear local state
-            </Button>
-          </CardFooter>
-        </Card>
       </section>
       {editor === "branding" && (
         <BrandingEditor
@@ -261,8 +220,6 @@ export function SettingsPage() {
           onOpenChange={(open) => !open && setEditor(null)}
         />
       )}
-      <ResetDemoDialog open={resetOpen} onOpenChange={setResetOpen} />
-      <ResetDemoDialog open={clearOpen} onOpenChange={setClearOpen} clear />
     </div>
   );
 }

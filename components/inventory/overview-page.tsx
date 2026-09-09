@@ -52,10 +52,6 @@ export function InventoryOverviewPage() {
       (a, b) =>
         productStock(data, a.id).available - productStock(data, b.id).available,
     );
-  const active = data.products.filter(
-    (p) => p.trackInventory && p.status === "active",
-  );
-  const healthy = active.length - alerts.length;
   return (
     <div className="space-y-6">
       <InventoryHeader
@@ -76,53 +72,6 @@ export function InventoryOverviewPage() {
           )
         }
       />
-      <section className="relative overflow-hidden rounded-2xl bg-primary p-6 text-white sm:p-8">
-        <div className="absolute -right-12 -top-24 size-80 rounded-full border-[45px] border-white/[0.025]" />
-        <div className="relative grid gap-7 lg:grid-cols-[1fr_310px] lg:items-center">
-          <div>
-            <p className="mb-3 text-[10px] font-semibold uppercase tracking-[.18em] text-[var(--brand-champagne)]">
-              Your inventory, connected
-            </p>
-            <h2 className="max-w-xl text-2xl font-semibold leading-8 tracking-[-.025em]">
-              One catalog.
-              <br className="sm:hidden" /> Every location in sync.
-            </h2>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-white/55">
-              {number(onHand)} units across {data.locations.length} locations.
-              Stock operations are validated and saved on the server, with a
-              traceable movement for every posted change.
-            </p>
-            <Link
-              href="/product-inventory/stock"
-              className="mt-5 inline-flex items-center gap-2 text-xs font-medium text-[var(--brand-champagne)]"
-            >
-              Explore stock by location <ArrowRight className="size-3.5" />
-            </Link>
-          </div>
-          <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-            <div className="flex items-center justify-between">
-              <p className="text-xs text-white/60">Catalog stock health</p>
-              <span className="text-lg font-semibold">
-                {Math.round((healthy / Math.max(active.length, 1)) * 100)}%
-              </span>
-            </div>
-            <div className="my-4 h-2 overflow-hidden rounded-full bg-white/10">
-              <div
-                className="h-full rounded-full bg-[var(--brand-champagne)]"
-                style={{
-                  width: (healthy / Math.max(active.length, 1)) * 100 + "%",
-                }}
-              />
-            </div>
-            <div className="flex justify-between text-xs">
-              <span className="text-white/55">{healthy} healthy products</span>
-              <span className="text-amber-200">
-                {alerts.length} need review
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <MetricCard
           icon={Boxes}

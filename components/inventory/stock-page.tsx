@@ -206,7 +206,7 @@ export function StockPage() {
         </div>
         {rows.length ? (
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[950px] text-left text-xs">
+            <table className="w-full min-w-[850px] text-left text-xs">
               <thead className="bg-muted/35 text-[10px] uppercase tracking-wide text-muted-foreground">
                 <tr>
                   {[
@@ -214,7 +214,6 @@ export function StockPage() {
                     "Location",
                     "On hand",
                     "Committed",
-                    "Held",
                     "Available",
                     "On order",
                     "Reorder",
@@ -257,7 +256,7 @@ export function StockPage() {
                         {r.location.code}
                       </p>
                     </td>
-                    {[r.onHand, r.committed, r.held].map((v, i) => (
+                    {[r.onHand, r.committed].map((v, i) => (
                       <td key={i} className="px-4 text-right tabular-nums">
                         {v}
                       </td>

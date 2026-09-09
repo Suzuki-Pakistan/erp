@@ -13,7 +13,6 @@ import {
   RotateCcw,
   Search,
   Settings2,
-  ShieldCheck,
   WifiOff,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -192,7 +191,8 @@ export function SalesPage() {
                 Cashier: s.actor,
                 Customer: s.customerName,
                 PriceLevel: s.tier,
-                Promotion: s.promotionName ??
+                Promotion:
+                  s.promotionName ??
                   data.pos.discounts.find((item) => item.id === s.promotion)
                     ?.name ??
                   (s.promotion === "buy-one-second-half"
@@ -371,7 +371,7 @@ export function ReturnsPage() {
           detail="Redeemable on the next purchase"
         />
       </div>
-      <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
+      <div className="grid items-start gap-5">
         <section className="min-w-0 rounded-2xl border bg-card p-5 sm:p-6">
           <div className="mb-5 flex items-center gap-3">
             <span className="grid size-10 place-items-center rounded-xl bg-primary/5">
@@ -417,39 +417,6 @@ export function ReturnsPage() {
                 description="Only completed sales with items remaining to return appear here."
               />
             )}
-          </div>
-        </section>
-        <section className="rounded-2xl bg-primary p-6 text-white">
-          <p className="text-[10px] uppercase tracking-[0.18em] text-[var(--brand-champagne)]">
-            A considered return experience
-          </p>
-          <h2 className="mt-3 text-2xl font-semibold tracking-tight">
-            Make the next find
-            <br />
-            the right one.
-          </h2>
-          <ol className="mt-6 space-y-5">
-            {[
-              "Find the original receipt and select returned quantities.",
-              "Choose whether each item is suitable to restock.",
-              "Issue a refund or customer store credit. For an exchange, use that credit on a new sale.",
-            ].map((step, i) => (
-              <li
-                key={step}
-                className="flex gap-3 text-sm leading-6 text-white/70"
-              >
-                <span className="grid size-6 shrink-0 place-items-center rounded-full border border-white/20 text-[10px] text-[var(--brand-champagne)]">
-                  {i + 1}
-                </span>
-                {step}
-              </li>
-            ))}
-          </ol>
-          <div className="mt-6 flex gap-2 border-t border-white/15 pt-5 text-xs leading-5 text-white/60">
-            <ShieldCheck className="size-4 shrink-0" />
-            Manager access is required. Refunds cannot exceed the original
-            payment. An exchange is recorded as a return plus a separate new
-            sale.
           </div>
         </section>
       </div>
