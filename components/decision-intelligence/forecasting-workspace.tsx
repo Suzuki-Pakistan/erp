@@ -2,22 +2,15 @@
 
 import { useMemo, useState } from "react";
 import {
-  ArrowRight,
   Boxes,
-  CalendarClock,
   CheckCircle2,
   CircleAlert,
   FileCheck2,
   Gauge,
-  History,
   PackageCheck,
   RotateCcw,
   SlidersHorizontal,
   Sparkles,
-  TrendingDown,
-  TrendingUp,
-  Truck,
-  Warehouse,
 } from "lucide-react";
 import {
   Area,
@@ -52,14 +45,6 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Progress } from "@/components/ui/progress";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import {
   Table,
   TableBody,
@@ -68,7 +53,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Textarea } from "@/components/ui/textarea";
 import {
   daysOfCover,
   forecastAccuracy,
@@ -84,7 +68,6 @@ import type {
   ForecastItem,
   ForecastRisk,
   ForecastScenario,
-  MovementType,
 } from "@/types/decision-intelligence";
 
 const pageCopy = {
@@ -102,11 +85,6 @@ const pageCopy = {
     title: "Smart Reorder Recommendation",
     description:
       "Convert demand, lead time, safety stock and case packs into reviewable purchase recommendations.",
-  },
-  "stock-movement": {
-    title: "Stock Movement Intelligence",
-    description:
-      "Understand velocity, aging and every stock event, then act on transfer and rebalancing signals.",
   },
 } as const;
 
@@ -257,9 +235,6 @@ export function ForecastingWorkspace({ view }: { view: string }) {
       )}
       {currentView === "smart-reorder" && (
         <SmartReorder items={filtered} scenario={scenario} />
-      )}
-      {currentView === "stock-movement" && (
-        <StockMovementIntelligence items={filtered} />
       )}
     </div>
   );
@@ -1114,339 +1089,6 @@ function SmartReorder({
           </CardContent>
         </Card>
       )}
-    </>
-  );
-}
-
-function StockMovementIntelligence({ items }: { items: ForecastItem[] }) {
-  const movements = useDecisionIntelligenceStore((state) => state.movements);
-  const postTransfer = useDecisionIntelligenceStore(
-    (state) => state.postTransfer,
-  );
-  const [search, setSearch] = useState("");
-  const [type, setType] = useState<MovementType | "all">("all");
-  const [transferOpen, setTransferOpen] = useState(false);
-  const [skuId, setSkuId] = useState(items[0]?.id ?? "");
-  const [fromLocation, setFromLocation] = useState("Houston Main Warehouse");
-  const [toLocation, setToLocation] = useState(
-    items[0]?.location ?? "Harwin Flagship Store",
-  );
-  const [quantity, setQuantity] = useState(12);
-  const [note, setNote] = useState("Rebalance stock from main warehouse");
-  const itemIds = new Set(items.map((item) => item.id));
-  const visible = movements.filter((movement) => {
-    const query = search.toLowerCase();
-    return (
-      itemIds.has(movement.skuId) &&
-      (type === "all" || movement.type === type) &&
-      (!query ||
-        `${movement.product} ${movement.reference} ${movement.note}`
-          .toLowerCase()
-          .includes(query))
-    );
-  });
-  const fast = items.filter((item) => item.velocityPct >= 15);
-  const slow = items.filter((item) => item.velocityPct < 0);
-  const stale = items.filter((item) => item.lastMovement.includes("days"));
-
-  return (
-    <>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <KpiCard
-          label="Movements logged"
-          value={String(visible.length)}
-          detail="Filtered immutable stock events"
-          icon={History}
-        />
-        <KpiCard
-          label="Fast sellers"
-          value={String(fast.length)}
-          detail="Velocity at least 15% above baseline"
-          icon={TrendingUp}
-          tone="success"
-        />
-        <KpiCard
-          label="Slow movers"
-          value={String(slow.length)}
-          detail="Candidates for promotion or transfer"
-          icon={TrendingDown}
-          tone="attention"
-        />
-        <KpiCard
-          label="Stale movement"
-          value={String(stale.length)}
-          detail="No event recorded in 3+ days"
-          icon={CalendarClock}
-        />
-      </div>
-
-      <div className="grid gap-5 xl:grid-cols-[minmax(0,1.45fr)_minmax(300px,.55fr)]">
-        <Card>
-          <CardHeader className="gap-4">
-            <SectionTitle
-              title="Stock movement journal"
-              description="Sales, receipts, transfers, returns and inventory adjustments in one timeline."
-              action={
-                <Button
-                  className="h-9 gap-2 text-xs"
-                  onClick={() => setTransferOpen(true)}
-                >
-                  <Truck className="size-3.5" />
-                  Create transfer
-                </Button>
-              }
-            />
-            <div className="grid gap-2 md:grid-cols-[minmax(220px,1fr)_170px]">
-              <SearchBox
-                value={search}
-                onChange={setSearch}
-                placeholder="Search product, reference or note…"
-              />
-              <FilterSelect
-                label="Movement type"
-                value={type}
-                onChange={(value) => setType(value as MovementType | "all")}
-                options={[
-                  { value: "all", label: "All movements" },
-                  { value: "sale", label: "Sales" },
-                  { value: "receipt", label: "Receipts" },
-                  { value: "transfer", label: "Transfers" },
-                  { value: "return", label: "Returns" },
-                  { value: "adjustment", label: "Adjustments" },
-                ]}
-              />
-            </div>
-          </CardHeader>
-          <div className="overflow-x-auto border-t">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Time / reference</TableHead>
-                  <TableHead>Product</TableHead>
-                  <TableHead>Movement</TableHead>
-                  <TableHead>Route</TableHead>
-                  <TableHead>User</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {visible.map((movement) => (
-                  <TableRow key={movement.id}>
-                    <TableCell>
-                      <p className="text-xs font-semibold">
-                        {movement.reference}
-                      </p>
-                      <p className="mt-1 text-[10px] text-muted-foreground">
-                        {formatWhen(movement.occurredAt)}
-                      </p>
-                    </TableCell>
-                    <TableCell>
-                      <p className="max-w-64 truncate text-xs font-medium">
-                        {movement.product}
-                      </p>
-                      <p className="mt-1 text-[10px] text-muted-foreground">
-                        {movement.note}
-                      </p>
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex items-center gap-2">
-                        <StatusPill
-                          label={movement.type}
-                          tone={
-                            movement.type === "adjustment"
-                              ? "attention"
-                              : movement.type === "receipt" ||
-                                  movement.type === "return"
-                                ? "success"
-                                : "info"
-                          }
-                        />
-                        <span
-                          className={
-                            movement.quantity > 0
-                              ? "text-emerald-700"
-                              : "text-rose-700"
-                          }
-                        >
-                          {movement.quantity > 0 ? "+" : ""}
-                          {movement.quantity}
-                        </span>
-                      </div>
-                    </TableCell>
-                    <TableCell className="text-[10px] text-muted-foreground">
-                      {movement.type === "transfer"
-                        ? `${movement.fromLocation} → ${movement.toLocation}`
-                        : (movement.fromLocation ?? movement.toLocation)}
-                    </TableCell>
-                    <TableCell className="text-xs">{movement.user}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <SectionTitle
-              title="Movement intelligence"
-              description="Signals that need an inventory decision."
-            />
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {[...items]
-              .sort((a, b) => Math.abs(b.velocityPct) - Math.abs(a.velocityPct))
-              .slice(0, 5)
-              .map((item) => (
-                <div key={item.id} className="rounded-xl border p-3.5">
-                  <div className="flex items-start justify-between gap-2">
-                    <div className="min-w-0">
-                      <p className="truncate text-xs font-semibold">
-                        {item.product}
-                      </p>
-                      <p className="mt-1 text-[10px] text-muted-foreground">
-                        Last movement {item.lastMovement}
-                      </p>
-                    </div>
-                    <span
-                      className={
-                        item.velocityPct >= 0
-                          ? "text-emerald-700"
-                          : "text-rose-700"
-                      }
-                    >
-                      {item.velocityPct >= 0 ? "+" : ""}
-                      {item.velocityPct}%
-                    </span>
-                  </div>
-                  <Progress
-                    className="mt-3 h-1.5"
-                    value={Math.min(100, Math.abs(item.velocityPct) * 3)}
-                  />
-                  <Button
-                    variant="ghost"
-                    className="mt-2 h-7 w-full justify-between px-1 text-[10px] text-primary"
-                    onClick={() => {
-                      setSkuId(item.id);
-                      setToLocation(item.location);
-                      setQuantity(item.casePack);
-                      setTransferOpen(true);
-                    }}
-                  >
-                    Plan rebalance <ArrowRight className="size-3" />
-                  </Button>
-                </div>
-              ))}
-          </CardContent>
-        </Card>
-      </div>
-
-      <Dialog open={transferOpen} onOpenChange={setTransferOpen}>
-        <DialogContent className="sm:max-w-xl">
-          <DialogHeader>
-            <DialogTitle>Create stock transfer</DialogTitle>
-            <DialogDescription>
-              Record a demo transfer and immediately update the destination
-              stock signal.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="grid gap-4 py-2 sm:grid-cols-2">
-            <div className="grid gap-2 sm:col-span-2">
-              <Label>Product</Label>
-              <Select
-                value={skuId}
-                onValueChange={(value) => {
-                  setSkuId(value);
-                  const item = items.find((row) => row.id === value);
-                  if (item) {
-                    setToLocation(item.location);
-                    setQuantity(item.casePack);
-                  }
-                }}
-              >
-                <SelectTrigger className="h-10 w-full">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {items.map((item) => (
-                    <SelectItem key={item.id} value={item.id}>
-                      {item.sku} · {item.product}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="transfer-from">From</Label>
-              <Input
-                id="transfer-from"
-                value={fromLocation}
-                onChange={(event) => setFromLocation(event.target.value)}
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="transfer-to">To</Label>
-              <Input
-                id="transfer-to"
-                value={toLocation}
-                onChange={(event) => setToLocation(event.target.value)}
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="transfer-quantity">Quantity</Label>
-              <Input
-                id="transfer-quantity"
-                type="number"
-                min={1}
-                value={quantity}
-                onChange={(event) => setQuantity(Number(event.target.value))}
-              />
-            </div>
-            <div className="grid gap-2 sm:col-span-2">
-              <Label htmlFor="transfer-note">Reason</Label>
-              <Textarea
-                id="transfer-note"
-                value={note}
-                onChange={(event) => setNote(event.target.value)}
-              />
-            </div>
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setTransferOpen(false)}>
-              Cancel
-            </Button>
-            <Button
-              disabled={
-                !skuId ||
-                !fromLocation.trim() ||
-                !toLocation.trim() ||
-                quantity <= 0
-              }
-              onClick={() => {
-                const item = items.find((row) => row.id === skuId);
-                if (!item) return;
-                postTransfer({
-                  skuId,
-                  product: item.product,
-                  type: "transfer",
-                  quantity: Math.abs(quantity),
-                  fromLocation,
-                  toLocation,
-                  reference: `TR-${String(Date.now()).slice(-5)}`,
-                  user: "Admin",
-                  note,
-                });
-                setTransferOpen(false);
-                toast.success("Stock transfer recorded", {
-                  description: `${quantity} units moved to ${toLocation}.`,
-                });
-              }}
-            >
-              <Warehouse className="size-4" />
-              Post transfer
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </>
   );
 }

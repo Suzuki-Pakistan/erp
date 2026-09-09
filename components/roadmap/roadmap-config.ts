@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  BadgeDollarSign,
   BanknoteArrowDown,
   BarChart3,
   BookOpenText,
@@ -194,13 +193,6 @@ export const roadmapModules: RoadmapModule[] = [
         PackageCheck,
         "Turn demand signals into explainable suggested purchase orders.",
       ),
-      route(
-        "forecasting",
-        "stock-movement",
-        "Stock Movement Intelligence",
-        Boxes,
-        "Detect velocity changes, dead stock and unusual movement by SKU and location.",
-      ),
     ],
   },
   {
@@ -220,13 +212,6 @@ export const roadmapModules: RoadmapModule[] = [
         "Finance Overview",
         Landmark,
         "Understand revenue, profitability, cash and current obligations.",
-      ),
-      route(
-        "finance",
-        "safety-alerts",
-        "Safety Stock / Seasonal Alerts",
-        BadgeDollarSign,
-        "Review inventory funding risks, seasonal commitments and stock protection alerts.",
       ),
       route(
         "finance",

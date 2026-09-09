@@ -870,64 +870,6 @@ const previewData: Record<string, PreviewData> = {
           },
         ],
       },
-      "stock-movement": {
-        title: "Stock movement intelligence",
-        description:
-          "Velocity, aging and transfer signals explain what is moving and what needs intervention.",
-        columns: [
-          "Product",
-          "7-day movement",
-          "Velocity",
-          "Last movement",
-          "Signal",
-        ],
-        rows: [
-          {
-            cells: [
-              "Lattafa Yara Pink 3.4oz",
-              "-34 units",
-              "+28%",
-              "Today",
-              "Fast seller",
-            ],
-            status: "Reorder",
-            tone: "attention",
-          },
-          {
-            cells: [
-              "Gucci Bamboo 2.5oz",
-              "-16 units",
-              "+19%",
-              "Today",
-              "Promotion lift",
-            ],
-            status: "Watch",
-            tone: "info",
-          },
-          {
-            cells: [
-              "Burberry Weekend 1.6oz",
-              "-4 units",
-              "-12%",
-              "3 days ago",
-              "Slowing",
-            ],
-            status: "Rebalance",
-            tone: "attention",
-          },
-          {
-            cells: [
-              "Armaf Club de Nuit 3.6oz",
-              "+24 units",
-              "+7%",
-              "Yesterday",
-              "Transfer received",
-            ],
-            status: "Healthy",
-            tone: "success",
-          },
-        ],
-      },
     },
     queueTitle: "AI recommendations",
     queueDescription: "Explainable actions ranked by revenue protection.",
@@ -1050,34 +992,6 @@ const previewData: Record<string, PreviewData> = {
           },
         ],
       },
-      "safety-alerts": {
-        title: "Safety stock and seasonal funding alerts",
-        description:
-          "Inventory protection requirements translated into financial exposure.",
-        columns: ["Alert", "Window", "Required units", "Cash impact", "Risk"],
-        rows: [
-          {
-            cells: ["Holiday fragrance safety stock", "Oct–Dec", "420", "$11,840", "Stock-out"],
-            status: "Fund now",
-            tone: "attention",
-          },
-          {
-            cells: ["Black Friday retail campaign", "Nov 23–30", "260", "$6,420", "Margin"],
-            status: "Review",
-            tone: "info",
-          },
-          {
-            cells: ["Yara Pink minimum cover", "Next 14 days", "120", "$1,920", "Urgent"],
-            status: "Approved",
-            tone: "success",
-          },
-          {
-            cells: ["Summer gift-set aging", "Current", "84", "$2,688", "Overstock"],
-            status: "Promote",
-            tone: "attention",
-          },
-        ],
-      },
       ledgers: {
         title: "Customer and vendor ledgers",
         description:
@@ -1085,17 +999,35 @@ const previewData: Record<string, PreviewData> = {
         columns: ["Account", "Type", "Open balance", "Due", "Last activity"],
         rows: [
           {
-            cells: ["Famous Fragrance", "Vendor", "$14,820", "Sep 14", "Bill PO-2418"],
+            cells: [
+              "Famous Fragrance",
+              "Vendor",
+              "$14,820",
+              "Sep 14",
+              "Bill PO-2418",
+            ],
             status: "Payable",
             tone: "attention",
           },
           {
-            cells: ["Scent Avenue", "Customer", "$3,160", "Sep 12", "Credit CN-2042"],
+            cells: [
+              "Scent Avenue",
+              "Customer",
+              "$3,160",
+              "Sep 12",
+              "Credit CN-2042",
+            ],
             status: "Receivable",
             tone: "info",
           },
           {
-            cells: ["Premier Brands", "Vendor", "$6,270", "Sep 18", "Payment Sep 06"],
+            cells: [
+              "Premier Brands",
+              "Vendor",
+              "$6,270",
+              "Sep 18",
+              "Payment Sep 06",
+            ],
             status: "Current",
             tone: "success",
           },
@@ -1118,7 +1050,13 @@ const previewData: Record<string, PreviewData> = {
             tone: "success",
           },
           {
-            cells: ["Cost of goods sold", "$8,620", "$70,805", "$69,400", "+2.0%"],
+            cells: [
+              "Cost of goods sold",
+              "$8,620",
+              "$70,805",
+              "$69,400",
+              "+2.0%",
+            ],
             status: "Monitor",
             tone: "info",
           },
@@ -1128,7 +1066,13 @@ const previewData: Record<string, PreviewData> = {
             tone: "success",
           },
           {
-            cells: ["Operating profit", "$4,180", "$33,635", "$31,100", "+8.2%"],
+            cells: [
+              "Operating profit",
+              "$4,180",
+              "$33,635",
+              "$31,100",
+              "+8.2%",
+            ],
             status: "Strong",
             tone: "success",
           },

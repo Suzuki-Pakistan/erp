@@ -17,7 +17,6 @@ import {
   ReceiptText,
   RotateCcw,
   Scale,
-  ShieldAlert,
   TrendingUp,
   WalletCards,
 } from "lucide-react";
@@ -86,7 +85,6 @@ import type {
   JournalEntry,
   JournalGroup,
   LedgerEntryType,
-  SeasonalAlert,
 } from "@/types/decision-intelligence";
 
 const pageCopy = {
@@ -94,11 +92,6 @@ const pageCopy = {
     title: "Accounting & Finance Overview",
     description:
       "Monitor profitability, cash, obligations and reconciliation from a single operational finance cockpit.",
-  },
-  "safety-alerts": {
-    title: "Safety Stock / Seasonal Alerts",
-    description:
-      "Translate inventory protection and seasonal plans into cash requirements, margin risk and approval decisions.",
   },
   ledgers: {
     title: "Customer & Vendor Ledgers",
@@ -196,7 +189,6 @@ export function FinanceWorkspace({ view }: { view: string }) {
           onPost={() => setJournalOpen(true)}
         />
       )}
-      {currentView === "safety-alerts" && <SafetyAlerts />}
       {currentView === "ledgers" && <Ledgers />}
       {currentView === "live-pnl" && (
         <LivePnl
@@ -227,7 +219,6 @@ function FinanceOverview({
   const accounts = useDecisionIntelligenceStore(
     (state) => state.ledgerAccounts,
   );
-  const alerts = useDecisionIntelligenceStore((state) => state.seasonalAlerts);
   const toggleReconciled = useDecisionIntelligenceStore(
     (state) => state.toggleJournalReconciled,
   );
@@ -357,7 +348,7 @@ function FinanceOverview({
           <CardHeader>
             <SectionTitle
               title="Working-capital position"
-              description="Cash tied up in operating balances and approved seasonal plans."
+              description="Cash tied up in customer and vendor operating balances."
             />
           </CardHeader>
           <CardContent className="space-y-5">
@@ -373,23 +364,16 @@ function FinanceOverview({
               total={receivables + payables}
               tone="bg-amber-500"
             />
-            <WorkingCapital
-              label="Seasonal cash requests"
-              value={alerts
-                .filter((alert) => alert.status === "needs-review")
-                .reduce((sum, alert) => sum + alert.cashImpactCents, 0)}
-              total={4000000}
-              tone="bg-primary"
-            />
             <div className="rounded-xl border bg-primary p-4 text-primary-foreground">
               <p className="text-[10px] uppercase tracking-[0.14em] text-white/55">
                 Next decision
               </p>
               <p className="mt-2 text-sm font-semibold">
-                Review Black Friday funding
+                Reconcile unsettled entries
               </p>
               <p className="mt-1 text-[10px] leading-4 text-white/65">
-                $6,420 inventory funding · margin guardrail pending.
+                {summary.unreconciledCount} journal entries are ready for
+                finance review.
               </p>
             </div>
           </CardContent>
@@ -484,340 +468,6 @@ function WorkingCapital({
         />
       </div>
     </div>
-  );
-}
-
-function SafetyAlerts() {
-  const alerts = useDecisionIntelligenceStore((state) => state.seasonalAlerts);
-  const updateAlert = useDecisionIntelligenceStore(
-    (state) => state.updateSeasonalAlert,
-  );
-  const addAlert = useDecisionIntelligenceStore(
-    (state) => state.addSeasonalAlert,
-  );
-  const [status, setStatus] = useState("all");
-  const [risk, setRisk] = useState("all");
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    category: "Women's Fragrance",
-    window: "Oct 01 – Dec 31",
-    requiredUnits: 120,
-    cashImpact: 5000,
-    projectedRevenue: 12000,
-    risk: "stock-out",
-    owner: "Inventory",
-    note: "",
-  });
-  const visible = alerts.filter(
-    (alert) =>
-      (status === "all" || alert.status === status) &&
-      (risk === "all" || alert.risk === risk),
-  );
-  const pending = alerts.filter((alert) => alert.status === "needs-review");
-  const cashRequested = pending.reduce(
-    (sum, alert) => sum + alert.cashImpactCents,
-    0,
-  );
-  const revenueProtected = pending.reduce(
-    (sum, alert) => sum + alert.projectedRevenueCents,
-    0,
-  );
-
-  return (
-    <>
-      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <KpiCard
-          label="Needs review"
-          value={String(pending.length)}
-          detail="Seasonal and safety-stock decisions"
-          icon={ShieldAlert}
-          tone="attention"
-        />
-        <KpiCard
-          label="Funding requested"
-          value={money(cashRequested, true)}
-          detail="Original purchase-cost basis"
-          icon={Banknote}
-        />
-        <KpiCard
-          label="Revenue protected"
-          value={money(revenueProtected, true)}
-          detail="Projected sell-through value"
-          icon={TrendingUp}
-          tone="success"
-        />
-        <KpiCard
-          label="Approved plans"
-          value={String(
-            alerts.filter((alert) => alert.status === "approved").length,
-          )}
-          detail="Ready for replenishment planning"
-          icon={CheckCircle2}
-        />
-      </div>
-
-      <Card>
-        <CardHeader className="gap-4">
-          <SectionTitle
-            title="Seasonal funding and safety-stock queue"
-            description="Approve, defer or resolve each plan while preserving the rationale and cash impact."
-            action={
-              <Button
-                className="h-9 gap-2 text-xs"
-                onClick={() => setDialogOpen(true)}
-              >
-                <FilePlus2 className="size-3.5" />
-                New seasonal plan
-              </Button>
-            }
-          />
-          <div className="flex flex-wrap gap-2">
-            <FilterSelect
-              label="Status"
-              value={status}
-              onChange={setStatus}
-              options={[
-                { value: "all", label: "All statuses" },
-                { value: "needs-review", label: "Needs review" },
-                { value: "approved", label: "Approved" },
-                { value: "deferred", label: "Deferred" },
-                { value: "resolved", label: "Resolved" },
-              ]}
-            />
-            <FilterSelect
-              label="Risk"
-              value={risk}
-              onChange={setRisk}
-              options={[
-                { value: "all", label: "All risks" },
-                { value: "stock-out", label: "Stock-out" },
-                { value: "margin", label: "Margin" },
-                { value: "overstock", label: "Overstock" },
-                { value: "cash", label: "Cash" },
-              ]}
-            />
-          </div>
-        </CardHeader>
-        <CardContent className="grid gap-4 pt-0 md:grid-cols-2">
-          {visible.map((alert) => (
-            <div key={alert.id} className="rounded-xl border p-4">
-              <div className="flex items-start justify-between gap-3">
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold">{alert.name}</p>
-                  <p className="mt-1 text-[10px] text-muted-foreground">
-                    {alert.category} · {alert.window}
-                  </p>
-                </div>
-                <StatusPill
-                  label={alert.status}
-                  tone={
-                    alert.status === "approved" || alert.status === "resolved"
-                      ? "success"
-                      : alert.status === "deferred"
-                        ? "attention"
-                        : "info"
-                  }
-                />
-              </div>
-              <div className="mt-4 grid grid-cols-3 gap-3 rounded-xl bg-muted/35 p-3">
-                <AlertMetric
-                  label="Units"
-                  value={alert.requiredUnits.toLocaleString()}
-                />
-                <AlertMetric
-                  label="Cash"
-                  value={money(alert.cashImpactCents, true)}
-                />
-                <AlertMetric
-                  label="Revenue"
-                  value={money(alert.projectedRevenueCents, true)}
-                />
-              </div>
-              <div className="mt-3 flex items-center justify-between gap-3 text-[10px] text-muted-foreground">
-                <span>Owner · {alert.owner}</span>
-                <StatusPill
-                  label={alert.risk}
-                  tone={
-                    alert.risk === "stock-out" || alert.risk === "cash"
-                      ? "danger"
-                      : "attention"
-                  }
-                />
-              </div>
-              <p className="mt-3 min-h-8 text-[10px] leading-4 text-muted-foreground">
-                {alert.note}
-              </p>
-              <div className="mt-3 flex flex-wrap gap-1.5 border-t pt-3">
-                <Button
-                  size="sm"
-                  className="h-8 text-[10px]"
-                  disabled={alert.status === "approved"}
-                  onClick={() => {
-                    updateAlert(alert.id, "approved");
-                    toast.success(`${alert.name} approved.`);
-                  }}
-                >
-                  Approve
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="h-8 text-[10px]"
-                  onClick={() => updateAlert(alert.id, "deferred")}
-                >
-                  Defer
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="h-8 text-[10px]"
-                  onClick={() => updateAlert(alert.id, "resolved")}
-                >
-                  Resolve
-                </Button>
-              </div>
-            </div>
-          ))}
-        </CardContent>
-      </Card>
-
-      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-2xl">
-          <DialogHeader>
-            <DialogTitle>Create seasonal stock plan</DialogTitle>
-            <DialogDescription>
-              Add a funding decision with its inventory need, expected return
-              and risk owner.
-            </DialogDescription>
-          </DialogHeader>
-          <div className="grid gap-4 py-2 sm:grid-cols-2">
-            <FormField label="Plan name" className="sm:col-span-2">
-              <Input
-                value={form.name}
-                onChange={(event) =>
-                  setForm({ ...form, name: event.target.value })
-                }
-                placeholder="Holiday fragrance reserve"
-              />
-            </FormField>
-            <FormField label="Category">
-              <Input
-                value={form.category}
-                onChange={(event) =>
-                  setForm({ ...form, category: event.target.value })
-                }
-              />
-            </FormField>
-            <FormField label="Planning window">
-              <Input
-                value={form.window}
-                onChange={(event) =>
-                  setForm({ ...form, window: event.target.value })
-                }
-              />
-            </FormField>
-            <FormField label="Required units">
-              <Input
-                type="number"
-                min={1}
-                value={form.requiredUnits}
-                onChange={(event) =>
-                  setForm({
-                    ...form,
-                    requiredUnits: Number(event.target.value),
-                  })
-                }
-              />
-            </FormField>
-            <FormField label="Cash impact ($)">
-              <Input
-                type="number"
-                min={0}
-                value={form.cashImpact}
-                onChange={(event) =>
-                  setForm({ ...form, cashImpact: Number(event.target.value) })
-                }
-              />
-            </FormField>
-            <FormField label="Projected revenue ($)">
-              <Input
-                type="number"
-                min={0}
-                value={form.projectedRevenue}
-                onChange={(event) =>
-                  setForm({
-                    ...form,
-                    projectedRevenue: Number(event.target.value),
-                  })
-                }
-              />
-            </FormField>
-            <FormField label="Risk">
-              <Select
-                value={form.risk}
-                onValueChange={(value) => setForm({ ...form, risk: value })}
-              >
-                <SelectTrigger className="h-10 w-full">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="stock-out">Stock-out</SelectItem>
-                  <SelectItem value="margin">Margin</SelectItem>
-                  <SelectItem value="overstock">Overstock</SelectItem>
-                  <SelectItem value="cash">Cash</SelectItem>
-                </SelectContent>
-              </Select>
-            </FormField>
-            <FormField label="Owner">
-              <Input
-                value={form.owner}
-                onChange={(event) =>
-                  setForm({ ...form, owner: event.target.value })
-                }
-              />
-            </FormField>
-            <FormField label="Rationale" className="sm:col-span-2">
-              <Textarea
-                value={form.note}
-                onChange={(event) =>
-                  setForm({ ...form, note: event.target.value })
-                }
-                placeholder="Explain the demand or risk signal…"
-              />
-            </FormField>
-          </div>
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setDialogOpen(false)}>
-              Cancel
-            </Button>
-            <Button
-              disabled={!form.name.trim() || form.requiredUnits <= 0}
-              onClick={() => {
-                addAlert({
-                  name: form.name,
-                  category: form.category,
-                  window: form.window,
-                  requiredUnits: form.requiredUnits,
-                  cashImpactCents: Math.round(form.cashImpact * 100),
-                  projectedRevenueCents: Math.round(
-                    form.projectedRevenue * 100,
-                  ),
-                  risk: form.risk as SeasonalAlert["risk"],
-                  owner: form.owner,
-                  status: "needs-review",
-                  note: form.note,
-                });
-                setDialogOpen(false);
-                toast.success("Seasonal stock plan created.");
-              }}
-            >
-              Create plan
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </>
   );
 }
 
